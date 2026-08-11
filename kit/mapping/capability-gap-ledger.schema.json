@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/gap-ledger-schema/v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ledger_id",
+    "map_ref",
+    "entries",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2A"
+    },
+    "ledger_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "map_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 318,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gap_id",
+          "mapping_row_id",
+          "requirement_key",
+          "missing_capability",
+          "evidence_surface_ids",
+          "evidence_statuses",
+          "acceptance_critical",
+          "owner_role",
+          "consequence",
+          "decision",
+          "treatment",
+          "resume_condition",
+          "staleness_ref"
+        ],
+        "properties": {
+          "gap_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mapping_row_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "missing_capability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_surface_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "HS-PROFILE-DISTRIBUTION",
+                "HS-GOALS",
+                "HS-APPROVAL-DENY",
+                "HS-SMART-APPROVAL",
+                "HS-WEBHOOKS",
+                "HS-IRON-PROXY",
+                "HS-OS-CONTAINER-ISOLATION",
+                "HS-MANAGED-SCOPE",
+                "HS-KANBAN",
+                "HS-PROVIDER-ROUTING",
+                "HS-FALLBACK",
+                "HS-MODEL-EFFORT-CONFIG",
+                "HS-GATEWAY-EXACT-TAG",
+                "HS-GATEWAY-INSTALLED",
+                "HS-GATEWAY-E2E",
+                "HS-EVIDENCE-PACKET",
+                "HS-PORTAL-METERING",
+                "HS-NON-REFERENCE-SURFACES"
+              ]
+            }
+          },
+          "evidence_statuses": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "PASS_WITH_LIMITS",
+                "OBSERVED_WITH_LIMITS",
+                "NOT_RUN",
+                "GAP"
+              ]
+            }
+          },
+          "acceptance_critical": {
+            "type": "boolean"
+          },
+          "owner_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consequence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "scope_reduce",
+              "human_control",
+              "defer",
+              "reject"
+            ]
+          },
+          "treatment": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resume_condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "staleness_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_count",
+        "decision_counts"
+      ],
+      "properties": {
+        "entry_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 318
+        },
+        "decision_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "scope_reduce",
+            "human_control",
+            "defer",
+            "reject"
+          ],
+          "properties": {
+            "human_control": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 318
+            },
+            "defer": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 318
+            },
+            "reject": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 318
+            },
+            "scope_reduce": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 318
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Copy to spend-authorization/live-s1-<date>.authorization when Dave authorizes a live S1 run.
+# Do not commit the real file — it is spend authority on disk.
+GATE_ID=live-run-spend-cap
+AUTHORIZED_CAP_USD=1.00
+AUTHORIZED_BY=dave
+AUTHORIZED_AT=2026-08-10T00:00:00Z
+SCOPE="one S1 live mission single one-shot"

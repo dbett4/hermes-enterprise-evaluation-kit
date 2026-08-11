@@ -1,0 +1,17 @@
+{
+  "envelope_id": "env-nimbus-synthetic-v0.1",
+  "organization": "Nimbus Widgets Inc.",
+  "allowed_data_zones": ["synthetic-internal", "synthetic-staging"],
+  "allowed_providers": ["configured-local-only"],
+  "authority_ceiling": "H",
+  "verification_class": "deterministic-oracle-plus-human",
+  "retention_policy": "kit-mutable-artifact",
+  "override_rules": {
+    "require_named_authorizer": true,
+    "require_reason_and_duration": true
+  },
+  "budget_policy": {
+    "cost_measurement": "NOT_RUN",
+    "reason": "B10 Portal measurement requires separate auth/spend authority"
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/lock-schema/v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "baseline_commit",
+    "inputs",
+    "contracts",
+    "generator",
+    "manifest",
+    "overrides",
+    "outputs"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "hermes://b05/lock-schema/v2"
+    },
+    "schema_version": {
+      "const": "2A"
+    },
+    "baseline_commit": {
+      "const": "dd71c1cb51b1bfc85484a44d939c6f66f88d3eb8"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kit/mapping/neutral-requirements.json",
+        "kit/mapping/evidence-catalog-v0.20.json",
+        "kit/core/implementation-mapping-contract.md",
+        "kit/core/control-traceability.md",
+        "kit/preflight/v0.20-preflight-report.md",
+        "research/authority-access-architecture-draft.md",
+        "build-tickets/B03-scoping-instrument-and-gates.md",
+        "build-tickets/B05-deployment-mapping.md"
+      ],
+      "properties": {
+        "kit/mapping/neutral-requirements.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/evidence-catalog-v0.20.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/core/implementation-mapping-contract.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/core/control-traceability.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/preflight/v0.20-preflight-report.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "research/authority-access-architecture-draft.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "build-tickets/B03-scoping-instrument-and-gates.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "build-tickets/B05-deployment-mapping.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "contracts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kit/mapping/hermes-v0.20-row-decisions.schema.json",
+        "kit/mapping/hermes-v0.20-overrides.schema.json",
+        "kit/mapping/hermes-v0.20-map.schema.json",
+        "kit/mapping/capability-gap-ledger.schema.json",
+        "kit/mapping/evidence-catalog-v0.20.schema.json",
+        "kit/mapping/b05-generation.lock.schema.json",
+        "kit/mapping/hermes-v0.20-adjudicated-decision.schema.json"
+      ],
+      "properties": {
+        "kit/mapping/hermes-v0.20-row-decisions.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/hermes-v0.20-overrides.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/hermes-v0.20-map.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/capability-gap-ledger.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/evidence-catalog-v0.20.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/b05-generation.lock.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kit/mapping/hermes-v0.20-adjudicated-decision.schema.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "scripts/generate_b05_mapping.py"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "kit/mapping/hermes-v0.20-row-decisions.json"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "kit/mapping/hermes-v0.20-overrides.json"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "outputs": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "map",
+            "ledger"
+          ],
+          "properties": {
+            "map": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state",
+                "sha256"
+              ],
+              "properties": {
+                "state": {
+                  "const": "unmaterialized"
+                },
+                "sha256": {
+                  "type": "null"
+                }
+              }
+            },
+            "ledger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state",
+                "sha256"
+              ],
+              "properties": {
+                "state": {
+                  "const": "unmaterialized"
+                },
+                "sha256": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "map",
+            "ledger"
+          ],
+          "properties": {
+            "map": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state",
+                "sha256"
+              ],
+              "properties": {
+                "state": {
+                  "const": "materialized"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            "ledger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state",
+                "sha256"
+              ],
+              "properties": {
+                "state": {
+                  "const": "materialized"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

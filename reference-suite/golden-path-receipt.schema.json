@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hermes-enterprise-field-kit.local/reference-suite/golden-path-receipt.schema.json",
+  "title": "Golden path receipt v0.1-draft (B07 dry-run)",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "run_id",
+    "run_mode",
+    "record_posture",
+    "hermes_release",
+    "mission",
+    "resolution",
+    "execution",
+    "effect",
+    "checker",
+    "human_disposition",
+    "cost",
+    "exceptions",
+    "terminal_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1-draft"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "run_mode": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider"
+          ],
+          "properties": {
+            "label": {
+              "const": "synthetic/dry-run"
+            },
+            "hermes_daemon": {
+              "const": false
+            },
+            "live_provider": {
+              "const": false
+            },
+            "evidence_basis": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider",
+            "staging_service"
+          ],
+          "properties": {
+            "label": {
+              "const": "local-staging-observed"
+            },
+            "hermes_daemon": {
+              "const": false
+            },
+            "live_provider": {
+              "const": true
+            },
+            "staging_service": {
+              "const": "reference_staging_service"
+            },
+            "evidence_basis": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "record_posture": {
+      "type": "object",
+      "required": [
+        "immutable_audit_claim"
+      ],
+      "properties": {
+        "immutable_audit_claim": {
+          "const": false
+        }
+      }
+    },
+    "cost": {
+      "type": "object",
+      "required": [
+        "status",
+        "usd",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "const": "NOT_RUN"
+        },
+        "usd": {
+          "type": "null"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "checker": {
+      "type": "object",
+      "required": [
+        "session_id",
+        "separation_claims",
+        "verdict"
+      ],
+      "properties": {
+        "session_id": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "accept",
+            "reject",
+            "needs_review"
+          ]
+        },
+        "separation_claims": {
+          "type": "array",
+          "contains": {
+            "const": "role-separated"
+          }
+        }
+      }
+    },
+    "human_disposition": {
+      "type": "object",
+      "required": [
+        "required",
+        "status"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "status": {
+          "enum": [
+            "accept",
+            "reject",
+            "waive",
+            "compensate",
+            "pending"
+          ]
+        }
+      }
+    },
+    "terminal_status": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "needs_policy_decision",
+        "compensated"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "preparer"
+      ],
+      "properties": {
+        "preparer": {
+          "type": "object",
+          "required": [
+            "session_id"
+          ],
+          "properties": {
+            "session_id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

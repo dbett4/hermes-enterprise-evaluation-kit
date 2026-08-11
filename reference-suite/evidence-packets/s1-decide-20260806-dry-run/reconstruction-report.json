@@ -1,0 +1,77 @@
+{
+  "artifact_digest_verification": {
+    "artifacts": [
+      {
+        "actual_sha256": "27ec7b811f48d940577f9077b0fe4e3271b671ba56d768a330b2878987e3950e",
+        "artifact_id": "s1-decide-20260806-dry-run-golden-path",
+        "expected_sha256": "27ec7b811f48d940577f9077b0fe4e3271b671ba56d768a330b2878987e3950e",
+        "passed": true,
+        "path": "artifacts/golden-path.json"
+      },
+      {
+        "actual_sha256": "1460e1745b7bd7e358e31887d89c1637319009c9797c06cca861ad6797c30d47",
+        "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__expected-oracle.json",
+        "expected_sha256": "1460e1745b7bd7e358e31887d89c1637319009c9797c06cca861ad6797c30d47",
+        "passed": true,
+        "path": "artifacts/reference-suite__s1-decide__expected-oracle.json"
+      },
+      {
+        "actual_sha256": "91af68cc2d4faff50963ad5100350363ebe098d5d47100f5e11f74ebed7e8c64",
+        "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__questionnaire.json",
+        "expected_sha256": "91af68cc2d4faff50963ad5100350363ebe098d5d47100f5e11f74ebed7e8c64",
+        "passed": true,
+        "path": "artifacts/reference-suite__s1-decide__questionnaire.json"
+      },
+      {
+        "actual_sha256": "5e42f9f3a4994fa18ef01da8ce6a1a39e81d39bd325abb2962b031a9d87143cc",
+        "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__org-policy-v3.2.md",
+        "expected_sha256": "5e42f9f3a4994fa18ef01da8ce6a1a39e81d39bd325abb2962b031a9d87143cc",
+        "passed": true,
+        "path": "artifacts/reference-suite__s1-decide__vendor-policy-corpus__org-policy-v3.2.md"
+      },
+      {
+        "actual_sha256": "39362b7e7b9a689c3037cee5d34d72e49b3a699893e768777cd6f6f2496f30c7",
+        "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__exception-request-cloudsync.md",
+        "expected_sha256": "39362b7e7b9a689c3037cee5d34d72e49b3a699893e768777cd6f6f2496f30c7",
+        "passed": true,
+        "path": "artifacts/reference-suite__s1-decide__vendor-policy-corpus__exception-request-cloudsync.md"
+      },
+      {
+        "actual_sha256": "c1c1f3117b0999d00a9b22e0503b69a1c053d2e270591274454047c9a6139f53",
+        "artifact_id": "s1-decide-20260806-dry-run-reference-suite__config-bundles__bundle-s1-decide.json",
+        "expected_sha256": "c1c1f3117b0999d00a9b22e0503b69a1c053d2e270591274454047c9a6139f53",
+        "passed": true,
+        "path": "artifacts/reference-suite__config-bundles__bundle-s1-decide.json"
+      }
+    ],
+    "failures": [],
+    "passed": true
+  },
+  "manifest_expected": {
+    "checker_verdict": "accept",
+    "external_action": false,
+    "recommendation": "defer-pending-legal",
+    "terminal_status": "accepted"
+  },
+  "manifest_matches_recompute": true,
+  "observed": {
+    "checker_verdict": "accept",
+    "external_action": false,
+    "recommendation": "defer-pending-legal",
+    "terminal_status": "accepted"
+  },
+  "outcome_match": true,
+  "packet_id": "packet-s1-decide-20260806-dry-run",
+  "passed": true,
+  "recomputed": {
+    "checker_verdict": "accept",
+    "external_action": false,
+    "recommendation": "defer-pending-legal",
+    "recompute_basis": "questionnaire+oracle-via-s1_producer",
+    "terminal_status": "accepted"
+  },
+  "reconstruction_basis": "supporting-sources-recompute",
+  "reconstructor_distinct_from_producer": true,
+  "reconstructor_identity": "independent-scripted-reconstructor-20260806",
+  "run_id": "s1-decide-20260806-dry-run"
+}

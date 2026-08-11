@@ -1,0 +1,2984 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b03/compiled/v2",
+  "type": "object",
+  "required": [
+    "instrument_id",
+    "outputs",
+    "trace",
+    "disposition",
+    "rule_id"
+  ],
+  "properties": {
+    "instrument_id": {
+      "const": "b03-scoping-instrument-v2"
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": false,
+      "prefixItems": [
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O01_agent_decision"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O02_outcome_baseline"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O03_workflow_action_map"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O04_reversibility_classification"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O05_risk_tier"
+            },
+            "value": {
+              "$ref": "#/$defs/o05value"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O06_control_plan"
+            },
+            "value": {
+              "$ref": "#/$defs/o06value"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O07_deployment_boundary"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O08_acceptance_plan"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O09_operating_owner"
+            },
+            "value": {
+              "type": [
+                "object",
+                "array",
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "output_id",
+            "value",
+            "confidence",
+            "evidence_ids"
+          ],
+          "properties": {
+            "output_id": {
+              "const": "O10_unresolved_risk_register"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "no_proportionality_trigger",
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "unknown"
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "contains": {
+        "type": "object"
+      }
+    },
+    "trace": {
+      "type": "array",
+      "minItems": 66,
+      "maxItems": 77,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/predicate"
+          },
+          {
+            "$ref": "#/$defs/leaf"
+          }
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "evaluation_pass": {
+                "const": "disposition"
+              }
+            },
+            "required": [
+              "evaluation_pass",
+              "record_type"
+            ]
+          },
+          "minContains": 4,
+          "maxContains": 15
+        },
+        {
+          "contains": {
+            "properties": {
+              "evaluation_pass": {
+                "const": "proportionality"
+              }
+            },
+            "required": [
+              "evaluation_pass"
+            ]
+          },
+          "minContains": 41,
+          "maxContains": 41
+        },
+        {
+          "contains": {
+            "properties": {
+              "evaluation_pass": {
+                "const": "uplift"
+              }
+            },
+            "required": [
+              "evaluation_pass"
+            ]
+          },
+          "minContains": 11,
+          "maxContains": 11
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O01_agent_decision"
+                  },
+                  "json_path": {
+                    "const": "/outputs/0/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O02_outcome_baseline"
+                  },
+                  "json_path": {
+                    "const": "/outputs/1/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O03_workflow_action_map"
+                  },
+                  "json_path": {
+                    "const": "/outputs/2/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O04_reversibility_classification"
+                  },
+                  "json_path": {
+                    "const": "/outputs/3/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O05_risk_tier"
+                  },
+                  "json_path": {
+                    "const": "/outputs/4/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O06_control_plan"
+                  },
+                  "json_path": {
+                    "const": "/outputs/5/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O07_deployment_boundary"
+                  },
+                  "json_path": {
+                    "const": "/outputs/6/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O08_acceptance_plan"
+                  },
+                  "json_path": {
+                    "const": "/outputs/7/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O09_operating_owner"
+                  },
+                  "json_path": {
+                    "const": "/outputs/8/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/leaf"
+              },
+              {
+                "properties": {
+                  "output_id": {
+                    "const": "O10_unresolved_risk_register"
+                  },
+                  "json_path": {
+                    "const": "/outputs/9/value"
+                  }
+                },
+                "required": [
+                  "output_id",
+                  "json_path"
+                ]
+              }
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "disposition": {
+      "enum": [
+        "qualify",
+        "conventional_automation",
+        "human_process",
+        "defer",
+        "do_not_agentize"
+      ]
+    },
+    "rule_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "o05value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "const": "T0"
+            },
+            "known_minimum": {
+              "const": "T0"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "trigger_id",
+                "tier",
+                "reason"
+              ],
+              "properties": {
+                "trigger_id": {
+                  "enum": [
+                    "prohibited_purpose",
+                    "impermissible_data",
+                    "prohibited_residency",
+                    "prohibited_retention",
+                    "no_accountable_owner",
+                    "control_cost_exceeds_value",
+                    "unbounded_material_effect",
+                    "no_viable_target_readback_or_safe_state"
+                  ]
+                },
+                "tier": {
+                  "const": "T0"
+                },
+                "reason": {
+                  "enum": [
+                    "prohibited purpose",
+                    "impermissible data",
+                    "prohibited residency",
+                    "prohibited retention",
+                    "missing accountable owner",
+                    "control cost defeats plausible value",
+                    "unbounded material effect",
+                    "no viable target readback or safe state"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "const": "T1"
+            },
+            "known_minimum": {
+              "const": "T1"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "trigger_id",
+                "tier",
+                "reason"
+              ],
+              "properties": {
+                "trigger_id": {
+                  "enum": [
+                    "advisory_read_draft_known"
+                  ]
+                },
+                "tier": {
+                  "const": "T1"
+                },
+                "reason": {
+                  "enum": [
+                    "advisory read/draft with known source and owner"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "const": "T2"
+            },
+            "known_minimum": {
+              "const": "T2"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "trigger_id",
+                "tier",
+                "reason"
+              ],
+              "properties": {
+                "trigger_id": {
+                  "enum": [
+                    "bounded_internal_reversible_noncritical"
+                  ]
+                },
+                "tier": {
+                  "const": "T2"
+                },
+                "reason": {
+                  "enum": [
+                    "bounded internal reversible noncritical action"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "const": "T3"
+            },
+            "known_minimum": {
+              "const": "T3"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "trigger_id",
+                "tier",
+                "reason"
+              ],
+              "properties": {
+                "trigger_id": {
+                  "enum": [
+                    "external_or_publication",
+                    "sensitive_data",
+                    "payment",
+                    "meaningful_privilege",
+                    "broad_population",
+                    "difficult_recovery",
+                    "material_consequence",
+                    "difficult_recallability"
+                  ]
+                },
+                "tier": {
+                  "const": "T3"
+                },
+                "reason": {
+                  "enum": [
+                    "external/publication/production effect",
+                    "sensitive data",
+                    "payment",
+                    "meaningful privilege",
+                    "broad population",
+                    "difficult recovery",
+                    "material consequence",
+                    "difficult recovery or recallability"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "const": "T4"
+            },
+            "known_minimum": {
+              "const": "T4"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "trigger_id",
+                "tier",
+                "reason"
+              ],
+              "properties": {
+                "trigger_id": {
+                  "enum": [
+                    "irreversible_destructive_critical",
+                    "critical_privilege",
+                    "dual_control_required",
+                    "severe_consequence"
+                  ]
+                },
+                "tier": {
+                  "const": "T4"
+                },
+                "reason": {
+                  "enum": [
+                    "irreversible destructive critical effect",
+                    "critical privilege",
+                    "required dual control",
+                    "severe or critical consequence"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assigned_tier",
+            "known_minimum",
+            "unresolved_facts",
+            "highest_trigger"
+          ],
+          "properties": {
+            "assigned_tier": {
+              "type": "null"
+            },
+            "known_minimum": {
+              "type": "null"
+            },
+            "unresolved_facts": {
+              "type": "array",
+              "minItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "fact",
+                    "owner",
+                    "resume_trigger"
+                  ],
+                  "properties": {
+                    "fact": {
+                      "const": "no_proportionality_trigger"
+                    },
+                    "owner": {
+                      "type": "string"
+                    },
+                    "resume_trigger": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ],
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact",
+                  "owner",
+                  "resume_trigger"
+                ],
+                "properties": {
+                  "fact": {
+                    "enum": [
+                      "no_proportionality_trigger",
+                      "answers.mission",
+                      "answers.intended_outcome",
+                      "answers.named_operating_owner",
+                      "answers.acceptance_criteria"
+                    ]
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "resume_trigger": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "highest_trigger": {
+              "type": "null"
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "module_id",
+        "base_depth",
+        "applied_uplift_floor",
+        "final_depth",
+        "reasons"
+      ],
+      "properties": {
+        "module_id": {
+          "enum": [
+            "authority_human_oversight",
+            "quality_verification",
+            "evidence_traceability",
+            "identity_security_data_legal",
+            "integration_change_supply_chain",
+            "reliability_continuity",
+            "economics_value",
+            "adoption_ownership"
+          ]
+        },
+        "base_depth": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            null
+          ]
+        },
+        "applied_uplift_floor": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            null
+          ]
+        },
+        "final_depth": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            null
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "actual",
+        "h2_denial_reason"
+      ],
+      "properties": {
+        "required": {
+          "enum": [
+            "D",
+            "A",
+            "H",
+            "H2",
+            "R"
+          ]
+        },
+        "actual": {
+          "enum": [
+            "D",
+            "A",
+            "H",
+            "H2",
+            "R"
+          ]
+        },
+        "h2_denial_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "uplift": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "restricted_data"
+            },
+            "modules": {
+              "const": [
+                "identity_security_data_legal",
+                "evidence_traceability"
+              ]
+            },
+            "floor": {
+              "const": "L3"
+            },
+            "reason": {
+              "const": "restricted or regulated data"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "external_effect"
+            },
+            "modules": {
+              "const": [
+                "authority_human_oversight",
+                "evidence_traceability"
+              ]
+            },
+            "floor": {
+              "const": "L2"
+            },
+            "reason": {
+              "const": "external effect"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "production_or_privileged_action"
+            },
+            "modules": {
+              "const": [
+                "authority_human_oversight"
+              ]
+            },
+            "floor": {
+              "const": "L3"
+            },
+            "reason": {
+              "const": "production, payment, publication, destructive, or privilege action"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "no_rollback_or_long_recovery"
+            },
+            "modules": {
+              "const": [
+                "reliability_continuity"
+              ]
+            },
+            "floor": {
+              "const": "L3"
+            },
+            "reason": {
+              "const": "no rollback or long/unavailable recovery"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "outcome_changing_dependency"
+            },
+            "modules": {
+              "const": [
+                "integration_change_supply_chain"
+              ]
+            },
+            "floor": {
+              "const": "L2"
+            },
+            "reason": {
+              "const": "outcome-changing dependency or supplier"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "model_judgment"
+            },
+            "modules": {
+              "const": [
+                "quality_verification"
+              ]
+            },
+            "floor": {
+              "const": "L2"
+            },
+            "reason": {
+              "const": "model judgment affects acceptance"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "adoption_burden"
+            },
+            "modules": {
+              "const": [
+                "adoption_ownership"
+              ]
+            },
+            "floor": {
+              "const": "L2"
+            },
+            "reason": {
+              "const": "multi-owner, long-lived, or staff-displacement burden"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "modules",
+            "floor",
+            "reason"
+          ],
+          "properties": {
+            "id": {
+              "const": "public_value_claim"
+            },
+            "modules": {
+              "const": [
+                "economics_value"
+              ]
+            },
+            "floor": {
+              "const": "L2"
+            },
+            "reason": {
+              "const": "public cost/value claim"
+            }
+          }
+        }
+      ]
+    },
+    "o06value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H"
+                },
+                "actual": {
+                  "enum": [
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": null
+                }
+              }
+            },
+            "selected_base_rule": {
+              "oneOf": [
+                {
+                  "const": {
+                    "trigger_id": "prohibited_purpose",
+                    "tier": "T0",
+                    "reason": "prohibited purpose"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "impermissible_data",
+                    "tier": "T0",
+                    "reason": "impermissible data"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "prohibited_residency",
+                    "tier": "T0",
+                    "reason": "prohibited residency"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "prohibited_retention",
+                    "tier": "T0",
+                    "reason": "prohibited retention"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "no_accountable_owner",
+                    "tier": "T0",
+                    "reason": "missing accountable owner"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "control_cost_exceeds_value",
+                    "tier": "T0",
+                    "reason": "control cost defeats plausible value"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "unbounded_material_effect",
+                    "tier": "T0",
+                    "reason": "unbounded material effect"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "no_viable_target_readback_or_safe_state",
+                    "tier": "T0",
+                    "reason": "no viable target readback or safe state"
+                  }
+                }
+              ]
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": "L0"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": "L0"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": "L0"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": "L0"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H"
+                },
+                "actual": {
+                  "enum": [
+                    "A",
+                    "H",
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": null
+                }
+              }
+            },
+            "selected_base_rule": {
+              "oneOf": [
+                {
+                  "const": {
+                    "trigger_id": "advisory_read_draft_known",
+                    "tier": "T1",
+                    "reason": "advisory read/draft with known source and owner"
+                  }
+                }
+              ]
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H"
+                },
+                "actual": {
+                  "enum": [
+                    "A",
+                    "H",
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": null
+                }
+              }
+            },
+            "selected_base_rule": {
+              "oneOf": [
+                {
+                  "const": {
+                    "trigger_id": "bounded_internal_reversible_noncritical",
+                    "tier": "T2",
+                    "reason": "bounded internal reversible noncritical action"
+                  }
+                }
+              ]
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": "L1"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H"
+                },
+                "actual": {
+                  "enum": [
+                    "H",
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": null
+                }
+              }
+            },
+            "selected_base_rule": {
+              "oneOf": [
+                {
+                  "const": {
+                    "trigger_id": "external_or_publication",
+                    "tier": "T3",
+                    "reason": "external/publication/production effect"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "sensitive_data",
+                    "tier": "T3",
+                    "reason": "sensitive data"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "payment",
+                    "tier": "T3",
+                    "reason": "payment"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "meaningful_privilege",
+                    "tier": "T3",
+                    "reason": "meaningful privilege"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "broad_population",
+                    "tier": "T3",
+                    "reason": "broad population"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "difficult_recovery",
+                    "tier": "T3",
+                    "reason": "difficult recovery"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "material_consequence",
+                    "tier": "T3",
+                    "reason": "material consequence"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "difficult_recallability",
+                    "tier": "T3",
+                    "reason": "difficult recovery or recallability"
+                  }
+                }
+              ]
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": "L2"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H2"
+                },
+                "actual": {
+                  "enum": [
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": "h2_available=false"
+                }
+              }
+            },
+            "selected_base_rule": {
+              "oneOf": [
+                {
+                  "const": {
+                    "trigger_id": "irreversible_destructive_critical",
+                    "tier": "T4",
+                    "reason": "irreversible destructive critical effect"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "critical_privilege",
+                    "tier": "T4",
+                    "reason": "critical privilege"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "dual_control_required",
+                    "tier": "T4",
+                    "reason": "required dual control"
+                  }
+                },
+                {
+                  "const": {
+                    "trigger_id": "severe_consequence",
+                    "tier": "T4",
+                    "reason": "severe or critical consequence"
+                  }
+                }
+              ]
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": "L3"
+                        },
+                        "final_depth": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority",
+            "selected_base_rule",
+            "modules",
+            "applied_uplifts"
+          ],
+          "properties": {
+            "authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "required",
+                "actual",
+                "h2_denial_reason"
+              ],
+              "properties": {
+                "required": {
+                  "const": "H"
+                },
+                "actual": {
+                  "enum": [
+                    "D"
+                  ]
+                },
+                "h2_denial_reason": {
+                  "const": null
+                }
+              }
+            },
+            "selected_base_rule": {
+              "const": null
+            },
+            "modules": {
+              "type": "array",
+              "minItems": 8,
+              "maxItems": 8,
+              "items": false,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "authority_human_oversight"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "quality_verification"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "evidence_traceability"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "identity_security_data_legal"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "integration_change_supply_chain"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "reliability_continuity"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "economics_value"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/module"
+                    },
+                    {
+                      "properties": {
+                        "module_id": {
+                          "const": "adoption_ownership"
+                        },
+                        "base_depth": {
+                          "const": null
+                        },
+                        "final_depth": {
+                          "const": null
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "applied_uplifts": {
+              "type": "array",
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/uplift"
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "evaluation_pass",
+        "result",
+        "rule_id",
+        "predicate_id",
+        "operator",
+        "input_path",
+        "input_value",
+        "affected_output_ids"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "predicate_evaluation"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "predicate_id": {
+          "type": "string"
+        },
+        "operator": {
+          "type": "string"
+        },
+        "input_path": {
+          "type": "string"
+        },
+        "input_value": {
+          "type": [
+            "string",
+            "boolean",
+            "number",
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "boolean",
+              "number",
+              "null"
+            ]
+          }
+        },
+        "result": {
+          "type": "boolean"
+        },
+        "affected_output_ids": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "O01_agent_decision",
+              "O02_outcome_baseline",
+              "O03_workflow_action_map",
+              "O04_reversibility_classification",
+              "O05_risk_tier",
+              "O06_control_plan",
+              "O07_deployment_boundary",
+              "O08_acceptance_plan",
+              "O09_operating_owner",
+              "O10_unresolved_risk_register"
+            ]
+          }
+        },
+        "evaluation_pass": {
+          "enum": [
+            "disposition",
+            "proportionality",
+            "uplift"
+          ]
+        }
+      }
+    },
+    "leaf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "output_id",
+        "json_path",
+        "evidence_ids"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "output_leaf"
+        },
+        "output_id": {
+          "enum": [
+            "O01_agent_decision",
+            "O02_outcome_baseline",
+            "O03_workflow_action_map",
+            "O04_reversibility_classification",
+            "O05_risk_tier",
+            "O06_control_plan",
+            "O07_deployment_boundary",
+            "O08_acceptance_plan",
+            "O09_operating_owner",
+            "O10_unresolved_risk_register"
+          ]
+        },
+        "json_path": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

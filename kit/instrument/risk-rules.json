@@ -1,0 +1,668 @@
+{
+  "disposition_pass": {
+    "contract_ref": "decision-rules-v2",
+    "evaluation_order": [
+      "R-T0",
+      "R-UNKNOWN",
+      "R-CONVENTIONAL",
+      "R-HUMAN",
+      "R-QUALIFY"
+    ]
+  },
+  "proportionality_pass": {
+    "base_profiles": {
+      "T0": {
+        "adoption_ownership": "L1",
+        "authority_human_oversight": "L0",
+        "economics_value": "L1",
+        "evidence_traceability": "L1",
+        "identity_security_data_legal": "L1",
+        "integration_change_supply_chain": "L0",
+        "quality_verification": "L0",
+        "reliability_continuity": "L0"
+      },
+      "T1": {
+        "adoption_ownership": "L1",
+        "authority_human_oversight": "L1",
+        "economics_value": "L1",
+        "evidence_traceability": "L1",
+        "identity_security_data_legal": "L1",
+        "integration_change_supply_chain": "L1",
+        "quality_verification": "L1",
+        "reliability_continuity": "L1"
+      },
+      "T2": {
+        "adoption_ownership": "L1",
+        "authority_human_oversight": "L2",
+        "economics_value": "L1",
+        "evidence_traceability": "L2",
+        "identity_security_data_legal": "L2",
+        "integration_change_supply_chain": "L2",
+        "quality_verification": "L2",
+        "reliability_continuity": "L2"
+      },
+      "T3": {
+        "adoption_ownership": "L2",
+        "authority_human_oversight": "L3",
+        "economics_value": "L2",
+        "evidence_traceability": "L3",
+        "identity_security_data_legal": "L3",
+        "integration_change_supply_chain": "L3",
+        "quality_verification": "L3",
+        "reliability_continuity": "L2"
+      },
+      "T4": {
+        "adoption_ownership": "L3",
+        "authority_human_oversight": "L3",
+        "economics_value": "L3",
+        "evidence_traceability": "L3",
+        "identity_security_data_legal": "L3",
+        "integration_change_supply_chain": "L3",
+        "quality_verification": "L3",
+        "reliability_continuity": "L3"
+      }
+    },
+    "evaluation_order": [
+      "T0",
+      "T4",
+      "T3",
+      "T2",
+      "T1"
+    ],
+    "trigger_rules": [
+      {
+        "id": "prohibited_purpose",
+        "operator": "equals",
+        "question_id": "classification_groups.data_source.purpose",
+        "reason": "prohibited purpose",
+        "tier": "T0",
+        "value": "prohibited"
+      },
+      {
+        "id": "impermissible_data",
+        "operator": "in",
+        "question_id": "classification_groups.data_source.data",
+        "reason": "impermissible data",
+        "tier": "T0",
+        "value": [
+          "impermissible"
+        ]
+      },
+      {
+        "id": "prohibited_residency",
+        "operator": "in",
+        "question_id": "classification_groups.data_source.residency",
+        "reason": "prohibited residency",
+        "tier": "T0",
+        "value": [
+          "prohibited"
+        ]
+      },
+      {
+        "id": "prohibited_retention",
+        "operator": "in",
+        "question_id": "classification_groups.data_source.retention",
+        "reason": "prohibited retention",
+        "tier": "T0",
+        "value": [
+          "prohibited"
+        ]
+      },
+      {
+        "id": "no_accountable_owner",
+        "operator": "unknown",
+        "question_id": "answers.named_operating_owner",
+        "reason": "missing accountable owner",
+        "tier": "T0"
+      },
+      {
+        "id": "control_cost_exceeds_value",
+        "operator": "equals",
+        "question_id": "classification_groups.operations.cost_value",
+        "reason": "control cost defeats plausible value",
+        "tier": "T0",
+        "value": "control_cost_exceeds_value"
+      },
+      {
+        "conditions": [
+          {
+            "id": "a",
+            "operator": "in",
+            "question_id": "classification_groups.action.action",
+            "reason": "",
+            "tier": "T4",
+            "value": [
+              "destructive"
+            ]
+          },
+          {
+            "id": "b",
+            "operator": "equals",
+            "question_id": "classification_groups.reversibility.reversibility",
+            "reason": "",
+            "tier": "T4",
+            "value": "irreversible"
+          }
+        ],
+        "id": "irreversible_destructive_critical",
+        "operator": "all",
+        "reason": "irreversible destructive critical effect",
+        "tier": "T4"
+      },
+      {
+        "id": "critical_privilege",
+        "operator": "in",
+        "question_id": "classification_groups.action.privilege",
+        "reason": "critical privilege",
+        "tier": "T4",
+        "value": [
+          "critical"
+        ]
+      },
+      {
+        "id": "dual_control_required",
+        "operator": "equals",
+        "question_id": "classification_groups.identity.segregation",
+        "reason": "required dual control",
+        "tier": "T4",
+        "value": "dual_control_required"
+      },
+      {
+        "id": "severe_consequence",
+        "operator": "in",
+        "question_id": "classification_groups.consequence.consequence",
+        "reason": "severe or critical consequence",
+        "tier": "T4",
+        "value": [
+          "severe",
+          "critical"
+        ]
+      },
+      {
+        "id": "external_or_publication",
+        "operator": "in",
+        "question_id": "classification_groups.action.action",
+        "reason": "external/publication/production effect",
+        "tier": "T3",
+        "value": [
+          "external_effect",
+          "publication",
+          "production_change"
+        ]
+      },
+      {
+        "id": "sensitive_data",
+        "operator": "in",
+        "question_id": "classification_groups.data_source.data",
+        "reason": "sensitive data",
+        "tier": "T3",
+        "value": [
+          "confidential",
+          "regulated",
+          "restricted"
+        ]
+      },
+      {
+        "id": "payment",
+        "operator": "equals",
+        "question_id": "classification_groups.action.action",
+        "reason": "payment",
+        "tier": "T3",
+        "value": "payment"
+      },
+      {
+        "id": "meaningful_privilege",
+        "operator": "in",
+        "question_id": "classification_groups.action.privilege",
+        "reason": "meaningful privilege",
+        "tier": "T3",
+        "value": [
+          "meaningful"
+        ]
+      },
+      {
+        "id": "broad_population",
+        "operator": "equals",
+        "question_id": "classification_groups.consequence.population",
+        "reason": "broad population",
+        "tier": "T3",
+        "value": "broad"
+      },
+      {
+        "id": "difficult_recovery",
+        "operator": "equals",
+        "question_id": "classification_groups.reversibility.recovery",
+        "reason": "difficult recovery",
+        "tier": "T3",
+        "value": "long"
+      },
+      {
+        "id": "material_consequence",
+        "operator": "equals",
+        "question_id": "classification_groups.consequence.consequence",
+        "reason": "material consequence",
+        "tier": "T3",
+        "value": "material"
+      },
+      {
+        "conditions": [
+          {
+            "id": "a",
+            "operator": "in",
+            "question_id": "classification_groups.action.action",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "internal_coordinate",
+              "write"
+            ]
+          },
+          {
+            "id": "b",
+            "operator": "in",
+            "question_id": "classification_groups.action.target",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "explicit_single",
+              "bounded_set"
+            ]
+          },
+          {
+            "id": "c",
+            "operator": "in",
+            "question_id": "classification_groups.action.environment",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "sandbox",
+              "internal_nonproduction"
+            ]
+          },
+          {
+            "id": "d",
+            "operator": "in",
+            "question_id": "classification_groups.action.external_effect",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "none",
+              "reversible"
+            ]
+          },
+          {
+            "id": "e",
+            "operator": "in",
+            "question_id": "classification_groups.consequence.consequence",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "negligible",
+              "low",
+              "noncritical"
+            ]
+          },
+          {
+            "id": "f",
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.reversibility",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "fully_reversible",
+              "bounded_reversible"
+            ]
+          },
+          {
+            "id": "g",
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.readback",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "available",
+              "tested"
+            ]
+          },
+          {
+            "id": "h",
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.recovery",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "immediate",
+              "bounded"
+            ]
+          },
+          {
+            "id": "i",
+            "operator": "in",
+            "question_id": "classification_groups.identity.credential_reach",
+            "reason": "",
+            "tier": "T2",
+            "value": [
+              "none",
+              "read_only",
+              "limited_write"
+            ]
+          }
+        ],
+        "id": "bounded_internal_reversible_noncritical",
+        "operator": "all",
+        "reason": "bounded internal reversible noncritical action",
+        "tier": "T2"
+      },
+      {
+        "conditions": [
+          {
+            "id": "a",
+            "operator": "in",
+            "question_id": "classification_groups.action.action",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "read",
+              "draft",
+              "advise"
+            ]
+          },
+          {
+            "id": "b",
+            "operator": "in",
+            "question_id": "classification_groups.action.external_effect",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "none"
+            ]
+          },
+          {
+            "id": "c",
+            "operator": "in",
+            "question_id": "classification_groups.data_source.data",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "public",
+              "internal"
+            ]
+          },
+          {
+            "id": "d",
+            "operator": "in",
+            "question_id": "classification_groups.action.privilege",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "none"
+            ]
+          },
+          {
+            "id": "e",
+            "operator": "in",
+            "question_id": "classification_groups.action.environment",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "sandbox",
+              "internal_nonproduction"
+            ]
+          },
+          {
+            "id": "f",
+            "operator": "in",
+            "question_id": "classification_groups.consequence.consequence",
+            "reason": "",
+            "tier": "T1",
+            "value": [
+              "negligible",
+              "low",
+              "noncritical"
+            ]
+          },
+          {
+            "id": "g",
+            "operator": "equals",
+            "question_id": "classification_groups.data_source.source_authority",
+            "reason": "",
+            "tier": "T1",
+            "value": "authoritative"
+          },
+          {
+            "id": "h",
+            "operator": "known",
+            "question_id": "answers.named_operating_owner"
+          },
+          {
+            "operator": "not_in",
+            "question_id": "classification_groups.reversibility.reversibility",
+            "value": [
+              "irreversible",
+              "difficult"
+            ],
+            "id": "advisory_read_draft_known__9"
+          }
+        ],
+        "id": "advisory_read_draft_known",
+        "operator": "all",
+        "reason": "advisory read/draft with known source and owner",
+        "tier": "T1"
+      },
+      {
+        "conditions": [
+          {
+            "operator": "in",
+            "question_id": "classification_groups.consequence.consequence",
+            "value": [
+              "material",
+              "critical"
+            ],
+            "id": "unbounded_material_effect__1"
+          },
+          {
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.reversibility",
+            "value": [
+              "unknown",
+              "irreversible"
+            ],
+            "id": "unbounded_material_effect__2"
+          }
+        ],
+        "id": "unbounded_material_effect",
+        "operator": "all",
+        "reason": "unbounded material effect",
+        "tier": "T0"
+      },
+      {
+        "conditions": [
+          {
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.readback",
+            "value": [
+              "unavailable"
+            ],
+            "id": "no_viable_target_readback_or_safe_state__1"
+          },
+          {
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.safe_state",
+            "value": [
+              "unavailable"
+            ],
+            "id": "no_viable_target_readback_or_safe_state__2"
+          }
+        ],
+        "id": "no_viable_target_readback_or_safe_state",
+        "operator": "any",
+        "reason": "no viable target readback or safe state",
+        "tier": "T0"
+      },
+      {
+        "id": "difficult_recallability",
+        "operator": "in",
+        "question_id": "classification_groups.consequence.recallability",
+        "reason": "difficult recovery or recallability",
+        "tier": "T3",
+        "value": [
+          "difficult",
+          "impossible"
+        ]
+      }
+    ],
+    "uplift_rules": [
+      {
+        "id": "restricted_data",
+        "minimum": "L3",
+        "modules": [
+          "identity_security_data_legal",
+          "evidence_traceability"
+        ],
+        "operator": "in",
+        "question_id": "classification_groups.data_source.data",
+        "reason": "restricted or regulated data",
+        "value": [
+          "restricted",
+          "regulated",
+          "confidential"
+        ]
+      },
+      {
+        "id": "external_effect",
+        "minimum": "L2",
+        "modules": [
+          "authority_human_oversight",
+          "evidence_traceability"
+        ],
+        "operator": "in",
+        "question_id": "classification_groups.action.external_effect",
+        "reason": "external effect",
+        "value": [
+          "reversible",
+          "material",
+          "critical"
+        ]
+      },
+      {
+        "id": "production_or_privileged_action",
+        "minimum": "L3",
+        "modules": [
+          "authority_human_oversight"
+        ],
+        "operator": "in",
+        "question_id": "classification_groups.action.action",
+        "reason": "production, payment, publication, destructive, or privilege action",
+        "value": [
+          "production_change",
+          "payment",
+          "publication",
+          "destructive",
+          "privilege_change"
+        ]
+      },
+      {
+        "conditions": [
+          {
+            "operator": "equals",
+            "question_id": "classification_groups.reversibility.rollback",
+            "value": "unavailable",
+            "id": "no_rollback_or_long_recovery__1"
+          },
+          {
+            "operator": "in",
+            "question_id": "classification_groups.reversibility.recovery",
+            "value": [
+              "long",
+              "unavailable"
+            ],
+            "id": "no_rollback_or_long_recovery__2"
+          }
+        ],
+        "id": "no_rollback_or_long_recovery",
+        "minimum": "L3",
+        "modules": [
+          "reliability_continuity"
+        ],
+        "operator": "any",
+        "reason": "no rollback or long/unavailable recovery"
+      },
+      {
+        "conditions": [
+          {
+            "operator": "equals",
+            "question_id": "classification_groups.operations.dependencies",
+            "value": "outcome_changing",
+            "id": "outcome_changing_dependency__1"
+          },
+          {
+            "operator": "equals",
+            "question_id": "classification_groups.operations.supplier_change",
+            "value": "outcome_changing",
+            "id": "outcome_changing_dependency__2"
+          }
+        ],
+        "id": "outcome_changing_dependency",
+        "minimum": "L2",
+        "modules": [
+          "integration_change_supply_chain"
+        ],
+        "operator": "any",
+        "reason": "outcome-changing dependency or supplier"
+      },
+      {
+        "id": "model_judgment",
+        "minimum": "L2",
+        "modules": [
+          "quality_verification"
+        ],
+        "operator": "in",
+        "question_id": "classification_groups.novelty.model_judgment",
+        "reason": "model judgment affects acceptance",
+        "value": [
+          "present",
+          "acceptance_critical"
+        ]
+      },
+      {
+        "conditions": [
+          {
+            "operator": "in",
+            "question_id": "classification_groups.operations.adoption_burden",
+            "value": [
+              "multi_owner",
+              "staff_displacement",
+              "material"
+            ],
+            "id": "adoption_burden__1"
+          },
+          {
+            "operator": "equals",
+            "question_id": "classification_groups.operations.duration",
+            "value": "long_lived",
+            "id": "adoption_burden__2"
+          }
+        ],
+        "id": "adoption_burden",
+        "minimum": "L2",
+        "modules": [
+          "adoption_ownership"
+        ],
+        "operator": "any",
+        "reason": "multi-owner, long-lived, or staff-displacement burden"
+      },
+      {
+        "id": "public_value_claim",
+        "minimum": "L2",
+        "modules": [
+          "economics_value"
+        ],
+        "operator": "equals",
+        "question_id": "classification_groups.operations.cost_value",
+        "reason": "public cost/value claim",
+        "value": "public_claim_requires_evidence"
+      }
+    ]
+  },
+  "schema_id": "hermes://b03/risk-rules/v2"
+}

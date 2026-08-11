@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/evidence-catalog-schema/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assurance_modules",
+    "evidence_catalog",
+    "evidence_classes",
+    "hermes_release",
+    "hermes_surfaces",
+    "implementation_slots",
+    "mapping_row_fields",
+    "mapping_statuses",
+    "summary"
+  ],
+  "properties": {
+    "assurance_modules": {
+      "type": "array",
+      "minItems": 1
+    },
+    "evidence_catalog": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence_classes": {
+      "type": "array",
+      "minItems": 1
+    },
+    "hermes_release": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "hermes_surfaces": {
+      "type": "array",
+      "minItems": 1
+    },
+    "implementation_slots": {
+      "type": "array",
+      "minItems": 1
+    },
+    "mapping_row_fields": {
+      "type": "array",
+      "minItems": 1
+    },
+    "mapping_statuses": {
+      "type": "array",
+      "minItems": 1
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

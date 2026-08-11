@@ -1,0 +1,14 @@
+{
+  "org_id": "nimbus-analytics-synthetic",
+  "legal_name": "Nimbus Analytics, Inc.",
+  "industry": "B2B SaaS",
+  "employee_count_band": "250-500",
+  "hq_timezone": "America/Chicago",
+  "security_tier": "SOC2-Type2-synthetic",
+  "escalation_contacts": {
+    "hr_business_partner": "synthetic-hrbp@nimbus-analytics.example",
+    "it_operations": "synthetic-itops@nimbus-analytics.example",
+    "legal": "synthetic-legal@nimbus-analytics.example",
+    "security": "synthetic-security@nimbus-analytics.example"
+  }
+}

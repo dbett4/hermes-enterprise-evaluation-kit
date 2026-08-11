@@ -1,0 +1,11 @@
+name: decide-vendor-policy
+version: 0.1.0
+description: "S1 Decide — bounded vendor-policy exception recommendation (synthetic corpus)"
+hermes_requires: ">=0.20.0"
+author: "Hermes Enterprise Field Kit"
+license: "UNLICENSED"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter API key for model access"
+    required: true

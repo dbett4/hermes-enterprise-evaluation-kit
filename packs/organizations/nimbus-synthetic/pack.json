@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1",
+  "pack_type": "organization",
+  "pack_id": "nimbus-synthetic",
+  "pack_version": "0.1.0",
+  "organization": "Nimbus Widgets Inc.",
+  "description": "Synthetic org envelope for B07 reference suite — vendor decide, coordinate offboarding, staging act.",
+  "owner": "nimbus-policy-owner-synthetic",
+  "effective_date": "2026-08-06",
+  "review_date": "2026-11-06",
+  "compatible_kernel": "enterprise-field-kit-v0.1",
+  "compatible_hermes_adapter": "v0.20.0@v2026.8.3"
+}

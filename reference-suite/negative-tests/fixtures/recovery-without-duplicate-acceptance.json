@@ -1,0 +1,42 @@
+{
+  "id": "N05",
+  "fault_class": "recovery_without_duplicate_acceptance",
+  "suite_member": "S3",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S3-RL-018",
+    "mission": "Resume interrupted staging rate-limit change after connector drop",
+    "fault_injection": {
+      "kind": "interrupted_act_recovery",
+      "prior_run_id": "S3-RL-018-run-001",
+      "prior_run_status": "interrupted_after_prestate_capture",
+      "accepted_deliverable_id": "S3-RL-018-deliverable-001",
+      "duplicate_acceptance_attempts": 1
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-single-acceptance", "field": "acceptance_count", "operator": "equals", "value": 1},
+    {"id": "oracle-duplicate-prevented", "field": "duplicate_acceptance_prevented", "operator": "equals", "value": true},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "accepted"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "accepted",
+    "exception_class": "recovery_without_duplicate_acceptance",
+    "disposition": "accept",
+    "fail_closed": false,
+    "blocking_exception": false,
+    "mapping_failure": false,
+    "human_escalation_required": false,
+    "deny_with_receipt": false,
+    "policy_record_id": null,
+    "duplicate_acceptance_prevented": true,
+    "acceptance_count": 1,
+    "producer_output_emitted": true,
+    "effect_applied": true,
+    "receipt_emitted": true,
+    "acceptance_counted": true,
+    "rollback_verified": true,
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

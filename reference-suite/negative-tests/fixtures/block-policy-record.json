@@ -1,0 +1,40 @@
+{
+  "id": "N07",
+  "fault_class": "block_policy_record",
+  "suite_member": "S3",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S3-RL-019",
+    "mission": "Attempt staging rate-limit change on production resource boundary",
+    "fault_injection": {
+      "kind": "policy_block_out_of_scope_target",
+      "requested_environment": "production",
+      "approved_environment": "staging",
+      "action_class": "rate_limit_update",
+      "policy_rule_id": "NW-ACT-BOUNDARY-03"
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-blocked", "field": "effect_applied", "operator": "equals", "value": false},
+    {"id": "oracle-policy-record", "field": "policy_record_id", "operator": "known"},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "rejected"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "rejected",
+    "exception_class": "block_policy_record",
+    "disposition": "block",
+    "fail_closed": true,
+    "blocking_exception": false,
+    "mapping_failure": false,
+    "human_escalation_required": false,
+    "deny_with_receipt": false,
+    "policy_record_id": "NW-POLICY-RECORD-S3-RL-019",
+    "duplicate_acceptance_prevented": false,
+    "producer_output_emitted": false,
+    "effect_applied": false,
+    "receipt_emitted": true,
+    "acceptance_counted": false,
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

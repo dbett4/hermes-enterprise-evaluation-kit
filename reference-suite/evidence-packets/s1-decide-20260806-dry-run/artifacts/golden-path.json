@@ -1,0 +1,130 @@
+{
+  "checker": {
+    "criteria_evidence_ids": [
+      "s1-vendor-exception-oracle-v1"
+    ],
+    "independence_note": "Distinct session IDs label separation; they do not prove stronger independence.",
+    "latency_ms": 3,
+    "model": "deterministic-oracle-engine",
+    "oracle_result": {
+      "evidence_basis": "fixture_derived",
+      "expected_recommendation": "defer-pending-legal",
+      "failures": [],
+      "observed_recommendation": "defer-pending-legal",
+      "oracle_id": "s1-vendor-exception-oracle-v1",
+      "passed": true
+    },
+    "provider_resolved": "local-fixture",
+    "separation_claims": [
+      "role-separated",
+      "deterministic-oracle"
+    ],
+    "separation_evidence_ids": [
+      "s1-decide-20260806-dry-run-producer-output",
+      "s1-decide-20260806-dry-run-context-proof"
+    ],
+    "session_id": "s1-checker-s1-decide-20260806-dry-run",
+    "verdict": "accept"
+  },
+  "cost": {
+    "reason": "B10 Portal measurement requires separate auth/spend authority",
+    "status": "NOT_RUN",
+    "usd": null
+  },
+  "effect": {
+    "deterministic_oracle_ids": [
+      "s1-vendor-exception-oracle-v1"
+    ],
+    "evidence_basis": "simulated",
+    "output_artifact_ids": [
+      "s1-decide-20260806-dry-run-recommendation.json"
+    ],
+    "target_readback_ids": []
+  },
+  "exceptions": [],
+  "execution": {
+    "preparer": {
+      "effort": "not-applicable",
+      "evidence_basis": {
+        "latency_ms": "observed",
+        "model": "runtime_reported",
+        "provider_resolved": "runtime_reported"
+      },
+      "fallback_event": null,
+      "latency_ms": 12,
+      "model": "dry-run-producer-v1",
+      "provider_requested": "configured-local-only",
+      "provider_resolved": "dry-run-simulator",
+      "session_id": "s1-producer-s1-decide-20260806-dry-run",
+      "tools_manifest_sha256": "61bf7e7af930ed0ca1713653833a9da4e85b470de25d682f82525ef8ca4607e4"
+    },
+    "producer_output": {
+      "citations": [
+        "org-policy-v3.2.md#exception-criteria",
+        "org-policy-v3.2.md#deny-conditions",
+        "exception-request-cloudsync.md#gaps-noted-by-intake"
+      ],
+      "conditions": [
+        "Reduce requested retention to 12 months or obtain executive waiver record",
+        "Obtain Legal-approved contractual addendum with explicit expiry",
+        "Separate deletion schedule for raw logs (12 months) vs aggregates (max 12 months unless waived)"
+      ],
+      "external_action": false,
+      "recommendation": "defer-pending-legal"
+    },
+    "producer_output_id": "s1-decide-20260806-dry-run-producer-output",
+    "producer_input_excludes_oracle": true
+  },
+  "hermes_release": {
+    "commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
+    "evidence_basis": "declared-and-observed",
+    "package_version": "0.20.0",
+    "tag": "v2026.8.3"
+  },
+  "human_disposition": {
+    "approver_authority_id": "auth-nimbus-policy-owner-synthetic",
+    "recorded_at": "2026-08-06T15:16:53+00:00",
+    "required": true,
+    "review_evidence_ids": [
+      "s1-decide-20260806-dry-run-human-review"
+    ],
+    "status": "accept"
+  },
+  "mission": {
+    "action_class": "decide-recommend",
+    "authority_mode": "H",
+    "data_zone": "synthetic-internal",
+    "expected_outcome": "Bounded vendor-policy recommendation with citations; no external action.",
+    "task_class": "vendor_policy_exception",
+    "work_order_id": "WO-S1-20260806-001"
+  },
+  "record_posture": {
+    "immutable_audit_claim": false,
+    "store": "mutable-kit-artifact"
+  },
+  "resolution": {
+    "artifact_refs": [
+      "reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md",
+      "reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md",
+      "reference-suite/s1-decide/questionnaire.json",
+      "reference-suite/s1-decide/expected-oracle.json"
+    ],
+    "bundle_id": "bundle-s1-decide",
+    "bundle_version": "0.1.0",
+    "envelope_id": "env-nimbus-synthetic-v0.1",
+    "evidence_basis": "declared-and-observed",
+    "manifest_canonicalization": "json-canonical-v1",
+    "manifest_sha256": "325464fdaad09b0b9ca440455c4ced003dd903177418f201ebc7d3feea472f6b",
+    "override": null,
+    "resolver_rule_id": "resolver-v0.1-synthetic-internal"
+  },
+  "run_id": "s1-decide-20260806-dry-run",
+  "run_mode": {
+    "evidence_basis": "declared-and-observed",
+    "hermes_daemon": false,
+    "label": "synthetic/dry-run",
+    "live_provider": false
+  },
+  "schema_version": "0.1-draft",
+  "terminal_status": "accepted"
+}

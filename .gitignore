@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+*.authorization
+.DS_Store
+work/
+tmp/
+
+# generated demo receipts (committed exemplars stay tracked)
+reference-suite/runs/

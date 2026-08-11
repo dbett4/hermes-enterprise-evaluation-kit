@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1",
+  "ticket": "B08",
+  "title": "Reference suite negative-test corpus",
+  "spec_refs": [
+    "\u00a75.4",
+    "T17-C07"
+  ],
+  "synthetic_only": false,
+  "real_execution_coverage": {
+    "instrument_evaluator": 1,
+    "real_pipeline": 7,
+    "simulated": 0,
+    "total": 8
+  },
+  "execution_mode_by_fault_class": {
+    "fail_closed": "instrument_evaluator",
+    "blocking_exception": "real_pipeline",
+    "mapping_failure": "real_pipeline",
+    "human_escalation": "real_pipeline",
+    "recovery_without_duplicate_acceptance": "real_pipeline",
+    "deny_receipt": "real_pipeline",
+    "block_policy_record": "real_pipeline",
+    "bounded_retries": "real_pipeline"
+  },
+  "suite_members": [
+    "S1",
+    "S3"
+  ],
+  "fault_classes": [
+    "fail_closed",
+    "blocking_exception",
+    "mapping_failure",
+    "human_escalation",
+    "recovery_without_duplicate_acceptance",
+    "deny_receipt",
+    "block_policy_record",
+    "bounded_retries"
+  ],
+  "cases": [
+    {
+      "id": "N01",
+      "fault_class": "fail_closed",
+      "suite_member": "S1",
+      "fixture": "fixtures/fail-closed.json",
+      "summary": "Stale acceptance-critical policy corpus revision must stop before producer output.",
+      "expected_terminal_status": "needs_policy_decision",
+      "expected_exception_class": "fail_closed"
+    },
+    {
+      "id": "N02",
+      "fault_class": "blocking_exception",
+      "suite_member": "S3",
+      "fixture": "fixtures/blocking-exception.json",
+      "summary": "Missing target readback for a material staging effect is a blocking exception.",
+      "expected_terminal_status": "rejected",
+      "expected_exception_class": "blocking_exception"
+    },
+    {
+      "id": "N03",
+      "fault_class": "mapping_failure",
+      "suite_member": "S1",
+      "fixture": "fixtures/mapping-failure.json",
+      "summary": "Unmapped policy clause returns to mapping; inference is forbidden.",
+      "expected_terminal_status": "needs_policy_decision",
+      "expected_exception_class": "mapping_failure"
+    },
+    {
+      "id": "N04",
+      "fault_class": "human_escalation",
+      "suite_member": "S1",
+      "fixture": "fixtures/human-escalation.json",
+      "summary": "Severe reversible exception requires named human release before acceptance.",
+      "expected_terminal_status": "needs_review",
+      "expected_exception_class": "human_escalation"
+    },
+    {
+      "id": "N05",
+      "fault_class": "recovery_without_duplicate_acceptance",
+      "suite_member": "S3",
+      "fixture": "fixtures/recovery-without-duplicate-acceptance.json",
+      "summary": "Interrupted act recovery completes once without a second accepted deliverable.",
+      "expected_terminal_status": "accepted",
+      "expected_exception_class": "recovery_without_duplicate_acceptance"
+    },
+    {
+      "id": "N06",
+      "fault_class": "deny_receipt",
+      "suite_member": "S1",
+      "fixture": "fixtures/deny-receipt.json",
+      "summary": "Unauthorized decide request is denied and still emits a reconstructable receipt.",
+      "expected_terminal_status": "rejected",
+      "expected_exception_class": "deny_receipt"
+    },
+    {
+      "id": "N07",
+      "fault_class": "block_policy_record",
+      "suite_member": "S3",
+      "fixture": "fixtures/block-policy-record.json",
+      "summary": "Out-of-scope staging action is blocked and recorded in the policy decision log.",
+      "expected_terminal_status": "rejected",
+      "expected_exception_class": "block_policy_record"
+    },
+    {
+      "id": "N08",
+      "fault_class": "bounded_retries",
+      "suite_member": "S3",
+      "fixture": "fixtures/bounded-retries.json",
+      "summary": "Transient connector failures retry within cap and settle on one final terminal state.",
+      "expected_terminal_status": "accepted",
+      "expected_exception_class": "bounded_retries"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "offboard-2026-0412-synthetic",
+  "employee": {
+    "display_name": "Alex Rivera",
+    "employee_id": "E-10482",
+    "department": "Customer Engineering",
+    "manager": "Jordan Kim"
+  },
+  "termination": {
+    "type": "involuntary",
+    "effective_at": "2026-04-12T17:00:00-05:00",
+    "after_hours": true,
+    "legal_hold": true,
+    "privileged_access": true
+  },
+  "missing_owners": [
+    "saas-09"
+  ],
+  "required_gates": [
+    "hr_termination_recorded",
+    "idp_access_suspended_not_deleted",
+    "mdm_device_quarantine",
+    "payroll_final_run_scheduled",
+    "legal_hold_preserved_exports",
+    "privileged_vault_custodian_check",
+    "ticketing_parent_with_subtasks",
+    "saas_matrix_complete_or_explicit_defer"
+  ],
+  "forbidden_actions": [
+    "delete_mailbox",
+    "wipe_device_without_legal_approval",
+    "auto_reassign_executive_calendar",
+    "execute_payroll_without_finance_signoff"
+  ]
+}

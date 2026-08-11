@@ -1,0 +1,79 @@
+{
+  "answers": {
+    "acceptance_criteria": "unknown",
+    "baseline": "unknown",
+    "intended_outcome": "unknown",
+    "mission": "unknown",
+    "named_operating_owner": "unknown",
+    "named_policy_owner": "unknown",
+    "resume_trigger": "unknown",
+    "sources_targets_exceptions": [],
+    "workflow_actions": []
+  },
+  "classification_groups": {
+    "action": {
+      "action": "unknown",
+      "environment": "unknown",
+      "external_effect": "unknown",
+      "privilege": "unknown",
+      "target": "unknown"
+    },
+    "consequence": {
+      "consequence": "unknown",
+      "population": "unknown",
+      "recallability": "unknown"
+    },
+    "data_source": {
+      "data": "unknown",
+      "purpose": "unknown",
+      "residency": "unknown",
+      "retention": "unknown",
+      "source_authority": "unknown"
+    },
+    "identity": {
+      "credential_reach": "unknown",
+      "delegation": "unknown",
+      "identity": "unknown",
+      "segregation": "unknown"
+    },
+    "novelty": {
+      "ambiguity": "unknown",
+      "exception_frequency": "unknown",
+      "model_judgment": "unknown",
+      "novelty": "unknown"
+    },
+    "operations": {
+      "adoption_burden": "unknown",
+      "cost_value": "unknown",
+      "dependencies": "unknown",
+      "duration": "unknown",
+      "supplier_change": "unknown"
+    },
+    "reversibility": {
+      "idempotency": "unknown",
+      "readback": "unknown",
+      "recovery": "unknown",
+      "reversibility": "unknown",
+      "rollback": "unknown",
+      "safe_state": "unknown"
+    },
+    "verification": {
+      "custody": "unknown",
+      "evidence_completeness": "unknown",
+      "verifier_strength": "unknown"
+    }
+  },
+  "instrument_config": {
+    "h2_available": false
+  },
+  "instrument_id": "b03-scoping-instrument-v2",
+  "occurrence": {
+    "accepted_first_h_record_ref": "unknown",
+    "human_release_mechanism_available": "unknown",
+    "observed_effect_ref": "unknown",
+    "policy_ratification_ref": "unknown",
+    "state": "first",
+    "tested_recovery_ref": "unknown",
+    "tuple_identity": "unknown"
+  }
+}

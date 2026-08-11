@@ -1,0 +1,85 @@
+{
+  "answers": {
+    "acceptance_criteria": "unknown",
+    "baseline": "policy corpus revision 2026-06-01T00:00:00Z",
+    "intended_outcome": "vendor-policy exception recommendation for VPE-4419",
+    "mission": "Evaluate vendor-policy exception against synthetic policy corpus VPE-4419",
+    "named_operating_owner": "northwind-policy-ops",
+    "named_policy_owner": "northwind-policy-council",
+    "resume_trigger": "policy_corpus_revision >= 2026-07-15T00:00:00Z",
+    "sources_targets_exceptions": [
+      "policy_corpus->exception_request"
+    ],
+    "workflow_actions": [
+      "read",
+      "compare",
+      "draft"
+    ]
+  },
+  "classification_groups": {
+    "action": {
+      "action": "read",
+      "environment": "internal_nonproduction",
+      "external_effect": "none",
+      "privilege": "none",
+      "target": "explicit_single"
+    },
+    "consequence": {
+      "consequence": "noncritical",
+      "population": "single",
+      "recallability": "immediate"
+    },
+    "data_source": {
+      "data": "internal",
+      "purpose": "allowed",
+      "residency": "unrestricted",
+      "retention": "bounded",
+      "source_authority": "authoritative"
+    },
+    "identity": {
+      "credential_reach": "unknown",
+      "delegation": "unknown",
+      "identity": "unknown",
+      "segregation": "unknown"
+    },
+    "novelty": {
+      "ambiguity": "bounded",
+      "exception_frequency": "none",
+      "model_judgment": "none",
+      "novelty": "fixed"
+    },
+    "operations": {
+      "adoption_burden": "unknown",
+      "cost_value": "unknown",
+      "dependencies": "unknown",
+      "duration": "unknown",
+      "supplier_change": "unknown"
+    },
+    "reversibility": {
+      "idempotency": "tested",
+      "readback": "tested",
+      "recovery": "immediate",
+      "reversibility": "fully_reversible",
+      "rollback": "tested",
+      "safe_state": "available"
+    },
+    "verification": {
+      "custody": "unknown",
+      "evidence_completeness": "unknown",
+      "verifier_strength": "unknown"
+    }
+  },
+  "instrument_config": {
+    "h2_available": false
+  },
+  "instrument_id": "b03-scoping-instrument-v2",
+  "occurrence": {
+    "accepted_first_h_record_ref": "unknown",
+    "human_release_mechanism_available": "available",
+    "observed_effect_ref": "unknown",
+    "policy_ratification_ref": "unknown",
+    "state": "first",
+    "tested_recovery_ref": "unknown",
+    "tuple_identity": "unknown"
+  }
+}

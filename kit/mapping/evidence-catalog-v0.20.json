@@ -1,0 +1,867 @@
+{
+  "assurance_modules": [
+    {
+      "evidence_types": [
+        {
+          "description": "Record of the authority decision for an action class, resource, environment, configuration identity, duration, and purpose.",
+          "id": "EV-AUTH-ADR",
+          "label": "Authority Decision Record"
+        },
+        {
+          "description": "The grant plus evaluated attributes and their freshness timestamps.",
+          "id": "EV-AUTH-GRANT",
+          "label": "Grant and evaluated attributes with freshness"
+        },
+        {
+          "description": "The exact proposed effect or diff shown to an approver.",
+          "id": "EV-AUTH-PROPOSAL",
+          "label": "Exact proposal/diff"
+        },
+        {
+          "description": "An attributable human release through an authenticated mechanism the producing agent cannot rewrite.",
+          "id": "EV-AUTH-RELEASE",
+          "label": "Authenticated release"
+        },
+        {
+          "description": "Evidence of the state before and after an effect, or of the produced output.",
+          "id": "EV-AUTH-PRESTATE-POSTSTATE",
+          "label": "Prestate/poststate or output evidence"
+        },
+        {
+          "description": "Readback proving that a stop or revocation actually took effect.",
+          "id": "EV-AUTH-STOP-REVOCATION",
+          "label": "Stop/revocation readback"
+        },
+        {
+          "description": "Record of overrides, denials, and the final disposition of an authority event.",
+          "id": "EV-AUTH-OVERRIDE-DENIAL",
+          "label": "Overrides, denials, and disposition"
+        }
+      ],
+      "governing_question": "Who may cause, approve, stop, or own each effect?",
+      "implementation_slots": [
+        "SLOT-02-POLICY-DECISION",
+        "SLOT-03-IDENTITY-CREDENTIAL",
+        "SLOT-05-TOOL-CONNECTOR",
+        "SLOT-01-HUMAN-PROCEDURE",
+        "SLOT-09-OPS-MONITORING"
+      ],
+      "metrics": [
+        {
+          "id": "MET-AUTH-UNAUTHORIZED",
+          "metric": "Accepted unauthorized or out-of-scope effects",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-AUTH-DENIAL-BYPASS",
+          "metric": "Denial/bypass attempt rate, approval/denial/override rates, review latency, reversals, stale grants, failed revocations",
+          "threshold": "Threshold breach narrows, freezes, rotates, or suspends; never lowers the bar"
+        }
+      ],
+      "module": "Authority & human oversight",
+      "module_id": "MOD-AUTH",
+      "source_ref": "kit/assurance/authority-human-oversight.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "The versioned acceptance criteria, materiality, negative cases, and critical-regression rules fixed before execution.",
+          "id": "EV-QUAL-CRITERIA",
+          "label": "Criteria version"
+        },
+        {
+          "description": "Identity/digest of producer output frozen before checking.",
+          "id": "EV-QUAL-FIXED-OUTPUT",
+          "label": "Fixed output identity"
+        },
+        {
+          "description": "Inputs and results of deterministic oracles.",
+          "id": "EV-QUAL-ORACLE",
+          "label": "Oracle inputs/results"
+        },
+        {
+          "description": "Identity, context, configuration, and separation proof of the checker.",
+          "id": "EV-QUAL-CHECKER",
+          "label": "Checker identity, context, configuration, and separation proof"
+        },
+        {
+          "description": "Register of every kept discrepancy with classification and disposition.",
+          "id": "EV-QUAL-DISCREPANCY",
+          "label": "Discrepancy register"
+        },
+        {
+          "description": "Attributable human disposition of a quality outcome.",
+          "id": "EV-QUAL-HUMAN-DISPOSITION",
+          "label": "Human disposition"
+        },
+        {
+          "description": "Record of reruns or remediation actions taken.",
+          "id": "EV-QUAL-RERUN",
+          "label": "Rerun or remediation record"
+        }
+      ],
+      "governing_question": "What proves the output or effect is correct enough?",
+      "implementation_slots": [
+        "SLOT-07-VERIFICATION-DISPOSITION",
+        "SLOT-06-SOURCE-TARGET",
+        "SLOT-01-HUMAN-PROCEDURE"
+      ],
+      "metrics": [
+        {
+          "id": "MET-QUAL-REGRESSION",
+          "metric": "Critical regressions",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-QUAL-ORACLE-FAILURE",
+          "metric": "Unexplained oracle failures",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-QUAL-ACCEPTED-RATE",
+          "metric": "Accepted-output rate, false accept/reject findings, discrepancy age, reviewer reversal, checker disagreement",
+          "threshold": "Threshold breach returns to Stage 3 or 4 and blocks promotion"
+        }
+      ],
+      "module": "Quality & verification",
+      "module_id": "MOD-QUALITY",
+      "source_ref": "kit/assurance/quality-verification.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "References to work order, source, configuration, execution, effect, verification, exception, and disposition.",
+          "id": "EV-EVID-INPUT-REF",
+          "label": "Input and configuration references"
+        },
+        {
+          "description": "Retained artifacts and their digests.",
+          "id": "EV-EVID-ARTIFACTS",
+          "label": "Retained artifacts and digests"
+        },
+        {
+          "description": "Readbacks from source and target systems.",
+          "id": "EV-EVID-READBACK",
+          "label": "Source/effect readbacks"
+        },
+        {
+          "description": "Deterministic links across the evidence population.",
+          "id": "EV-EVID-GRAPH",
+          "label": "Relationship graph"
+        },
+        {
+          "description": "Links to exceptions and waivers.",
+          "id": "EV-EVID-WAIVER-LINKS",
+          "label": "Exception and waiver links"
+        },
+        {
+          "description": "Honest classification of custody; hashes and append-oriented files do not establish immutability.",
+          "id": "EV-EVID-CUSTODY",
+          "label": "Custody classification"
+        },
+        {
+          "description": "Reconciliation of the full acceptance-critical population; absence is unknown, not zero.",
+          "id": "EV-EVID-POPULATION",
+          "label": "Population reconciliation"
+        },
+        {
+          "description": "Result of non-producer reconstruction and its disposition.",
+          "id": "EV-EVID-RECONSTRUCTION",
+          "label": "Reconstruction result and disposition"
+        }
+      ],
+      "governing_question": "Can a non-producer reconstruct inputs, decisions, effects, and disposition?",
+      "implementation_slots": [
+        "SLOT-06-SOURCE-TARGET",
+        "SLOT-08-EVIDENCE-RETENTION",
+        "SLOT-07-VERIFICATION-DISPOSITION"
+      ],
+      "metrics": [
+        {
+          "id": "MET-EVID-COMPLETENESS",
+          "metric": "Acceptance-critical population completeness",
+          "threshold": "100%"
+        },
+        {
+          "id": "MET-EVID-BROKEN-LINKS",
+          "metric": "Broken required links",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-EVID-MISMATCH",
+          "metric": "Unexplained source/effect mismatches",
+          "threshold": "0"
+        }
+      ],
+      "module": "Evidence & traceability",
+      "module_id": "MOD-EVIDENCE",
+      "source_ref": "kit/assurance/evidence-traceability.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "Inventory of identities and grants with owner, purpose, environment, scope, credential reference, configuration identity, expiry, recertification date, and lifecycle state.",
+          "id": "EV-IDEN-INVENTORY",
+          "label": "Identity/grant inventory"
+        },
+        {
+          "description": "The delegation chain with no-amplification proof.",
+          "id": "EV-IDEN-DELEGATION",
+          "label": "Owner/purpose and delegation chain"
+        },
+        {
+          "description": "Data classification and approved data routes.",
+          "id": "EV-IDEN-DATA-CLASS",
+          "label": "Data classification and approved routes"
+        },
+        {
+          "description": "Credential and execution/egress boundary configuration.",
+          "id": "EV-IDEN-BOUNDARY-CONFIG",
+          "label": "Credential and boundary configuration"
+        },
+        {
+          "description": "Tests of the actual execution and egress boundaries relied upon.",
+          "id": "EV-IDEN-ISOLATION-TEST",
+          "label": "Isolation/egress tests"
+        },
+        {
+          "description": "Periodic access review records.",
+          "id": "EV-IDEN-ACCESS-REVIEW",
+          "label": "Access review"
+        },
+        {
+          "description": "Explicit change or novation decision.",
+          "id": "EV-IDEN-NOVATION",
+          "label": "Change/novation decision"
+        },
+        {
+          "description": "Source-system readback proving suspension, revocation, or retirement.",
+          "id": "EV-IDEN-LIFECYCLE-READBACK",
+          "label": "Suspension/revocation/retirement readback"
+        }
+      ],
+      "governing_question": "Who is acting, through which boundary, on what data, under which rules?",
+      "implementation_slots": [
+        "SLOT-03-IDENTITY-CREDENTIAL",
+        "SLOT-02-POLICY-DECISION",
+        "SLOT-04-EXECUTION-BOUNDARY",
+        "SLOT-05-TOOL-CONNECTOR",
+        "SLOT-06-SOURCE-TARGET"
+      ],
+      "metrics": [
+        {
+          "id": "MET-IDEN-ORPHAN",
+          "metric": "Active orphan identities",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-IDEN-EXPIRED-GRANT",
+          "metric": "Expired grants active",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-IDEN-DATA-ROUTE",
+          "metric": "Impermissible data routes",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-IDEN-BOUNDARY-FAIL",
+          "metric": "Boundary-test failures accepted",
+          "threshold": "0"
+        }
+      ],
+      "module": "Identity, security, data & legal",
+      "module_id": "MOD-IDENTITY",
+      "source_ref": "kit/assurance/identity-security-data-legal.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "The canonical configuration manifest resolving dependencies, precedence, conflicts, and gaps.",
+          "id": "EV-INTG-MANIFEST",
+          "label": "Canonical manifest"
+        },
+        {
+          "description": "Retained artifacts and their source/version identities.",
+          "id": "EV-INTG-ARTIFACTS",
+          "label": "Retained referenced artifacts and source/version identities"
+        },
+        {
+          "description": "Map of where each capability is implemented (native/configuration/extension/surrounding/gap).",
+          "id": "EV-INTG-LOCATION-MAP",
+          "label": "Capability-location map"
+        },
+        {
+          "description": "Explicit change/novation decision for material changes.",
+          "id": "EV-INTG-NOVATION",
+          "label": "Change and novation decision"
+        },
+        {
+          "description": "Results of compatibility, conflict, integration, schema-drift, rollback, and reconstruction tests.",
+          "id": "EV-INTG-TESTS",
+          "label": "Compatibility, conflict, integration, schema, rollback, and reconstruction results"
+        },
+        {
+          "description": "Register of capability gaps and supplier exceptions.",
+          "id": "EV-INTG-GAP-REGISTER",
+          "label": "Gap and supplier-exception register"
+        }
+      ],
+      "governing_question": "Which dependencies and changes alter the risk identity?",
+      "implementation_slots": [
+        "SLOT-02-POLICY-DECISION",
+        "SLOT-05-TOOL-CONNECTOR",
+        "SLOT-01-HUMAN-PROCEDURE",
+        "SLOT-08-EVIDENCE-RETENTION"
+      ],
+      "metrics": [
+        {
+          "id": "MET-INTG-UNKNOWN-COMPONENT",
+          "metric": "Unknown acceptance-critical components",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-INTG-SILENT-DRIFT",
+          "metric": "Silent material drift",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-INTG-UNRECONSTRUCTABLE",
+          "metric": "Unreconstructable releases",
+          "threshold": "0"
+        }
+      ],
+      "module": "Integration, change & supply chain",
+      "module_id": "MOD-INTEGRATION",
+      "source_ref": "kit/assurance/integration-change-supply-chain.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "Target state read before and after every material effect.",
+          "id": "EV-RELI-PRESTATE-POSTSTATE",
+          "label": "Prestate/poststate"
+        },
+        {
+          "description": "Health and liveness readback of the deployed system.",
+          "id": "EV-RELI-HEALTH",
+          "label": "Health and liveness readback"
+        },
+        {
+          "description": "Results of interruption, partial-effect, stale-input, dependency-outage, recovery-objective, rollback, and manual-continuity tests.",
+          "id": "EV-RELI-FAILURE-INJECTION",
+          "label": "Failure-injection results"
+        },
+        {
+          "description": "Recorded retry and fallback events.",
+          "id": "EV-RELI-RETRY-FALLBACK",
+          "label": "Retry/fallback event"
+        },
+        {
+          "description": "Test proving no duplicate material effects.",
+          "id": "EV-RELI-DUPLICATE-TEST",
+          "label": "Duplicate-effect test"
+        },
+        {
+          "description": "Results of stop, rollback, recovery, and manual-path execution.",
+          "id": "EV-RELI-RECOVERY",
+          "label": "Stop, rollback, recovery and manual-path results"
+        },
+        {
+          "description": "Records of unresolved dependencies and incidents.",
+          "id": "EV-RELI-INCIDENT",
+          "label": "Unresolved dependency and incident records"
+        }
+      ],
+      "governing_question": "How does operation fail, recover, stop, and continue without duplicate or unowned effects?",
+      "implementation_slots": [
+        "SLOT-04-EXECUTION-BOUNDARY",
+        "SLOT-05-TOOL-CONNECTOR",
+        "SLOT-06-SOURCE-TARGET",
+        "SLOT-09-OPS-MONITORING"
+      ],
+      "metrics": [
+        {
+          "id": "MET-RELI-DUPLICATE",
+          "metric": "Duplicate material effects",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-RELI-UNOWNED",
+          "metric": "Unowned partial effects",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-RELI-RECOVERY-OBJECTIVE",
+          "metric": "Availability, task age, recovery time, retry/fallback rate, stale-input rate, rollback success, missed/late effects",
+          "threshold": "Recovery-objective or liveness breach contracts or suspends the affected scope"
+        }
+      ],
+      "module": "Reliability & continuity",
+      "module_id": "MOD-RELIABILITY",
+      "source_ref": "kit/assurance/reliability-continuity.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "Predeclared baseline, unit of accepted value, denominator, quality threshold, measurement window, total-cost boundary, and value owner.",
+          "id": "EV-ECON-BASELINE",
+          "label": "Baseline"
+        },
+        {
+          "description": "The denominator of accepted outputs/effects against which cost is compared.",
+          "id": "EV-ECON-DENOMINATOR",
+          "label": "Accepted-output denominator"
+        },
+        {
+          "description": "Quality and latency results for accepted outputs.",
+          "id": "EV-ECON-QUALITY",
+          "label": "Quality and latency results"
+        },
+        {
+          "description": "Receipts for model/infrastructure usage and other authorized cost lines.",
+          "id": "EV-ECON-COST-RECEIPTS",
+          "label": "Authorized cost receipts"
+        },
+        {
+          "description": "Total delivery and operating cost including labor, review, retry, rejection, incident, and support.",
+          "id": "EV-ECON-TOTAL-COST",
+          "label": "Labor, review, retry, rejection, incident, and support cost"
+        },
+        {
+          "description": "The value owner's disposition and sensitivity limits.",
+          "id": "EV-ECON-VALUE-DISPOSITION",
+          "label": "Value-owner disposition and sensitivity limits"
+        }
+      ],
+      "governing_question": "Is accepted value worth total delivery and operating exposure?",
+      "implementation_slots": [
+        "SLOT-06-SOURCE-TARGET",
+        "SLOT-08-EVIDENCE-RETENTION",
+        "SLOT-09-OPS-MONITORING",
+        "SLOT-01-HUMAN-PROCEDURE"
+      ],
+      "metrics": [
+        {
+          "id": "MET-ECON-COST-PER-OUTPUT",
+          "metric": "Total cost per accepted output/effect, acceptance rate, review time, retry/rejection cost, incident cost, cycle-time change, owner-defined outcome measure",
+          "threshold": "Breaching the cost or value threshold stops expansion and triggers redesign or retirement review"
+        }
+      ],
+      "module": "Economics & value",
+      "module_id": "MOD-ECONOMICS",
+      "source_ref": "kit/assurance/economics-value.md"
+    },
+    {
+      "evidence_types": [
+        {
+          "description": "Records naming outcome, policy, operating, system, evidence, verifier, approver, support, incident, transfer, and retirement owners.",
+          "id": "EV-ADOP-RACI",
+          "label": "RACI or authority records"
+        },
+        {
+          "description": "Acceptance by the receiving owner of the exact authority, configuration, evidence, and open obligations.",
+          "id": "EV-ADOP-ACCEPTANCE",
+          "label": "Owner acceptance"
+        },
+        {
+          "description": "Runbook covering operation, challenge, stop, recovery, escalation, support, and exceptions.",
+          "id": "EV-ADOP-RUNBOOK",
+          "label": "Runbook"
+        },
+        {
+          "description": "Training completion and tabletop results proving operational competence.",
+          "id": "EV-ADOP-TABLETOP",
+          "label": "Training/tabletop result"
+        },
+        {
+          "description": "Documented and tested support and escalation route.",
+          "id": "EV-ADOP-SUPPORT-ROUTE",
+          "label": "Support and escalation route"
+        },
+        {
+          "description": "Demonstrated challenge, stop, and recovery capability without hidden builder knowledge.",
+          "id": "EV-ADOP-DEMONSTRATION",
+          "label": "Challenge/stop/recovery demonstration"
+        },
+        {
+          "description": "Register of open obligations.",
+          "id": "EV-ADOP-OBLIGATIONS",
+          "label": "Open-obligation register"
+        },
+        {
+          "description": "Transfer or retirement acceptance record.",
+          "id": "EV-ADOP-TRANSFER",
+          "label": "Transfer or retirement acceptance"
+        }
+      ],
+      "governing_question": "Can named people operate, challenge, inherit, and retire the deployment?",
+      "implementation_slots": [
+        "SLOT-01-HUMAN-PROCEDURE",
+        "SLOT-09-OPS-MONITORING",
+        "SLOT-02-POLICY-DECISION",
+        "SLOT-08-EVIDENCE-RETENTION"
+      ],
+      "metrics": [
+        {
+          "id": "MET-ADOP-UNOWNED",
+          "metric": "Unowned critical roles",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-ADOP-TABLETOP-FAIL",
+          "metric": "Failed stop/handoff tabletops",
+          "threshold": "0"
+        },
+        {
+          "id": "MET-ADOP-TRACKING",
+          "metric": "Training completion, time to competent operation, support burden, override/challenge use, exception age, owner vacancies, transfer defects",
+          "threshold": "Owner loss or failed stop capability suspends or narrows operation"
+        }
+      ],
+      "module": "Adoption & ownership",
+      "module_id": "MOD-ADOPTION",
+      "source_ref": "kit/assurance/adoption-ownership.md"
+    }
+  ],
+  "evidence_catalog": {
+    "baseline": {
+      "denominator": "kit/mapping/neutral-requirements.json",
+      "hermes_release": {
+        "annotated_tag_object": "7de39e700d2c329e15d32eb0b96e2f7cdd9fbdb2",
+        "package_version": "0.20.0",
+        "peeled_release_commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
+        "preflight_report": "kit/preflight/v0.20-preflight-report.md",
+        "preflight_verdict": "PASS_WITH_LIMITS",
+        "public_tag": "v2026.8.3",
+        "release_date": "2026-08-03"
+      },
+      "repo_commit": "9adcc2220c2cc9e8038c6968dbcc658eb278a046"
+    },
+    "label": "B05 v0.20 evidence catalog for the Hermes deployment mapping",
+    "language_note": "General enterprise language; public-sector finance is an optional workflow pack and is not assumed anywhere in this catalog.",
+    "timestamp": "2026-08-04T00:00:00Z",
+    "version": "0.20.0"
+  },
+  "evidence_classes": [
+    {
+      "basis": "declared",
+      "definition": "Asserted by a plan, manifest, producer, or configuration.",
+      "id": "EV-CLASS-DECLARED",
+      "label": "Declared",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "runtime_reported",
+      "definition": "Emitted by the executing process about itself.",
+      "id": "EV-CLASS-RUNTIME-REPORTED",
+      "label": "Runtime-reported",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "observed",
+      "definition": "Read from a target, deterministic oracle, or separately controlled observer.",
+      "id": "EV-CLASS-OBSERVED",
+      "label": "Observed",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "role_separated",
+      "definition": "Produced by a separate process/session/context over fixed producer output.",
+      "id": "EV-CLASS-ROLE-SEPARATED",
+      "label": "Role-separated",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "model_independent",
+      "definition": "Produced by a different model/configuration with separation evidence.",
+      "id": "EV-CLASS-MODEL-INDEPENDENT",
+      "label": "Model-independent",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "human_disposition",
+      "definition": "Attributable decision by an authorized person who saw the required evidence.",
+      "id": "EV-CLASS-HUMAN-DISPOSITION",
+      "label": "Human disposition",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    },
+    {
+      "basis": "organizationally_independent",
+      "definition": "Separate accountable ownership and authority boundary; never inferred from technical separation alone.",
+      "id": "EV-CLASS-ORG-INDEPENDENT",
+      "label": "Organizationally independent",
+      "source_ref": "kit/core/README.md (Evidence classes)"
+    }
+  ],
+  "hermes_release": {
+    "annotated_tag_object": "7de39e700d2c329e15d32eb0b96e2f7cdd9fbdb2",
+    "package_version": "0.20.0",
+    "peeled_release_commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
+    "preflight_report": "kit/preflight/v0.20-preflight-report.md",
+    "preflight_verdict": "PASS_WITH_LIMITS",
+    "public_tag": "v2026.8.3",
+    "release_date": "2026-08-03"
+  },
+  "hermes_surfaces": [
+    {
+      "boundary": "Packages a profile as a Git repository excluding memory/session/auth state; distributions unsigned by default; Git-ref pinning documented as planned, not shipped.",
+      "evidence_ref": "tests/hermes_cli/test_profile_distribution.py; distribution docs at peeled release commit",
+      "id": "HS-PROFILE-DISTRIBUTION",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Profile distributions"
+    },
+    {
+      "boundary": "Continuation/completion judge is an auxiliary model; contracts improve evidence expectations but do not replace deterministic or human disposition.",
+      "evidence_ref": "tests/hermes_cli/test_goals.py; goals docs at peeled release commit",
+      "id": "HS-GOALS",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Goals and completion contracts"
+    },
+    {
+      "boundary": "Guardrail against honest-but-wrong behavior; not a sandbox against a deliberately adversarial process.",
+      "evidence_ref": "tests/tools/test_approval_deny_rules.py; security docs at peeled release commit",
+      "id": "HS-APPROVAL-DENY",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Approval deny rules"
+    },
+    {
+      "boundary": "Auxiliary-model judgment and operator policy, not deterministic authorization; suggestions do not become enterprise policy without owner ratification.",
+      "evidence_ref": "tests/tools/test_smart_approval_policy.py; hermes approvals suggest CLI readback",
+      "id": "HS-SMART-APPROVAL",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Smart approval policy"
+    },
+    {
+      "boundary": "HMAC signature present only when a secret is configured; entries without a secret delivered unsigned and flagged.",
+      "evidence_ref": "tests/agent/test_outbound_webhooks.py; tests/gateway/test_webhook_signature_rate_limit.py",
+      "id": "HS-WEBHOOKS",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Outbound webhooks"
+    },
+    {
+      "boundary": "Native credential-injection/egress infrastructure for the Docker backend; not wired into Modal, Daytona, SSH, or Singularity; does not replace OS/container isolation.",
+      "evidence_ref": "tests/test_iron_proxy.py; tests/test_iron_proxy_cli.py",
+      "id": "HS-IRON-PROXY",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Iron Proxy egress"
+    },
+    {
+      "boundary": "Hermes documentation identifies isolated backends as the load-bearing boundary against adversarial execution; B07 must verify the selected backend and host boundary.",
+      "evidence_ref": "documented requirement in security docs; focused suite did not directly test the selected backend/host boundary",
+      "id": "HS-OS-CONTAINER-ISOLATION",
+      "status": "NOT_RUN",
+      "surface": "OS/container isolation"
+    },
+    {
+      "boundary": "Management-convenience boundary against a normal user; malformed managed files logged and ignored; environment-based escape remains possible.",
+      "evidence_ref": "tests/hermes_cli/test_managed_scope.py; test_managed_scope_config.py; test_managed_scope_env.py",
+      "id": "HS-MANAGED-SCOPE",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Managed scope"
+    },
+    {
+      "boundary": "Durable SQLite coordination and per-board separation; tenants documented as a soft filter; records are operational state, not independently controlled immutable audit.",
+      "evidence_ref": "tests/hermes_cli/test_kanban_boards.py",
+      "id": "HS-KANBAN",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Kanban boards"
+    },
+    {
+      "boundary": "Selects/ranks an underlying provider for a requested model; does not choose a model/configuration based on task outcome or risk.",
+      "evidence_ref": "tests/hermes_cli/test_model_switch_configured_provider_routing.py",
+      "id": "HS-PROVIDER-ROUTING",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Configured provider routing"
+    },
+    {
+      "boundary": "Availability recovery for rate limits, overload, auth failures, connection errors; fallback may change provider/model and reset prompt caches; turn-scoped; not adaptive task routing.",
+      "evidence_ref": "tests/run_agent/test_provider_fallback.py",
+      "id": "HS-FALLBACK",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Cross-provider fallback"
+    },
+    {
+      "boundary": "Explicit main/auxiliary model and effort configuration supported; v0.20 does not establish the policy resolver that hides these choices from ordinary users.",
+      "evidence_ref": "configured-provider-routing test; configuration docs at peeled release commit",
+      "id": "HS-MODEL-EFFORT-CONFIG",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Model/effort configuration"
+    },
+    {
+      "boundary": "Proves only the named clean-tag code paths; does not establish that the installed gateway uses that source tree or can execute a reference job.",
+      "evidence_ref": "tests/agent/test_outbound_webhooks.py; tests/gateway/test_webhook_signature_rate_limit.py at peeled release commit",
+      "id": "HS-GATEWAY-EXACT-TAG",
+      "status": "PASS_WITH_LIMITS",
+      "surface": "Exact-tag gateway code path"
+    },
+    {
+      "boundary": "Observation belongs to the dirty/divergent installed topology; supplies no exact-tag conformance or end-to-end job evidence.",
+      "evidence_ref": "installed hermes status readback reporting the gateway running",
+      "id": "HS-GATEWAY-INSTALLED",
+      "status": "OBSERVED_WITH_LIMITS",
+      "surface": "Installed gateway topology observation"
+    },
+    {
+      "boundary": "No service start/stop, production message, or reference job performed; B07 must prove its selected gateway/backend path.",
+      "evidence_ref": "intentionally excluded from B04",
+      "id": "HS-GATEWAY-E2E",
+      "status": "NOT_RUN",
+      "surface": "End-to-end reference-job gateway path"
+    },
+    {
+      "boundary": "No sufficient first-party immutable enterprise packet/custody surface identified; independently controlled store required before immutable/audit-reliance language.",
+      "evidence_ref": "scoped CLI/docs/source review plus named tests",
+      "id": "HS-EVIDENCE-PACKET",
+      "status": "GAP",
+      "surface": "Enterprise evidence-packet export/custody"
+    },
+    {
+      "boundary": "Auth/spend is a separate authority; cost stays NOT_RUN, never estimated or invented.",
+      "evidence_ref": "intentionally excluded",
+      "id": "HS-PORTAL-METERING",
+      "status": "NOT_RUN",
+      "surface": "Portal metering/cost receipt"
+    },
+    {
+      "boundary": "No operational conclusion; may be mapped later only with their own scoped proof.",
+      "evidence_ref": "intentionally excluded from focused suite",
+      "id": "HS-NON-REFERENCE-SURFACES",
+      "status": "NOT_RUN",
+      "surface": "A2A, voice, and other non-reference release surfaces"
+    }
+  ],
+  "implementation_slots": [
+    {
+      "definition": "A named human or manual process step that implements a control.",
+      "id": "SLOT-01-HUMAN-PROCEDURE",
+      "label": "Human or process procedure",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "The organization's policy store and the service that resolves policy into decisions.",
+      "id": "SLOT-02-POLICY-DECISION",
+      "label": "Organization policy and decision service",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "Services that establish who is acting and that mediate approvals and credentials.",
+      "id": "SLOT-03-IDENTITY-CREDENTIAL",
+      "label": "Identity, credential, or approval service",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "The boundary at which an agent or workflow executes with its runtime environment.",
+      "id": "SLOT-04-EXECUTION-BOUNDARY",
+      "label": "Execution boundary",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "The boundary at which tools, connectors, and integrations are mediated.",
+      "id": "SLOT-05-TOOL-CONNECTOR",
+      "label": "Tool, connector, or integration boundary",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "A system that supplies inputs or receives effects; the readback point for observed effects.",
+      "id": "SLOT-06-SOURCE-TARGET",
+      "label": "Source or target system",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "Services that verify outputs/effects and record dispositions.",
+      "id": "SLOT-07-VERIFICATION-DISPOSITION",
+      "label": "Verification or disposition service",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "Services that store, link, and retain evidence records.",
+      "id": "SLOT-08-EVIDENCE-RETENTION",
+      "label": "Evidence and retention service",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    },
+    {
+      "definition": "Services that operate, monitor, and respond to incidents.",
+      "id": "SLOT-09-OPS-MONITORING",
+      "label": "Operations, monitoring, or incident service",
+      "source_ref": "kit/core/README.md (Implementation slots)"
+    }
+  ],
+  "mapping_row_fields": [
+    {
+      "field": "neutral requirement and linked control trace",
+      "id": "ROW-01-REQUIREMENT"
+    },
+    {
+      "field": "exact product/runtime version, source identity, package identity, and tested topology",
+      "id": "ROW-02-RELEASE-IDENTITY"
+    },
+    {
+      "field": "one primary status and any necessary supporting statuses",
+      "id": "ROW-03-STATUS"
+    },
+    {
+      "field": "implementation component, configuration identity, owner, and conditions",
+      "id": "ROW-04-COMPONENT"
+    },
+    {
+      "field": "official source or observed-test evidence, with date and evidence basis",
+      "id": "ROW-05-EVIDENCE"
+    },
+    {
+      "field": "known limit, bypass, and security boundary",
+      "id": "ROW-06-LIMIT-BYPASS"
+    },
+    {
+      "field": "reference-case use and acceptance test",
+      "id": "ROW-07-REFERENCE-USE"
+    },
+    {
+      "field": "surrounding or manual treatment when incomplete",
+      "id": "ROW-08-SURROUNDING-TREATMENT"
+    },
+    {
+      "field": "gap owner, consequence, and decision",
+      "id": "ROW-09-GAP-OWNER"
+    },
+    {
+      "field": "staleness trigger and next review",
+      "id": "ROW-10-STALENESS"
+    }
+  ],
+  "mapping_statuses": [
+    {
+      "id": "STATUS-NATIVE",
+      "meaning": "The pinned product supplies the requirement directly in the tested reference path",
+      "status": "native"
+    },
+    {
+      "id": "STATUS-CONFIGURATION",
+      "meaning": "The product supplies the mechanism only when an explicit, retained setting or policy enables it",
+      "status": "configuration"
+    },
+    {
+      "id": "STATUS-EXTENSION",
+      "meaning": "A supported plugin, hook, adapter, or added component implements the requirement inside the product boundary",
+      "status": "extension"
+    },
+    {
+      "id": "STATUS-SURROUNDING",
+      "meaning": "A separate identity, policy, isolation, evidence, target, or operations system supplies the requirement",
+      "status": "surrounding-platform"
+    },
+    {
+      "id": "STATUS-GAP",
+      "meaning": "No sufficient implementation has been identified for the scoped requirement",
+      "status": "unsupported-gap"
+    }
+  ],
+  "summary": {
+    "assurance_modules": 8,
+    "evidence_classes": 7,
+    "hermes_surfaces": 18,
+    "implementation_slots": 9,
+    "mapping_row_fields": 10,
+    "mapping_statuses": 5
+  }
+}

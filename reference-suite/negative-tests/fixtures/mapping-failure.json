@@ -1,0 +1,41 @@
+{
+  "id": "N03",
+  "fault_class": "mapping_failure",
+  "suite_member": "S1",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S1-VPE-4420",
+    "mission": "Map exception clause EC-17 to approved control bundle",
+    "fault_injection": {
+      "kind": "unmapped_control_clause",
+      "clause_id": "EC-17",
+      "mapping_table_revision": "hermes-v0.20-map",
+      "mapped_status": "pending",
+      "infer_allowed": false
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-mapping-failure", "field": "mapping_failure", "operator": "equals", "value": true},
+    {"id": "oracle-no-inference", "field": "inference_attempted", "operator": "equals", "value": false},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "needs_policy_decision"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "needs_policy_decision",
+    "exception_class": "mapping_failure",
+    "disposition": "needs_policy_decision",
+    "fail_closed": true,
+    "blocking_exception": false,
+    "mapping_failure": true,
+    "human_escalation_required": false,
+    "deny_with_receipt": false,
+    "policy_record_id": null,
+    "duplicate_acceptance_prevented": false,
+    "inference_attempted": false,
+    "producer_output_emitted": false,
+    "effect_applied": false,
+    "receipt_emitted": true,
+    "acceptance_counted": false,
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

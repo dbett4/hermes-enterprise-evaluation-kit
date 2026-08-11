@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1",
+  "accepted": {
+    "S3-RL-018-deliverable-001": {
+      "count": 1,
+      "prior_run_id": "S3-RL-018-run-001",
+      "recorded_at": "2026-08-06T12:00:00+00:00"
+    }
+  }
+}

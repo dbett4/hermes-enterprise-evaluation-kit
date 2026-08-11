@@ -1,0 +1,2138 @@
+{
+  "cases": [
+    {
+      "id": "prohibited_t0",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "prohibited",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "fixed_schema",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "unavailable",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-T0",
+        "disposition": "do_not_agentize",
+        "O01_agent_decision": {
+          "intervention_decision": "do_not_agentize",
+          "lifecycle_disposition": "do_not_agentize"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T0",
+          "known_minimum": "T0",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "prohibited_purpose",
+            "tier": "T0",
+            "reason": "prohibited purpose"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T0",
+            "trigger_id": "prohibited_purpose",
+            "reason": "prohibited purpose"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L0",
+              "applied_uplift_floor": null,
+              "final_depth": "L0",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L0",
+              "applied_uplift_floor": null,
+              "final_depth": "L0",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L0",
+              "applied_uplift_floor": null,
+              "final_depth": "L0",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L0",
+              "applied_uplift_floor": null,
+              "final_depth": "L0",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 4,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 66
+        }
+      }
+    },
+    {
+      "id": "advisory_first_t1",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "bounded",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-QUALIFY",
+        "disposition": "qualify",
+        "O01_agent_decision": {
+          "intervention_decision": "qualify",
+          "lifecycle_disposition": "qualify"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T1",
+          "known_minimum": "T1",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "advisory_read_draft_known",
+            "tier": "T1",
+            "reason": "advisory read/draft with known source and owner"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "H",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T1",
+            "trigger_id": "advisory_read_draft_known",
+            "reason": "advisory read/draft with known source and owner"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "eligible_subsequent_t2",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "write",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "none",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "fixed_schema",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "ref:accepted_first_h_record_ref",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "ref:observed_effect_ref",
+          "policy_ratification_ref": "ref:policy_ratification_ref",
+          "state": "subsequent",
+          "tested_recovery_ref": "ref:tested_recovery_ref",
+          "tuple_identity": "tuple-1"
+        }
+      },
+      "expected": {
+        "rule_id": "R-QUALIFY",
+        "disposition": "qualify",
+        "O01_agent_decision": {
+          "intervention_decision": "qualify",
+          "lifecycle_disposition": "qualify"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T2",
+          "known_minimum": "T2",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "bounded_internal_reversible_noncritical",
+            "tier": "T2",
+            "reason": "bounded internal reversible noncritical action"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "A",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T2",
+            "trigger_id": "bounded_internal_reversible_noncritical",
+            "reason": "bounded internal reversible noncritical action"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "material_reversible_t3",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "write",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "material",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "none",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "fixed_schema",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "ref:accepted_first_h_record_ref",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "ref:observed_effect_ref",
+          "policy_ratification_ref": "ref:policy_ratification_ref",
+          "state": "subsequent",
+          "tested_recovery_ref": "ref:tested_recovery_ref",
+          "tuple_identity": "tuple-1"
+        }
+      },
+      "expected": {
+        "rule_id": "R-QUALIFY",
+        "disposition": "qualify",
+        "O01_agent_decision": {
+          "intervention_decision": "qualify",
+          "lifecycle_disposition": "qualify"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T3",
+          "known_minimum": "T3",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "material_consequence",
+            "tier": "T3",
+            "reason": "material consequence"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "H",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T3",
+            "trigger_id": "material_consequence",
+            "reason": "material consequence"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "severe_t4",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "write",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "severe",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "none",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "fixed_schema",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "ref:accepted_first_h_record_ref",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "ref:observed_effect_ref",
+          "policy_ratification_ref": "ref:policy_ratification_ref",
+          "state": "subsequent",
+          "tested_recovery_ref": "ref:tested_recovery_ref",
+          "tuple_identity": "tuple-1"
+        }
+      },
+      "expected": {
+        "rule_id": "R-QUALIFY",
+        "disposition": "do_not_agentize",
+        "O01_agent_decision": {
+          "intervention_decision": "do_not_agentize",
+          "lifecycle_disposition": "do_not_agentize"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T4",
+          "known_minimum": "T4",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "severe_consequence",
+            "tier": "T4",
+            "reason": "severe or critical consequence"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H2",
+            "actual": "D",
+            "h2_denial_reason": "h2_available=false"
+          },
+          "selected_base_rule": {
+            "tier": "T4",
+            "trigger_id": "severe_consequence",
+            "reason": "severe or critical consequence"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L3",
+              "applied_uplift_floor": null,
+              "final_depth": "L3",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "fixed_read_conventional",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "fixed_schema",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-CONVENTIONAL",
+        "disposition": "conventional_automation",
+        "O01_agent_decision": {
+          "intervention_decision": "conventional_automation",
+          "lifecycle_disposition": "do_not_agentize"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T1",
+          "known_minimum": "T1",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "advisory_read_draft_known",
+            "tier": "T1",
+            "reason": "advisory read/draft with known source and owner"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T1",
+            "trigger_id": "advisory_read_draft_known",
+            "reason": "advisory read/draft with known source and owner"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 11,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 73
+        }
+      }
+    },
+    {
+      "id": "ambiguous_bounded_human",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "write",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "none",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "ambiguous",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "ref:accepted_first_h_record_ref",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "ref:observed_effect_ref",
+          "policy_ratification_ref": "ref:policy_ratification_ref",
+          "state": "subsequent",
+          "tested_recovery_ref": "ref:tested_recovery_ref",
+          "tuple_identity": "tuple-1"
+        }
+      },
+      "expected": {
+        "rule_id": "R-HUMAN",
+        "disposition": "human_process",
+        "O01_agent_decision": {
+          "intervention_decision": "human_process",
+          "lifecycle_disposition": "human_process"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T2",
+          "known_minimum": "T2",
+          "unresolved_facts": [],
+          "highest_trigger": {
+            "trigger_id": "bounded_internal_reversible_noncritical",
+            "tier": "T2",
+            "reason": "bounded internal reversible noncritical action"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T2",
+            "trigger_id": "bounded_internal_reversible_noncritical",
+            "reason": "bounded internal reversible noncritical action"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L2",
+              "applied_uplift_floor": null,
+              "final_depth": "L2",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [],
+        "trace_counts": {
+          "disposition": 12,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 74
+        }
+      }
+    },
+    {
+      "id": "unknown_acceptance_defer_t1",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "unknown",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "bounded",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "fully_reversible",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-UNKNOWN",
+        "disposition": "defer",
+        "O01_agent_decision": {
+          "intervention_decision": "defer",
+          "lifecycle_disposition": "defer"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": "T1",
+          "known_minimum": "T1",
+          "unresolved_facts": [
+            {
+              "fact": "answers.acceptance_criteria",
+              "owner": "ops",
+              "resume_trigger": "policy change"
+            }
+          ],
+          "highest_trigger": {
+            "trigger_id": "advisory_read_draft_known",
+            "tier": "T1",
+            "reason": "advisory read/draft with known source and owner"
+          }
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": {
+            "tier": "T1",
+            "trigger_id": "advisory_read_draft_known",
+            "reason": "advisory read/draft with known source and owner"
+          },
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": "L1",
+              "applied_uplift_floor": null,
+              "final_depth": "L1",
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [
+          {
+            "fact": "answers.acceptance_criteria",
+            "owner": "ops",
+            "resume_trigger": "policy change"
+          }
+        ],
+        "trace_counts": {
+          "disposition": 8,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 70
+        }
+      }
+    },
+    {
+      "id": "fully_known_no_trigger",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "bounded",
+            "exception_frequency": "none",
+            "model_judgment": "none",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "difficult",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-UNKNOWN",
+        "disposition": "defer",
+        "O01_agent_decision": {
+          "intervention_decision": "defer",
+          "lifecycle_disposition": "defer"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": null,
+          "known_minimum": null,
+          "unresolved_facts": [
+            {
+              "fact": "no_proportionality_trigger",
+              "owner": "ops",
+              "resume_trigger": "policy change"
+            }
+          ],
+          "highest_trigger": null
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": null,
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": []
+        },
+        "O10_unresolved_risk_register": [
+          {
+            "fact": "no_proportionality_trigger",
+            "owner": "ops",
+            "resume_trigger": "policy change"
+          }
+        ],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "no_trigger_model_uplift",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "read",
+            "environment": "internal_nonproduction",
+            "external_effect": "none",
+            "privilege": "none",
+            "target": "explicit_single"
+          },
+          "consequence": {
+            "consequence": "noncritical",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "unknown",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "bounded",
+            "exception_frequency": "none",
+            "model_judgment": "present",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "unknown",
+            "cost_value": "unknown",
+            "dependencies": "unknown",
+            "duration": "unknown",
+            "supplier_change": "unknown"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "immediate",
+            "reversibility": "difficult",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-UNKNOWN",
+        "disposition": "defer",
+        "O01_agent_decision": {
+          "intervention_decision": "defer",
+          "lifecycle_disposition": "defer"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": null,
+          "known_minimum": null,
+          "unresolved_facts": [
+            {
+              "fact": "no_proportionality_trigger",
+              "owner": "ops",
+              "resume_trigger": "policy change"
+            }
+          ],
+          "highest_trigger": null
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": null,
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "model judgment affects acceptance"
+              ]
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            }
+          ],
+          "applied_uplifts": [
+            {
+              "id": "model_judgment",
+              "modules": [
+                "quality_verification"
+              ],
+              "floor": "L2",
+              "reason": "model judgment affects acceptance"
+            }
+          ]
+        },
+        "O10_unresolved_risk_register": [
+          {
+            "fact": "no_proportionality_trigger",
+            "owner": "ops",
+            "resume_trigger": "policy change"
+          }
+        ],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    },
+    {
+      "id": "no_trigger_six_uplifts",
+      "input": {
+        "answers": {
+          "acceptance_criteria": "fixed criteria",
+          "baseline": "review time",
+          "intended_outcome": "draft recommendation",
+          "mission": "policy comparison",
+          "named_operating_owner": "ops",
+          "named_policy_owner": "policy",
+          "resume_trigger": "policy change",
+          "sources_targets_exceptions": [
+            "policy->draft"
+          ],
+          "workflow_actions": [
+            "read",
+            "compare",
+            "draft"
+          ]
+        },
+        "classification_groups": {
+          "action": {
+            "action": "internal_coordinate",
+            "environment": "internal_nonproduction",
+            "external_effect": "reversible",
+            "privilege": "none",
+            "target": "none"
+          },
+          "consequence": {
+            "consequence": "low",
+            "population": "single",
+            "recallability": "immediate"
+          },
+          "data_source": {
+            "data": "internal",
+            "purpose": "allowed",
+            "residency": "unrestricted",
+            "retention": "bounded",
+            "source_authority": "authoritative"
+          },
+          "identity": {
+            "credential_reach": "none",
+            "delegation": "unknown",
+            "identity": "unknown",
+            "segregation": "unknown"
+          },
+          "novelty": {
+            "ambiguity": "bounded",
+            "exception_frequency": "none",
+            "model_judgment": "present",
+            "novelty": "fixed"
+          },
+          "operations": {
+            "adoption_burden": "multi_owner",
+            "cost_value": "public_claim_requires_evidence",
+            "dependencies": "outcome_changing",
+            "duration": "long_lived",
+            "supplier_change": "none"
+          },
+          "reversibility": {
+            "idempotency": "tested",
+            "readback": "tested",
+            "recovery": "unavailable",
+            "reversibility": "difficult",
+            "rollback": "tested",
+            "safe_state": "available"
+          },
+          "verification": {
+            "custody": "unknown",
+            "evidence_completeness": "unknown",
+            "verifier_strength": "unknown"
+          }
+        },
+        "instrument_config": {
+          "h2_available": false
+        },
+        "instrument_id": "b03-scoping-instrument-v2",
+        "occurrence": {
+          "accepted_first_h_record_ref": "unknown",
+          "human_release_mechanism_available": "available",
+          "observed_effect_ref": "unknown",
+          "policy_ratification_ref": "unknown",
+          "state": "first",
+          "tested_recovery_ref": "unknown",
+          "tuple_identity": "unknown"
+        }
+      },
+      "expected": {
+        "rule_id": "R-UNKNOWN",
+        "disposition": "defer",
+        "O01_agent_decision": {
+          "intervention_decision": "defer",
+          "lifecycle_disposition": "defer"
+        },
+        "O05_risk_tier": {
+          "assigned_tier": null,
+          "known_minimum": null,
+          "unresolved_facts": [
+            {
+              "fact": "no_proportionality_trigger",
+              "owner": "ops",
+              "resume_trigger": "policy change"
+            }
+          ],
+          "highest_trigger": null
+        },
+        "O06_control_plan": {
+          "authority": {
+            "required": "H",
+            "actual": "D",
+            "h2_denial_reason": null
+          },
+          "selected_base_rule": null,
+          "modules": [
+            {
+              "module_id": "authority_human_oversight",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "external effect"
+              ]
+            },
+            {
+              "module_id": "quality_verification",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "model judgment affects acceptance"
+              ]
+            },
+            {
+              "module_id": "evidence_traceability",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "external effect"
+              ]
+            },
+            {
+              "module_id": "identity_security_data_legal",
+              "base_depth": null,
+              "applied_uplift_floor": null,
+              "final_depth": null,
+              "reasons": []
+            },
+            {
+              "module_id": "integration_change_supply_chain",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "outcome-changing dependency or supplier"
+              ]
+            },
+            {
+              "module_id": "reliability_continuity",
+              "base_depth": null,
+              "applied_uplift_floor": "L3",
+              "final_depth": null,
+              "reasons": [
+                "no rollback or long/unavailable recovery"
+              ]
+            },
+            {
+              "module_id": "economics_value",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "public cost/value claim"
+              ]
+            },
+            {
+              "module_id": "adoption_ownership",
+              "base_depth": null,
+              "applied_uplift_floor": "L2",
+              "final_depth": null,
+              "reasons": [
+                "multi-owner, long-lived, or staff-displacement burden"
+              ]
+            }
+          ],
+          "applied_uplifts": [
+            {
+              "id": "external_effect",
+              "modules": [
+                "authority_human_oversight",
+                "evidence_traceability"
+              ],
+              "floor": "L2",
+              "reason": "external effect"
+            },
+            {
+              "id": "no_rollback_or_long_recovery",
+              "modules": [
+                "reliability_continuity"
+              ],
+              "floor": "L3",
+              "reason": "no rollback or long/unavailable recovery"
+            },
+            {
+              "id": "outcome_changing_dependency",
+              "modules": [
+                "integration_change_supply_chain"
+              ],
+              "floor": "L2",
+              "reason": "outcome-changing dependency or supplier"
+            },
+            {
+              "id": "model_judgment",
+              "modules": [
+                "quality_verification"
+              ],
+              "floor": "L2",
+              "reason": "model judgment affects acceptance"
+            },
+            {
+              "id": "adoption_burden",
+              "modules": [
+                "adoption_ownership"
+              ],
+              "floor": "L2",
+              "reason": "multi-owner, long-lived, or staff-displacement burden"
+            },
+            {
+              "id": "public_value_claim",
+              "modules": [
+                "economics_value"
+              ],
+              "floor": "L2",
+              "reason": "public cost/value claim"
+            }
+          ]
+        },
+        "O10_unresolved_risk_register": [
+          {
+            "fact": "no_proportionality_trigger",
+            "owner": "ops",
+            "resume_trigger": "policy change"
+          }
+        ],
+        "trace_counts": {
+          "disposition": 15,
+          "proportionality": 41,
+          "uplift": 11,
+          "output_leaf": 10,
+          "total": 77
+        }
+      }
+    }
+  ]
+}

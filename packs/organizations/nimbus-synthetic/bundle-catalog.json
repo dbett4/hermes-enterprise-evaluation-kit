@@ -1,0 +1,35 @@
+{
+  "catalog_id": "nimbus-synthetic-bundle-catalog-v0.1",
+  "envelope_id": "env-nimbus-synthetic-v0.1",
+  "resolver_rule_id": "resolver-v0.1-synthetic-internal",
+  "bundles": [
+    {
+      "bundle_id": "bundle-s1-decide",
+      "path": "reference-suite/config-bundles/bundle-s1-decide.json",
+      "task_classes": ["vendor_policy_exception"],
+      "action_classes": ["decide-recommend"],
+      "authority_modes": ["H"]
+    },
+    {
+      "bundle_id": "bundle-s2-coordinate",
+      "path": "reference-suite/config-bundles/bundle-s2-coordinate.json",
+      "task_classes": ["employee_offboarding"],
+      "action_classes": ["coordinate-handoff"],
+      "authority_modes": ["H"]
+    },
+    {
+      "bundle_id": "bundle-s3-act-h",
+      "path": "reference-suite/config-bundles/bundle-s3-act-h.json",
+      "task_classes": ["rate_limit_change"],
+      "action_classes": ["act-rate-limit-change"],
+      "authority_modes": ["H"]
+    },
+    {
+      "bundle_id": "bundle-s3-act-a",
+      "path": "reference-suite/config-bundles/bundle-s3-act-a.json",
+      "task_classes": ["rate_limit_change"],
+      "action_classes": ["act-rate-limit-change"],
+      "authority_modes": ["A"]
+    }
+  ]
+}

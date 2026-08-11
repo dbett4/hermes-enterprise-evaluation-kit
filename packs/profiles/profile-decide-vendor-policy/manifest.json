@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1",
+  "distribution_id": "profile-decide-vendor-policy",
+  "distribution_ref": "hermes-agent:v2026.8.3/profile-decide-vendor-policy",
+  "hermes_release": "v2026.8.3",
+  "description": "S1 Decide — bounded vendor-policy exception recommendation (synthetic corpus, read-only)",
+  "security_posture": "sandbox-readonly",
+  "local_install_path": "packs/profiles/profile-decide-vendor-policy",
+  "artifact_refs": [
+    "reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md",
+    "reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md",
+    "reference-suite/s1-decide/questionnaire.json"
+  ]
+}

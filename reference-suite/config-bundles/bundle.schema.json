@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hermes-enterprise-field-kit.local/reference-suite/config-bundles/bundle.schema.json",
+  "title": "Reference suite configuration bundle v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "bundle_version",
+    "archetype",
+    "hermes_profile",
+    "artifact_refs",
+    "runtime",
+    "controls",
+    "limits",
+    "verifier",
+    "manifest",
+    "governance"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "bundle_id": { "type": "string", "pattern": "^bundle-" },
+    "bundle_version": { "type": "string", "pattern": "^0\\.1\\." },
+    "archetype": { "enum": ["decide", "coordinate", "act"] },
+    "hermes_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["distribution_ref", "security_posture"],
+      "properties": {
+        "distribution_ref": { "type": "string" },
+        "security_posture": { "enum": ["sandbox-readonly", "sandbox-staging-write", "sandbox-coordination"] }
+      }
+    },
+    "artifact_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "provider_constraint",
+        "effort",
+        "auxiliary_model",
+        "fallback_chain"
+      ],
+      "properties": {
+        "model": { "type": "string" },
+        "provider_constraint": { "type": "string" },
+        "effort": { "type": "string" },
+        "auxiliary_model": { "type": ["string", "null"] },
+        "fallback_chain": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sandbox",
+        "egress",
+        "managed_scope",
+        "approval_mode",
+        "deny_rules"
+      ],
+      "properties": {
+        "sandbox": { "type": "string" },
+        "egress": { "enum": ["none", "iron-proxy-staging", "iron-proxy-limited"] },
+        "managed_scope": { "type": "string" },
+        "approval_mode": { "enum": ["H", "A", "D"] },
+        "deny_rules": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "data_zone",
+        "action_class",
+        "authority_ceiling",
+        "consequence_class",
+        "reversibility"
+      ],
+      "properties": {
+        "data_zone": { "type": "string" },
+        "action_class": { "type": "string" },
+        "authority_ceiling": { "enum": ["H", "A", "D"] },
+        "consequence_class": { "type": "string" },
+        "reversibility": { "enum": ["fully_reversible", "partially_reversible", "not_reversible"] }
+      }
+    },
+    "verifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topology", "required_dispositions"],
+      "properties": {
+        "topology": { "type": "string" },
+        "required_dispositions": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "enum": [
+              "deterministic-oracle",
+              "role-separated",
+              "model-independent",
+              "human"
+            ]
+          }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "sha256"],
+      "properties": {
+        "canonicalization": { "const": "json-canonical-v1" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "approval_record_id",
+        "effective_date",
+        "review_date",
+        "supersedes"
+      ],
+      "properties": {
+        "owner": { "type": "string" },
+        "approval_record_id": { "type": "string" },
+        "effective_date": { "type": "string", "format": "date" },
+        "review_date": { "type": "string", "format": "date" },
+        "supersedes": { "type": ["string", "null"] },
+        "h_seed_requirement": { "type": "string" }
+      }
+    },
+    "description": { "type": "string" }
+  }
+}

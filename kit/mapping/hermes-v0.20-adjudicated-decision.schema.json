@@ -1,0 +1,1052 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/adjudicated-decision-schema/v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_id",
+    "requirement_key",
+    "requirement_digest",
+    "adjudication_state",
+    "atomic_obligations",
+    "family",
+    "status",
+    "eligible_surface_ids",
+    "implementation",
+    "evidence",
+    "boundary",
+    "reference_use",
+    "incomplete_treatment",
+    "staleness",
+    "requirement_trace"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "pattern": "^B05-DEC-(?:00(?:0[1-9]|[1-9][0-9])|0[1-2][0-9]{2}|03(?:0[0-9]|1[0-8]))$"
+    },
+    "requirement_key": {
+      "type": "string",
+      "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+    },
+    "requirement_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "adjudication_state": {
+      "const": "adjudicated"
+    },
+    "atomic_obligations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+      }
+    },
+    "family": {
+      "type": "string",
+      "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_status",
+        "supporting_statuses",
+        "rationale"
+      ],
+      "properties": {
+        "primary_status": {
+          "type": "string",
+          "enum": [
+            "native",
+            "configuration",
+            "extension",
+            "surrounding-platform",
+            "unsupported-gap"
+          ]
+        },
+        "supporting_statuses": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "native",
+              "configuration",
+              "extension",
+              "surrounding-platform",
+              "unsupported-gap"
+            ]
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "eligible_surface_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "HS-PROFILE-DISTRIBUTION",
+          "HS-GOALS",
+          "HS-APPROVAL-DENY",
+          "HS-SMART-APPROVAL",
+          "HS-WEBHOOKS",
+          "HS-IRON-PROXY",
+          "HS-OS-CONTAINER-ISOLATION",
+          "HS-MANAGED-SCOPE",
+          "HS-KANBAN",
+          "HS-PROVIDER-ROUTING",
+          "HS-FALLBACK",
+          "HS-MODEL-EFFORT-CONFIG",
+          "HS-GATEWAY-EXACT-TAG",
+          "HS-GATEWAY-INSTALLED",
+          "HS-GATEWAY-E2E",
+          "HS-EVIDENCE-PACKET",
+          "HS-PORTAL-METERING",
+          "HS-NON-REFERENCE-SURFACES"
+        ]
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component",
+        "configuration",
+        "owner",
+        "applicability",
+        "native_first"
+      ],
+      "properties": {
+        "component": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "configuration": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "applicability": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "native_first": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "considered_surface_ids",
+            "strongest_builtin_primitive",
+            "sufficient"
+          ],
+          "properties": {
+            "considered_surface_ids": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "HS-PROFILE-DISTRIBUTION",
+                  "HS-GOALS",
+                  "HS-APPROVAL-DENY",
+                  "HS-SMART-APPROVAL",
+                  "HS-WEBHOOKS",
+                  "HS-IRON-PROXY",
+                  "HS-OS-CONTAINER-ISOLATION",
+                  "HS-MANAGED-SCOPE",
+                  "HS-KANBAN",
+                  "HS-PROVIDER-ROUTING",
+                  "HS-FALLBACK",
+                  "HS-MODEL-EFFORT-CONFIG",
+                  "HS-GATEWAY-EXACT-TAG",
+                  "HS-GATEWAY-INSTALLED",
+                  "HS-GATEWAY-E2E",
+                  "HS-EVIDENCE-PACKET",
+                  "HS-PORTAL-METERING",
+                  "HS-NON-REFERENCE-SURFACES"
+                ]
+              }
+            },
+            "strongest_builtin_primitive": {
+              "type": "string",
+              "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+            },
+            "sufficient": {
+              "type": "boolean"
+            },
+            "insufficiency_reason": {
+              "type": "string",
+              "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sufficient": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "insufficiency_reason"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sufficient": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "insufficiency_reason"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface_ids",
+        "statuses",
+        "source_refs",
+        "observed_date",
+        "basis",
+        "bounded_claim"
+      ],
+      "properties": {
+        "surface_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "HS-PROFILE-DISTRIBUTION",
+              "HS-GOALS",
+              "HS-APPROVAL-DENY",
+              "HS-SMART-APPROVAL",
+              "HS-WEBHOOKS",
+              "HS-IRON-PROXY",
+              "HS-OS-CONTAINER-ISOLATION",
+              "HS-MANAGED-SCOPE",
+              "HS-KANBAN",
+              "HS-PROVIDER-ROUTING",
+              "HS-FALLBACK",
+              "HS-MODEL-EFFORT-CONFIG",
+              "HS-GATEWAY-EXACT-TAG",
+              "HS-GATEWAY-INSTALLED",
+              "HS-GATEWAY-E2E",
+              "HS-EVIDENCE-PACKET",
+              "HS-PORTAL-METERING",
+              "HS-NON-REFERENCE-SURFACES"
+            ]
+          }
+        },
+        "statuses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "PASS_WITH_LIMITS",
+              "OBSERVED_WITH_LIMITS",
+              "NOT_RUN",
+              "GAP"
+            ]
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+          }
+        },
+        "observed_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "basis": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "bounded_claim": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "known_limits",
+        "bypasses",
+        "security_boundary"
+      ],
+      "properties": {
+        "known_limits": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "bypasses": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "security_boundary": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "reference_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reference_case",
+        "acceptance_test",
+        "expected_result",
+        "negative_case"
+      ],
+      "properties": {
+        "reference_case": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "acceptance_test": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "expected_result": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "negative_case": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "incomplete_treatment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mechanism",
+        "owner",
+        "treatment",
+        "incomplete_state"
+      ],
+      "properties": {
+        "mechanism": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "treatment": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "incomplete_state": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "staleness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "release_trigger",
+        "topology_trigger",
+        "configuration_trigger",
+        "requirement_trigger",
+        "evidence_trigger",
+        "review_owner",
+        "review_event"
+      ],
+      "properties": {
+        "release_trigger": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "topology_trigger": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "configuration_trigger": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "requirement_trigger": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "evidence_trigger": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "review_owner": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "review_event": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "requirement_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "control_ids",
+        "module_ids",
+        "slot_ids",
+        "evidence_class_ids",
+        "metric_ids",
+        "evidence_ids",
+        "risk_statement",
+        "control_rule",
+        "threshold",
+        "window",
+        "action_owner"
+      ],
+      "properties": {
+        "control_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+          }
+        },
+        "module_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "MOD-AUTH",
+              "MOD-QUALITY",
+              "MOD-EVIDENCE",
+              "MOD-IDENTITY",
+              "MOD-INTEGRATION",
+              "MOD-RELIABILITY",
+              "MOD-ECONOMICS",
+              "MOD-ADOPTION"
+            ]
+          }
+        },
+        "slot_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "SLOT-01-HUMAN-PROCEDURE",
+              "SLOT-02-POLICY-DECISION",
+              "SLOT-03-IDENTITY-CREDENTIAL",
+              "SLOT-04-EXECUTION-BOUNDARY",
+              "SLOT-05-TOOL-CONNECTOR",
+              "SLOT-06-SOURCE-TARGET",
+              "SLOT-07-VERIFICATION-DISPOSITION",
+              "SLOT-08-EVIDENCE-RETENTION",
+              "SLOT-09-OPS-MONITORING"
+            ]
+          }
+        },
+        "evidence_class_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "EV-CLASS-DECLARED",
+              "EV-CLASS-RUNTIME-REPORTED",
+              "EV-CLASS-OBSERVED",
+              "EV-CLASS-ROLE-SEPARATED",
+              "EV-CLASS-MODEL-INDEPENDENT",
+              "EV-CLASS-HUMAN-DISPOSITION",
+              "EV-CLASS-ORG-INDEPENDENT"
+            ]
+          }
+        },
+        "metric_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "MET-ADOP-TABLETOP-FAIL",
+              "MET-ADOP-TRACKING",
+              "MET-ADOP-UNOWNED",
+              "MET-AUTH-DENIAL-BYPASS",
+              "MET-AUTH-UNAUTHORIZED",
+              "MET-ECON-COST-PER-OUTPUT",
+              "MET-EVID-BROKEN-LINKS",
+              "MET-EVID-COMPLETENESS",
+              "MET-EVID-MISMATCH",
+              "MET-IDEN-BOUNDARY-FAIL",
+              "MET-IDEN-DATA-ROUTE",
+              "MET-IDEN-EXPIRED-GRANT",
+              "MET-IDEN-ORPHAN",
+              "MET-INTG-SILENT-DRIFT",
+              "MET-INTG-UNKNOWN-COMPONENT",
+              "MET-INTG-UNRECONSTRUCTABLE",
+              "MET-QUAL-ACCEPTED-RATE",
+              "MET-QUAL-ORACLE-FAILURE",
+              "MET-QUAL-REGRESSION",
+              "MET-RELI-DUPLICATE",
+              "MET-RELI-RECOVERY-OBJECTIVE",
+              "MET-RELI-UNOWNED"
+            ]
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "EV-ADOP-ACCEPTANCE",
+              "EV-ADOP-DEMONSTRATION",
+              "EV-ADOP-OBLIGATIONS",
+              "EV-ADOP-RACI",
+              "EV-ADOP-RUNBOOK",
+              "EV-ADOP-SUPPORT-ROUTE",
+              "EV-ADOP-TABLETOP",
+              "EV-ADOP-TRANSFER",
+              "EV-AUTH-ADR",
+              "EV-AUTH-GRANT",
+              "EV-AUTH-OVERRIDE-DENIAL",
+              "EV-AUTH-PRESTATE-POSTSTATE",
+              "EV-AUTH-PROPOSAL",
+              "EV-AUTH-RELEASE",
+              "EV-AUTH-STOP-REVOCATION",
+              "EV-ECON-BASELINE",
+              "EV-ECON-COST-RECEIPTS",
+              "EV-ECON-DENOMINATOR",
+              "EV-ECON-QUALITY",
+              "EV-ECON-TOTAL-COST",
+              "EV-ECON-VALUE-DISPOSITION",
+              "EV-EVID-ARTIFACTS",
+              "EV-EVID-CUSTODY",
+              "EV-EVID-GRAPH",
+              "EV-EVID-INPUT-REF",
+              "EV-EVID-POPULATION",
+              "EV-EVID-READBACK",
+              "EV-EVID-RECONSTRUCTION",
+              "EV-EVID-WAIVER-LINKS",
+              "EV-IDEN-ACCESS-REVIEW",
+              "EV-IDEN-BOUNDARY-CONFIG",
+              "EV-IDEN-DATA-CLASS",
+              "EV-IDEN-DELEGATION",
+              "EV-IDEN-INVENTORY",
+              "EV-IDEN-ISOLATION-TEST",
+              "EV-IDEN-LIFECYCLE-READBACK",
+              "EV-IDEN-NOVATION",
+              "EV-INTG-ARTIFACTS",
+              "EV-INTG-GAP-REGISTER",
+              "EV-INTG-LOCATION-MAP",
+              "EV-INTG-MANIFEST",
+              "EV-INTG-NOVATION",
+              "EV-INTG-TESTS",
+              "EV-QUAL-CHECKER",
+              "EV-QUAL-CRITERIA",
+              "EV-QUAL-DISCREPANCY",
+              "EV-QUAL-FIXED-OUTPUT",
+              "EV-QUAL-HUMAN-DISPOSITION",
+              "EV-QUAL-ORACLE",
+              "EV-QUAL-RERUN",
+              "EV-RELI-DUPLICATE-TEST",
+              "EV-RELI-FAILURE-INJECTION",
+              "EV-RELI-HEALTH",
+              "EV-RELI-INCIDENT",
+              "EV-RELI-PRESTATE-POSTSTATE",
+              "EV-RELI-RECOVERY",
+              "EV-RELI-RETRY-FALLBACK"
+            ]
+          }
+        },
+        "risk_statement": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "control_rule": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "threshold": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "window": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "action_owner": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        }
+      }
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "missing_capability",
+        "evidence_surface_ids",
+        "evidence_statuses",
+        "acceptance_critical",
+        "owner_role",
+        "consequence",
+        "decision",
+        "treatment",
+        "resume_condition",
+        "staleness_ref"
+      ],
+      "properties": {
+        "missing_capability": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "evidence_surface_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "HS-PROFILE-DISTRIBUTION",
+              "HS-GOALS",
+              "HS-APPROVAL-DENY",
+              "HS-SMART-APPROVAL",
+              "HS-WEBHOOKS",
+              "HS-IRON-PROXY",
+              "HS-OS-CONTAINER-ISOLATION",
+              "HS-MANAGED-SCOPE",
+              "HS-KANBAN",
+              "HS-PROVIDER-ROUTING",
+              "HS-FALLBACK",
+              "HS-MODEL-EFFORT-CONFIG",
+              "HS-GATEWAY-EXACT-TAG",
+              "HS-GATEWAY-INSTALLED",
+              "HS-GATEWAY-E2E",
+              "HS-EVIDENCE-PACKET",
+              "HS-PORTAL-METERING",
+              "HS-NON-REFERENCE-SURFACES"
+            ]
+          }
+        },
+        "evidence_statuses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "PASS_WITH_LIMITS",
+              "OBSERVED_WITH_LIMITS",
+              "NOT_RUN",
+              "GAP"
+            ]
+          }
+        },
+        "acceptance_critical": {
+          "type": "boolean"
+        },
+        "owner_role": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "consequence": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "scope_reduce",
+            "human_control",
+            "defer",
+            "reject"
+          ]
+        },
+        "treatment": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "resume_condition": {
+          "type": "string",
+          "pattern": "^(?!\\s)(?!.*\\s$)(?!\\s*(?i:(?:default|unknown|none|n-a|n/a|tbd(?:\\s+(?:later|pending))?)|[-?.*]+)\\s*$).+$"
+        },
+        "staleness_ref": {
+          "type": "string",
+          "pattern": "^hermes-v0\\.20-map#/rows/(?:[0-9]|[1-9][0-9]|[12][0-9]{2}|3(?:0[0-9]|1[0-7]))/staleness$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "native"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "implementation": {
+            "properties": {
+              "native_first": {
+                "properties": {
+                  "sufficient": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "properties": {
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "configuration",
+                    "extension",
+                    "surrounding-platform",
+                    "unsupported-gap"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "configuration"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "implementation": {
+            "properties": {
+              "native_first": {
+                "properties": {
+                  "sufficient": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "properties": {
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "extension",
+                    "surrounding-platform",
+                    "unsupported-gap"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "extension"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "implementation": {
+            "properties": {
+              "native_first": {
+                "properties": {
+                  "sufficient": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "properties": {
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "configuration",
+                    "surrounding-platform",
+                    "unsupported-gap"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "surrounding-platform"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "implementation": {
+            "properties": {
+              "native_first": {
+                "properties": {
+                  "sufficient": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "properties": {
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "configuration",
+                    "extension",
+                    "unsupported-gap"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "unsupported-gap"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "implementation": {
+            "properties": {
+              "native_first": {
+                "properties": {
+                  "sufficient": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "properties": {
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "configuration",
+                    "extension",
+                    "surrounding-platform"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "native"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "gap"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "configuration"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "gap"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "extension"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "gap"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "surrounding-platform"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "gap"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "primary_status": {
+                "const": "unsupported-gap"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "gap"
+        ]
+      }
+    }
+  ]
+}

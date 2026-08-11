@@ -1,0 +1,163 @@
+{
+  "authority": {
+    "accepted_evidence_required_for_A": true,
+    "critical_default": "H2_or_D",
+    "first_occurrence": "H",
+    "unavailable_capability": "narrow_or_defer_or_do_not_agentize"
+  },
+  "disposition_pass": {
+    "evaluation_order": [
+      "R-T0",
+      "R-UNKNOWN",
+      "R-CONVENTIONAL",
+      "R-HUMAN",
+      "R-QUALIFY"
+    ]
+  },
+  "module_ids": [
+    "authority_human_oversight",
+    "quality_verification",
+    "evidence_traceability",
+    "identity_security_data_legal",
+    "integration_change_supply_chain",
+    "reliability_continuity",
+    "economics_value",
+    "adoption_ownership"
+  ],
+  "rule_set_id": "b03-decision-rules-v2",
+  "rules": [
+    {
+      "disposition": "do_not_agentize",
+      "match": "any",
+      "predicates": [
+        {
+          "operator": "equals",
+          "predicate_id": "prohibited_purpose",
+          "question_id": "classification_groups.data_source.purpose",
+          "value": "prohibited"
+        },
+        {
+          "conditions": [
+            {
+              "operator": "in",
+              "predicate_id": "material_consequence",
+              "question_id": "classification_groups.consequence.consequence",
+              "value": [
+                "material",
+                "critical"
+              ]
+            },
+            {
+              "operator": "in",
+              "predicate_id": "unrecoverable_effect",
+              "question_id": "classification_groups.reversibility.reversibility",
+              "value": [
+                "unknown",
+                "irreversible"
+              ]
+            }
+          ],
+          "operator": "all",
+          "predicate_id": "unbounded_material_effect"
+        },
+        {
+          "operator": "in",
+          "predicate_id": "no_target_readback_or_safe_state",
+          "question_id": "classification_groups.reversibility.rollback",
+          "value": [
+            "not_applicable",
+            "unavailable"
+          ]
+        }
+      ],
+      "rule_id": "R-T0"
+    },
+    {
+      "disposition": "defer",
+      "match": "all",
+      "predicates": [
+        {
+          "operator": "any_unknown",
+          "predicate_id": "acceptance_critical_unknown",
+          "question_ids": [
+            "answers.mission",
+            "answers.intended_outcome",
+            "answers.named_operating_owner",
+            "answers.acceptance_criteria"
+          ],
+          "value": true
+        }
+      ],
+      "rule_id": "R-UNKNOWN"
+    },
+    {
+      "disposition": "conventional_automation",
+      "match": "all",
+      "predicates": [
+        {
+          "operator": "equals",
+          "predicate_id": "fixed_schema",
+          "question_id": "classification_groups.action.action",
+          "value": "read"
+        },
+        {
+          "operator": "equals",
+          "predicate_id": "deterministic_transformation",
+          "question_id": "classification_groups.action.action",
+          "value": "read"
+        },
+        {
+          "operator": "equals",
+          "predicate_id": "no_ambiguous",
+          "question_id": "classification_groups.novelty.ambiguity",
+          "value": "fixed_schema"
+        }
+      ],
+      "rule_id": "R-CONVENTIONAL"
+    },
+    {
+      "disposition": "human_process",
+      "match": "any",
+      "predicates": [
+        {
+          "operator": "in",
+          "predicate_id": "material_judgment",
+          "question_id": "classification_groups.novelty.ambiguity",
+          "value": [
+            "ambiguous",
+            "ambiguous"
+          ]
+        }
+      ],
+      "rule_id": "R-HUMAN"
+    },
+    {
+      "disposition": "qualify",
+      "match": "all",
+      "predicates": [
+        {
+          "operator": "in",
+          "predicate_id": "bounded_scope",
+          "question_id": "classification_groups.reversibility.reversibility",
+          "value": [
+            "fully_reversible",
+            "bounded_reversible"
+          ]
+        },
+        {
+          "operator": "known",
+          "predicate_id": "named_owner",
+          "question_id": "answers.named_operating_owner",
+          "value": true
+        },
+        {
+          "operator": "known",
+          "predicate_id": "acceptance_criteria_known",
+          "question_id": "answers.acceptance_criteria",
+          "value": true
+        }
+      ],
+      "rule_id": "R-QUALIFY"
+    }
+  ]
+}

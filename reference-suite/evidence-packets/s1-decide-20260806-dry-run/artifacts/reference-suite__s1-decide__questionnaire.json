@@ -1,0 +1,48 @@
+{
+  "questionnaire_id": "s1-vendor-exception-q1",
+  "organization": "Nimbus Widgets Inc.",
+  "mission_id": "WO-S1-20260806-001",
+  "questions": [
+    {
+      "id": "Q1",
+      "prompt": "Does the request exceed the 12-month maximum exception window without executive waiver?",
+      "answer": true,
+      "evidence_ref": "exception-request-cloudsync.md#request-summary"
+    },
+    {
+      "id": "Q2",
+      "prompt": "Does the vendor confirm encryption at rest?",
+      "answer": true,
+      "evidence_ref": "exception-request-cloudsync.md#vendor-attestations"
+    },
+    {
+      "id": "Q3",
+      "prompt": "Is payment card data in scope?",
+      "answer": false,
+      "evidence_ref": "exception-request-cloudsync.md#vendor-attestations"
+    },
+    {
+      "id": "Q4",
+      "prompt": "Is a contractual addendum approved by Legal?",
+      "answer": false,
+      "evidence_ref": "exception-request-cloudsync.md#gaps-noted-by-intake"
+    },
+    {
+      "id": "Q5",
+      "prompt": "Are subprocessors disclosed?",
+      "answer": true,
+      "evidence_ref": "exception-request-cloudsync.md#vendor-attestations"
+    }
+  ],
+  "expected_outcome": "Bounded recommendation: defer-pending-legal with conditions; do not approve 18-month window without executive waiver and signed addendum.",
+  "citation_sources": [
+    {
+      "document": "org-policy-v3.2.md",
+      "anchors": [
+        "exception-criteria",
+        "deny-conditions"
+      ],
+      "apply_when_recommendation": "defer-pending-legal"
+    }
+  ]
+}

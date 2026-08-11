@@ -1,0 +1,221 @@
+{
+  "schema_version": "0.1",
+  "ticket": "B08",
+  "synthetic_only": true,
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "all_passed": true
+  },
+  "cases": [
+    {
+      "case_id": "N01",
+      "fault_class": "fail_closed",
+      "suite_member": "S1",
+      "passed": true,
+      "terminal_status": "needs_policy_decision",
+      "exception_class": "fail_closed",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-fail-closed",
+          "passed": true,
+          "detail": "fail_closed=True expected True"
+        },
+        {
+          "oracle_id": "oracle-no-producer-output",
+          "passed": true,
+          "detail": "producer_output_emitted=False expected False"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='needs_policy_decision' expected 'needs_policy_decision'"
+        }
+      ]
+    },
+    {
+      "case_id": "N02",
+      "fault_class": "blocking_exception",
+      "suite_member": "S3",
+      "passed": true,
+      "terminal_status": "rejected",
+      "exception_class": "blocking_exception",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-blocking",
+          "passed": true,
+          "detail": "blocking_exception=True expected True"
+        },
+        {
+          "oracle_id": "oracle-no-effect",
+          "passed": true,
+          "detail": "effect_applied=False expected False"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='rejected' expected 'rejected'"
+        }
+      ]
+    },
+    {
+      "case_id": "N03",
+      "fault_class": "mapping_failure",
+      "suite_member": "S1",
+      "passed": true,
+      "terminal_status": "needs_policy_decision",
+      "exception_class": "mapping_failure",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-mapping-failure",
+          "passed": true,
+          "detail": "mapping_failure=True expected True"
+        },
+        {
+          "oracle_id": "oracle-no-inference",
+          "passed": true,
+          "detail": "inference_attempted=False expected False"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='needs_policy_decision' expected 'needs_policy_decision'"
+        }
+      ]
+    },
+    {
+      "case_id": "N04",
+      "fault_class": "human_escalation",
+      "suite_member": "S1",
+      "passed": true,
+      "terminal_status": "needs_review",
+      "exception_class": "human_escalation",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-human-required",
+          "passed": true,
+          "detail": "human_escalation_required=True expected True"
+        },
+        {
+          "oracle_id": "oracle-not-auto-accepted",
+          "passed": true,
+          "detail": "acceptance_counted=False expected False"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='needs_review' expected 'needs_review'"
+        }
+      ]
+    },
+    {
+      "case_id": "N05",
+      "fault_class": "recovery_without_duplicate_acceptance",
+      "suite_member": "S3",
+      "passed": true,
+      "terminal_status": "accepted",
+      "exception_class": "recovery_without_duplicate_acceptance",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-single-acceptance",
+          "passed": true,
+          "detail": "acceptance_count=1 expected 1"
+        },
+        {
+          "oracle_id": "oracle-duplicate-prevented",
+          "passed": true,
+          "detail": "duplicate_acceptance_prevented=True expected True"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='accepted' expected 'accepted'"
+        }
+      ]
+    },
+    {
+      "case_id": "N06",
+      "fault_class": "deny_receipt",
+      "suite_member": "S1",
+      "passed": true,
+      "terminal_status": "rejected",
+      "exception_class": "deny_receipt",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-deny",
+          "passed": true,
+          "detail": "disposition='deny' expected 'deny'"
+        },
+        {
+          "oracle_id": "oracle-receipt",
+          "passed": true,
+          "detail": "deny_with_receipt=True expected True"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='rejected' expected 'rejected'"
+        }
+      ]
+    },
+    {
+      "case_id": "N07",
+      "fault_class": "block_policy_record",
+      "suite_member": "S3",
+      "passed": true,
+      "terminal_status": "rejected",
+      "exception_class": "block_policy_record",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-blocked",
+          "passed": true,
+          "detail": "effect_applied=False expected False"
+        },
+        {
+          "oracle_id": "oracle-policy-record",
+          "passed": true,
+          "detail": "policy_record_id='NW-POLICY-RECORD-S3-RL-019' expected known value"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='rejected' expected 'rejected'"
+        }
+      ]
+    },
+    {
+      "case_id": "N08",
+      "fault_class": "bounded_retries",
+      "suite_member": "S3",
+      "passed": true,
+      "terminal_status": "accepted",
+      "exception_class": "bounded_retries",
+      "defects": [],
+      "oracle_results": [
+        {
+          "oracle_id": "oracle-retry-cap",
+          "passed": true,
+          "detail": "retry_count=2 expected <= 3"
+        },
+        {
+          "oracle_id": "oracle-final-state",
+          "passed": true,
+          "detail": "final_state_locked=True expected True"
+        },
+        {
+          "oracle_id": "oracle-terminal",
+          "passed": true,
+          "detail": "terminal_status='accepted' expected 'accepted'"
+        }
+      ]
+    }
+  ]
+}

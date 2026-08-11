@@ -1,0 +1,68 @@
+{
+  "oracle_id": "s1-vendor-exception-oracle-v1",
+  "description": "Deterministic checks for S1 vendor-policy exception dry-run",
+  "checks": [
+    {
+      "check_id": "retention-window",
+      "rule": "If requested retention exceeds 12 months without waiver, recommendation must not be unconditional approve.",
+      "inputs": {
+        "requested_months": 18,
+        "executive_waiver_on_file": false
+      },
+      "expected": {
+        "allow_unconditional_approve": false
+      }
+    },
+    {
+      "check_id": "encryption-required",
+      "rule": "Vendor must confirm encryption at rest or recommendation must be deny.",
+      "inputs": {
+        "encryption_confirmed": true
+      },
+      "expected": {
+        "min_recommendation_rank": "defer-pending-legal"
+      }
+    },
+    {
+      "check_id": "legal-addendum",
+      "rule": "Without Legal addendum, recommendation must be defer-pending-legal or deny.",
+      "inputs": {
+        "legal_addendum_approved": false
+      },
+      "expected": {
+        "allowed_recommendations": ["defer-pending-legal", "deny", "approve-with-conditions"]
+      }
+    },
+    {
+      "check_id": "recommendation-bounds",
+      "rule": "Producer output must use an allowed recommendation verb only.",
+      "expected": {
+        "allowed_verbs": ["approve", "approve-with-conditions", "defer-pending-legal", "deny"]
+      }
+    },
+    {
+      "check_id": "source-grounding",
+      "rule": "Every material claim must cite a corpus document id.",
+      "expected": {
+        "required_citations": [
+          "org-policy-v3.2.md",
+          "exception-request-cloudsync.md"
+        ]
+      }
+    }
+  ],
+  "expected_producer_output": {
+    "recommendation": "defer-pending-legal",
+    "conditions": [
+      "Reduce requested retention to 12 months or obtain executive waiver record",
+      "Obtain Legal-approved contractual addendum with explicit expiry",
+      "Separate deletion schedule for raw logs (12 months) vs aggregates (max 12 months unless waived)"
+    ],
+    "citations": [
+      "org-policy-v3.2.md#exception-criteria",
+      "org-policy-v3.2.md#deny-conditions",
+      "exception-request-cloudsync.md#gaps-noted-by-intake"
+    ],
+    "external_action": false
+  }
+}

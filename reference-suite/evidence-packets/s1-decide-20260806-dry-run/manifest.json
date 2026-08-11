@@ -1,0 +1,96 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-golden-path",
+      "content_type": "application/json",
+      "path": "artifacts/golden-path.json",
+      "role": "receipt",
+      "sha256": "27ec7b811f48d940577f9077b0fe4e3271b671ba56d768a330b2878987e3950e"
+    },
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__expected-oracle.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__s1-decide__expected-oracle.json",
+      "role": "supporting",
+      "sha256": "1460e1745b7bd7e358e31887d89c1637319009c9797c06cca861ad6797c30d47",
+      "source_repo_path": "reference-suite/s1-decide/expected-oracle.json"
+    },
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__questionnaire.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__s1-decide__questionnaire.json",
+      "role": "supporting",
+      "sha256": "91af68cc2d4faff50963ad5100350363ebe098d5d47100f5e11f74ebed7e8c64",
+      "source_repo_path": "reference-suite/s1-decide/questionnaire.json"
+    },
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__org-policy-v3.2.md",
+      "content_type": "text/markdown",
+      "path": "artifacts/reference-suite__s1-decide__vendor-policy-corpus__org-policy-v3.2.md",
+      "role": "supporting",
+      "sha256": "5e42f9f3a4994fa18ef01da8ce6a1a39e81d39bd325abb2962b031a9d87143cc",
+      "source_repo_path": "reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md"
+    },
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__exception-request-cloudsync.md",
+      "content_type": "text/markdown",
+      "path": "artifacts/reference-suite__s1-decide__vendor-policy-corpus__exception-request-cloudsync.md",
+      "role": "supporting",
+      "sha256": "39362b7e7b9a689c3037cee5d34d72e49b3a699893e768777cd6f6f2496f30c7",
+      "source_repo_path": "reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md"
+    },
+    {
+      "artifact_id": "s1-decide-20260806-dry-run-reference-suite__config-bundles__bundle-s1-decide.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__config-bundles__bundle-s1-decide.json",
+      "role": "supporting",
+      "sha256": "c1c1f3117b0999d00a9b22e0503b69a1c053d2e270591274454047c9a6139f53",
+      "source_repo_path": "reference-suite/config-bundles/bundle-s1-decide.json"
+    }
+  ],
+  "assembled_at": "2026-08-10T20:12:01+00:00",
+  "expected_outcomes": {
+    "checker_verdict": "accept",
+    "external_action": false,
+    "recommendation": "defer-pending-legal",
+    "terminal_status": "accepted",
+    "type": "decide-recommendation"
+  },
+  "lineage": [
+    {
+      "from": "s1-decide-20260806-dry-run-reference-suite__s1-decide__expected-oracle.json",
+      "relation": "supports",
+      "to": "s1-decide-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s1-decide-20260806-dry-run-reference-suite__s1-decide__questionnaire.json",
+      "relation": "supports",
+      "to": "s1-decide-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__org-policy-v3.2.md",
+      "relation": "supports",
+      "to": "s1-decide-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s1-decide-20260806-dry-run-reference-suite__s1-decide__vendor-policy-corpus__exception-request-cloudsync.md",
+      "relation": "supports",
+      "to": "s1-decide-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s1-decide-20260806-dry-run-reference-suite__config-bundles__bundle-s1-decide.json",
+      "relation": "supports",
+      "to": "s1-decide-20260806-dry-run-golden-path"
+    }
+  ],
+  "packet_id": "packet-s1-decide-20260806-dry-run",
+  "record_posture": {
+    "immutable_audit_claim": false,
+    "reconstruction_class": "non-producer",
+    "store": "mutable-kit-artifact"
+  },
+  "run_id": "s1-decide-20260806-dry-run",
+  "schema_version": "0.1",
+  "secrets_policy": "no-secrets-synthetic-only",
+  "suite_member": "S1"
+}

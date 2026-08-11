@@ -1,0 +1,61 @@
+{
+  "archetype": "decide",
+  "artifact_refs": [
+    "reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md",
+    "reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md",
+    "reference-suite/s1-decide/questionnaire.json",
+    "reference-suite/s1-decide/expected-oracle.json"
+  ],
+  "bundle_id": "bundle-s1-decide",
+  "bundle_version": "0.1.0",
+  "controls": {
+    "approval_mode": "H",
+    "deny_rules": [
+      "no-external-send",
+      "no-contract-execution",
+      "no-production-credentials"
+    ],
+    "egress": "none",
+    "managed_scope": "s1-decide-corpus",
+    "sandbox": "read-only-corpus"
+  },
+  "description": "S1 Decide \u2014 vendor-policy exception assessment (synthetic corpus, bounded recommendation)",
+  "governance": {
+    "approval_record_id": "ADR-B07-S1-20260806",
+    "effective_date": "2026-08-06",
+    "owner": "nimbus-policy-owner-synthetic",
+    "review_date": "2026-11-06",
+    "supersedes": null
+  },
+  "hermes_profile": {
+    "distribution_ref": "hermes-agent:v2026.8.3/profile-decide-vendor-policy",
+    "security_posture": "sandbox-readonly"
+  },
+  "limits": {
+    "action_class": "decide-vendor-policy-exception",
+    "authority_ceiling": "H",
+    "consequence_class": "recommendation-only",
+    "data_zone": "synthetic-internal",
+    "reversibility": "fully_reversible"
+  },
+  "manifest": {
+    "canonicalization": "json-canonical-v1",
+    "sha256": "325464fdaad09b0b9ca440455c4ced003dd903177418f201ebc7d3feea472f6b"
+  },
+  "runtime": {
+    "auxiliary_model": null,
+    "effort": "not-applicable",
+    "fallback_chain": [],
+    "model": "dry-run-producer-v1",
+    "provider_constraint": "configured-local-only"
+  },
+  "schema_version": "0.1",
+  "verifier": {
+    "required_dispositions": [
+      "deterministic-oracle",
+      "role-separated",
+      "human"
+    ],
+    "topology": "producer-then-deterministic-oracle-then-human"
+  }
+}

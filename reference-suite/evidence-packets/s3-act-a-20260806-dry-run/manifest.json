@@ -1,0 +1,97 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-golden-path",
+      "content_type": "application/json",
+      "path": "artifacts/golden-path.json",
+      "role": "receipt",
+      "sha256": "7cad4b1c737a26f756421b443418ab8dfabdc10ae9110a0144551fdadeffc7f7"
+    },
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__initial-state.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__s3-act__fixtures__initial-state.json",
+      "role": "supporting",
+      "sha256": "2b8a2757bcef7530f55048180c2be5fd68d2cdceae6d1f98383e8762faec0a98",
+      "source_repo_path": "reference-suite/s3-act/fixtures/initial-state.json"
+    },
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__target-state.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__s3-act__fixtures__target-state.json",
+      "role": "supporting",
+      "sha256": "1de17a75e942e56582726e571dcc713eacb41c325831805a3eade6c3197f1f2c",
+      "source_repo_path": "reference-suite/s3-act/fixtures/target-state.json"
+    },
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__rollback-state.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__s3-act__fixtures__rollback-state.json",
+      "role": "supporting",
+      "sha256": "c3696a5abe82655b3e1d470a71e933a259ed7f16137b20a56a0fc0c6fcb0de1f",
+      "source_repo_path": "reference-suite/s3-act/fixtures/rollback-state.json"
+    },
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__config-bundles__bundle-s3-act-a.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__config-bundles__bundle-s3-act-a.json",
+      "role": "supporting",
+      "sha256": "ad7b6b9e0ea0ae8a71d5f99f006fa79b58fac3fb1f4abd0f261da3f1485188c1",
+      "source_repo_path": "reference-suite/config-bundles/bundle-s3-act-a.json"
+    },
+    {
+      "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__runs__s3-act-h-20260806-dry-run__golden-path.json",
+      "content_type": "application/json",
+      "path": "artifacts/reference-suite__runs__s3-act-h-20260806-dry-run__golden-path.json",
+      "role": "supporting",
+      "sha256": "76ed6f3a1e884c28f853986efd5215145c940749f393944a073113e69d1f1441",
+      "source_repo_path": "reference-suite/runs/s3-act-h-20260806-dry-run/golden-path.json"
+    }
+  ],
+  "assembled_at": "2026-08-10T20:12:01+00:00",
+  "expected_outcomes": {
+    "checker_verdict": "accept",
+    "post_rpm": 50,
+    "pre_rpm": 100,
+    "rollback_rpm": 100,
+    "terminal_status": "accepted",
+    "type": "act-rate-limit"
+  },
+  "lineage": [
+    {
+      "from": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__initial-state.json",
+      "relation": "supports",
+      "to": "s3-act-a-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__target-state.json",
+      "relation": "supports",
+      "to": "s3-act-a-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__rollback-state.json",
+      "relation": "supports",
+      "to": "s3-act-a-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s3-act-a-20260806-dry-run-reference-suite__config-bundles__bundle-s3-act-a.json",
+      "relation": "supports",
+      "to": "s3-act-a-20260806-dry-run-golden-path"
+    },
+    {
+      "from": "s3-act-a-20260806-dry-run-reference-suite__runs__s3-act-h-20260806-dry-run__golden-path.json",
+      "relation": "supports",
+      "to": "s3-act-a-20260806-dry-run-golden-path"
+    }
+  ],
+  "packet_id": "packet-s3-act-a-20260806-dry-run",
+  "record_posture": {
+    "immutable_audit_claim": false,
+    "reconstruction_class": "non-producer",
+    "store": "mutable-kit-artifact"
+  },
+  "run_id": "s3-act-a-20260806-dry-run",
+  "schema_version": "0.1",
+  "secrets_policy": "no-secrets-synthetic-only",
+  "suite_member": "S3"
+}

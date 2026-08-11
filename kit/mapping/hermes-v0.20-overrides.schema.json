@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/overrides-schema/v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "overrides"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "hermes://b05/overrides-schema/v2"
+    },
+    "schema_version": {
+      "const": "2A"
+    },
+    "overrides": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "requirement_key",
+          "requirement_digest",
+          "replacement"
+        ],
+        "properties": {
+          "requirement_key": {
+            "type": "string",
+            "pattern": "^(?!default$)(?!DEFAULT$)(?![Dd][Ee][Ff][Aa][Uu][Ll][Tt]$)[A-Za-z0-9._-]+$"
+          },
+          "requirement_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "replacement": {
+            "$ref": "hermes://b05/adjudicated-decision-schema/v2"
+          }
+        }
+      },
+      "maxItems": 318
+    }
+  }
+}

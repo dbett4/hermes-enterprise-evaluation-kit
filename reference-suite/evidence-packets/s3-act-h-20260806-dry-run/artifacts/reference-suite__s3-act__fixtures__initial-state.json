@@ -1,0 +1,10 @@
+{
+  "service_id": "nimbus-staging-api",
+  "environment": "synthetic-staging",
+  "resource": "/v1/orders",
+  "rate_limit": {
+    "requests_per_minute": 100,
+    "burst": 20
+  },
+  "prestate_id": "s3-prestate-001"
+}

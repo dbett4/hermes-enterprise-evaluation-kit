@@ -1,0 +1,18 @@
+{
+  "blueprint_id": "nimbus-synthetic-assembly-blueprint-v0.1",
+  "organization_pack_id": "nimbus-synthetic",
+  "envelope_id": "env-nimbus-synthetic-v0.1",
+  "kernel_schema": "enterprise-field-kit-v0.1",
+  "hermes_adapter": {
+    "package_version": "0.20.0",
+    "public_tag": "v2026.8.3"
+  },
+  "bundle_ids": [
+    "bundle-s1-decide",
+    "bundle-s2-coordinate",
+    "bundle-s3-act-h",
+    "bundle-s3-act-a"
+  ],
+  "owner": "nimbus-policy-owner-synthetic",
+  "effective_date": "2026-08-06"
+}

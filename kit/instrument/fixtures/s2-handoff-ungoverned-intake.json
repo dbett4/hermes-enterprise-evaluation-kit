@@ -1,0 +1,93 @@
+{
+  "answers": {
+    "acceptance_criteria": "fixed criteria",
+    "baseline": "review time",
+    "intended_outcome": "draft recommendation",
+    "mission": "Employee offboarding coordination packet",
+    "named_operating_owner": "ops",
+    "named_policy_owner": "policy",
+    "resume_trigger": "policy change",
+    "sources_targets_exceptions": [
+      "policy->draft"
+    ],
+    "workflow_actions": [
+      "read",
+      "compare",
+      "draft"
+    ],
+    "handoff": {
+      "atr_required": "no",
+      "cross_principal_required": "yes",
+      "import_disposition_class": "human-disposition",
+      "minimum_grant_scope": "read",
+      "source_principal_class": "agent:offboarding-coordinator",
+      "target_principal_class": "human:it-ops-manager"
+    }
+  },
+  "classification_groups": {
+    "action": {
+      "action": "internal_coordinate",
+      "environment": "internal_nonproduction",
+      "external_effect": "none",
+      "privilege": "none",
+      "target": "explicit_single"
+    },
+    "consequence": {
+      "consequence": "noncritical",
+      "population": "single",
+      "recallability": "immediate"
+    },
+    "data_source": {
+      "data": "internal",
+      "purpose": "allowed",
+      "residency": "unrestricted",
+      "retention": "bounded",
+      "source_authority": "authoritative"
+    },
+    "identity": {
+      "credential_reach": "unknown",
+      "delegation": "unknown",
+      "identity": "unknown",
+      "segregation": "unknown"
+    },
+    "novelty": {
+      "ambiguity": "fixed_schema",
+      "exception_frequency": "none",
+      "model_judgment": "none",
+      "novelty": "fixed"
+    },
+    "operations": {
+      "adoption_burden": "unknown",
+      "cost_value": "unknown",
+      "dependencies": "unknown",
+      "duration": "unknown",
+      "supplier_change": "unknown"
+    },
+    "reversibility": {
+      "idempotency": "tested",
+      "readback": "tested",
+      "recovery": "immediate",
+      "reversibility": "fully_reversible",
+      "rollback": "tested",
+      "safe_state": "available"
+    },
+    "verification": {
+      "custody": "unknown",
+      "evidence_completeness": "unknown",
+      "verifier_strength": "unknown"
+    }
+  },
+  "instrument_config": {
+    "h2_available": false
+  },
+  "instrument_id": "b03-scoping-instrument-v2",
+  "occurrence": {
+    "accepted_first_h_record_ref": "ref:first-h",
+    "human_release_mechanism_available": "available",
+    "observed_effect_ref": "ref:effect",
+    "policy_ratification_ref": "ref:policy",
+    "state": "first",
+    "tested_recovery_ref": "ref:recovery",
+    "tuple_identity": "s2-coordinate"
+  }
+}

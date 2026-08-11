@@ -1,0 +1,149 @@
+{
+  "entries": [
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0027",
+      "mapping_row_id": "B05-ROW-0027",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 1 — Qualify / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0007",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/26/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0047",
+      "mapping_row_id": "B05-ROW-0047",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 2 — Map / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0004",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/46/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0050",
+      "mapping_row_id": "B05-ROW-0050",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 2 — Map / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0007",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/49/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0070",
+      "mapping_row_id": "B05-ROW-0070",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 3 — Configure & Integrate / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0007",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/69/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0094",
+      "mapping_row_id": "B05-ROW-0094",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 4 — Assure & Authorize / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0007",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/93/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0114",
+      "mapping_row_id": "B05-ROW-0114",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 5 — Operate & Adopt / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0006",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/113/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    },
+    {
+      "acceptance_critical": false,
+      "consequence": "scope reduction or human control required",
+      "decision": "scope_reduce",
+      "evidence_statuses": [
+        "GAP"
+      ],
+      "evidence_surface_ids": [
+        "HS-EVIDENCE-PACKET"
+      ],
+      "gap_id": "B05-GAP-0133",
+      "mapping_row_id": "B05-ROW-0133",
+      "missing_capability": "No sufficient v0.20-native implementation for: Stage 6 — Review, Transfer & Retire / Exit gate and acceptance tests",
+      "owner_role": "mapping owner",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0006",
+      "resume_condition": "evidence catalog refresh or Hermes release adoption",
+      "staleness_ref": "hermes-v0.20-map#/rows/132/staleness",
+      "treatment": "document gap in capability-gap ledger"
+    }
+  ],
+  "ledger_id": "hermes-v0.20-capability-gap-ledger",
+  "map_ref": "hermes-v0.20-map#/rows",
+  "schema_version": "2A",
+  "summary": {
+    "decision_counts": {
+      "defer": 0,
+      "human_control": 0,
+      "reject": 0,
+      "scope_reduce": 7
+    },
+    "entry_count": 7
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "artifact_digest_verification": {
+    "artifacts": [
+      {
+        "actual_sha256": "7cad4b1c737a26f756421b443418ab8dfabdc10ae9110a0144551fdadeffc7f7",
+        "artifact_id": "s3-act-a-20260806-dry-run-golden-path",
+        "expected_sha256": "7cad4b1c737a26f756421b443418ab8dfabdc10ae9110a0144551fdadeffc7f7",
+        "passed": true,
+        "path": "artifacts/golden-path.json"
+      },
+      {
+        "actual_sha256": "2b8a2757bcef7530f55048180c2be5fd68d2cdceae6d1f98383e8762faec0a98",
+        "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__initial-state.json",
+        "expected_sha256": "2b8a2757bcef7530f55048180c2be5fd68d2cdceae6d1f98383e8762faec0a98",
+        "passed": true,
+        "path": "artifacts/reference-suite__s3-act__fixtures__initial-state.json"
+      },
+      {
+        "actual_sha256": "1de17a75e942e56582726e571dcc713eacb41c325831805a3eade6c3197f1f2c",
+        "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__target-state.json",
+        "expected_sha256": "1de17a75e942e56582726e571dcc713eacb41c325831805a3eade6c3197f1f2c",
+        "passed": true,
+        "path": "artifacts/reference-suite__s3-act__fixtures__target-state.json"
+      },
+      {
+        "actual_sha256": "c3696a5abe82655b3e1d470a71e933a259ed7f16137b20a56a0fc0c6fcb0de1f",
+        "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__s3-act__fixtures__rollback-state.json",
+        "expected_sha256": "c3696a5abe82655b3e1d470a71e933a259ed7f16137b20a56a0fc0c6fcb0de1f",
+        "passed": true,
+        "path": "artifacts/reference-suite__s3-act__fixtures__rollback-state.json"
+      },
+      {
+        "actual_sha256": "ad7b6b9e0ea0ae8a71d5f99f006fa79b58fac3fb1f4abd0f261da3f1485188c1",
+        "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__config-bundles__bundle-s3-act-a.json",
+        "expected_sha256": "ad7b6b9e0ea0ae8a71d5f99f006fa79b58fac3fb1f4abd0f261da3f1485188c1",
+        "passed": true,
+        "path": "artifacts/reference-suite__config-bundles__bundle-s3-act-a.json"
+      },
+      {
+        "actual_sha256": "76ed6f3a1e884c28f853986efd5215145c940749f393944a073113e69d1f1441",
+        "artifact_id": "s3-act-a-20260806-dry-run-reference-suite__runs__s3-act-h-20260806-dry-run__golden-path.json",
+        "expected_sha256": "76ed6f3a1e884c28f853986efd5215145c940749f393944a073113e69d1f1441",
+        "passed": true,
+        "path": "artifacts/reference-suite__runs__s3-act-h-20260806-dry-run__golden-path.json"
+      }
+    ],
+    "failures": [],
+    "passed": true
+  },
+  "manifest_expected": {
+    "checker_verdict": "accept",
+    "post_rpm": 50,
+    "pre_rpm": 100,
+    "rollback_rpm": 100,
+    "terminal_status": "accepted"
+  },
+  "manifest_matches_recompute": true,
+  "observed": {
+    "checker_verdict": "accept",
+    "post_rpm": 50,
+    "pre_rpm": 100,
+    "rollback_rpm": 100,
+    "terminal_status": "accepted"
+  },
+  "outcome_match": true,
+  "packet_id": "packet-s3-act-a-20260806-dry-run",
+  "passed": true,
+  "recomputed": {
+    "checker_verdict": "accept",
+    "post_rpm": 50,
+    "pre_rpm": 100,
+    "recompute_basis": "staging-fixtures-via-rate-limit-state",
+    "rollback_rpm": 100,
+    "terminal_status": "accepted"
+  },
+  "reconstruction_basis": "supporting-sources-recompute",
+  "reconstructor_distinct_from_producer": true,
+  "reconstructor_identity": "independent-scripted-reconstructor-20260806",
+  "run_id": "s3-act-a-20260806-dry-run"
+}

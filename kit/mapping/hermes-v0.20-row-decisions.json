@@ -1,0 +1,1920 @@
+{
+  "$schema": "hermes://b05/row-decisions-schema/v3",
+  "schema_version": "2A",
+  "manifest_id": "hermes-v0.20-row-decisions",
+  "baseline_commit": "dd71c1cb51b1bfc85484a44d939c6f66f88d3eb8",
+  "denominator_path": "kit/mapping/neutral-requirements.json",
+  "denominator_sha256": "3b28dac2ef24d463917e4e11bdd4e200aff42568d93e5cc28b4f2496209f143f",
+  "requirement_count": 318,
+  "decisions": [
+    {
+      "decision_id": "B05-DEC-0001",
+      "requirement_key": "kit-lifecycle-readme-md--six-stage-deployment-lifecycle--0001",
+      "requirement_digest": "6eb92b7660125a4b4ea5f9a73ea17f6a927f4f02f663c86116b44a1ae56fe8a2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0002",
+      "requirement_key": "kit-lifecycle-readme-md--six-stage-deployment-lifecycle-ordered-procedure-and-dependencies--0001",
+      "requirement_digest": "0f18f42c368ad2feed41a15783d72596831a58f13859f4b106c8a8cd4077f212",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0003",
+      "requirement_key": "kit-lifecycle-readme-md--six-stage-deployment-lifecycle-common-rules--0001",
+      "requirement_digest": "ebb5dc79f4ecffc9f9247fe956809c346e1b2978e5b1c0e81d41496f0a4215b1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0004",
+      "requirement_key": "kit-lifecycle-readme-md--six-stage-deployment-lifecycle-common-rules--0002",
+      "requirement_digest": "3795ead197c55a60ecf35da1035289177d82bdc103df0dba9538b6f0e4173965",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0005",
+      "requirement_key": "kit-lifecycle-readme-md--six-stage-deployment-lifecycle-common-rules--0003",
+      "requirement_digest": "899690561cb015ab13e3eee73a2e7c2c2dc343642f391dc6ab4c96730fb7e65e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0006",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-entry-conditions--0001",
+      "requirement_digest": "696c8ab3f2aeb0539e4769c1bedaa3415f195d906e52dfafcd67d9479e3a769e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0007",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0001",
+      "requirement_digest": "98bc564834806cc9ce01a477d382308914c82fdc9c953e95fb64a77db966516d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0008",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0002",
+      "requirement_digest": "14c8dbd6b3d7d124dc9a7230fd6cc01324addb6ceeac8c267b833cd67bbe9fec",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0009",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0003",
+      "requirement_digest": "205e7a98af676a280094700dfbb754d20c7fe284970f2a5fc86479a07defc10a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0010",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0004",
+      "requirement_digest": "475e1df3d6959054afba64ae9c438f7309953abf83b3e991c66ecb6dd04efbfe",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0011",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0005",
+      "requirement_digest": "c70a5d9120239136f0356ead20285fb00767e59887c0cc7b3deaf700adad2f94",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0012",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0006",
+      "requirement_digest": "8fb7bbce7003aa50f155b5c573665d41d2e73f9722921843e29d9db0c4f88183",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0013",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-required-questions--0007",
+      "requirement_digest": "8282f3941e46383695d814a18db42a26065a08e5902114e3facef4f6bc996231",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0014",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-decision-rules--0001",
+      "requirement_digest": "037ada4a11b413f107138120bbf1f52ecab90a15c1f8dc53b3dd679a77716214",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0015",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-decision-rules--0002",
+      "requirement_digest": "a98aced2244f9a0d213ab249648f74187487bad56b5148380121fac15e1e6c1d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0016",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-decision-rules--0003",
+      "requirement_digest": "47f70dd469a18c67d4f907819d7965b4c20d362a537a9ff676d1001945421e29",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0017",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-decision-rules--0004",
+      "requirement_digest": "404d4fb62c11676291ba1c197972ee91f203f1174b4c499b437af8642d3de4dc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0018",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-decision-rules--0005",
+      "requirement_digest": "023d46d029c82af7fbba1f28edccd7529255d389082267ae2116c32fd8d36902",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0019",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-accountable-owner--0001",
+      "requirement_digest": "4d7190870e8f0e6ca12f782df34cc579ebb244d663b1f01cd1305d96acc872d1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0020",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exceptions-and-escalation--0001",
+      "requirement_digest": "8d0f57d99208177e95630e328fd2736931f77657c0464060dbff87547fad7bc7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0021",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "439f32d1cbfb97ec55a324e5f400a1bb427da36be36742c8c12aed86d11b6e75",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0022",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "6011857a74b0b78a22d07630a1cc727a117afec3615ec639037bca32e84eaaed",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0023",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "2c2487cb5a391969906ef6decc6302ea53862f6cd15ee5ed446db6d068582da3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0024",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "dbb7f03edb9868e9987083e73cca8b9deceb6724a532d7652bd4f7a5996dfe9a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0025",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "6a4e6877dff7e30c7debb579eaf98f54c934e2a80d018ac38e24cfd7b53015a7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0026",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "cb8072fa30b243d87405c61485b80f44d838e40f31f0466ff72dc91673146675",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0027",
+      "requirement_key": "kit-lifecycle-01-qualify-md--stage-1-qualify-exit-gate-and-acceptance-tests--0007",
+      "requirement_digest": "bb7381de4ffd34bfb3d8eef6b0121a00b460d83ffcb87837cbc3e78dc35cb153",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0028",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0001",
+      "requirement_digest": "a1b76e263859a71cdbdc83534cadaf8667b32dd49c42c5f1e5dcc2b7de93c3a6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0029",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0002",
+      "requirement_digest": "e90fefc62cb6668bf80e88cb4ab3e4f18c1f032957210f2847a514402f639261",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0030",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0003",
+      "requirement_digest": "c563b4b8eb351faee56aa918ff5317732cf96af06ce0b4662069c62712c34ce6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0031",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0004",
+      "requirement_digest": "9a2f5c57185b6b05522284c3d5fd82b7b856a0d983c4956da8b7aadc3b431b15",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0032",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0005",
+      "requirement_digest": "67cfae8a53955d4c7884a4f0e125f8bfd76af4a028709e836863ff38ffce3d51",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0033",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0006",
+      "requirement_digest": "ebc08047c0a9828e21a1fa2d4bdb3e0e4c0e8d100ed53dea81545484f0371441",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0034",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0007",
+      "requirement_digest": "b1b25d452d526da02211722c7476136a16051c85eda87600d4dd5c99f8392bc3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0035",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-required-questions--0008",
+      "requirement_digest": "1057bbb5965b1da2ba60a8dab8d3cbf2f41cf7aa87c2af3e910b34ab56581749",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0036",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0001",
+      "requirement_digest": "656bc664170c01b18c41fecd0c25ee44ce6535f6dfd3fab7198600d6ab9f78df",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0037",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0002",
+      "requirement_digest": "d43d8701904e66f8be12cbb7d6fcb6dd243f7fcdf14410aa326c34f2f03f0dea",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0038",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0003",
+      "requirement_digest": "c012b1efa01918aaff3b9a6e24d01dd10cf02acfd554e0ab7158c80ea1c905c7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0039",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0004",
+      "requirement_digest": "f19120985c09fb59e14931dc8a57de8f8a381d20b8c75ee8f666e2d5f9938318",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0040",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0005",
+      "requirement_digest": "2ad4406ea8f9c22437ae8a8f375886aad7b68be2213b042470732a34421b4bce",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0041",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0006",
+      "requirement_digest": "06d0b6051f944c7cdc01921aa108e3559432f8425f9a20ab24eac8780c748ecc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0042",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-decision-rules--0007",
+      "requirement_digest": "57b33f8684a53cc2c99dfe5d61b621ef74c9cbb4d463b9f58a2d363e235aa536",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0043",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exceptions-and-escalation--0001",
+      "requirement_digest": "905544cb3b679866844e7dd4602a0bd677bdcc3b194476e75fb3fae9a47e3623",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0044",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "e4ad59f54af57e0f71cd1fd1d5994d41642013defcbed80f29978832903af5c3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0045",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "9108aadadf31649ad05bfae808eebd88de20d354e5fa21991f17460ecf8d7477",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0046",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "58d7928acc56d7acc04edf6023e3d52d4308951361fd2cb15b7fd8ec82cbe16f",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0047",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "8b854b90e4c0273c778dcca725c85e3c035b84eae925f315361260211db67ff8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0048",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "571b8880aa059dfcccf4209a83901afdfe3644d95f1e6f74f017658f5d65e50e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0049",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "3aeaf0c0a834573f9c08529f9c1d2f0a7790a32de73a6025b83597f11dd25c75",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0050",
+      "requirement_key": "kit-lifecycle-02-map-md--stage-2-map-exit-gate-and-acceptance-tests--0007",
+      "requirement_digest": "101863d118d52b74e2a9b034dfcfcb2992fadf485d0853352b00a4b9aef7cb4d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0051",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0001",
+      "requirement_digest": "83bac61bc4bd6c7c64766590e6f6883c50d952175f16b3d5a5b01792a5d8344f",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0052",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0002",
+      "requirement_digest": "b135c6d24e83878d95bfdce8fccfc740c76108a4b7e5ff3743e39cca05669321",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0053",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0003",
+      "requirement_digest": "8650304c30a8138852ef82c64b883c9f46ed03b9b58eedcb4eda38514d0e082d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0054",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0004",
+      "requirement_digest": "7fd675ace56067c6935e3f54fd6958ea598c97a16c4425ff7b3d18c91f056769",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0055",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0005",
+      "requirement_digest": "6761a7d1368cbc56b08bcf1c5d291ac3b1b56de10c32530dea80f9ce29469b43",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0056",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-required-questions--0006",
+      "requirement_digest": "91b828a78e9051e19f0263dc75672d471492edb9ee2098625688869a35140018",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0057",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0001",
+      "requirement_digest": "d9fba4afbecf053bbe86d1d4693115ebaf9a7a3beeadd78cdfc9321ee04669f2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0058",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0002",
+      "requirement_digest": "9cf4c061d8d46ba1358460ada11d1aae702a4dc12fd485cd3fad3dc26b3d4082",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0059",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0003",
+      "requirement_digest": "26266914fd6926cfe6663a59b2e14a382739b295ba02acf7ade21d54858c5a9a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0060",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0004",
+      "requirement_digest": "f463119d07997807466779ee28a114442fe24a4f441b2a12178d846535095e4b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0061",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0005",
+      "requirement_digest": "1a59c368ee59d365e1e3276317cc73fbfc5584afa4af085ddbe629fc575fce66",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0062",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-decision-rules--0006",
+      "requirement_digest": "009ee274865913c76136eedd01dc36a3ce6ad1f4954440d04fedd72fa996aad2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0063",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exceptions-and-escalation--0001",
+      "requirement_digest": "109de0ea1ba3b3fb194da89c6e3e138a0953ff47f91eb8aca25ef7d08867d895",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0064",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "5420400588fef3383c2bf57aac360c04041648a10a9492379aea37438d71d600",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0065",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "ae71d5fc93e1d9f2660d4f72be1ed1201c73d468ed8127cda972a9e979c6fde6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0066",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "520c5c3d01b8f91b0085aaa6fa36ea9643dc6f93c3e8ddfc753b9646c104cee2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0067",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "7e7fa4f81c70682c94c80e8d071263c4d193712eb5459797c8b6e9627f1a877e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0068",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "d2911d527f466f140d986af3f7635d8ca52f62d6e93649601709bb45da96a975",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0069",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "5cf5af3393a9a38a2495db45fab4b252d6a158b5414ffee0791f0676191fb035",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0070",
+      "requirement_key": "kit-lifecycle-03-configure-integrate-md--stage-3-configure-integrate-exit-gate-and-acceptance-tests--0007",
+      "requirement_digest": "c8a650e706b1ec1664c3dafd52167a26597ac4778f362d6050d09301840a2cd0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0071",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0001",
+      "requirement_digest": "fa7e04a4d055c6dac55c24610a5070876dc8128101cc2dccd7431b33785a2dba",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0072",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0002",
+      "requirement_digest": "50c36203373f04b12b7232485c186d13ab9ebff47be5525e328c51f8b45b18ee",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0073",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0003",
+      "requirement_digest": "149f956a3156365937033bbb98d1fff66fd3c76d082e37e842d60173df5c3795",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0074",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0004",
+      "requirement_digest": "a7cbb25caba3794927df7574645791ebc610c4b4a68edb909fb87bfca9385343",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0075",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0005",
+      "requirement_digest": "e62ad8ce08391b8db820ec24856025d1e2f07b92e8c80484c6624e9e56141e68",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0076",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-required-questions--0006",
+      "requirement_digest": "b9e07db7abb6021977d3601adaa2195f124ec6a908fe3f47c978f1af4d443b5b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0077",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0001",
+      "requirement_digest": "9d988026e8fb55f9fb31a63464761ce8c65e8639c8fe7aee1912908e8c809264",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0078",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0002",
+      "requirement_digest": "73258a2d1c89462cf0db10a5f39909786f7dc849468498be95eb2f3c0e8c0b05",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0079",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0003",
+      "requirement_digest": "86405be3b01f09b5c18b80d0693022c25d1eefd92a14feee1d291b85d8a93362",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0080",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0004",
+      "requirement_digest": "eb949887773c6004cc51e848704f4c684b27c2b45b2b5552b88fd1ff7efc4dda",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0081",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0005",
+      "requirement_digest": "aeeaf26a06b801f7e96d93c0e0a37257536eeb580c679c2507462b0aa4c0d2dc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0082",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0006",
+      "requirement_digest": "ebb1658c4d22843addccbba21a8ee90f510dad5905655b9a246b7e76f1e4ba49",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0083",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-decision-rules--0007",
+      "requirement_digest": "507ead3f1edb9342546bf57d56f79e32fbb622512fdc7744f058b173990dea76",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0084",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-outputs--0001",
+      "requirement_digest": "99e34f3f954d92df94b9905d5b52a52db301fb4ef1299ad9e41e4c6b1786590b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0085",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-outputs--0002",
+      "requirement_digest": "7be7e98c22196d3d1d24aea3179758add40495424f4461bb6a8e5917daee002a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0086",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-accountable-owner--0001",
+      "requirement_digest": "5f8c5d0891ae4f9ec2bb91e71785d86c53ca043760701472838e4ae5e3543709",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0087",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exceptions-and-escalation--0001",
+      "requirement_digest": "31b8e3e21240aeb760275299342ebf5dfaedd42e2f5275d4b6d477d03921835b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0088",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "31e0e066499887700a4b3994f4b9e1067b6fc55884f31e89a633fc3f803e4a6f",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0089",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "97de8a8c227dc7fab6ae2424432bff07d7959a4516fd93b8af677d3d9debf8b7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0090",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "17b46083c52f01da911dfee0472842f0a5a4ed6822945bb952c92db6f4862db5",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0091",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "ca8592ddfaa82784035e57b0c423d47d6ca564d07039285d398d6ca49ab84d8d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0092",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "b7accedf0aab74477f80ca15619d3a9f7c8cc8b1367a5265daa4d5e21dcc6385",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0093",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "3bd93c4424759c7116080e01a121a12103fc754daca93774f8c5916b72514016",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0094",
+      "requirement_key": "kit-lifecycle-04-assure-authorize-md--stage-4-assure-authorize-exit-gate-and-acceptance-tests--0007",
+      "requirement_digest": "fc46f3b5d229fcd1c645d780dced1c21f2a18939ef3cca8ee12c6c39105e5d3b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0095",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0001",
+      "requirement_digest": "f929e1b0612fed70f6df9b3b0be580004a4ac19ed3794504208c31991d27a50d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0096",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0002",
+      "requirement_digest": "251038bfc4b0d4e3df6c37e37733493adf8de49f25df32d178fc5ee4b9108fbe",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0097",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0003",
+      "requirement_digest": "488d5c243a4134676924fe5b7fbbd73959401fb581f7172f85972e02d7542c3e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0098",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0004",
+      "requirement_digest": "b1cd535d548b22f81ecdeab97724efed05761f420688226199323ddcc600b7b8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0099",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0005",
+      "requirement_digest": "2ca1b0f1c9c7d03c51bfd7178f1b7f52e243d16303d54bb77929a1cdfbd3c460",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0100",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-required-questions--0006",
+      "requirement_digest": "ad95158b77c322386764f9475bd1cc8f1b13301c2367fc35d7ae53c4c6f39d57",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0101",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0001",
+      "requirement_digest": "8f6afafe6b321aba3ac3ed7e08e73dc7c813c507f9104ee280b2918e4224d534",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0102",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0002",
+      "requirement_digest": "9421fbc37e873b8d05105c506983f1976f50e0ab90119a6ad582f08b5052bafc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0103",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0003",
+      "requirement_digest": "8e4ec41dac6d4a1561fd0509a96dc81d8f4ee9207f0af79826069866cb051027",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0104",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0004",
+      "requirement_digest": "9b723c7c5a4e6f4505706a0671997b1766f9357141d471bdd0c81c7cbcac85c2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0105",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0005",
+      "requirement_digest": "c79adf6afa26a368f09edcb5d7432759ada7188f0b2be2661e20255db1848ca7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0106",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-decision-rules--0006",
+      "requirement_digest": "1fd912758c81e2563bd6bb20f03e212a021cadb81490699a4f34c8d2d2daa3f8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0107",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-outputs--0001",
+      "requirement_digest": "6d9e4e48b10d72ee338f3ac7f052a1c6a62c149aed51b154b4d4436998df4364",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0108",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exceptions-and-escalation--0001",
+      "requirement_digest": "75cf21b3e29e26665a9e734752274aa6c752e08f596a054551873fcc68ddcf03",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0109",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "5606148c5b960f01d075744382ac3a8a3640e75dca5aab1f663cf3cab7ad7d30",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0110",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "950b19d56c115b7ac708455accc1520b9341e17343bfcddef24178f08264df0e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0111",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "888d9f3c4a757f3f69ff6f53bcb3810a32460f2c300ff73e42e2d182951d8858",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0112",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "ea2e41f280b5edfc9f59e05593159285726568c1e97a056ebaab6cc49ada5de9",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0113",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "c9db60a5e8cce1777e4e5666d0e145df825943ddea1f55252f59eac269130e9a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0114",
+      "requirement_key": "kit-lifecycle-05-operate-adopt-md--stage-5-operate-adopt-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "5adad06e0898a37fcb1d4ba602c0fe20d6aa52a05506b02a9540dc332732eb57",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0115",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0001",
+      "requirement_digest": "6f8b8a0798d5349cf722ab75a1d0b602b0a31259b6fe8506efaa221902e26206",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0116",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0002",
+      "requirement_digest": "5e286781929a42ae2d5f5097c89c54045f61614a04425444368c6f2107fa308d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0117",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0003",
+      "requirement_digest": "3460fc6b50311f4c44b1373a2c0b9ef7f885c9399676e76ea7922a9cd4ec23ce",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0118",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0004",
+      "requirement_digest": "ace6bf6b82ed47bf17e03ffa4012ea734a91cf02f0088643deb070491c5863fb",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0119",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0005",
+      "requirement_digest": "1d4fe3ff469ffdab2ee6b1ed2197d78fa06d633bdcf8da12ea2f7340714ed41e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0120",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-required-questions--0006",
+      "requirement_digest": "3a17161d03a01602d6f699a38b593b6056bff084d64c7ac15d3da4b89ff580fb",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0121",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-decision-rules--0001",
+      "requirement_digest": "98cf095b1e59d0e09f2e2e29252600bd96279eaae863e3b36714f477ae6b882c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0122",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-decision-rules--0002",
+      "requirement_digest": "972ea1ad8e820f709f1c303845dc044f9d634d0b732708c94a0e2ee661b6e759",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0123",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-decision-rules--0003",
+      "requirement_digest": "ab469ed3933ad427cf4fcf35446181fc4eae0ab28cae0fa911cf2c57ba6fa482",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0124",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-decision-rules--0004",
+      "requirement_digest": "91328bcffe1f67359b1452ca2e2621255e35a08faf4f9045c8677e2d62f51377",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0125",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-decision-rules--0005",
+      "requirement_digest": "2966dd1baea8eb536084e7e35d32b36d735a3da6cb30f177b834718c2abb0f44",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0126",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-accountable-owner--0001",
+      "requirement_digest": "2f546533de511f72d99070eedbea42014962937d1384b04a6b9d5ee7e1608767",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0127",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exceptions-and-escalation--0001",
+      "requirement_digest": "d8573c54e3001ccf00e918b1dfd9f77fc73fe033b6dbe309ef5238ee9c2fb690",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0128",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0001",
+      "requirement_digest": "f2e7d47bef42875ffd032d2be6c8423bd3df4234b515a8bc4c61ff33f3795068",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0129",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0002",
+      "requirement_digest": "7b78d95460f3afb6a4cacf46c8975095b012c3da015b69822439967d16ec3804",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0130",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0003",
+      "requirement_digest": "98d39c2a38a717c6ba18bb4155e340c0f3fd576813d9eb9738308075625b5199",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0131",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0004",
+      "requirement_digest": "94fb354b0477cc2d16722dd6321a9896c679d0cc2619aab503e629fd45ee637c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0132",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0005",
+      "requirement_digest": "1abd1b304674f607e872d59fa6a8f830be75966a8af0d364e60505a96b81af50",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0133",
+      "requirement_key": "kit-lifecycle-06-review-transfer-retire-md--stage-6-review-transfer-retire-exit-gate-and-acceptance-tests--0006",
+      "requirement_digest": "7a82494e4cfecf02d7c754181be0abcb1e1cb8dd57853cd82ddc00c624a7cab2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0134",
+      "requirement_key": "kit-assurance-readme-md--cross-cutting-assurance-modules--0001",
+      "requirement_digest": "57365c7f353ec1ec64a041014b9980bc9261beb58550607746d46d8d02d3f3a2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0135",
+      "requirement_key": "kit-assurance-readme-md--cross-cutting-assurance-modules-application-procedure--0001",
+      "requirement_digest": "874ec998cc179848dcbc2605530ea6c18051104125870e58d3b32f817212078e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0136",
+      "requirement_key": "kit-assurance-readme-md--cross-cutting-assurance-modules-application-procedure--0002",
+      "requirement_digest": "ce01d670c745e6d9212a95fcab2a72ec94d1d479f14c9b3aaec45b1bc4ba1cba",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0137",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0001",
+      "requirement_digest": "762c6fcfd1f462d173c089f3d2c7ead74dbe4886d7b880e5465e8872f354db53",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0138",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0002",
+      "requirement_digest": "a5c3521223e0aa3d819fcecccb3b68e0b8f80dfbea1d966def9a564e146e9991",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0139",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0003",
+      "requirement_digest": "40da99cae5267331178b1676714e5b8370c2bd7d65d8a4f7300fd778363c086d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0140",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0004",
+      "requirement_digest": "a2b2c859230b8677af2df9bf5c3d7c87a26f28b416c1b6e0d4333b8ec5e87056",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0141",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0005",
+      "requirement_digest": "0f9dc760bc1aae292805750624f94a517fbe16bd5d434680377f19428562a7f2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0142",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-control-rules--0006",
+      "requirement_digest": "1b38f63f54888bc87e73f138f48b97db7185ad8c103dc6715aa7b98e8f82a36a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0143",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-metrics-and-triggers--0001",
+      "requirement_digest": "8d0191171becd94e40a0185bb9a340f51c0be56f72cfac48c5b05f1eaf806bdf",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0144",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-tier-application--0001",
+      "requirement_digest": "dd096e68c6e4b14a3740e36bba0cb95bf6af19fbe946bd3933f3d7980ffd0334",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0145",
+      "requirement_key": "kit-assurance-authority-human-oversight-md--assurance-authority-human-oversight-exit-rule--0001",
+      "requirement_digest": "7efed1d2a7e283dea4ff74ea70c2fb4b0f2a3215f9091589f1a61942e1277741",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0146",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-control-rules--0001",
+      "requirement_digest": "68b12432b39225a4c4730bae49cf9657b2b15911bc6b72c35fa760c9c92dc7c4",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0147",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-control-rules--0002",
+      "requirement_digest": "21050564738332e341ddd1a5d4f905d9cb6db98dbfc0a3f8b6e23bf463fd7c1a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0148",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-control-rules--0003",
+      "requirement_digest": "13b3287b9af1d8877356a3c020508899d688c1734f464d7b2833a233390dcb9b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0149",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-control-rules--0004",
+      "requirement_digest": "ead0296eae9765902120f26344b6adf41bb9f01714fa4dd7085471331efadeef",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0150",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-control-rules--0005",
+      "requirement_digest": "f3a75b59ddf6fde5417831b7a07af0b2a8ab349c7ba1b07bf6334d428cda0e49",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0151",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-metrics-and-triggers--0001",
+      "requirement_digest": "f8bc496dea45939a6c73196ab525104d32e5f85055a005b8554eddfe1d930cc3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0152",
+      "requirement_key": "kit-assurance-quality-verification-md--assurance-quality-verification-exit-rule--0001",
+      "requirement_digest": "6c3c25e092e61935f7ae42646f164f626b9ab32f3bbe6b98a8a06b0d899df9f6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0153",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-control-rules--0001",
+      "requirement_digest": "54c8faba3b6ec575afded8eb0b8fe9fba2d08372f84036b7e39bc66d1d7c01b8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0154",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-control-rules--0002",
+      "requirement_digest": "8d774d18a6bd580d3142ddd75834eea4c416d3f61619ef5bfef8b87960f02927",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0155",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-control-rules--0003",
+      "requirement_digest": "916495c1604e2ace9a34d79bbac838ce4ff17dbf4f6a9796073fb3d9b833ea67",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0156",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-control-rules--0004",
+      "requirement_digest": "6a28d2afe14b91ec755a0b8c61e610d4c55b529364e0453cfbe86d0766fe017d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0157",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-control-rules--0005",
+      "requirement_digest": "174ab8300a38e1f716e09c90ecbeef898cbca04a2ab3ce5111632121cc59c7ce",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0158",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-implementation-slots--0001",
+      "requirement_digest": "566bc344135e54bde77734b874e8059a2846489772d65705718336bbb3b4fa25",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0159",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-metrics-and-triggers--0001",
+      "requirement_digest": "a785932cfa0469189248e291684bbdc477b57733db86fa05df4974abd15fc98e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0160",
+      "requirement_key": "kit-assurance-evidence-traceability-md--assurance-evidence-traceability-exit-rule--0001",
+      "requirement_digest": "7366c7634a790c889acc5aa2887d7031e8230e5c5818a1f9cdcb6181a2dcf798",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0161",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-risk-signals--0001",
+      "requirement_digest": "028ac0d9166bbe3d70edd3a466471269d02642340060af9c4576a133fd4d5bfc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0162",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-control-rules--0001",
+      "requirement_digest": "6734c5df547e73c8f48c9282f06a0fdd6498c2dab927e533f1cf17ef75ba6e3d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0163",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-control-rules--0002",
+      "requirement_digest": "8517d0870fcc0b59efee5dcf29c4a0245376e0beac79fa9a5829f3c7a2561706",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0164",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-control-rules--0003",
+      "requirement_digest": "fa0928ec808c9aeb22e00badae1a4d1b3a9b309b8c6cb4601a602557ccfa1385",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0165",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-control-rules--0004",
+      "requirement_digest": "b8c67dc44f29624a23bb3e08e77894d8f8e545cdd85f7a185a1ea55be8496780",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0166",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-control-rules--0005",
+      "requirement_digest": "f6948f8cfd1f797b548632ecc08919ebbafc7f9871b10c26830e3b1e1d5c7a7c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0167",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-metrics-and-triggers--0001",
+      "requirement_digest": "1ca38b99550a3bdd0fa7bc83eb0aa5c8225f6722cfe6838c81a3986b38abc3ed",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0168",
+      "requirement_key": "kit-assurance-identity-security-data-legal-md--assurance-identity-security-data-legal-exit-rule--0001",
+      "requirement_digest": "78d072e812543a3b9aa10073f9ea77121eaaff34195201929c5bdc3171799a5b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0169",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-control-rules--0001",
+      "requirement_digest": "13f79f5656688ae51301211c4b455000287082f85d473f5bb20402d3874502ca",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0170",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-control-rules--0002",
+      "requirement_digest": "45d142188d7f718d448903aedff429eeeda63bd187da812297b5c654d274922c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0171",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-control-rules--0003",
+      "requirement_digest": "98eabb30cf0606dfef0f4fed3f0f180ae33e35c9aa65908ff775081403a05473",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0172",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-control-rules--0004",
+      "requirement_digest": "2721e0ddbbfb3cc557b1d2b3b399e9009a3024a8bf008e4e2a44225a63260bf9",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0173",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-control-rules--0005",
+      "requirement_digest": "d7deffe479c741d500467ae1e491f2b415b11ff2b4d7176b35fbdb2512de45ef",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0174",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-metrics-and-triggers--0001",
+      "requirement_digest": "7e860b86b20e2f8941e96b10c0260a564e5ea1f6a224470c12afe9b287a5b8fc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0175",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-tier-application--0001",
+      "requirement_digest": "4ed9c2b3610b13ab14984825968b554eaede2767b49a3ae2c5c52722aeae5135",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0176",
+      "requirement_key": "kit-assurance-integration-change-supply-chain-md--assurance-integration-change-supply-chain-exit-rule--0001",
+      "requirement_digest": "70fa5d5c33e50fb5d245705b8b40bf077731a218749af04cf883a8b73be13850",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0177",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-control-rules--0001",
+      "requirement_digest": "8a0590ad09079b1c396159bc3b6a36e1c4246ac9d00fe65419fe1ed49c1ad9ce",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0178",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-control-rules--0002",
+      "requirement_digest": "2d61445aa626646bbd6e256192be8601e4ea96a51cbea3e5d64cacaf54aa1d27",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0179",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-control-rules--0003",
+      "requirement_digest": "6c84dab8ae1f085ab4e27d052312a39a01ace7b1d98d58824458cc98b2026430",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0180",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-control-rules--0004",
+      "requirement_digest": "5b25d13229b92d4acb468250e14b40747e46aeb936cc46be5e3d164d8381d4dc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0181",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-control-rules--0005",
+      "requirement_digest": "711ad42211ce04eff3fc3b525d5a6e4e4b395e28713e2ba6e7ec32db87749abb",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0182",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-metrics-and-triggers--0001",
+      "requirement_digest": "53eacc58a61bd9672321dec32388227d389a3f3cd1c67b79dc187eb331f88609",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0183",
+      "requirement_key": "kit-assurance-reliability-continuity-md--assurance-reliability-continuity-exit-rule--0001",
+      "requirement_digest": "d7babeeb31bc81dd944c551a3f398de82354bc80105a71a23a4ff28ab40a05e0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0184",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-risk-signals--0001",
+      "requirement_digest": "d45a43289e1b368cd86d15f95f03ac51d833b50a61017c1ea41651be7fc6f801",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0185",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-control-rules--0001",
+      "requirement_digest": "ad0381f3708f385a8e03e7b170576fcf975a73f1d114b605e5a97bb769e80235",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0186",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-control-rules--0002",
+      "requirement_digest": "e4d3e4294d6197495c0c026d0ff965aacd0980c9361ef53e8635ba75ef82d414",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0187",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-control-rules--0003",
+      "requirement_digest": "d78333e85422c71b0f2f38c59dbdde1d608851d8483fb1ddafc9d538e8335efa",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0188",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-control-rules--0004",
+      "requirement_digest": "eed421e4b28e97fddbad8df09098e40efd65039a3148a8ccdb7b045290c25b30",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0189",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-control-rules--0005",
+      "requirement_digest": "ded3ba72f7ab3ba07d0886c3e457d579da79c23ba01f6b87e74807eebeb48de5",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0190",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-required-evidence--0001",
+      "requirement_digest": "d4e173443628118ed43575838f6e4bd3abffa0c84767a4878e594b5dc1cc1d08",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0191",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-metrics-and-triggers--0001",
+      "requirement_digest": "52308d664f4b4a461305011cced2697e303fdd8948e2de027545a0b31ca83951",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0192",
+      "requirement_key": "kit-assurance-economics-value-md--assurance-economics-value-exit-rule--0001",
+      "requirement_digest": "1af6f19b0788cc1072661e37917e7c33bdcfb571ba49a86a0cca74a800c47b9a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0193",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-control-rules--0001",
+      "requirement_digest": "c9d38825a427354b583084357bd65c2f736a700a541fee7d3e0c937210db7673",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0194",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-control-rules--0002",
+      "requirement_digest": "0b98b12012af1b3e64ecfa8a5b5c4be14b7a4f3847d4e0f3dc9adc9f2f115f79",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0195",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-control-rules--0003",
+      "requirement_digest": "564f23bee8e94b60527be4685063148c93de664198912dd79251d1e1cd41d7d0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0196",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-control-rules--0004",
+      "requirement_digest": "489aaf89cb256774165c93160b6d32007ce5329d98d973bfa3f0feea99941593",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0197",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-control-rules--0005",
+      "requirement_digest": "f613cd1d82a2e2ebe4cab0f6f98e7f4e40e747ff30280c257ec8b42d1cc3bbfa",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0198",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-metrics-and-triggers--0001",
+      "requirement_digest": "2b2668f3a42e534e8228fbc338da4cace261ab11a65d21a706abde840d96f90a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0199",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-tier-application--0001",
+      "requirement_digest": "891f3465a0a8a27d826c04e29df8b0962229a667d39cd816208f4e2978858f1a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0200",
+      "requirement_key": "kit-assurance-adoption-ownership-md--assurance-adoption-ownership-exit-rule--0001",
+      "requirement_digest": "34f26f543a3eb9f90904f68fa7cf41afce75044eb71eb8848c7e24800b66feaf",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0201",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel--0001",
+      "requirement_digest": "a36f3b74024ad6a399581f06aae9a9c6301fa9f78c5fd09c9fd24f0a62813224",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0202",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0001",
+      "requirement_digest": "e2d03b2cbb87a4e064545b7ed5e28086fe64f568c963473830664967fc65aff0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0203",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0002",
+      "requirement_digest": "9e7c417cd35d5a7bad55f09df001e81e48fa167d2159bcf81d26cf05fe0db959",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0204",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0003",
+      "requirement_digest": "cc5abdad5eda7a9b81666619c4932727623f40a83b0d25b59fdd75b416bd18db",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0205",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0004",
+      "requirement_digest": "bc5b92c6bde4d5375cc982a02c95e092cb045bd2f8063cc8165859e8e853c881",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0206",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0005",
+      "requirement_digest": "1ebc9d4a857a86ab36c64503174cb4d68605f4adc62b8dec35a9859485655cd7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0207",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0006",
+      "requirement_digest": "cc71eadbd8d48d43eff5e8a2518b0cfb39471354cc6ef8269cbee88cd6ad1f6c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0208",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0007",
+      "requirement_digest": "944b01ff8ebccbcfce987994f258f4775581e38edc769a84cca493aa01a7aabd",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0209",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-kernel-contents--0008",
+      "requirement_digest": "0ffb1dfc682ea395cf461c30625320440a66613077f239079b6932765558b932",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0210",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-terminal-facts--0001",
+      "requirement_digest": "4dc62014a686732c39c075224e96a799f5cd96397941f5fff39ccd98d317f9bd",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0211",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0001",
+      "requirement_digest": "f342f212be2ff0fac1a6d28611674f68c770b44b61fe4732f2ae4d4b6c6e82bd",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0212",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0002",
+      "requirement_digest": "2961f5d554f5d69078cefacdf6eabd2f9380da5aef990413e74e666967936fc7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0213",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0003",
+      "requirement_digest": "0638fdd995e0348ab6677ca22c07ee1efea4deef8145e42bfdf0a89bf56970fe",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0214",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0004",
+      "requirement_digest": "03dca0b4ec0c765f015778594ab8364c2962209d12516dd865b85a2a4a87b7b6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0215",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0005",
+      "requirement_digest": "cdf9461bbc2f6039e230ac8aa149931de2d26f0bc769430735bd36a545a91f96",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0216",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-authority-outcomes--0006",
+      "requirement_digest": "40866d4aef3b9d2cbfce8e69ecff16e403dc76f0cf409e4b6b949064aa2ffd86",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0217",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-evidence-classes--0001",
+      "requirement_digest": "776e997779324da85333d7a68fa7b334fa2ae0d54301539c159c034741863fec",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0218",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-evidence-classes--0002",
+      "requirement_digest": "4a833a7c54d173edc41ca6abc30c98c2724b457bfa08f623fdb77e595ffeea34",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0219",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-common-vocabulary-implementation-slots--0001",
+      "requirement_digest": "10fab573a44d303a55a4d12a7fc5f56aa7484e30fcf547ae804362ee099a7937",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0220",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0001",
+      "requirement_digest": "adbdf830f5b9eeba957acdae94c68844244a3cb80da051bf02d1d3989987d737",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0221",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0002",
+      "requirement_digest": "53775e24bc4836f5455eaf98077b9c2d172f95919d10f0aabfbd889e49bbe8f7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0222",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0003",
+      "requirement_digest": "dd96daa6533bfead0ba1815f60f26dddb569e6c15822a5b6e59bdc13afd669e1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0223",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0004",
+      "requirement_digest": "1f8282bcf263f7c774404764d5d749248b7489b92229bcbd1eac61fed726c3fe",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0224",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0005",
+      "requirement_digest": "d29d37a0bfd42b8ae182f0a0d9fa263e07976147e60d021c1bc39edcab684adc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0225",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0006",
+      "requirement_digest": "b1c2a244b053fdf62cb3885ce4a89cbbc2729f38b5095241aa02eb2155f6c13b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0226",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0007",
+      "requirement_digest": "cfa930757a5e4bd7434bacdb162956e8c8f1cc6978e6c6088dfa680923f0c40b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0227",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0008",
+      "requirement_digest": "32ed0a4a4b23ee90dc8b1bd9da0f38f3e596af85047f58ac982e045b7a34e09b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0228",
+      "requirement_key": "kit-core-readme-md--portable-control-kernel-invariants--0009",
+      "requirement_digest": "52e972e8bb62dc23d712c3ebcf6a61925a70098a7bf07b2c51ecb9aa2082fbc9",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0229",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-1-collect-classification-facts--0001",
+      "requirement_digest": "6d26d40b7b14ad718cd0d26dfbe66ca679380433ef9384c2e4d3b029f3a79b4c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0230",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0001",
+      "requirement_digest": "6cdb22a7c7e49d31d4268659d4971da8dd57aa1d5e476fe1b2e2ec27ab48a971",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0231",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0002",
+      "requirement_digest": "d9dd2ed250dd49d1749caa87bf7e2907afa532081525035a896e1a2cfc472e98",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0232",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0003",
+      "requirement_digest": "8bdd413e38686d9249089f8157ef57139a8a058a286bdf9fd4cba2eadd00268e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0233",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0004",
+      "requirement_digest": "1edc20171e6d3868ca7e6cc78c0518617ca88e6412647891f03e35251e4988f7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0234",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0005",
+      "requirement_digest": "85fe0c0ead62c40eed5dae530e9d6304da0ebd8dd22cef6e7f1278d580649bd5",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0235",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0001",
+      "requirement_digest": "20b186b5308b3e3b9d1a7f104ff2387bd360ce0e2d09583f268e5a3da5917a01",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0236",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-2-apply-the-highest-trigger-rule--0006",
+      "requirement_digest": "4fa2ff659dd1b6448e43bd5bb806a98cb7ca475ceb1f32b4f51ab09032220524",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0237",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0002",
+      "requirement_digest": "bebe528abc6fd30aaa413136e099aa19c7b7f814fd59bb416e69128ff5903ff2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0238",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0003",
+      "requirement_digest": "fdf9fb7c7cfe1b61d6469cd79a4a385318f4adedf3ecea0cda47c0c0a8efaab1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0239",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0004",
+      "requirement_digest": "394369616f5296b0d2499ea133e93626d72b4816337194df487dd100ff17fb19",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0240",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0005",
+      "requirement_digest": "60924e87b50b4ea1f3dedd08b2cf6a244b4e4086a86df6650233290f1175d2f6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0241",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0006",
+      "requirement_digest": "afdabd686c2b4d2510b48074b2cd72807b0cf4c0d166098af746a2109a5c4edc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0242",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0007",
+      "requirement_digest": "82824228e2c03a818acc6e35b4747daee742d9be1d37e9b0dfcaab777bb92807",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0243",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0008",
+      "requirement_digest": "1ca52cf60d78fccc8beefe894b56bfd43c26d170ff40f5623fe90a8a9ab8fe41",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0244",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-step-3-assign-module-depth--0009",
+      "requirement_digest": "fc41cfcf16f98e2abcf6a29fb6a42fa9944d669d4c4a5a52bfca7c053a0149c9",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0245",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-selection-checks--0001",
+      "requirement_digest": "21b2afeb9290208a426678eea5512e7a5145fad8049a1c1c7030be1d280fd03d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0246",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-selection-checks--0002",
+      "requirement_digest": "769d22937668d7056cb50ca25d40400f873d562875104818d1b92b41b26128d0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0247",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-selection-checks--0003",
+      "requirement_digest": "54b7e04fd2fa14ae40368165ff5fb25560ab261d8b1c266c2c6257cebe5e9032",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0248",
+      "requirement_key": "kit-core-proportionality-md--proportionality-procedure-selection-checks--0004",
+      "requirement_digest": "d4654691fa6ad60c7e84228e566b61487cc89b7fb26abf06b2b2a0352561c14e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0249",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions--0001",
+      "requirement_digest": "e070a14e7c276be61a119b88428f04894de712a294c5517d0a17a390656be876",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0250",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0001",
+      "requirement_digest": "d40449e5a150839097c7c04398d632f55bf4da9aae2c192d0e0e8f09171a431b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0251",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0002",
+      "requirement_digest": "e8e30877733b207a4ea6ee3168f21b7781a41562e247dc46a0a8c6fa9be77d60",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0252",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0003",
+      "requirement_digest": "e69916312ee6d2ec2976cb77786c5b82d0ab1b77325653777d07b6d07d4583c6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0253",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0004",
+      "requirement_digest": "9b2d01f0c4b51f603d0ecb99ae67638a7e8b83c81be76c7613e5a45ff34fde6a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0254",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0005",
+      "requirement_digest": "14d56deba48dd19bbaa29a1cacba7c0f28a02d93a05ada58590dd99f55017745",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0255",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0006",
+      "requirement_digest": "728b7df9eff7d051a0bf10ae4483ca9516f5939a6600c680440945f9751a393b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0256",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0007",
+      "requirement_digest": "678837e08d5c87ca54d8012a5be35f0a496a51fc0a564ec80830baf01439201b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0257",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0008",
+      "requirement_digest": "ee11e1003066fcd9a9f8ffac372c3bd4d6fa2cedb83826df65aa0b0a349a7cf1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0258",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0009",
+      "requirement_digest": "1f33eebaa039208638cc2314b96e46cb7a19bd081a486f5de17a57fb79a26991",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0259",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-non-waivable-conditions--0010",
+      "requirement_digest": "2e585c12ef2e631cca4a9b0a9388cc588a5341a71c84efae2257e520980792c6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0260",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0001",
+      "requirement_digest": "53cc99930474ce077a187c4841ec00907b28a33365bcad33f1a56d0f4399f8e4",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0261",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0002",
+      "requirement_digest": "85d7da7befa6eee55ee70749f607c91246e13642fcb2d8f8ba0933cab48a3a4a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0262",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0003",
+      "requirement_digest": "580465637a764ac9238c63bac2d874dad3e9ba223ada7dd92a785dbf0d99f2a7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0263",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0004",
+      "requirement_digest": "af1e6c21b8340b16e15da5ec02b825dc046d14237d061a10bce403866138cfa1",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0264",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0005",
+      "requirement_digest": "c42a11038082656310f9c6ce33eea596f64cbb8b8b66271962ed300ed41ce165",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0265",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0006",
+      "requirement_digest": "e682132efa943bbae0869abf7a123b1e853a2086b4cfb5417918a8382d5d8547",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0266",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0007",
+      "requirement_digest": "e1207684550be07473c852945d6466339f19c84734814e84579e2994a0225aee",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0267",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0008",
+      "requirement_digest": "ec66d7b1e19d4e315d7d7bd6c515e6dc2b4ab5e0f741f664379fa7e00d529bc8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0268",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0009",
+      "requirement_digest": "d0eaedefba819a66fdb36c344af4bc8c3905bd76571927c06a77fb664f655e61",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0269",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0010",
+      "requirement_digest": "b139b09a0b8f4241258be9a4587526d62a8be568367fe11d30931267861569f6",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0270",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0011",
+      "requirement_digest": "439c61677eb8cc04b49081db3e7c0a5fc6132ed62a46b90cb38aa8c4e49ef996",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0271",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-required-waiver-record--0012",
+      "requirement_digest": "925ec3ff975c60a29a79cc1a66bc4982f8eb30e2ee232ef382ba7d258dfeec14",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0272",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0001",
+      "requirement_digest": "393987e59ead82873eb8183c1157e564837bab9da05c108c18c8128fd235c44b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0273",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0002",
+      "requirement_digest": "6ab0c15e64705a738ce7e773a6ea23b46fa23710b44663cccb9623e08c12afa0",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0274",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0003",
+      "requirement_digest": "760dcf54d2c0404cee53a010d99439df4cb7ef8ac4c4b59d2686d0eb0f886a38",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0275",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0004",
+      "requirement_digest": "5d2505e2632e89ee547850e53bc7d76ea102a6e62aac25e2b6061279e3c54904",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0276",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0005",
+      "requirement_digest": "488c5048a0237384583c958df583dc3b91141776f7b403495c3589be67f06b93",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0277",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0006",
+      "requirement_digest": "fc1cbf0842867bdd5dc74eb2eb29e863196411540520d745df1caececa5ef699",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0278",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-procedure--0007",
+      "requirement_digest": "875c2ca6b22c9a3fd58bb5ffed674132666789c8c6616779125d92aabd12fa24",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0279",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-gate-behavior--0001",
+      "requirement_digest": "26f2470e0a4ac6f60db74304f26e2cf2aeafeac479d61f870974ddc081787d0d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0280",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-gate-behavior--0002",
+      "requirement_digest": "1f16d28da39afa4013e8f184a44bdf6364f26e7b0f5693676cd392a988af57fc",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0281",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-gate-behavior--0003",
+      "requirement_digest": "2a38715ba44c8e3f0ef622305cf8882f67b54c16b9a168ffba5a9879ffd00b2c",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0282",
+      "requirement_key": "kit-core-waivers-and-exceptions-md--waivers-and-exceptions-gate-behavior--0004",
+      "requirement_digest": "fbbfa6f6d1be774ea0347224b8b2312a976556db3a9b3d1e628cad22cfbe46d3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0283",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability--0001",
+      "requirement_digest": "eb145067cd88ee05fc7f9b45974358d179b1c2ff10ae4f8c1cd411f5864813e5",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0284",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0001",
+      "requirement_digest": "39ff2b9ab52bd679ffbe773fd741b3c7a3fac3d992f56792070a9dcec0f8acc2",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0285",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0002",
+      "requirement_digest": "a8fad6c49ce152d6a93df445cfe2b5ce8983cc2222d938c430a3e679e4b97906",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0286",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0003",
+      "requirement_digest": "c9e334f4628216df5eb896e7d0b6ca11c1d5ebf31fa2cb430406a3b3fe156322",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0287",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0004",
+      "requirement_digest": "ca491f29de519a265f4f403df5cec4a88e90e672d1561f4bac81083b8eb6873a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0288",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0005",
+      "requirement_digest": "a30533c783bdebeede2abab2837cf3c4312e19ca694c2aae6b16ecd3d3bf1b4b",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0289",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0006",
+      "requirement_digest": "9987cbfbf59c35527cd0d52fa45b2e4ca1c75e3cf27b71e82ea5fdc67e8f1247",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0290",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0007",
+      "requirement_digest": "8056665232f30808d880a4af8a3ba412aacd4b382a55112b6e61c7f985c3f4d8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0291",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-minimum-trace-by-assurance-module--0008",
+      "requirement_digest": "64522974f12bd2cc5b403998979dff3eeed442b12a70a763a6835d37c45dd0e8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0292",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0001",
+      "requirement_digest": "1f970f5e79f7cf3ff77f73b0b7c0c293062c46793160effef9b59aec86e97379",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0293",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0002",
+      "requirement_digest": "eee506af9890af548e2044cb5467745b2211922feecd0ec23004f71d5e6fc294",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0294",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0003",
+      "requirement_digest": "cbb32af7021e7c70295b745a84898e566c8af8f4111ce298e9de0a6545ff3269",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0295",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0004",
+      "requirement_digest": "f8c0971b010a81dd0477cbe0adae3916c3852ca08f64fbe6663942e9bde2c136",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0296",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0005",
+      "requirement_digest": "c8a256fe8043945b4dd0ca935dde6ec34f540fa48ac3644428fc6846a13b5f4a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0297",
+      "requirement_key": "kit-core-control-traceability-md--control-traceability-completeness-checks--0006",
+      "requirement_digest": "6a49bc03935a2fecca014d04efaed2761a6579fbfda4cd1ec42c2b2366f30681",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0298",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract--0001",
+      "requirement_digest": "945af80ff7c1e157577ebdfaae8e96a1fed30a30e9dd00a7b26d704d951c71ea",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0299",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-required-classifications--0001",
+      "requirement_digest": "e8b82a48e6bc810d610c7550ad8318e3965c0044deb9871d43ec4fc3bbff55d3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0300",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-required-row-fields--0001",
+      "requirement_digest": "974eeacbc2764077161465bf5f4daae4b180cf18d5543395ee562c5c33941b33",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0301",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0001",
+      "requirement_digest": "87675ece59510badad819193f4365b67da1674f7b2264cb05b8118a873a12b60",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0302",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0002",
+      "requirement_digest": "cbdf0fee3b8d0064d52941ad131a4b64994b33a50accbe8cb078407159fa63cb",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0303",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0003",
+      "requirement_digest": "1c3b01d354b2a9fd487f798e539abfcacc02feef142f3346d1630e992b76b26e",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0304",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0004",
+      "requirement_digest": "09c63ae72708c7b9b8f5632af9d663d7830fcb176a1a979e10562ed2093e282a",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0305",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0005",
+      "requirement_digest": "250a2a7c18f92f9ed00c868230554671eb16d21c72dd445ceaf824db7477ccb8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0306",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0006",
+      "requirement_digest": "ed791dddb348c799276a3e610a9cd28ddf7d1bfcaa85a47b8a0becf994a430e7",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0307",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-decision-rules--0007",
+      "requirement_digest": "01ba39ca207c10530f3ef0b8543ce9197a75b66a110f79b630717d1ec52c64c8",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0308",
+      "requirement_key": "kit-core-implementation-mapping-contract-md--implementation-mapping-contract-mapping-acceptance--0001",
+      "requirement_digest": "794977a4e50373cbdc35a234621c4937a5de0b8895cd7c8fabd601a4f6aa7128",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0309",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-1-do-not-agentize-an-unobservable-destructive-effect--0001",
+      "requirement_digest": "1c4789a1f18c794efeb04d6cedb6fffc86fd8d73e17380653e0d2aca99bf148f",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0310",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-1-do-not-agentize-an-unobservable-destructive-effect--0002",
+      "requirement_digest": "5171fe7c051e61f5e8391ee3ff7354bad067ca62f28d3248a7308e77f4783080",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0311",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-1-do-not-agentize-an-unobservable-destructive-effect--0003",
+      "requirement_digest": "817a3d915082aff86a4a95994c8b8e9f07b67b82f9c031275c999bdd038134a5",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0312",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-2-not-ready-to-authorize-a-plausible-candidate--0001",
+      "requirement_digest": "734f370702a50d06246a951d4c3f423c71977b3cba4b3d5beb24961e7c2c1c1d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0313",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-2-not-ready-to-authorize-a-plausible-candidate--0002",
+      "requirement_digest": "bd6d8967f4e6bd37b02c0a39b5a1943a226ffb4a213c239d0f575fd140aac805",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0314",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-2-not-ready-to-authorize-a-plausible-candidate--0003",
+      "requirement_digest": "7c717d5fe5200e560e543ab593b75f0080f03953af64323b39e2a3cbd9511d3d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0315",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-2-not-ready-to-authorize-a-plausible-candidate--0004",
+      "requirement_digest": "f315e9b6e9ab405666b22854f0a3f3f5a1474f3c18de2fd89b807c2834b0fe99",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0316",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-2-not-ready-to-authorize-a-plausible-candidate--0005",
+      "requirement_digest": "d4d84b46bc279ef40ea0869607836eabbc2a0b702eb478754cc063aed76e771d",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0317",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-3-choose-conventional-automation--0001",
+      "requirement_digest": "e0d1662eccbb851c1af90558b8851f7fb0357569d317a7dfca9ca7acb77b01a3",
+      "adjudication_state": "pending"
+    },
+    {
+      "decision_id": "B05-DEC-0318",
+      "requirement_key": "kit-core-examples-and-counterexamples-md--examples-and-counterexamples-counterexample-3-choose-conventional-automation--0002",
+      "requirement_digest": "6ceb0fdb2a97078004bab3952300d1f55d8df1038c153fbfe452dd0e97d8d0de",
+      "adjudication_state": "pending"
+    }
+  ],
+  "digest_encoding": "json-object-sorted-compact-utf8-v1"
+}

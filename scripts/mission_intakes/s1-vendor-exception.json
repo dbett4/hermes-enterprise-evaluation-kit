@@ -1,0 +1,9 @@
+{
+  "work_order_id": "WO-S1-20260806-001",
+  "task_class": "vendor_policy_exception",
+  "data_zone": "synthetic-internal",
+  "action_class": "decide-recommend",
+  "authority_mode": "H",
+  "expected_outcome": "Bounded vendor-policy recommendation with citations; no external action.",
+  "intake_ref": "reference-suite/s1-decide/questionnaire.json"
+}

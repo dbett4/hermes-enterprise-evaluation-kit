@@ -1,0 +1,713 @@
+{
+  "$id": "hermes://b03/intake/v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "answers": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance_criteria": {
+          "type": "string"
+        },
+        "baseline": {
+          "type": "string"
+        },
+        "intended_outcome": {
+          "type": "string"
+        },
+        "mission": {
+          "type": "string"
+        },
+        "named_operating_owner": {
+          "type": "string"
+        },
+        "named_policy_owner": {
+          "type": "string"
+        },
+        "resume_trigger": {
+          "type": "string"
+        },
+        "sources_targets_exceptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "workflow_actions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff": {
+          "additionalProperties": false,
+          "properties": {
+            "atr_required": {
+              "enum": [
+                "yes",
+                "no",
+                "not_applicable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "cross_principal_required": {
+              "enum": [
+                "yes",
+                "no",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "import_disposition_class": {
+              "enum": [
+                "deterministic-oracle",
+                "human-disposition",
+                "role-separated",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "minimum_grant_scope": {
+              "enum": [
+                "execute-within-envelope",
+                "read",
+                "recommend",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "source_principal_class": {
+              "type": "string"
+            },
+            "target_principal_class": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "mission",
+        "intended_outcome",
+        "baseline",
+        "workflow_actions",
+        "sources_targets_exceptions",
+        "named_operating_owner",
+        "named_policy_owner",
+        "acceptance_criteria",
+        "resume_trigger"
+      ],
+      "type": "object"
+    },
+    "classification_groups": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "enum": [
+                "advise",
+                "destructive",
+                "draft",
+                "external_effect",
+                "internal_coordinate",
+                "payment",
+                "privilege_change",
+                "production_change",
+                "publication",
+                "read",
+                "unknown",
+                "write"
+              ],
+              "type": "string"
+            },
+            "environment": {
+              "enum": [
+                "customer",
+                "external",
+                "internal_nonproduction",
+                "production",
+                "sandbox",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "external_effect": {
+              "enum": [
+                "critical",
+                "material",
+                "none",
+                "reversible",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "privilege": {
+              "enum": [
+                "critical",
+                "limited",
+                "meaningful",
+                "none",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "target": {
+              "enum": [
+                "bounded_set",
+                "broad_population",
+                "explicit_single",
+                "none",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "action",
+            "target",
+            "environment",
+            "external_effect",
+            "privilege"
+          ],
+          "type": "object"
+        },
+        "consequence": {
+          "additionalProperties": false,
+          "properties": {
+            "consequence": {
+              "enum": [
+                "critical",
+                "low",
+                "material",
+                "negligible",
+                "noncritical",
+                "severe",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "population": {
+              "enum": [
+                "bounded",
+                "broad",
+                "single",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "recallability": {
+              "enum": [
+                "bounded",
+                "difficult",
+                "immediate",
+                "impossible",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "consequence",
+            "population",
+            "recallability"
+          ],
+          "type": "object"
+        },
+        "data_source": {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "enum": [
+                "confidential",
+                "impermissible",
+                "internal",
+                "public",
+                "regulated",
+                "restricted",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "purpose": {
+              "enum": [
+                "allowed",
+                "prohibited",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "residency": {
+              "enum": [
+                "constrained",
+                "prohibited",
+                "unknown",
+                "unrestricted"
+              ],
+              "type": "string"
+            },
+            "retention": {
+              "enum": [
+                "bounded",
+                "none",
+                "prohibited",
+                "required",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "source_authority": {
+              "enum": [
+                "authoritative",
+                "conflicting",
+                "declared",
+                "unknown",
+                "untrusted"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "data",
+            "source_authority",
+            "purpose",
+            "residency",
+            "retention"
+          ],
+          "type": "object"
+        },
+        "identity": {
+          "additionalProperties": false,
+          "properties": {
+            "credential_reach": {
+              "enum": [
+                "critical",
+                "limited_write",
+                "none",
+                "privileged",
+                "read_only",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "delegation": {
+              "enum": [
+                "broad",
+                "critical",
+                "explicit_narrow",
+                "none",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "identity": {
+              "enum": [
+                "authenticated",
+                "named",
+                "service",
+                "shared",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "segregation": {
+              "enum": [
+                "dual_control_required",
+                "human_release",
+                "not_required",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "delegation",
+            "credential_reach",
+            "segregation"
+          ],
+          "type": "object"
+        },
+        "novelty": {
+          "additionalProperties": false,
+          "properties": {
+            "ambiguity": {
+              "enum": [
+                "ambiguous",
+                "bounded",
+                "fixed_schema",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "exception_frequency": {
+              "enum": [
+                "high",
+                "none",
+                "rare",
+                "recurring",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "model_judgment": {
+              "enum": [
+                "acceptance_critical",
+                "none",
+                "present",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "novelty": {
+              "enum": [
+                "bounded",
+                "fixed",
+                "novel",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "novelty",
+            "ambiguity",
+            "model_judgment",
+            "exception_frequency"
+          ],
+          "type": "object"
+        },
+        "operations": {
+          "additionalProperties": false,
+          "properties": {
+            "adoption_burden": {
+              "enum": [
+                "material",
+                "multi_owner",
+                "single_owner",
+                "staff_displacement",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "cost_value": {
+              "enum": [
+                "control_cost_exceeds_value",
+                "plausible",
+                "public_claim_requires_evidence",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "dependencies": {
+              "enum": [
+                "fixed",
+                "outcome_changing",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "duration": {
+              "enum": [
+                "bounded",
+                "long_lived",
+                "one_shot",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "supplier_change": {
+              "enum": [
+                "none",
+                "nonmaterial",
+                "outcome_changing",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "duration",
+            "dependencies",
+            "supplier_change",
+            "adoption_burden",
+            "cost_value"
+          ],
+          "type": "object"
+        },
+        "reversibility": {
+          "additionalProperties": false,
+          "properties": {
+            "idempotency": {
+              "enum": [
+                "available",
+                "named",
+                "not_applicable",
+                "tested",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "readback": {
+              "enum": [
+                "available",
+                "named",
+                "not_applicable",
+                "tested",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "recovery": {
+              "enum": [
+                "bounded",
+                "immediate",
+                "long",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "reversibility": {
+              "enum": [
+                "bounded_reversible",
+                "difficult",
+                "fully_reversible",
+                "irreversible",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "rollback": {
+              "enum": [
+                "available",
+                "named",
+                "not_applicable",
+                "tested",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "safe_state": {
+              "enum": [
+                "available",
+                "named",
+                "not_applicable",
+                "tested",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "reversibility",
+            "rollback",
+            "readback",
+            "safe_state",
+            "idempotency",
+            "recovery"
+          ],
+          "type": "object"
+        },
+        "verification": {
+          "additionalProperties": false,
+          "properties": {
+            "custody": {
+              "enum": [
+                "actor_independent",
+                "mutable_local",
+                "retained",
+                "separate_controlled",
+                "unavailable",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "evidence_completeness": {
+              "enum": [
+                "complete",
+                "contradictory",
+                "partial",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "verifier_strength": {
+              "enum": [
+                "deterministic",
+                "human",
+                "model_independent",
+                "organizationally_independent",
+                "role_separated",
+                "self_report",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "verifier_strength",
+            "custody",
+            "evidence_completeness"
+          ],
+          "type": "object"
+        },
+        "enforcement_point": {
+          "additionalProperties": false,
+          "properties": {
+            "actor_derivation_rule": {
+              "enum": [
+                "never_from_prompt_or_tool_arguments",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "boundary_dependencies": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "boundary_unavailable_behavior": {
+              "enum": [
+                "fail_closed_retryable",
+                "fail_closed_terminal",
+                "fail_open_forbidden",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "enforcement_location": {
+              "type": "string"
+            },
+            "identity_source": {
+              "enum": [
+                "authenticated_gateway_event",
+                "configured_local_operator",
+                "delegated_parent_session",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "mount_semantics": {
+              "enum": [
+                "deny_by_default",
+                "explicit_grant_only",
+                "read_only_default",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "recheck_cadence": {
+              "enum": [
+                "per_session",
+                "per_tool_call",
+                "per_turn",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data_source",
+        "action",
+        "consequence",
+        "reversibility",
+        "novelty",
+        "identity",
+        "verification",
+        "operations"
+      ],
+      "type": "object"
+    },
+    "instrument_config": {
+      "additionalProperties": false,
+      "properties": {
+        "h2_available": {
+          "const": false
+        }
+      },
+      "required": [
+        "h2_available"
+      ],
+      "type": "object"
+    },
+    "instrument_id": {
+      "const": "b03-scoping-instrument-v2"
+    },
+    "occurrence": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_first_h_record_ref": {
+          "minLength": 1,
+          "type": "string",
+          "pattern": ".*\\S.*"
+        },
+        "human_release_mechanism_available": {
+          "enum": [
+            "unknown",
+            "available",
+            "unavailable"
+          ],
+          "type": "string"
+        },
+        "observed_effect_ref": {
+          "minLength": 1,
+          "type": "string",
+          "pattern": ".*\\S.*"
+        },
+        "policy_ratification_ref": {
+          "minLength": 1,
+          "type": "string",
+          "pattern": ".*\\S.*"
+        },
+        "state": {
+          "enum": [
+            "unknown",
+            "first",
+            "subsequent"
+          ],
+          "type": "string"
+        },
+        "tested_recovery_ref": {
+          "minLength": 1,
+          "type": "string",
+          "pattern": ".*\\S.*"
+        },
+        "tuple_identity": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "tuple_identity",
+        "state",
+        "accepted_first_h_record_ref",
+        "observed_effect_ref",
+        "tested_recovery_ref",
+        "policy_ratification_ref",
+        "human_release_mechanism_available"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "answers",
+    "classification_groups",
+    "occurrence",
+    "instrument_config"
+  ],
+  "type": "object"
+}

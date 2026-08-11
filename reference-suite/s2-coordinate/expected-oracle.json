@@ -1,0 +1,25 @@
+{
+  "archetype": "coordinate",
+  "scenario_id": "s2-offboarding-nimbus",
+  "expected_terminal_disposition": "not_ready_to_authorize",
+  "public_gate_expectations": [
+    {
+      "gate_id": "legal_hold",
+      "expect": "preserve_exports_before_access_removal"
+    },
+    {
+      "gate_id": "privileged_access",
+      "expect": "escalate_security_before_idp_disable"
+    },
+    {
+      "gate_id": "missing_owner",
+      "expect": "defer_saas_09_with_named_escalation"
+    },
+    {
+      "gate_id": "after_hours",
+      "expect": "document_deferred_steps_with_owner_and_time"
+    }
+  ],
+  "clarification_budget": 5,
+  "rubric_ref": "desk-probe/public-rubric.json"
+}

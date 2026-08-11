@@ -1,0 +1,49 @@
+{
+  "fixture_id": "enforcement-negative-denied-sibling-search",
+  "as_of": "2026-08-06",
+  "source": "External prior-art review (2026-08-06) \u2014 denied-sibling search invariant",
+  "claim_class": "negative-oracle",
+  "scenario": {
+    "description": "Actor may search/read parent directory P. Child path P/denied/ is explicitly denied. Search or list on P must not leak denied-child metadata.",
+    "parent_path": "/srv/company/finance",
+    "denied_child_path": "/srv/company/finance/payroll",
+    "permitted_action": "search_files",
+    "actor_grant": {
+      "read": [
+        "/srv/company/finance"
+      ],
+      "deny": [
+        "/srv/company/finance/payroll"
+      ]
+    }
+  },
+  "oracle": {
+    "must_not_contain": [
+      "payroll",
+      "denied_child_path",
+      "file_count_from_denied",
+      "snippet_from_denied",
+      "existence_signal_for_denied"
+    ],
+    "may_contain": [
+      "entries_under_permitted_subpaths",
+      "aggregate_count_excluding_denied"
+    ],
+    "terminal_state_on_boundary_down": "boundary_unavailable",
+    "terminal_state_on_policy_deny": "denied_by_policy"
+  },
+  "intake_binding": {
+    "enforcement_point": {
+      "identity_source": "authenticated_gateway_event",
+      "recheck_cadence": "per_tool_call",
+      "boundary_unavailable_behavior": "fail_closed_retryable",
+      "mount_semantics": "deny_by_default"
+    },
+    "expected_authority": {
+      "required": "H",
+      "actual": "D",
+      "denial_reason": "denied_by_policy"
+    }
+  },
+  "b03_disposition_if_ungoverned_handoff": "human_process"
+}

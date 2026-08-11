@@ -1,0 +1,1259 @@
+{
+  "disposition": "qualify",
+  "instrument_id": "b03-scoping-instrument-v2",
+  "outputs": [
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O01_agent_decision"
+      ],
+      "output_id": "O01_agent_decision",
+      "value": {
+        "intervention_decision": "qualify",
+        "lifecycle_disposition": "qualify"
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O02_outcome_baseline"
+      ],
+      "output_id": "O02_outcome_baseline",
+      "value": {
+        "baseline": "review time",
+        "outcome": "draft recommendation"
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O03_workflow_action_map"
+      ],
+      "output_id": "O03_workflow_action_map",
+      "value": {
+        "actions": [
+          "read",
+          "compare",
+          "draft"
+        ],
+        "map": [
+          "policy->draft"
+        ],
+        "workflow": "policy comparison"
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O04_reversibility_classification"
+      ],
+      "output_id": "O04_reversibility_classification",
+      "value": "fully_reversible"
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O05_risk_tier"
+      ],
+      "output_id": "O05_risk_tier",
+      "value": {
+        "assigned_tier": "T2",
+        "highest_trigger": {
+          "reason": "bounded internal reversible noncritical action",
+          "tier": "T2",
+          "trigger_id": "bounded_internal_reversible_noncritical"
+        },
+        "known_minimum": "T2",
+        "unresolved_facts": []
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O06_control_plan"
+      ],
+      "output_id": "O06_control_plan",
+      "value": {
+        "applied_uplifts": [],
+        "authority": {
+          "actual": "A",
+          "h2_denial_reason": null,
+          "required": "H"
+        },
+        "modules": [
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "authority_human_oversight",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "quality_verification",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "evidence_traceability",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "identity_security_data_legal",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "integration_change_supply_chain",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L2",
+            "final_depth": "L2",
+            "module_id": "reliability_continuity",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L1",
+            "final_depth": "L1",
+            "module_id": "economics_value",
+            "reasons": []
+          },
+          {
+            "applied_uplift_floor": null,
+            "base_depth": "L1",
+            "final_depth": "L1",
+            "module_id": "adoption_ownership",
+            "reasons": []
+          }
+        ],
+        "selected_base_rule": {
+          "reason": "bounded internal reversible noncritical action",
+          "tier": "T2",
+          "trigger_id": "bounded_internal_reversible_noncritical"
+        }
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O07_deployment_boundary"
+      ],
+      "output_id": "O07_deployment_boundary",
+      "value": {
+        "sources_targets_exceptions": [
+          "policy->draft"
+        ]
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O08_acceptance_plan"
+      ],
+      "output_id": "O08_acceptance_plan",
+      "value": "fixed criteria"
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O09_operating_owner"
+      ],
+      "output_id": "O09_operating_owner",
+      "value": {
+        "operating": "ops",
+        "policy": "policy"
+      }
+    },
+    {
+      "confidence": "high",
+      "evidence_ids": [
+        "E-QUALIFY-O10_unresolved_risk_register"
+      ],
+      "output_id": "O10_unresolved_risk_register",
+      "value": []
+    }
+  ],
+  "rule_id": "R-QUALIFY",
+  "trace": [
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.data_source.purpose",
+      "input_value": "allowed",
+      "operator": "equals",
+      "predicate_id": "prohibited_purpose",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-T0"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "in",
+      "predicate_id": "material_consequence",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-T0"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "in",
+      "predicate_id": "unrecoverable_effect",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-T0"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.reversibility.rollback",
+      "input_value": "tested",
+      "operator": "in",
+      "predicate_id": "no_target_readback_or_safe_state",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-T0"
+    },
+    {
+      "affected_output_ids": [
+        "O02_outcome_baseline",
+        "O03_workflow_action_map"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.mission",
+      "input_value": "policy comparison",
+      "operator": "any_unknown",
+      "predicate_id": "acceptance_critical_unknown",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-UNKNOWN"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O02_outcome_baseline"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.intended_outcome",
+      "input_value": "draft recommendation",
+      "operator": "any_unknown",
+      "predicate_id": "acceptance_critical_unknown",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-UNKNOWN"
+    },
+    {
+      "affected_output_ids": [
+        "O09_operating_owner",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.named_operating_owner",
+      "input_value": "ops",
+      "operator": "any_unknown",
+      "predicate_id": "acceptance_critical_unknown",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-UNKNOWN"
+    },
+    {
+      "affected_output_ids": [
+        "O08_acceptance_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.acceptance_criteria",
+      "input_value": "fixed criteria",
+      "operator": "any_unknown",
+      "predicate_id": "acceptance_critical_unknown",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-UNKNOWN"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "equals",
+      "predicate_id": "fixed_schema",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-CONVENTIONAL"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "equals",
+      "predicate_id": "deterministic_transformation",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-CONVENTIONAL"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.novelty.ambiguity",
+      "input_value": "fixed_schema",
+      "operator": "equals",
+      "predicate_id": "no_ambiguous",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "R-CONVENTIONAL"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.novelty.ambiguity",
+      "input_value": "fixed_schema",
+      "operator": "in",
+      "predicate_id": "material_judgment",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "R-HUMAN"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "in",
+      "predicate_id": "bounded_scope",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "R-QUALIFY"
+    },
+    {
+      "affected_output_ids": [
+        "O09_operating_owner",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.named_operating_owner",
+      "input_value": "ops",
+      "operator": "known",
+      "predicate_id": "named_owner",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "R-QUALIFY"
+    },
+    {
+      "affected_output_ids": [
+        "O08_acceptance_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "disposition",
+      "input_path": "answers.acceptance_criteria",
+      "input_value": "fixed criteria",
+      "operator": "known",
+      "predicate_id": "acceptance_criteria_known",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "R-QUALIFY"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.purpose",
+      "input_value": "allowed",
+      "operator": "equals",
+      "predicate_id": "prohibited_purpose",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "prohibited_purpose"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.data",
+      "input_value": "internal",
+      "operator": "in",
+      "predicate_id": "impermissible_data",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "impermissible_data"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.residency",
+      "input_value": "unrestricted",
+      "operator": "in",
+      "predicate_id": "prohibited_residency",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "prohibited_residency"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.retention",
+      "input_value": "bounded",
+      "operator": "in",
+      "predicate_id": "prohibited_retention",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "prohibited_retention"
+    },
+    {
+      "affected_output_ids": [
+        "O09_operating_owner",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "answers.named_operating_owner",
+      "input_value": "ops",
+      "operator": "unknown",
+      "predicate_id": "no_accountable_owner",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "no_accountable_owner"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.operations.cost_value",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "control_cost_exceeds_value",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "control_cost_exceeds_value"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "in",
+      "predicate_id": "a",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "irreversible_destructive_critical"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "equals",
+      "predicate_id": "b",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "irreversible_destructive_critical"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.privilege",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "critical_privilege",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "critical_privilege"
+    },
+    {
+      "affected_output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.identity.segregation",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "dual_control_required",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "dual_control_required"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "in",
+      "predicate_id": "severe_consequence",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "severe_consequence"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "in",
+      "predicate_id": "external_or_publication",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "external_or_publication"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.data",
+      "input_value": "internal",
+      "operator": "in",
+      "predicate_id": "sensitive_data",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "sensitive_data"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "equals",
+      "predicate_id": "payment",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "payment"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.privilege",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "meaningful_privilege",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "meaningful_privilege"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.population",
+      "input_value": "single",
+      "operator": "equals",
+      "predicate_id": "broad_population",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "broad_population"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.recovery",
+      "input_value": "immediate",
+      "operator": "equals",
+      "predicate_id": "difficult_recovery",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "difficult_recovery"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "equals",
+      "predicate_id": "material_consequence",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "material_consequence"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "in",
+      "predicate_id": "a",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.target",
+      "input_value": "explicit_single",
+      "operator": "in",
+      "predicate_id": "b",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.environment",
+      "input_value": "internal_nonproduction",
+      "operator": "in",
+      "predicate_id": "c",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.external_effect",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "d",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "in",
+      "predicate_id": "e",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "in",
+      "predicate_id": "f",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.readback",
+      "input_value": "tested",
+      "operator": "in",
+      "predicate_id": "g",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.recovery",
+      "input_value": "immediate",
+      "operator": "in",
+      "predicate_id": "h",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.identity.credential_reach",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "i",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "bounded_internal_reversible_noncritical"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "in",
+      "predicate_id": "a",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.external_effect",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "b",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.data",
+      "input_value": "internal",
+      "operator": "in",
+      "predicate_id": "c",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.privilege",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "d",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.action.environment",
+      "input_value": "internal_nonproduction",
+      "operator": "in",
+      "predicate_id": "e",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "in",
+      "predicate_id": "f",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.data_source.source_authority",
+      "input_value": "authoritative",
+      "operator": "equals",
+      "predicate_id": "g",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O09_operating_owner",
+        "O10_unresolved_risk_register"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "answers.named_operating_owner",
+      "input_value": "ops",
+      "operator": "known",
+      "predicate_id": "h",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "not_in",
+      "predicate_id": "advisory_read_draft_known__9",
+      "record_type": "predicate_evaluation",
+      "result": true,
+      "rule_id": "advisory_read_draft_known"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.consequence",
+      "input_value": "noncritical",
+      "operator": "in",
+      "predicate_id": "unbounded_material_effect__1",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "unbounded_material_effect"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.reversibility",
+      "input_value": "fully_reversible",
+      "operator": "in",
+      "predicate_id": "unbounded_material_effect__2",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "unbounded_material_effect"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.readback",
+      "input_value": "tested",
+      "operator": "in",
+      "predicate_id": "no_viable_target_readback_or_safe_state__1",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "no_viable_target_readback_or_safe_state"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.reversibility.safe_state",
+      "input_value": "available",
+      "operator": "in",
+      "predicate_id": "no_viable_target_readback_or_safe_state__2",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "no_viable_target_readback_or_safe_state"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "proportionality",
+      "input_path": "classification_groups.consequence.recallability",
+      "input_value": "immediate",
+      "operator": "in",
+      "predicate_id": "difficult_recallability",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "difficult_recallability"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.data_source.data",
+      "input_value": "internal",
+      "operator": "in",
+      "predicate_id": "restricted_data",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "restricted_data"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.action.external_effect",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "external_effect",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "external_effect"
+    },
+    {
+      "affected_output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.action.action",
+      "input_value": "write",
+      "operator": "in",
+      "predicate_id": "production_or_privileged_action",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "production_or_privileged_action"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.reversibility.rollback",
+      "input_value": "tested",
+      "operator": "equals",
+      "predicate_id": "no_rollback_or_long_recovery__1",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "no_rollback_or_long_recovery"
+    },
+    {
+      "affected_output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.reversibility.recovery",
+      "input_value": "immediate",
+      "operator": "in",
+      "predicate_id": "no_rollback_or_long_recovery__2",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "no_rollback_or_long_recovery"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.operations.dependencies",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "outcome_changing_dependency__1",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "outcome_changing_dependency"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.operations.supplier_change",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "outcome_changing_dependency__2",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "outcome_changing_dependency"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.novelty.model_judgment",
+      "input_value": "none",
+      "operator": "in",
+      "predicate_id": "model_judgment",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "model_judgment"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.operations.adoption_burden",
+      "input_value": "unknown",
+      "operator": "in",
+      "predicate_id": "adoption_burden__1",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "adoption_burden"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.operations.duration",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "adoption_burden__2",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "adoption_burden"
+    },
+    {
+      "affected_output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "evaluation_pass": "uplift",
+      "input_path": "classification_groups.operations.cost_value",
+      "input_value": "unknown",
+      "operator": "equals",
+      "predicate_id": "public_value_claim",
+      "record_type": "predicate_evaluation",
+      "result": false,
+      "rule_id": "public_value_claim"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O01_agent_decision"
+      ],
+      "json_path": "/outputs/0/value",
+      "output_id": "O01_agent_decision",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O02_outcome_baseline"
+      ],
+      "json_path": "/outputs/1/value",
+      "output_id": "O02_outcome_baseline",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O03_workflow_action_map"
+      ],
+      "json_path": "/outputs/2/value",
+      "output_id": "O03_workflow_action_map",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O04_reversibility_classification"
+      ],
+      "json_path": "/outputs/3/value",
+      "output_id": "O04_reversibility_classification",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O05_risk_tier"
+      ],
+      "json_path": "/outputs/4/value",
+      "output_id": "O05_risk_tier",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O06_control_plan"
+      ],
+      "json_path": "/outputs/5/value",
+      "output_id": "O06_control_plan",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O07_deployment_boundary"
+      ],
+      "json_path": "/outputs/6/value",
+      "output_id": "O07_deployment_boundary",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O08_acceptance_plan"
+      ],
+      "json_path": "/outputs/7/value",
+      "output_id": "O08_acceptance_plan",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O09_operating_owner"
+      ],
+      "json_path": "/outputs/8/value",
+      "output_id": "O09_operating_owner",
+      "record_type": "output_leaf"
+    },
+    {
+      "evidence_ids": [
+        "E-QUALIFY-O10_unresolved_risk_register"
+      ],
+      "json_path": "/outputs/9/value",
+      "output_id": "O10_unresolved_risk_register",
+      "record_type": "output_leaf"
+    }
+  ]
+}

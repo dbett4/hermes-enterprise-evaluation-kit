@@ -1,0 +1,607 @@
+{
+  "catalog_id": "b03-question-catalog-v3",
+  "questions": [
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.mission",
+      "output_ids": [
+        "O02_outcome_baseline",
+        "O03_workflow_action_map"
+      ],
+      "question_id": "answers.mission",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.intended_outcome",
+      "output_ids": [
+        "O01_agent_decision",
+        "O02_outcome_baseline"
+      ],
+      "question_id": "answers.intended_outcome",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": false,
+      "input_path": "answers.baseline",
+      "output_ids": [
+        "O02_outcome_baseline"
+      ],
+      "question_id": "answers.baseline",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.workflow_actions",
+      "output_ids": [
+        "O03_workflow_action_map"
+      ],
+      "question_id": "answers.workflow_actions",
+      "role": "decision",
+      "type": "array"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.sources_targets_exceptions",
+      "output_ids": [
+        "O03_workflow_action_map",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "answers.sources_targets_exceptions",
+      "role": "decision",
+      "type": "array"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.named_operating_owner",
+      "output_ids": [
+        "O09_operating_owner",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "answers.named_operating_owner",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.named_policy_owner",
+      "output_ids": [
+        "O09_operating_owner"
+      ],
+      "question_id": "answers.named_policy_owner",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.acceptance_criteria",
+      "output_ids": [
+        "O08_acceptance_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "answers.acceptance_criteria",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "answers.resume_trigger",
+      "output_ids": [
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "answers.resume_trigger",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.action.action",
+      "output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "classification_groups.action.action",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.action.environment",
+      "output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "classification_groups.action.environment",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.action.external_effect",
+      "output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "classification_groups.action.external_effect",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.action.privilege",
+      "output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "classification_groups.action.privilege",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.action.target",
+      "output_ids": [
+        "O01_agent_decision",
+        "O03_workflow_action_map",
+        "O05_risk_tier",
+        "O07_deployment_boundary"
+      ],
+      "question_id": "classification_groups.action.target",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.consequence.consequence",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.consequence.consequence",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.consequence.population",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.consequence.population",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.consequence.recallability",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.consequence.recallability",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.data_source.data",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.data_source.data",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.data_source.purpose",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.data_source.purpose",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.data_source.residency",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.data_source.residency",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.data_source.retention",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.data_source.retention",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.data_source.source_authority",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.data_source.source_authority",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.identity.credential_reach",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.identity.credential_reach",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.identity.delegation",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.identity.delegation",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.identity.identity",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.identity.identity",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.identity.segregation",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.identity.segregation",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.novelty.ambiguity",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.novelty.ambiguity",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.novelty.exception_frequency",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.novelty.exception_frequency",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.novelty.model_judgment",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.novelty.model_judgment",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.novelty.novelty",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.novelty.novelty",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.operations.adoption_burden",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.operations.adoption_burden",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.operations.cost_value",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.operations.cost_value",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.operations.dependencies",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.operations.dependencies",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.operations.duration",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.operations.duration",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.operations.supplier_change",
+      "output_ids": [
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.operations.supplier_change",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.idempotency",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.idempotency",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.readback",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.readback",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.recovery",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.recovery",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.reversibility",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.reversibility",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.rollback",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.rollback",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.reversibility.safe_state",
+      "output_ids": [
+        "O04_reversibility_classification",
+        "O05_risk_tier",
+        "O06_control_plan"
+      ],
+      "question_id": "classification_groups.reversibility.safe_state",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.verification.custody",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.verification.custody",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.verification.evidence_completeness",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.verification.evidence_completeness",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "classification_groups.verification.verifier_strength",
+      "output_ids": [
+        "O06_control_plan",
+        "O08_acceptance_plan",
+        "O09_operating_owner"
+      ],
+      "question_id": "classification_groups.verification.verifier_strength",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.accepted_first_h_record_ref",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.accepted_first_h_record_ref",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.human_release_mechanism_available",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.human_release_mechanism_available",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.observed_effect_ref",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.observed_effect_ref",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.policy_ratification_ref",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.policy_ratification_ref",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.state",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.state",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.tested_recovery_ref",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.tested_recovery_ref",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": true,
+      "input_path": "occurrence.tuple_identity",
+      "output_ids": [
+        "O01_agent_decision",
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "occurrence.tuple_identity",
+      "role": "decision",
+      "type": "string"
+    },
+    {
+      "acceptance_critical": false,
+      "input_path": "instrument_config.h2_available",
+      "output_ids": [
+        "O06_control_plan",
+        "O10_unresolved_risk_register"
+      ],
+      "question_id": "instrument_config.h2_available",
+      "role": "output_only",
+      "type": "boolean"
+    }
+  ],
+  "unknown_values": [
+    "unknown",
+    "unavailable"
+  ]
+}

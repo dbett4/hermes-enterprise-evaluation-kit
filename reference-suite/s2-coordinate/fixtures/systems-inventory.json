@@ -1,0 +1,118 @@
+{
+  "hris": {
+    "system_id": "hris-workday-synthetic",
+    "owner": "People Ops",
+    "signals": [
+      "termination_date",
+      "final_pay_status",
+      "benefits_end"
+    ]
+  },
+  "idp": {
+    "system_id": "idp-okta-synthetic",
+    "owner": "IT Identity",
+    "signals": [
+      "sso_sessions",
+      "group_memberships",
+      "admin_roles"
+    ]
+  },
+  "mdm": {
+    "system_id": "mdm-jamf-synthetic",
+    "owner": "IT Endpoint",
+    "signals": [
+      "device_inventory",
+      "remote_wipe_eligibility"
+    ]
+  },
+  "ticketing": {
+    "system_id": "jira-synthetic",
+    "owner": "IT Service Desk",
+    "signals": [
+      "offboarding_ticket",
+      "subtasks_open"
+    ]
+  },
+  "payroll": {
+    "system_id": "payroll-adp-synthetic",
+    "owner": "Finance Payroll",
+    "signals": [
+      "final_pay_calc",
+      "commission_true_up"
+    ]
+  },
+  "saas_apps": [
+    {
+      "app_id": "saas-01",
+      "name": "CloudLedger",
+      "owner_team": "Finance",
+      "offboarding_action": "revoke_sso_and_export_audit"
+    },
+    {
+      "app_id": "saas-02",
+      "name": "DevPipeline",
+      "owner_team": "Engineering",
+      "offboarding_action": "remove_repo_access"
+    },
+    {
+      "app_id": "saas-03",
+      "name": "SupportDesk",
+      "owner_team": "Customer Success",
+      "offboarding_action": "disable_agent_profile"
+    },
+    {
+      "app_id": "saas-04",
+      "name": "SalesCRM",
+      "owner_team": "Revenue",
+      "offboarding_action": "reassign_open_deals"
+    },
+    {
+      "app_id": "saas-05",
+      "name": "HRPortal",
+      "owner_team": "People",
+      "offboarding_action": "schedule_exit_interview"
+    },
+    {
+      "app_id": "saas-06",
+      "name": "DocSign",
+      "owner_team": "Legal",
+      "offboarding_action": "retain_legal_hold_copies"
+    },
+    {
+      "app_id": "saas-07",
+      "name": "DataWarehouse",
+      "owner_team": "Data",
+      "offboarding_action": "revoke_query_role"
+    },
+    {
+      "app_id": "saas-08",
+      "name": "MarketingAuto",
+      "owner_team": "Marketing",
+      "offboarding_action": "remove_campaign_editor"
+    },
+    {
+      "app_id": "saas-09",
+      "name": "StatusPage",
+      "owner_team": "SRE",
+      "offboarding_action": "remove_oncall_rotation"
+    },
+    {
+      "app_id": "saas-10",
+      "name": "ExpenseTool",
+      "owner_team": "Finance",
+      "offboarding_action": "freeze_corporate_card"
+    },
+    {
+      "app_id": "saas-11",
+      "name": "LearningHub",
+      "owner_team": "People",
+      "offboarding_action": "close_enrollments"
+    },
+    {
+      "app_id": "saas-12",
+      "name": "PrivilegedVault",
+      "owner_team": "Security",
+      "offboarding_action": "rotate_shared_secrets_if_last_custodian"
+    }
+  ]
+}

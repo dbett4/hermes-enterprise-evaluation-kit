@@ -1,0 +1,1964 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hermes://b05/map-schema/v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "map_id",
+    "baseline",
+    "product_release",
+    "b03_integration",
+    "surface_dispositions",
+    "rows",
+    "summary",
+    "generation"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2A"
+    },
+    "map_id": {
+      "type": "string",
+      "const": "hermes-v0.20-map"
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository_commit",
+        "denominator_path",
+        "denominator_sha256",
+        "evidence_catalog_path",
+        "evidence_catalog_sha256"
+      ],
+      "properties": {
+        "repository_commit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denominator_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denominator_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "evidence_catalog_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_catalog_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "product_release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "public_tag",
+        "annotated_tag_object",
+        "peeled_release_commit",
+        "package_version",
+        "topology_identity",
+        "evidence_basis"
+      ],
+      "properties": {
+        "public_tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "annotated_tag_object": {
+          "type": "string",
+          "minLength": 1
+        },
+        "peeled_release_commit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "package_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "topology_identity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "b03_integration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "artifacts",
+            "requirement_keys",
+            "extension_claims"
+          ],
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "absent"
+            },
+            "artifacts": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "requirement_keys": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "extension_claims": {
+              "type": "array",
+              "maxItems": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "instrument_id",
+            "artifacts",
+            "requirement_keys",
+            "extension_claims"
+          ],
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "connected"
+            },
+            "instrument_id": {
+              "type": "string",
+              "const": "b03-scoping-instrument-v2"
+            },
+            "artifacts": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              }
+            },
+            "requirement_keys": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "extension_claims": {
+              "type": "array",
+              "minItems": 1,
+              "contains": {
+                "const": "C03"
+              },
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "surface_dispositions": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-PROFILE-DISTRIBUTION"
+            },
+            "surface": {
+              "const": "Profile distributions"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/hermes_cli/test_profile_distribution.py; distribution docs at peeled release commit"
+            },
+            "boundary": {
+              "const": "Packages a profile as a Git repository excluding memory/session/auth state; distributions unsigned by default; Git-ref pinning documented as planned, not shipped."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-GOALS"
+            },
+            "surface": {
+              "const": "Goals and completion contracts"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/hermes_cli/test_goals.py; goals docs at peeled release commit"
+            },
+            "boundary": {
+              "const": "Continuation/completion judge is an auxiliary model; contracts improve evidence expectations but do not replace deterministic or human disposition."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-APPROVAL-DENY"
+            },
+            "surface": {
+              "const": "Approval deny rules"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/tools/test_approval_deny_rules.py; security docs at peeled release commit"
+            },
+            "boundary": {
+              "const": "Guardrail against honest-but-wrong behavior; not a sandbox against a deliberately adversarial process."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-SMART-APPROVAL"
+            },
+            "surface": {
+              "const": "Smart approval policy"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/tools/test_smart_approval_policy.py; hermes approvals suggest CLI readback"
+            },
+            "boundary": {
+              "const": "Auxiliary-model judgment and operator policy, not deterministic authorization; suggestions do not become enterprise policy without owner ratification."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-WEBHOOKS"
+            },
+            "surface": {
+              "const": "Outbound webhooks"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/agent/test_outbound_webhooks.py; tests/gateway/test_webhook_signature_rate_limit.py"
+            },
+            "boundary": {
+              "const": "HMAC signature present only when a secret is configured; entries without a secret delivered unsigned and flagged."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-IRON-PROXY"
+            },
+            "surface": {
+              "const": "Iron Proxy egress"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/test_iron_proxy.py; tests/test_iron_proxy_cli.py"
+            },
+            "boundary": {
+              "const": "Native credential-injection/egress infrastructure for the Docker backend; not wired into Modal, Daytona, SSH, or Singularity; does not replace OS/container isolation."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-OS-CONTAINER-ISOLATION"
+            },
+            "surface": {
+              "const": "OS/container isolation"
+            },
+            "status": {
+              "const": "NOT_RUN"
+            },
+            "evidence_ref": {
+              "const": "documented requirement in security docs; focused suite did not directly test the selected backend/host boundary"
+            },
+            "boundary": {
+              "const": "Hermes documentation identifies isolated backends as the load-bearing boundary against adversarial execution; B07 must verify the selected backend and host boundary."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-MANAGED-SCOPE"
+            },
+            "surface": {
+              "const": "Managed scope"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/hermes_cli/test_managed_scope.py; test_managed_scope_config.py; test_managed_scope_env.py"
+            },
+            "boundary": {
+              "const": "Management-convenience boundary against a normal user; malformed managed files logged and ignored; environment-based escape remains possible."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-KANBAN"
+            },
+            "surface": {
+              "const": "Kanban boards"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/hermes_cli/test_kanban_boards.py"
+            },
+            "boundary": {
+              "const": "Durable SQLite coordination and per-board separation; tenants documented as a soft filter; records are operational state, not independently controlled immutable audit."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-PROVIDER-ROUTING"
+            },
+            "surface": {
+              "const": "Configured provider routing"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/hermes_cli/test_model_switch_configured_provider_routing.py"
+            },
+            "boundary": {
+              "const": "Selects/ranks an underlying provider for a requested model; does not choose a model/configuration based on task outcome or risk."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-FALLBACK"
+            },
+            "surface": {
+              "const": "Cross-provider fallback"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/run_agent/test_provider_fallback.py"
+            },
+            "boundary": {
+              "const": "Availability recovery for rate limits, overload, auth failures, connection errors; fallback may change provider/model and reset prompt caches; turn-scoped; not adaptive task routing."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-MODEL-EFFORT-CONFIG"
+            },
+            "surface": {
+              "const": "Model/effort configuration"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "configured-provider-routing test; configuration docs at peeled release commit"
+            },
+            "boundary": {
+              "const": "Explicit main/auxiliary model and effort configuration supported; v0.20 does not establish the policy resolver that hides these choices from ordinary users."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-GATEWAY-EXACT-TAG"
+            },
+            "surface": {
+              "const": "Exact-tag gateway code path"
+            },
+            "status": {
+              "const": "PASS_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "tests/agent/test_outbound_webhooks.py; tests/gateway/test_webhook_signature_rate_limit.py at peeled release commit"
+            },
+            "boundary": {
+              "const": "Proves only the named clean-tag code paths; does not establish that the installed gateway uses that source tree or can execute a reference job."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-GATEWAY-INSTALLED"
+            },
+            "surface": {
+              "const": "Installed gateway topology observation"
+            },
+            "status": {
+              "const": "OBSERVED_WITH_LIMITS"
+            },
+            "evidence_ref": {
+              "const": "installed hermes status readback reporting the gateway running"
+            },
+            "boundary": {
+              "const": "Observation belongs to the dirty/divergent installed topology; supplies no exact-tag conformance or end-to-end job evidence."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-GATEWAY-E2E"
+            },
+            "surface": {
+              "const": "End-to-end reference-job gateway path"
+            },
+            "status": {
+              "const": "NOT_RUN"
+            },
+            "evidence_ref": {
+              "const": "intentionally excluded from B04"
+            },
+            "boundary": {
+              "const": "No service start/stop, production message, or reference job performed; B07 must prove its selected gateway/backend path."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-EVIDENCE-PACKET"
+            },
+            "surface": {
+              "const": "Enterprise evidence-packet export/custody"
+            },
+            "status": {
+              "const": "GAP"
+            },
+            "evidence_ref": {
+              "const": "scoped CLI/docs/source review plus named tests"
+            },
+            "boundary": {
+              "const": "No sufficient first-party immutable enterprise packet/custody surface identified; independently controlled store required before immutable/audit-reliance language."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-PORTAL-METERING"
+            },
+            "surface": {
+              "const": "Portal metering/cost receipt"
+            },
+            "status": {
+              "const": "NOT_RUN"
+            },
+            "evidence_ref": {
+              "const": "intentionally excluded"
+            },
+            "boundary": {
+              "const": "Auth/spend is a separate authority; cost stays NOT_RUN, never estimated or invented."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "surface",
+            "status",
+            "evidence_ref",
+            "boundary",
+            "eligible_requirement_keys",
+            "mapping_row_ids"
+          ],
+          "properties": {
+            "id": {
+              "const": "HS-NON-REFERENCE-SURFACES"
+            },
+            "surface": {
+              "const": "A2A, voice, and other non-reference release surfaces"
+            },
+            "status": {
+              "const": "NOT_RUN"
+            },
+            "evidence_ref": {
+              "const": "intentionally excluded from focused suite"
+            },
+            "boundary": {
+              "const": "No operational conclusion; may be mapped later only with their own scoped proof."
+            },
+            "eligible_requirement_keys": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "mapping_row_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ],
+      "items": false,
+      "minItems": 18,
+      "maxItems": 18
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 318,
+      "maxItems": 318,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "product_release",
+          "status",
+          "implementation",
+          "evidence",
+          "boundary",
+          "reference_use",
+          "incomplete_treatment",
+          "gap",
+          "staleness",
+          "requirement_trace"
+        ],
+        "properties": {
+          "product_release": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "public_tag",
+              "annotated_tag_object",
+              "peeled_release_commit",
+              "package_version",
+              "topology_identity",
+              "evidence_basis"
+            ],
+            "properties": {
+              "public_tag": {
+                "type": "string",
+                "minLength": 1
+              },
+              "annotated_tag_object": {
+                "type": "string",
+                "minLength": 1
+              },
+              "peeled_release_commit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "package_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "topology_identity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_basis": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "status": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "primary_status",
+              "supporting_statuses"
+            ],
+            "properties": {
+              "primary_status": {
+                "type": "string",
+                "enum": [
+                  "native",
+                  "configuration",
+                  "extension",
+                  "surrounding-platform",
+                  "unsupported-gap"
+                ]
+              },
+              "supporting_statuses": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "configuration",
+                    "extension",
+                    "surrounding-platform",
+                    "unsupported-gap"
+                  ]
+                }
+              }
+            }
+          },
+          "implementation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "component",
+              "configuration",
+              "owner",
+              "applicability",
+              "native_first"
+            ],
+            "properties": {
+              "component": {
+                "type": "string",
+                "minLength": 1
+              },
+              "configuration": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "applicability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "native_first": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "considered_surface_ids",
+                  "strongest_builtin_primitive",
+                  "sufficient"
+                ],
+                "properties": {
+                  "considered_surface_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "HS-PROFILE-DISTRIBUTION",
+                        "HS-GOALS",
+                        "HS-APPROVAL-DENY",
+                        "HS-SMART-APPROVAL",
+                        "HS-WEBHOOKS",
+                        "HS-IRON-PROXY",
+                        "HS-OS-CONTAINER-ISOLATION",
+                        "HS-MANAGED-SCOPE",
+                        "HS-KANBAN",
+                        "HS-PROVIDER-ROUTING",
+                        "HS-FALLBACK",
+                        "HS-MODEL-EFFORT-CONFIG",
+                        "HS-GATEWAY-EXACT-TAG",
+                        "HS-GATEWAY-INSTALLED",
+                        "HS-GATEWAY-E2E",
+                        "HS-EVIDENCE-PACKET",
+                        "HS-PORTAL-METERING",
+                        "HS-NON-REFERENCE-SURFACES"
+                      ]
+                    }
+                  },
+                  "strongest_builtin_primitive": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sufficient": {
+                    "type": "boolean"
+                  },
+                  "insufficiency_reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "sufficient": {
+                          "const": false
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "insufficiency_reason"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "sufficient": {
+                          "const": true
+                        }
+                      }
+                    },
+                    "then": {
+                      "not": {
+                        "required": [
+                          "insufficiency_reason"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "surface_ids",
+              "statuses",
+              "source_refs",
+              "observed_date",
+              "basis",
+              "bounded_claim"
+            ],
+            "properties": {
+              "surface_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "HS-PROFILE-DISTRIBUTION",
+                    "HS-GOALS",
+                    "HS-APPROVAL-DENY",
+                    "HS-SMART-APPROVAL",
+                    "HS-WEBHOOKS",
+                    "HS-IRON-PROXY",
+                    "HS-OS-CONTAINER-ISOLATION",
+                    "HS-MANAGED-SCOPE",
+                    "HS-KANBAN",
+                    "HS-PROVIDER-ROUTING",
+                    "HS-FALLBACK",
+                    "HS-MODEL-EFFORT-CONFIG",
+                    "HS-GATEWAY-EXACT-TAG",
+                    "HS-GATEWAY-INSTALLED",
+                    "HS-GATEWAY-E2E",
+                    "HS-EVIDENCE-PACKET",
+                    "HS-PORTAL-METERING",
+                    "HS-NON-REFERENCE-SURFACES"
+                  ]
+                }
+              },
+              "statuses": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "PASS_WITH_LIMITS",
+                    "OBSERVED_WITH_LIMITS",
+                    "NOT_RUN",
+                    "GAP"
+                  ]
+                }
+              },
+              "source_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "observed_date": {
+                "type": "string",
+                "minLength": 1
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "bounded_claim": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "boundary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "known_limits",
+              "bypasses",
+              "security_boundary"
+            ],
+            "properties": {
+              "known_limits": {
+                "type": "string",
+                "minLength": 1
+              },
+              "bypasses": {
+                "type": "string",
+                "minLength": 1
+              },
+              "security_boundary": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "reference_use": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reference_case",
+              "acceptance_test",
+              "expected_result",
+              "negative_case"
+            ],
+            "properties": {
+              "reference_case": {
+                "type": "string",
+                "minLength": 1
+              },
+              "acceptance_test": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expected_result": {
+                "type": "string",
+                "minLength": 1
+              },
+              "negative_case": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "incomplete_treatment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "mechanism",
+              "owner",
+              "treatment",
+              "incomplete_state"
+            ],
+            "properties": {
+              "mechanism": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "treatment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "incomplete_state": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "gap": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "applicable"
+            ],
+            "properties": {
+              "applicable": {
+                "type": "boolean"
+              },
+              "gap_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ledger_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "consequence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "interim_treatment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "resume_condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_surface_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "HS-PROFILE-DISTRIBUTION",
+                    "HS-GOALS",
+                    "HS-APPROVAL-DENY",
+                    "HS-SMART-APPROVAL",
+                    "HS-WEBHOOKS",
+                    "HS-IRON-PROXY",
+                    "HS-OS-CONTAINER-ISOLATION",
+                    "HS-MANAGED-SCOPE",
+                    "HS-KANBAN",
+                    "HS-PROVIDER-ROUTING",
+                    "HS-FALLBACK",
+                    "HS-MODEL-EFFORT-CONFIG",
+                    "HS-GATEWAY-EXACT-TAG",
+                    "HS-GATEWAY-INSTALLED",
+                    "HS-GATEWAY-E2E",
+                    "HS-EVIDENCE-PACKET",
+                    "HS-PORTAL-METERING",
+                    "HS-NON-REFERENCE-SURFACES"
+                  ]
+                }
+              },
+              "decision": {
+                "type": "string",
+                "enum": [
+                  "scope_reduce",
+                  "human_control",
+                  "defer",
+                  "reject"
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "applicable": {
+                      "const": false
+                    }
+                  }
+                },
+                "then": {
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "gap_id"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "ledger_ref"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "owner"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "consequence"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "interim_treatment"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "resume_condition"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "evidence_surface_ids"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "decision"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "staleness": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "release_trigger",
+              "topology_trigger",
+              "configuration_trigger",
+              "requirement_trigger",
+              "evidence_trigger",
+              "review_owner",
+              "review_event"
+            ],
+            "properties": {
+              "release_trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "topology_trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "configuration_trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requirement_trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "review_owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "review_event": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "requirement_trace": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "decision_id",
+              "key",
+              "requirement_digest",
+              "source_path",
+              "source_line",
+              "heading_path",
+              "ordinal",
+              "classification",
+              "context",
+              "is_negative_test",
+              "text",
+              "control_ids",
+              "module_ids",
+              "slot_ids",
+              "evidence_class_ids",
+              "metric_ids",
+              "risk_statement",
+              "control_rule",
+              "threshold",
+              "window",
+              "action_owner",
+              "evidence_ids"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "control_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "module_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "MOD-AUTH",
+                    "MOD-QUALITY",
+                    "MOD-EVIDENCE",
+                    "MOD-IDENTITY",
+                    "MOD-INTEGRATION",
+                    "MOD-RELIABILITY",
+                    "MOD-ECONOMICS",
+                    "MOD-ADOPTION"
+                  ]
+                }
+              },
+              "slot_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "SLOT-01-HUMAN-PROCEDURE",
+                    "SLOT-02-POLICY-DECISION",
+                    "SLOT-03-IDENTITY-CREDENTIAL",
+                    "SLOT-04-EXECUTION-BOUNDARY",
+                    "SLOT-05-TOOL-CONNECTOR",
+                    "SLOT-06-SOURCE-TARGET",
+                    "SLOT-07-VERIFICATION-DISPOSITION",
+                    "SLOT-08-EVIDENCE-RETENTION",
+                    "SLOT-09-OPS-MONITORING"
+                  ]
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "EV-ADOP-ACCEPTANCE",
+                    "EV-ADOP-DEMONSTRATION",
+                    "EV-ADOP-OBLIGATIONS",
+                    "EV-ADOP-RACI",
+                    "EV-ADOP-RUNBOOK",
+                    "EV-ADOP-SUPPORT-ROUTE",
+                    "EV-ADOP-TABLETOP",
+                    "EV-ADOP-TRANSFER",
+                    "EV-AUTH-ADR",
+                    "EV-AUTH-GRANT",
+                    "EV-AUTH-OVERRIDE-DENIAL",
+                    "EV-AUTH-PRESTATE-POSTSTATE",
+                    "EV-AUTH-PROPOSAL",
+                    "EV-AUTH-RELEASE",
+                    "EV-AUTH-STOP-REVOCATION",
+                    "EV-ECON-BASELINE",
+                    "EV-ECON-COST-RECEIPTS",
+                    "EV-ECON-DENOMINATOR",
+                    "EV-ECON-QUALITY",
+                    "EV-ECON-TOTAL-COST",
+                    "EV-ECON-VALUE-DISPOSITION",
+                    "EV-EVID-ARTIFACTS",
+                    "EV-EVID-CUSTODY",
+                    "EV-EVID-GRAPH",
+                    "EV-EVID-INPUT-REF",
+                    "EV-EVID-POPULATION",
+                    "EV-EVID-READBACK",
+                    "EV-EVID-RECONSTRUCTION",
+                    "EV-EVID-WAIVER-LINKS",
+                    "EV-IDEN-ACCESS-REVIEW",
+                    "EV-IDEN-BOUNDARY-CONFIG",
+                    "EV-IDEN-DATA-CLASS",
+                    "EV-IDEN-DELEGATION",
+                    "EV-IDEN-INVENTORY",
+                    "EV-IDEN-ISOLATION-TEST",
+                    "EV-IDEN-LIFECYCLE-READBACK",
+                    "EV-IDEN-NOVATION",
+                    "EV-INTG-ARTIFACTS",
+                    "EV-INTG-GAP-REGISTER",
+                    "EV-INTG-LOCATION-MAP",
+                    "EV-INTG-MANIFEST",
+                    "EV-INTG-NOVATION",
+                    "EV-INTG-TESTS",
+                    "EV-QUAL-CHECKER",
+                    "EV-QUAL-CRITERIA",
+                    "EV-QUAL-DISCREPANCY",
+                    "EV-QUAL-FIXED-OUTPUT",
+                    "EV-QUAL-HUMAN-DISPOSITION",
+                    "EV-QUAL-ORACLE",
+                    "EV-QUAL-RERUN",
+                    "EV-RELI-DUPLICATE-TEST",
+                    "EV-RELI-FAILURE-INJECTION",
+                    "EV-RELI-HEALTH",
+                    "EV-RELI-INCIDENT",
+                    "EV-RELI-PRESTATE-POSTSTATE",
+                    "EV-RELI-RECOVERY",
+                    "EV-RELI-RETRY-FALLBACK"
+                  ]
+                }
+              },
+              "metric_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "MET-ADOP-TABLETOP-FAIL",
+                    "MET-ADOP-TRACKING",
+                    "MET-ADOP-UNOWNED",
+                    "MET-AUTH-DENIAL-BYPASS",
+                    "MET-AUTH-UNAUTHORIZED",
+                    "MET-ECON-COST-PER-OUTPUT",
+                    "MET-EVID-BROKEN-LINKS",
+                    "MET-EVID-COMPLETENESS",
+                    "MET-EVID-MISMATCH",
+                    "MET-IDEN-BOUNDARY-FAIL",
+                    "MET-IDEN-DATA-ROUTE",
+                    "MET-IDEN-EXPIRED-GRANT",
+                    "MET-IDEN-ORPHAN",
+                    "MET-INTG-SILENT-DRIFT",
+                    "MET-INTG-UNKNOWN-COMPONENT",
+                    "MET-INTG-UNRECONSTRUCTABLE",
+                    "MET-QUAL-ACCEPTED-RATE",
+                    "MET-QUAL-ORACLE-FAILURE",
+                    "MET-QUAL-REGRESSION",
+                    "MET-RELI-DUPLICATE",
+                    "MET-RELI-RECOVERY-OBJECTIVE",
+                    "MET-RELI-UNOWNED"
+                  ]
+                }
+              },
+              "decision_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requirement_digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "heading_path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ordinal": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "classification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "context": {
+                "type": "string",
+                "minLength": 1
+              },
+              "is_negative_test": {
+                "type": "boolean"
+              },
+              "evidence_class_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "EV-CLASS-DECLARED",
+                    "EV-CLASS-RUNTIME-REPORTED",
+                    "EV-CLASS-OBSERVED",
+                    "EV-CLASS-ROLE-SEPARATED",
+                    "EV-CLASS-MODEL-INDEPENDENT",
+                    "EV-CLASS-HUMAN-DISPOSITION",
+                    "EV-CLASS-ORG-INDEPENDENT"
+                  ]
+                }
+              },
+              "risk_statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "control_rule": {
+                "type": "string",
+                "minLength": 1
+              },
+              "threshold": {
+                "type": "string",
+                "minLength": 1
+              },
+              "window": {
+                "type": "string",
+                "minLength": 1
+              },
+              "action_owner": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "properties": {
+                    "primary_status": {
+                      "const": "unsupported-gap"
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "gap": {
+                  "required": [
+                    "applicable",
+                    "gap_id",
+                    "ledger_ref",
+                    "owner",
+                    "consequence",
+                    "interim_treatment",
+                    "resume_condition",
+                    "evidence_surface_ids",
+                    "decision"
+                  ],
+                  "properties": {
+                    "applicable": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "gap": {
+                  "properties": {
+                    "applicable": {
+                      "const": false
+                    }
+                  },
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "gap_id"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "ledger_ref"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "decision"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_count",
+        "status_counts",
+        "gap_count"
+      ],
+      "properties": {
+        "row_count": {
+          "type": "integer",
+          "const": 318
+        },
+        "status_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "native",
+            "configuration",
+            "extension",
+            "surrounding-platform",
+            "unsupported-gap"
+          ],
+          "properties": {
+            "native": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "configuration": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "extension": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "surrounding-platform": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "unsupported-gap": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "gap_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generator",
+        "manifest_sha256",
+        "generated_at"
+      ],
+      "properties": {
+        "generator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "generated_at": {
+          "type": "string",
+          "const": "deterministic"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "N04",
+  "fault_class": "human_escalation",
+  "suite_member": "S1",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S1-VPE-4421",
+    "mission": "Recommend disposition for severe reversible vendor-policy exception",
+    "fault_injection": {
+      "kind": "severity_requires_human_release",
+      "risk_tier": "T4",
+      "reversibility": "reversible_with_recovery",
+      "auto_accept_allowed": false,
+      "named_policy_owner": "policy-owner-demo"
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-human-required", "field": "human_escalation_required", "operator": "equals", "value": true},
+    {"id": "oracle-not-auto-accepted", "field": "acceptance_counted", "operator": "equals", "value": false},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "needs_review"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "needs_review",
+    "exception_class": "human_escalation",
+    "disposition": "needs_review",
+    "fail_closed": false,
+    "blocking_exception": false,
+    "mapping_failure": false,
+    "human_escalation_required": true,
+    "deny_with_receipt": false,
+    "policy_record_id": null,
+    "duplicate_acceptance_prevented": false,
+    "producer_output_emitted": true,
+    "effect_applied": false,
+    "receipt_emitted": true,
+    "acceptance_counted": false,
+    "human_disposition_status": "pending",
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

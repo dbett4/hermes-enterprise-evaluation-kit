@@ -1,0 +1,171 @@
+{
+  "checker": {
+    "criteria_evidence_ids": [
+      "s3-rate-limit-oracle-a"
+    ],
+    "independence_note": "Distinct session IDs label separation; they do not prove stronger independence.",
+    "latency_ms": 3,
+    "model": "deterministic-oracle-engine",
+    "oracle_result": {
+      "evidence_basis": "observed",
+      "failures": [],
+      "oracle_id": "s3-rate-limit-oracle-a",
+      "passed": true
+    },
+    "provider_resolved": "local-fixture",
+    "separation_claims": [
+      "role-separated",
+      "deterministic-oracle"
+    ],
+    "separation_evidence_ids": [
+      "s3-act-a-20260806-dry-run-producer-output",
+      "s3-act-a-20260806-dry-run-context-proof"
+    ],
+    "session_id": "s3-checker-s3-act-a-20260806-dry-run",
+    "verdict": "accept"
+  },
+  "cost": {
+    "reason": "B10 Portal measurement requires separate auth/spend authority",
+    "status": "NOT_RUN",
+    "usd": null
+  },
+  "effect": {
+    "deterministic_oracle_ids": [
+      "s3-rate-limit-oracle-a"
+    ],
+    "evidence_basis": "observed",
+    "observed_states": {
+      "evidence_basis": "observed",
+      "mode": "local-staging-observed",
+      "poststate": {
+        "environment": "synthetic-staging",
+        "rate_limit": {
+          "burst": 10,
+          "requests_per_minute": 50
+        },
+        "resource": "/v1/orders",
+        "revision": 3,
+        "service_id": "nimbus-staging-api"
+      },
+      "prestate": {
+        "environment": "synthetic-staging",
+        "rate_limit": {
+          "burst": 20,
+          "requests_per_minute": 100
+        },
+        "resource": "/v1/orders",
+        "revision": 2,
+        "service_id": "nimbus-staging-api"
+      },
+      "readback_ids": [
+        "s3-poststate-001",
+        "s3-rollback-001"
+      ],
+      "rollback": {
+        "environment": "synthetic-staging",
+        "rate_limit": {
+          "burst": 20,
+          "requests_per_minute": 100
+        },
+        "resource": "/v1/orders",
+        "revision": 4,
+        "service_id": "nimbus-staging-api"
+      },
+      "staging_service_invoked": true
+    },
+    "output_artifact_ids": [
+      "s3-act-a-20260806-dry-run-change-record.json"
+    ],
+    "target_readback_ids": [
+      "s3-poststate-001",
+      "s3-rollback-001"
+    ]
+  },
+  "exceptions": [],
+  "execution": {
+    "preparer": {
+      "effort": "not-applicable",
+      "evidence_basis": {
+        "latency_ms": "observed",
+        "model": "runtime_reported",
+        "provider_resolved": "runtime_reported"
+      },
+      "fallback_event": null,
+      "latency_ms": 12,
+      "model": "dry-run-producer-v1",
+      "provider_requested": "configured-local-only",
+      "provider_resolved": "dry-run-simulator",
+      "session_id": "s3-producer-s3-act-a-20260806-dry-run",
+      "tools_manifest_sha256": "2d4025ed4cbaf0d262bc765c66c98435c1a398458f60b6d66bfbf440f79b3913"
+    },
+    "producer_input_excludes_oracle": true,
+    "producer_output": {
+      "action": "rate_limit_change",
+      "applied_rate_limit": {
+        "burst": 10,
+        "requests_per_minute": 50
+      },
+      "authority_mode": "A",
+      "production_promotion": false,
+      "resource": "/v1/orders",
+      "rollback_rate_limit": {
+        "burst": 20,
+        "requests_per_minute": 100
+      }
+    },
+    "producer_output_id": "s3-act-a-20260806-dry-run-producer-output"
+  },
+  "hermes_release": {
+    "commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
+    "evidence_basis": "declared-and-observed",
+    "package_version": "0.20.0",
+    "tag": "v2026.8.3"
+  },
+  "human_disposition": {
+    "approver_authority_id": "auth-nimbus-policy-owner-synthetic",
+    "recorded_at": "2026-08-07T03:18:01+00:00",
+    "required": true,
+    "review_evidence_ids": [
+      "s3-act-a-20260806-dry-run-human-review"
+    ],
+    "status": "accept"
+  },
+  "mission": {
+    "action_class": "act-rate-limit-change",
+    "authority_mode": "A",
+    "data_zone": "synthetic-staging",
+    "expected_outcome": "Apply reversible rate-limit change with readback and exact rollback.",
+    "task_class": "rate_limit_change",
+    "work_order_id": "WO-S3-A-20260806-001"
+  },
+  "record_posture": {
+    "immutable_audit_claim": false,
+    "store": "mutable-kit-artifact"
+  },
+  "resolution": {
+    "artifact_refs": [
+      "reference-suite/s3-act/fixtures/initial-state.json",
+      "reference-suite/s3-act/fixtures/target-state.json",
+      "reference-suite/s3-act/fixtures/rollback-state.json",
+      "scripts/reference_staging_service.py"
+    ],
+    "bundle_id": "bundle-s3-act-a",
+    "bundle_version": "0.1.0",
+    "envelope_id": "env-nimbus-synthetic-v0.1",
+    "evidence_basis": "declared-and-observed",
+    "manifest_canonicalization": "json-canonical-v1",
+    "manifest_sha256": "f812d9637ebefba8277bfe89fff180594767a6dacb09596618a9aa469fca8753",
+    "override": null,
+    "resolver_rule_id": "resolver-v0.1-synthetic-internal"
+  },
+  "run_id": "s3-act-a-20260806-dry-run",
+  "run_mode": {
+    "evidence_basis": "declared-and-observed",
+    "hermes_daemon": false,
+    "label": "local-staging-observed",
+    "live_provider": true,
+    "staging_service": "reference_staging_service"
+  },
+  "schema_version": "0.1-draft",
+  "terminal_status": "accepted"
+}

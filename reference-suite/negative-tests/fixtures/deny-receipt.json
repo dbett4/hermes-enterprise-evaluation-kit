@@ -1,0 +1,40 @@
+{
+  "id": "N06",
+  "fault_class": "deny_receipt",
+  "suite_member": "S1",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S1-VPE-4422",
+    "mission": "Evaluate exception outside granted decide envelope",
+    "fault_injection": {
+      "kind": "unauthorized_decide_request",
+      "requester_role": "analyst",
+      "required_role": "policy-owner",
+      "envelope_id": "NW-DECIDE-ENVELOPE-01",
+      "authorization_status": "denied"
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-deny", "field": "disposition", "operator": "equals", "value": "deny"},
+    {"id": "oracle-receipt", "field": "deny_with_receipt", "operator": "equals", "value": true},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "rejected"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "rejected",
+    "exception_class": "deny_receipt",
+    "disposition": "deny",
+    "fail_closed": true,
+    "blocking_exception": false,
+    "mapping_failure": false,
+    "human_escalation_required": false,
+    "deny_with_receipt": true,
+    "policy_record_id": null,
+    "duplicate_acceptance_prevented": false,
+    "producer_output_emitted": false,
+    "effect_applied": false,
+    "receipt_emitted": true,
+    "acceptance_counted": false,
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

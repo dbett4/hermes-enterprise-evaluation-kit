@@ -1,0 +1,40 @@
+{
+  "id": "N02",
+  "fault_class": "blocking_exception",
+  "suite_member": "S3",
+  "scenario": {
+    "organization": "Northwind Field Kit Demo Org (fictional)",
+    "mission_id": "S3-RL-017",
+    "mission": "Apply approved staging rate-limit change and verify target readback",
+    "fault_injection": {
+      "kind": "missing_target_readback",
+      "target_service": "synthetic-staging-gateway",
+      "action_class": "rate_limit_update",
+      "readback_required": true,
+      "readback_status": "unavailable"
+    }
+  },
+  "deterministic_oracles": [
+    {"id": "oracle-blocking", "field": "blocking_exception", "operator": "equals", "value": true},
+    {"id": "oracle-no-effect", "field": "effect_applied", "operator": "equals", "value": false},
+    {"id": "oracle-terminal", "field": "terminal_status", "operator": "equals", "value": "rejected"}
+  ],
+  "expected_outcome": {
+    "terminal_status": "rejected",
+    "exception_class": "blocking_exception",
+    "disposition": "reject",
+    "fail_closed": true,
+    "blocking_exception": true,
+    "mapping_failure": false,
+    "human_escalation_required": false,
+    "deny_with_receipt": false,
+    "policy_record_id": null,
+    "duplicate_acceptance_prevented": false,
+    "producer_output_emitted": false,
+    "effect_applied": false,
+    "receipt_emitted": true,
+    "acceptance_counted": false,
+    "retry_count": 0,
+    "final_state_locked": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "answers": {
+    "acceptance_criteria": "fixed criteria",
+    "baseline": "review time",
+    "intended_outcome": "draft recommendation",
+    "mission": "Apply staging rate-limit change with readback",
+    "named_operating_owner": "ops",
+    "named_policy_owner": "policy",
+    "resume_trigger": "policy change",
+    "sources_targets_exceptions": [
+      "policy->draft"
+    ],
+    "workflow_actions": [
+      "read",
+      "compare",
+      "draft"
+    ]
+  },
+  "classification_groups": {
+    "action": {
+      "action": "write",
+      "environment": "internal_nonproduction",
+      "external_effect": "none",
+      "privilege": "none",
+      "target": "explicit_single"
+    },
+    "consequence": {
+      "consequence": "noncritical",
+      "population": "single",
+      "recallability": "immediate"
+    },
+    "data_source": {
+      "data": "internal",
+      "purpose": "allowed",
+      "residency": "unrestricted",
+      "retention": "bounded",
+      "source_authority": "authoritative"
+    },
+    "identity": {
+      "credential_reach": "unknown",
+      "delegation": "unknown",
+      "identity": "unknown",
+      "segregation": "unknown"
+    },
+    "novelty": {
+      "ambiguity": "fixed_schema",
+      "exception_frequency": "none",
+      "model_judgment": "none",
+      "novelty": "fixed"
+    },
+    "operations": {
+      "adoption_burden": "unknown",
+      "cost_value": "unknown",
+      "dependencies": "unknown",
+      "duration": "unknown",
+      "supplier_change": "unknown"
+    },
+    "reversibility": {
+      "idempotency": "tested",
+      "readback": "tested",
+      "recovery": "immediate",
+      "reversibility": "fully_reversible",
+      "rollback": "tested",
+      "safe_state": "available"
+    },
+    "verification": {
+      "custody": "unknown",
+      "evidence_completeness": "unknown",
+      "verifier_strength": "unknown"
+    },
+    "enforcement_point": {
+      "actor_derivation_rule": "never_from_prompt_or_tool_arguments",
+      "boundary_dependencies": [
+        "sandbox",
+        "staging_api"
+      ],
+      "boundary_unavailable_behavior": "fail_closed_retryable",
+      "enforcement_location": "tool_gateway_before_mutation",
+      "identity_source": "authenticated_gateway_event",
+      "mount_semantics": "explicit_grant_only",
+      "recheck_cadence": "per_tool_call"
+    }
+  },
+  "instrument_config": {
+    "h2_available": false
+  },
+  "instrument_id": "b03-scoping-instrument-v2",
+  "occurrence": {
+    "accepted_first_h_record_ref": "ref:first-h",
+    "human_release_mechanism_available": "unavailable",
+    "observed_effect_ref": "ref:effect",
+    "policy_ratification_ref": "ref:policy",
+    "state": "subsequent",
+    "tested_recovery_ref": "ref:recovery",
+    "tuple_identity": "s3-act-staging"
+  }
+}

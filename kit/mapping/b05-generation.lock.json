@@ -1,0 +1,46 @@
+{
+  "$schema": "hermes://b05/lock-schema/v2",
+  "baseline_commit": "dd71c1cb51b1bfc85484a44d939c6f66f88d3eb8",
+  "contracts": {
+    "kit/mapping/b05-generation.lock.schema.json": "20d87835178bfa13182ab93eb07f614dbaeb726d97b7176ff0e4f91f70c91bbb",
+    "kit/mapping/capability-gap-ledger.schema.json": "29f342e8d1fc34a18458fa0a7d8b66a5835006450a42168226c73291f888a2b0",
+    "kit/mapping/evidence-catalog-v0.20.schema.json": "078686e3a4c038040d4d897dc4e96b69aff442abb5f7d3cd3434cd5a3f8b8961",
+    "kit/mapping/hermes-v0.20-adjudicated-decision.schema.json": "837e9d68808317a8af6de6ccca84500e0280bf1cf442a75b00576e3bfae5a7ce",
+    "kit/mapping/hermes-v0.20-map.schema.json": "fa3c7154816a2cc55da6ae76f1627879bd7421bc44ffe7514b5c721085992652",
+    "kit/mapping/hermes-v0.20-overrides.schema.json": "cfbd57e8e3b6a6e37868ce8534b72bbbb814ff4c251b4eeb8bc1a9418a72e38c",
+    "kit/mapping/hermes-v0.20-row-decisions.schema.json": "78ee7a7e00d59b423e8dd7a97025c2432ef2ccfc7c6389db88545b5a9873ba00"
+  },
+  "generator": {
+    "path": "scripts/generate_b05_mapping.py",
+    "sha256": "b0b981d7ed6e7a5fa8a5706c36e791f7733cf99304a9a688195a873b1abda63c"
+  },
+  "inputs": {
+    "build-tickets/B03-scoping-instrument-and-gates.md": "ebc8b93fa99679c00bfd9c42b314bbfebb52a1b9e9c13846d1276e389b1b95af",
+    "build-tickets/B05-deployment-mapping.md": "6f031e98fd40bab17d08cd800c5fe1ae2d11071e0321b7fb409604870578e038",
+    "kit/core/control-traceability.md": "d7a153cd90b1ba705e7e510da5ed5466caa62318cee5f7bf55b35833e451d18b",
+    "kit/core/implementation-mapping-contract.md": "f70f1c53da41ccac646b77454b755bd11e946453ff3f2cfc8ff7366a2f21de8c",
+    "kit/mapping/evidence-catalog-v0.20.json": "b2f24f91d2ec598d79769816013010e71f9f4ec7aadbff09a42ebef437c715cb",
+    "kit/mapping/neutral-requirements.json": "3b28dac2ef24d463917e4e11bdd4e200aff42568d93e5cc28b4f2496209f143f",
+    "kit/preflight/v0.20-preflight-report.md": "a16bbf0a0d67dd92397f231dbbdc1033c1b3d4f02f3cd583494d37c1478c8eed",
+    "research/authority-access-architecture-draft.md": "1843c1296e0ac9260ac3d9ebe10aedfb0644c72a967d77f038d40117f62e4af0"
+  },
+  "manifest": {
+    "path": "kit/mapping/hermes-v0.20-row-decisions.json",
+    "sha256": "9f18e18a6467cc1682efafbccf36cae9afdea8775c03b12372dc524b0cd503ae"
+  },
+  "outputs": {
+    "ledger": {
+      "sha256": "cb503ebfbe1e334b7a83e08880219c54dfde47622d10ce463160aeefc0952efe",
+      "state": "materialized"
+    },
+    "map": {
+      "sha256": "1e135ab2c0d9bc57bd8dff40b911be4a839f93eca1a13333a2c6c0982616ccba",
+      "state": "materialized"
+    }
+  },
+  "overrides": {
+    "path": "kit/mapping/hermes-v0.20-overrides.json",
+    "sha256": "f5169ef11bb027566e4bb8e075f02a4049b5abb401a6fe9b5818d33f02d5eb72"
+  },
+  "schema_version": "2A"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1",
+  "mapping_table_revision": "hermes-v0.20-map",
+  "clauses": [
+    {
+      "clause_id": "EC-17",
+      "mapped_status": "pending",
+      "infer_allowed": false,
+      "owner": "northwind-policy-ops"
+    }
+  ]
+}
