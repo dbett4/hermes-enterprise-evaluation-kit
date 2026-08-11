@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
 import stat
 import sys
@@ -12,7 +13,11 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from hermes_runtime import runtime_reported_from_config  # noqa: E402
+from hermes_runtime import (  # noqa: E402
+    attest_hermes_runtime,
+    find_hermes_binary,
+    runtime_reported_from_config,
+)
 
 
 def _write_fake_hermes(path: Path, responses: dict[str, str]) -> None:
@@ -67,6 +72,27 @@ def test_runtime_reported_matches_shipped_profile_config() -> None:
     )
     assert "provider: nous" in config
     assert "default: anthropic/claude-fable-5" in config
+
+
+def test_attestation_binds_resolved_binary_path_and_sha256(tmp_path: Path) -> None:
+    hermes = tmp_path / "hermes"
+    hermes.write_text("#!/bin/sh\nprintf 'Hermes Agent v2026.8.3\\n'\n", encoding="utf-8")
+    hermes.chmod(hermes.stat().st_mode | stat.S_IXUSR)
+
+    attestation = attest_hermes_runtime(str(hermes), accepted_versions=("2026.8.3",))
+
+    assert attestation["status"] == "captured"
+    assert attestation["binary_path"] == str(hermes.resolve())
+    assert attestation["binary_sha256"] == hashlib.sha256(hermes.read_bytes()).hexdigest()
+
+
+def test_find_and_attest_reject_non_executable_file(tmp_path: Path) -> None:
+    hermes = tmp_path / "hermes"
+    hermes.write_text("#!/bin/sh\nprintf 'Hermes Agent v2026.8.3\\n'\n", encoding="utf-8")
+
+    assert find_hermes_binary(str(hermes)) is None
+    with pytest.raises(RuntimeError, match="not executable"):
+        attest_hermes_runtime(str(hermes), accepted_versions=("2026.8.3",))
 
 
 @pytest.mark.skipif(not os.environ.get("HERMES_BIN"), reason="HERMES_BIN not set")

@@ -2,7 +2,8 @@
 # S1 live mission — hermes-user wrapper with inspectable spend gate (B10 prep).
 # Intended invocation on the Hermes host:
 #   sudo -u hermes SPEND_AUTHORIZATION_FILE=spend-authorization/<file> \
-#     SPEND_CAP_USD=1.00 ./scripts/run_live_mission_hermes_user.sh
+#     SPEND_CAP_USD=1.00 HERMES_BIN=/path/to/hermes \
+#     ./scripts/run_live_mission_hermes_user.sh
 #
 # Spend enforcement (two layers — both required for a defensible cap):
 #   1. Script gate (this file): refuses to start unless SPEND_CAP_USD matches the
@@ -35,12 +36,25 @@ if [[ ! -f "$AUTH_FILE" ]]; then
   echo "MISSION_RUN_BLOCKED: spend authorization file missing: $AUTH_FILE" >&2
   exit 3
 fi
+if [[ -L "$AUTH_FILE" ]]; then
+  echo "MISSION_RUN_BLOCKED: authorization file must not be a symlink" >&2
+  exit 3
+fi
 
-AUTH_REAL="$(cd "$(dirname "$AUTH_FILE")" && pwd)/$(basename "$AUTH_FILE")"
+AUTH_REAL="$(realpath -e -- "$AUTH_FILE")"
 case "$AUTH_REAL" in
-  "$OPS_AUTH_DIR"/*) ;;
+  "$OPS_AUTH_DIR"/*.authorization) ;;
   *)
-    echo "MISSION_RUN_BLOCKED: authorization file must live under spend-authorization/" >&2
+    echo "MISSION_RUN_BLOCKED: authorization must be a real *.authorization file under spend-authorization/" >&2
+    exit 3
+    ;;
+esac
+
+AUTH_MODE="$(stat -c '%a' "$AUTH_REAL")"
+case "$AUTH_MODE" in
+  400|600) ;;
+  *)
+    echo "MISSION_RUN_BLOCKED: authorization file permissions must be 400 or 600 (found $AUTH_MODE)" >&2
     exit 3
     ;;
 esac
@@ -95,13 +109,46 @@ GATE_ID="$(read_auth_value GATE_ID)"
 AUTHORIZED_CAP_USD="$(read_auth_value AUTHORIZED_CAP_USD)"
 AUTHORIZED_BY="$(read_auth_value AUTHORIZED_BY)"
 AUTHORIZED_AT="$(read_auth_value AUTHORIZED_AT)"
+SCOPE="$(read_auth_value SCOPE)"
 
+if [[ "$GATE_ID" != "live-run-spend-cap" ]]; then
+  echo "MISSION_RUN_BLOCKED: unexpected GATE_ID=$GATE_ID" >&2
+  exit 3
+fi
+if [[ ! "$AUTHORIZED_CAP_USD" =~ ^([1-9][0-9]*(\.[0-9]{1,2})?|0\.(0[1-9]|[1-9][0-9]?))$ ]]; then
+  echo "MISSION_RUN_BLOCKED: AUTHORIZED_CAP_USD must be a positive USD amount with at most two decimals" >&2
+  exit 3
+fi
+if [[ -z "$AUTHORIZED_BY" ]]; then
+  echo "MISSION_RUN_BLOCKED: AUTHORIZED_BY must not be empty" >&2
+  exit 3
+fi
+if [[ ! "$AUTHORIZED_AT" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$ ]]; then
+  echo "MISSION_RUN_BLOCKED: AUTHORIZED_AT must be a UTC ISO-8601 timestamp" >&2
+  exit 3
+fi
+if [[ -z "$SCOPE" ]]; then
+  echo "MISSION_RUN_BLOCKED: SCOPE must not be empty" >&2
+  exit 3
+fi
 if [[ "$CAP_USD" != "$AUTHORIZED_CAP_USD" ]]; then
   echo "MISSION_RUN_BLOCKED: SPEND_CAP_USD=$CAP_USD does not match AUTHORIZED_CAP_USD=$AUTHORIZED_CAP_USD" >&2
   exit 3
 fi
 
-echo "SPEND_GATE_PASS gate=$GATE_ID cap_usd=$CAP_USD authorized_by=$AUTHORIZED_BY at=$AUTHORIZED_AT"
+# Fail closed: spend path must use the caller-validated binary, never PATH rediscovery.
+HERMES_BIN="${HERMES_BIN:-}"
+if [[ -z "$HERMES_BIN" ]]; then
+  echo "MISSION_RUN_BLOCKED: HERMES_BIN is required (refusing silent PATH fallback)" >&2
+  exit 3
+fi
+if [[ ! -x "$HERMES_BIN" ]]; then
+  echo "MISSION_RUN_BLOCKED: HERMES_BIN is not an executable file: $HERMES_BIN" >&2
+  exit 3
+fi
+export HERMES_BIN
+
+echo "SPEND_GATE_PASS gate=$GATE_ID cap_usd=$CAP_USD authorized_by=$AUTHORIZED_BY at=$AUTHORIZED_AT scope=$SCOPE"
 echo "SPEND_GATE_NOTE: Portal per-member cap must match; script gate is preflight only (no token metering)."
 
 exec "$ROOT/scripts/demo_mission_s1.sh" --live

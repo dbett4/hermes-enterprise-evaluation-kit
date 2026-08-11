@@ -12,6 +12,17 @@ fi
 MODE=(--demo)
 if [[ "${1:-}" == "--live" ]]; then
   shift
+  # When HERMES_BIN is set (live_proof / spend gate), pin that exact binary.
+  # Reject CLI --hermes-binary so a duplicate arg cannot override the validated path.
+  if [[ -n "${HERMES_BIN:-}" ]]; then
+    for arg in "$@"; do
+      if [[ "$arg" == "--hermes-binary" ]]; then
+        echo "MISSION_RUN_BLOCKED: refusing --hermes-binary while HERMES_BIN is set" >&2
+        exit 3
+      fi
+    done
+    exec python3 scripts/run_mission_s1.py --hermes-binary "$HERMES_BIN" "$@"
+  fi
   exec python3 scripts/run_mission_s1.py "$@"
 fi
 

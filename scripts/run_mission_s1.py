@@ -315,8 +315,8 @@ def main() -> int:
         oracle_result=oracle_result,
         execution_mode="live",
         run_mode={
-            "label": "hermes-live",
-            "hermes_daemon": True,
+            "label": "hermes-live-one-shot",
+            "hermes_daemon": False,
             "live_provider": True,
             "evidence_basis": "native-cli-version-plus-observed-subprocess",
             "runtime_attestation": runtime_attestation,
@@ -346,7 +346,13 @@ def main() -> int:
     invocation_evidence = {
         "runtime_attestation": runtime_attestation,
         "profile_name": args.profile_name,
-        "argv_shape": ["hermes", "-p", args.profile_name, "-z", "<synthetic-mission-prompt>"],
+        "argv_shape": [
+            str(Path(hermes_bin).expanduser().resolve()),
+            "-p",
+            args.profile_name,
+            "-z",
+            "<synthetic-mission-prompt>",
+        ],
         "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
         "stdout_sha256": hashlib.sha256(invocation.stdout.encode("utf-8")).hexdigest(),
         "stderr_sha256": hashlib.sha256(invocation.stderr.encode("utf-8")).hexdigest(),

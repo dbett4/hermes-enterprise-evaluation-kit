@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -38,6 +39,8 @@ def attest_hermes_runtime(
     resolved = Path(hermes_bin).expanduser().resolve()
     if not resolved.is_file():
         raise RuntimeError(f"Hermes executable is not a file: {resolved}")
+    if not os.access(resolved, os.X_OK):
+        raise RuntimeError(f"Hermes executable is not executable: {resolved}")
 
     attempts: list[dict[str, Any]] = []
     for version_args in ([hermes_bin, "--version"], [hermes_bin, "version"]):
@@ -56,6 +59,7 @@ def attest_hermes_runtime(
         ):
             return {
                 "status": "captured",
+                "binary_path": str(resolved),
                 "binary_sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(),
                 "version_probe": attempt,
                 "source_commit_binding": "not_proven_by_cli_probe",
@@ -69,19 +73,21 @@ def attest_hermes_runtime(
 
 def find_hermes_binary(explicit: str | None = None) -> str | None:
     if explicit:
-        path = Path(explicit)
-        return str(path) if path.is_file() else explicit if shutil.which(explicit) else None
+        path = Path(explicit).expanduser().resolve()
+        if path.is_file() and os.access(path, os.X_OK):
+            return str(path)
+        return shutil.which(explicit)
     found = shutil.which("hermes")
     if found:
         return found
-    hermes_home = Path(__import__("os").environ.get("HERMES_HOME", Path.home() / ".hermes"))
+    hermes_home = Path(os.environ.get("HERMES_HOME", Path.home() / ".hermes"))
     candidates = [
         hermes_home / "hermes-agent/venv/bin/hermes",
         hermes_home / "bin/hermes",
         Path.home() / ".local/bin/hermes",
     ]
     for candidate in candidates:
-        if candidate.is_file():
+        if candidate.is_file() and os.access(candidate, os.X_OK):
             return str(candidate)
     return None
 

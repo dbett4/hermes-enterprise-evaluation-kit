@@ -20,7 +20,7 @@ if [[ -z "$AUTH_FILE" || -z "$CAP_USD" || -z "$HERMES_BIN" ]]; then
   exit 3
 fi
 
-if [[ ! -x "$HERMES_BIN" && ! -f "$HERMES_BIN" ]]; then
+if [[ ! -x "$HERMES_BIN" ]]; then
   echo "LIVE_PROOF_BLOCKED: HERMES_BIN is not an executable file: $HERMES_BIN" >&2
   exit 3
 fi

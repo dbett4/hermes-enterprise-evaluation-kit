@@ -64,5 +64,6 @@ Then set the **Nous Portal per-member cap** to the same USD value.
 sudo -u hermes env \
   SPEND_AUTHORIZATION_FILE=spend-authorization/live-s1-<YYYYMMDD>.authorization \
   SPEND_CAP_USD=1.00 \
+  HERMES_BIN=/path/to/hermes \
   ./scripts/run_live_mission_hermes_user.sh
 ```
