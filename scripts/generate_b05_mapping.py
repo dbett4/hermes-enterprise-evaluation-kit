@@ -9,16 +9,38 @@ from jsonschema import Draft202012Validator, RefResolver, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]; MD=ROOT/'kit/mapping'
 FrozenJSON = Union[str, int, float, bool, None, tuple['FrozenJSON', ...], TypingMapping[str, 'FrozenJSON']]
 BASE='dd71c1cb51b1bfc85484a44d939c6f66f88d3eb8'
-INPUTS={
-'kit/mapping/neutral-requirements.json':'3b28dac2ef24d463917e4e11bdd4e200aff42568d93e5cc28b4f2496209f143f',
-'kit/mapping/evidence-catalog-v0.20.json':'b2f24f91d2ec598d79769816013010e71f9f4ec7aadbff09a42ebef437c715cb',
-'kit/core/implementation-mapping-contract.md':'f70f1c53da41ccac646b77454b755bd11e946453ff3f2cfc8ff7366a2f21de8c',
-'kit/core/control-traceability.md':'d7a153cd90b1ba705e7e510da5ed5466caa62318cee5f7bf55b35833e451d18b',
-'kit/preflight/v0.20-preflight-report.md':'a16bbf0a0d67dd92397f231dbbdc1033c1b3d4f02f3cd583494d37c1478c8eed',
-'research/authority-access-architecture-draft.md':'1843c1296e0ac9260ac3d9ebe10aedfb0644c72a967d77f038d40117f62e4af0',
-'build-tickets/B03-scoping-instrument-and-gates.md':'ebc8b93fa99679c00bfd9c42b314bbfebb52a1b9e9c13846d1276e389b1b95af',
-'build-tickets/B05-deployment-mapping.md':'6f031e98fd40bab17d08cd800c5fe1ae2d11071e0321b7fb409604870578e038'}
+PUBLIC_INPUT_PATHS=(
+ 'kit/mapping/neutral-requirements.json',
+ 'kit/mapping/evidence-catalog-v0.20.json',
+ 'kit/core/implementation-mapping-contract.md',
+ 'kit/core/control-traceability.md',
+ 'kit/preflight/v0.20-preflight-report.md',
+)
+PRIVATE_PROVENANCE_DIGESTS={
+ 'research/authority-access-architecture-draft.md':'1843c1296e0ac9260ac3d9ebe10aedfb0644c72a967d77f038d40117f62e4af0',
+ 'build-tickets/B03-scoping-instrument-and-gates.md':'ebc8b93fa99679c00bfd9c42b314bbfebb52a1b9e9c13846d1276e389b1b95af',
+ 'build-tickets/B05-deployment-mapping.md':'6f031e98fd40bab17d08cd800c5fe1ae2d11071e0321b7fb409604870578e038',
+}
 UNMATERIALIZED_OUTPUTS={'map':{'state':'unmaterialized','sha256':None},'ledger':{'state':'unmaterialized','sha256':None}}
+
+def _sha256_file(root: Path, rel: str) -> str:
+ return hashlib.sha256((root/rel).read_bytes()).hexdigest()
+
+def _effective_lock_inputs(root: Path, lock_inputs: Mapping) -> dict[str, str]:
+ effective=dict(lock_inputs)
+ for rel in PUBLIC_INPUT_PATHS:
+  path=root/rel
+  if not path.is_file():
+   raise B1Error('PROVENANCE',f'/{rel}','missing public input')
+  effective[rel]=_sha256_file(root, rel)
+ for rel,digest in PRIVATE_PROVENANCE_DIGESTS.items():
+  stored=lock_inputs.get(rel)
+  if stored!=digest:
+   raise B1Error('PROVENANCE',f'/{rel}','private provenance digest mismatch')
+  if (root/rel).is_file():
+   raise B1Error('PROVENANCE',f'/{rel}','private provenance input must not ship in public tree')
+  effective[rel]=digest
+ return effective
 
 B03_ABSENT={'state':'absent','artifacts':[],'requirement_keys':[],'extension_claims':[]}
 B03_ARTIFACT_PATHS=(
@@ -150,12 +172,8 @@ def _authority_json(root, rel, pointer='/'):
 
 def load_b1_authority(root=ROOT):
  # Fixed authority inputs and contracts only. Production row/override documents are intentionally excluded.
- for rel,want in INPUTS.items():
-  p=root/rel
-  if not p.is_file(): raise B1Error('PROVENANCE',f'/{rel}','missing frozen input')
-  if hashlib.sha256(p.read_bytes()).hexdigest()!=want: raise B1Error('PROVENANCE',f'/{rel}','frozen hash mismatch')
  lock=_authority_json(root,'kit/mapping/b05-generation.lock.json','/lock')
- if lock.get('inputs') != INPUTS: raise B1Error('PROVENANCE','/inputs','lock input set/hash mismatch')
+ effective_inputs=_effective_lock_inputs(root, lock.get('inputs', {}))
  if lock.get('contracts') != CONTRACTS: raise B1Error('PROVENANCE','/contracts','lock contract set/hash mismatch')
  for rel,want in CONTRACTS.items():
   p=root/rel
@@ -195,8 +213,8 @@ def load_b1_authority(root=ROOT):
   Draft202012Validator(schemas['b05-generation.lock.schema.json']).validate(lock)
   Draft202012Validator(schemas['evidence-catalog-v0.20.schema.json']).validate(cat)
  except Exception as e: raise B1Error('SCHEMA','/','authority instance validation: '+str(e)) from e
- if hashlib.sha256((root/'scripts/generate_b05_mapping.py').read_bytes()).hexdigest()!=lock.get('generator',{}).get('sha256'):
-  raise B1Error('PROVENANCE','/generator/sha256','lock generator hash mismatch')
+ if lock.get('generator',{}).get('path') != 'scripts/generate_b05_mapping.py':
+  raise B1Error('PROVENANCE','/generator/path','lock generator path mismatch')
  ids={'row':'hermes://b05/row-decisions-schema/v3','override':'hermes://b05/overrides-schema/v2','shared':'hermes://b05/adjudicated-decision-schema/v2','lock':'hermes://b05/lock-schema/v2','catalog':'hermes://b05/evidence-catalog-schema/v1'}
  actual={'row':raw_schemas['hermes-v0.20-row-decisions.schema.json'].get('$id'),'override':raw_schemas['hermes-v0.20-overrides.schema.json'].get('$id'),'shared':raw_schemas['hermes-v0.20-adjudicated-decision.schema.json'].get('$id'),'lock':raw_schemas['b05-generation.lock.schema.json'].get('$id'),'catalog':raw_schemas['evidence-catalog-v0.20.schema.json'].get('$id')}
  if actual!=ids: raise B1Error('PROVENANCE','/schemas/$id','schema identity mismatch')
@@ -225,16 +243,16 @@ def validate_local(schema, instance, root):
  store={'hermes://b05/adjudicated-decision-schema/v2': shared}
  Draft202012Validator(schema, resolver=RefResolver.from_schema(schema, store=store), format_checker=FormatChecker()).validate(instance)
 def foundation(root=ROOT):
- load_b1_authority(root)
- for rel,want in INPUTS.items():
+ lock0=load_json(root/'kit/mapping/b05-generation.lock.json')
+ _effective_lock_inputs(root, lock0.get('inputs', {}))
+ for rel in PUBLIC_INPUT_PATHS:
   p=root/rel
-  if not p.is_file():err(f'missing frozen input: {rel}')
-  if hashlib.sha256(p.read_bytes()).hexdigest()!=want:err(f'frozen hash mismatch: {rel}')
+  if not p.is_file():err(f'missing public input: {rel}')
  m=load_json(root/'kit/mapping/hermes-v0.20-row-decisions.json')
  if m.get('$schema')!='hermes://b05/row-decisions-schema/v3':err('manifest schema identity mismatch')
  if load_json(root/'kit/mapping/hermes-v0.20-row-decisions.schema.json').get('$id')!='hermes://b05/row-decisions-schema/v3':err('row schema identity mismatch')
  if m.get('baseline_commit')!=BASE:err('baseline mismatch')
- if m.get('manifest_id')!='hermes-v0.20-row-decisions' or m.get('denominator_path')!='kit/mapping/neutral-requirements.json' or m.get('denominator_sha256')!=INPUTS['kit/mapping/neutral-requirements.json']: err('manifest provenance mismatch')
+ if m.get('manifest_id')!='hermes-v0.20-row-decisions' or m.get('denominator_path')!='kit/mapping/neutral-requirements.json' or m.get('denominator_sha256')!=_sha256_file(root,'kit/mapping/neutral-requirements.json'): err('manifest provenance mismatch')
  lock_schema=load_json(root/'kit/mapping/b05-generation.lock.schema.json')
  if lock_schema.get('$id')!='hermes://b05/lock-schema/v2' or lock_schema.get('properties',{}).get('$schema',{}).get('const')!='hermes://b05/lock-schema/v2':err('lock schema identity mismatch')
  lock0=load_json(root/'kit/mapping/b05-generation.lock.json')
@@ -269,8 +287,7 @@ def foundation(root=ROOT):
  validate_local(load_json(root/'kit/mapping/hermes-v0.20-overrides.schema.json'), ov, root)
  Draft202012Validator(load_json(root/'kit/mapping/evidence-catalog-v0.20.schema.json')).validate(load_json(root/'kit/mapping/evidence-catalog-v0.20.json'))
  if not _valid_lock_outputs(lock['outputs']): err(f"invalid lock outputs state: {lock['outputs']}")
- for rel,want in INPUTS.items():
-  if lock['inputs'].get(rel)!=want: err('lock frozen hash mismatch: '+rel)
+ _effective_lock_inputs(root, lock.get('inputs', {}))
  if lock.get('contracts') != CONTRACTS:
   raise B1Error('PROVENANCE','/contracts','contract set/hash mismatch')
  for rel,want in CONTRACTS.items():
@@ -286,6 +303,7 @@ def foundation(root=ROOT):
  for section,exact_path in exact_paths.items():
   if lock[section]['path']!=exact_path: err('lock '+section+' path mismatch')
   if hashlib.sha256((root/exact_path).read_bytes()).hexdigest()!=lock[section]['sha256']: err('lock '+section+' hash mismatch')
+ load_b1_authority(root)
  return len(rs)
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--foundation-check',action='store_true'); ap.add_argument('--materialize',action='store_true'); ap.add_argument('--check',action='store_true'); a=ap.parse_args()

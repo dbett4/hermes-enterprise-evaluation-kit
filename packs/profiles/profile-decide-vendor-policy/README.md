@@ -34,7 +34,10 @@ No external sends. No contract execution. Recommendation only.
 ## Install on a Hermes host
 
 ```bash
+hermes auth add nous --type oauth
 hermes profile install "$(pwd)" --name decide-vendor-policy -y
 ```
 
-From this directory (`packs/profiles/profile-decide-vendor-policy`).
+From this directory (`packs/profiles/profile-decide-vendor-policy`). The profile uses
+`model.provider: nous` in `config.yaml`; live inference requires Nous OAuth through
+Hermes, not an OpenRouter API key.

@@ -4,31 +4,37 @@ This directory ties each requirement in the Field Kit to the exact Hermes releas
 tested. A row says whether the behavior comes from Hermes itself, configuration, this
 kit, surrounding infrastructure, or an unresolved gap.
 
-`scripts/generate_b05_mapping.py` builds the map. The lock file records input digests so
-changes to the generated output are visible. A few build inputs are private, which means
-the public repository can validate the shipped map and its shape but cannot reproduce
-every source input byte for byte.
+The shipped **318-row map** and **seven-item gap list** are public artifacts. A few
+private build inputs exist only as digests in `b05-generation.lock.json`; this public
+tree does not include those files and does not claim full private regeneration.
 
-The generator was built in three parts:
-
-| Part | Responsibility | Status |
-|---|---|---|
-| B1 | Row decisions, overrides, and source tracking | Merged; later rendering work belongs to B3 |
-| B2 | Map, seven-item gap list, and lock materialization | Merged at `e881571` |
-| B3 | Link index, summaries, and output hash chain | In progress in memory; no schema or materialized-output change yet |
-
-Useful commands:
+## Public integrity check (use this in a public clone)
 
 ```bash
-# Validate the pending 318-row manifest
-python3 scripts/generate_b05_mapping.py --foundation-check
-
-# Compile B1 through B3 and print the row, gap, link, and hash summary
-python3 scripts/generate_b05_mapping.py --check
-
-# Write the map, gap list, and lock only when their hashes match the expected result
-python3 scripts/generate_b05_mapping.py --materialize
+python3 scripts/verify_public_mapping.py
 ```
+
+That command validates schemas, the 318 adjudicated rows, seven gaps, locked output
+hashes, all shipped public inputs, and the private-extraction digest record. It is the
+single command that proves the current public snapshot.
+
+See `public-integrity.manifest.json` for the public input list and private provenance
+boundary.
+
+## Private generator (maintainer only)
+
+`scripts/generate_b05_mapping.py` compiles the map when private extraction inputs are
+present on disk. In this public repository it still validates adjudication and can run
+`--check` against the shipped snapshot, but it cannot recreate private build-ticket or
+research inputs that are absent here.
+
+```bash
+# Maintainer compile check against the shipped snapshot
+python3 scripts/generate_b05_mapping.py --check
+```
+
+Do **not** treat `--materialize` as a public reproducibility command. It is for
+maintainers when private inputs and expected output hashes are available.
 
 The manifest, overrides, schemas, and lock determine the generated result. Do not infer
 runtime behavior beyond what a row and its test source actually show.

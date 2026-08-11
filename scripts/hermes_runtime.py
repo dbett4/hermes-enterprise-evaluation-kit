@@ -49,7 +49,11 @@ def attest_hermes_runtime(
             "output": output[:500],
         }
         attempts.append(attempt)
-        if proc.returncode == 0 and output and any(version in output for version in accepted_versions):
+        if (
+            proc.returncode == 0
+            and output
+            and any(version in output for version in accepted_versions)
+        ):
             return {
                 "status": "captured",
                 "binary_sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(),
@@ -84,7 +88,16 @@ def find_hermes_binary(explicit: str | None = None) -> str | None:
 
 def install_profile_distribution(*, hermes_bin: str, profile_dir: Path, profile_name: str) -> None:
     proc = subprocess.run(
-        [hermes_bin, "profile", "install", str(profile_dir), "--name", profile_name, "-y", "--force"],
+        [
+            hermes_bin,
+            "profile",
+            "install",
+            str(profile_dir),
+            "--name",
+            profile_name,
+            "-y",
+            "--force",
+        ],
         capture_output=True,
         text=True,
         check=False,
@@ -127,20 +140,24 @@ def parse_producer_json(text: str) -> dict[str, Any]:
         return json.loads(match.group(0))
 
 
+def _config_get(hermes_bin: str, profile_name: str, key: str) -> str | None:
+    proc = subprocess.run(
+        [hermes_bin, "-p", profile_name, "config", "get", key],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if proc.returncode == 0 and proc.stdout.strip():
+        return proc.stdout.strip()
+    return None
+
+
 def runtime_reported_from_config(hermes_bin: str, profile_name: str) -> dict[str, str]:
     """Best-effort model/provider readback via hermes config get."""
-    model = "unknown"
-    provider = "unknown"
-    for key in ("model.default", "provider.default"):
-        proc = subprocess.run(
-            [hermes_bin, "-p", profile_name, "config", "get", key],
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        if proc.returncode == 0 and proc.stdout.strip():
-            if key.endswith("model.default"):
-                model = proc.stdout.strip()
-            else:
-                provider = proc.stdout.strip()
+    model = _config_get(hermes_bin, profile_name, "model.default") or "unknown"
+    provider = _config_get(hermes_bin, profile_name, "model.provider")
+    if not provider:
+        provider = _config_get(hermes_bin, profile_name, "provider.default")
+    if not provider:
+        provider = "unknown"
     return {"model": model, "provider": provider}

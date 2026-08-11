@@ -1,0 +1,31 @@
+{
+  "manifest_id": "hermes-v0.20-public-integrity",
+  "verification_scope": "public_snapshot_only",
+  "published": "2026-08",
+  "row_count": 318,
+  "gap_count": 7,
+  "hermes_release": {
+    "public_tag": "v2026.8.3",
+    "package_version": "0.20.0",
+    "peeled_release_commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb"
+  },
+  "public_input_paths": [
+    "kit/mapping/neutral-requirements.json",
+    "kit/mapping/evidence-catalog-v0.20.json",
+    "kit/mapping/hermes-v0.20-row-decisions.json",
+    "kit/mapping/hermes-v0.20-overrides.json",
+    "kit/core/implementation-mapping-contract.md",
+    "kit/core/control-traceability.md",
+    "kit/preflight/v0.20-preflight-report.md"
+  ],
+  "private_extraction_provenance": {
+    "research/authority-access-architecture-draft.md": "1843c1296e0ac9260ac3d9ebe10aedfb0644c72a967d77f038d40117f62e4af0",
+    "build-tickets/B03-scoping-instrument-and-gates.md": "ebc8b93fa99679c00bfd9c42b314bbfebb52a1b9e9c13846d1276e389b1b95af",
+    "build-tickets/B05-deployment-mapping.md": "6f031e98fd40bab17d08cd800c5fe1ae2d11071e0321b7fb409604870578e038"
+  },
+  "notes": {
+    "public_reproducibility": "This manifest checks the shipped public snapshot: schemas, 318 adjudicated rows, seven gaps, and locked output hashes. It does not claim byte-for-byte regeneration from private build inputs.",
+    "private_provenance": "Private extraction inputs are recorded by digest only in b05-generation.lock.json. They are absent from this public tree by design.",
+    "verification_command": "python3 scripts/verify_public_mapping.py"
+  }
+}

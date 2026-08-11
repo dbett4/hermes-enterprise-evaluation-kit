@@ -6,6 +6,6 @@ author: "Hermes Enterprise Field Kit"
 license: "UNLICENSED"
 
 env_requires:
-  - name: OPENROUTER_API_KEY
-    description: "OpenRouter API key for model access"
+  - name: NOUS_OAUTH
+    description: "Nous inference access via Hermes OAuth (hermes auth add nous --type oauth)"
     required: true

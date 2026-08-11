@@ -1,6 +1,7 @@
-import json
 import hashlib
+import json
 from pathlib import Path
+
 try:
     from jsonschema import Draft202012Validator
 except ImportError as e:
@@ -8,81 +9,183 @@ except ImportError as e:
         "run_negative_tests requires the 'jsonschema' package for receipt schema validation: "
         "pip install -r requirements.txt"
     ) from e
-ROOT=Path(__file__).parent
-CATALOG=json.loads((ROOT/'question-catalog.json').read_text())
-PATHS=tuple(q["input_path"] for q in CATALOG["questions"])
-OUTPUTS=("O01_agent_decision","O02_outcome_baseline","O03_workflow_action_map","O04_reversibility_classification","O05_risk_tier","O06_control_plan","O07_deployment_boundary","O08_acceptance_plan","O09_operating_owner","O10_unresolved_risk_register")
-Q_OUTPUTS={q["question_id"]:q["output_ids"] for q in CATALOG["questions"]}
-DECISION_ORDER=('R-T0','R-UNKNOWN','R-CONVENTIONAL','R-HUMAN','R-QUALIFY')
-MODULES=('authority_human_oversight','quality_verification','evidence_traceability','identity_security_data_legal','integration_change_supply_chain','reliability_continuity','economics_value','adoption_ownership')
-DECISION_FINGERPRINT='0874f0870bcd0186b7d8e16f378ccc9bbf14cf419fd4d30f46acab89f1c07410'
-RISK_FINGERPRINT='1e37c7917f685d9f4f0b0db98e5d6f810b071a6c39e3b2d1d0de9f730092c4ea'
+
+ROOT = Path(__file__).parent
+CATALOG = json.loads((ROOT / "question-catalog.json").read_text())
+PATHS = tuple(q["input_path"] for q in CATALOG["questions"])
+OUTPUTS = (
+    "O01_agent_decision",
+    "O02_outcome_baseline",
+    "O03_workflow_action_map",
+    "O04_reversibility_classification",
+    "O05_risk_tier",
+    "O06_control_plan",
+    "O07_deployment_boundary",
+    "O08_acceptance_plan",
+    "O09_operating_owner",
+    "O10_unresolved_risk_register",
+)
+Q_OUTPUTS = {q["question_id"]: q["output_ids"] for q in CATALOG["questions"]}
+DECISION_ORDER = ("R-T0", "R-UNKNOWN", "R-CONVENTIONAL", "R-HUMAN", "R-QUALIFY")
+MODULES = (
+    "authority_human_oversight",
+    "quality_verification",
+    "evidence_traceability",
+    "identity_security_data_legal",
+    "integration_change_supply_chain",
+    "reliability_continuity",
+    "economics_value",
+    "adoption_ownership",
+)
+DECISION_FINGERPRINT = "0874f0870bcd0186b7d8e16f378ccc9bbf14cf419fd4d30f46acab89f1c07410"
+RISK_FINGERPRINT = "1e37c7917f685d9f4f0b0db98e5d6f810b071a6c39e3b2d1d0de9f730092c4ea"
+
+
 def _load_contracts():
- return json.loads((ROOT/'decision-rules.json').read_text()), json.loads((ROOT/'risk-rules.json').read_text())
-def _rules(): return json.loads((ROOT/'decision-rules.json').read_text())
-def _risk_contract(): return json.loads((ROOT/'risk-rules.json').read_text())['proportionality_pass']
-def _unknown(v): return v is None or (isinstance(v,str) and (not v.strip() or v.strip().casefold() in {'unknown','unavailable','null','none','n/a','na'})) or v==[]
-def _condition(p,a):
- op=p['operator']; qs=p.get('question_ids',[p.get('question_id')]); vals=[a.get(q,'unknown') for q in qs]
- if op=='equals': return vals[0]==p['value']
- if op=='in': return vals[0] in p['value']
- if op=='known': return not _unknown(vals[0])
- if op=='any_unknown': return any(_unknown(v) for v in vals)
- if op=='all': return all(_condition(x,a) for x in p['conditions'])
- raise ValueError('unknown operator: '+op)
+    return json.loads((ROOT / "decision-rules.json").read_text()), json.loads(
+        (ROOT / "risk-rules.json").read_text()
+    )
+
+
+def _rules():
+    return json.loads((ROOT / "decision-rules.json").read_text())
+
+
+def _risk_contract():
+    return json.loads((ROOT / "risk-rules.json").read_text())["proportionality_pass"]
+
+
+def _unknown(v):
+    return (
+        v is None
+        or (
+            isinstance(v, str)
+            and (not v.strip() or v.strip().casefold() in {"unknown", "unavailable", "null", "none", "n/a", "na"})
+        )
+        or v == []
+    )
+
+
+def _condition(p, a):
+    op = p["operator"]
+    qs = p.get("question_ids", [p.get("question_id")])
+    vals = [a.get(q, "unknown") for q in qs]
+    if op == "equals":
+        return vals[0] == p["value"]
+    if op == "in":
+        return vals[0] in p["value"]
+    if op == "known":
+        return not _unknown(vals[0])
+    if op == "any_unknown":
+        return any(_unknown(v) for v in vals)
+    if op == "all":
+        return all(_condition(x, a) for x in p["conditions"])
+    raise ValueError("unknown operator: " + op)
+
+
 def _leaf(a, path, default="unknown"):
- if path in a: return a[path]
- v=a
- for part in path.split("."):
-  if not isinstance(v, dict) or part not in v: return default
-  v=v[part]
- return v
+    if path in a:
+        return a[path]
+    v = a
+    for part in path.split("."):
+        if not isinstance(v, dict) or part not in v:
+            return default
+        v = v[part]
+    return v
+
 
 def _risk_detail(a, c=None):
- c=_risk_contract() if c is None else c
- evaluated=[]
- uplift_evaluated=[]
- def hit(x, governing_rule_id=None):
-  op=x["operator"]
-  if op in ("all", "any"):
-   results=[hit(z, governing_rule_id or x.get("id")) for z in x["conditions"]]
-   return all(results) if op=="all" else any(results)
-  v=_leaf(a,x["question_id"])
-  if op=="equals": result=v==x["value"]
-  elif op=="in": result=v in x["value"]
-  elif op=="not_in": result=v not in x["value"]
-  elif op=="unknown": result=_unknown(v)
-  elif op=="known": result=not _unknown(v)
-  else: raise ValueError("unknown risk operator")
-  evaluated.append({"governing_rule_id":governing_rule_id or x.get("id"),"predicate_id":x.get("id"),"input_path":x.get("question_id"),"value":v,"operator":op,"result":result})
-  return result
-  raise ValueError("unknown risk operator")
- fired=[x for x in c["trigger_rules"] if hit(x)]
- order={t:i for i,t in enumerate(c["evaluation_order"])}
- tier=min((x["tier"] for x in fired),key=lambda x:order[x]) if fired else None
- selected=next((x for x in fired if x["tier"]==tier), None)
- reasons=[x["reason"] for x in fired if x["tier"]==tier]
- trigger_evaluated=list(evaluated)
- profile=c["base_profiles"][tier].copy() if tier else {}; uplifts=[]
- for u in c["uplift_rules"]:
-  before=len(evaluated)
-  fired_uplift=hit(u)
-  uplift_evaluated.extend(evaluated[before:])
-  if fired_uplift:
-   if tier:
-    for m in u["modules"]: profile[m]=max(profile[m],u["minimum"])
-   uplifts.append({"id":u["id"],"modules":u["modules"],"floor":u["minimum"],"reason":u["reason"]})
- if not fired: return {"tier":None,"reasons":["no_proportionality_trigger"],"profile":profile,"uplifts":uplifts,"trigger":None,"fired":[],"evaluated":evaluated,"trigger_evaluated":trigger_evaluated,"uplift_evaluated":uplift_evaluated}
- reasons=[x["reason"] for x in fired if x["tier"]==tier]
- return {"tier":tier,"reasons":reasons,"profile":profile,"uplifts":uplifts,"trigger":selected,"fired":fired,"evaluated":evaluated,"trigger_evaluated":trigger_evaluated,"uplift_evaluated":uplift_evaluated}
+    c = _risk_contract() if c is None else c
+    evaluated = []
+    uplift_evaluated = []
+
+    def hit(x, governing_rule_id=None):
+        op = x["operator"]
+        if op in ("all", "any"):
+            results = [hit(z, governing_rule_id or x.get("id")) for z in x["conditions"]]
+            return all(results) if op == "all" else any(results)
+        v = _leaf(a, x["question_id"])
+        if op == "equals":
+            result = v == x["value"]
+        elif op == "in":
+            result = v in x["value"]
+        elif op == "not_in":
+            result = v not in x["value"]
+        elif op == "unknown":
+            result = _unknown(v)
+        elif op == "known":
+            result = not _unknown(v)
+        else:
+            raise ValueError("unknown risk operator")
+        evaluated.append(
+            {
+                "governing_rule_id": governing_rule_id or x.get("id"),
+                "predicate_id": x.get("id"),
+                "input_path": x.get("question_id"),
+                "value": v,
+                "operator": op,
+                "result": result,
+            }
+        )
+        return result
+
+    fired = [x for x in c["trigger_rules"] if hit(x)]
+    order = {t: i for i, t in enumerate(c["evaluation_order"])}
+    tier = min((x["tier"] for x in fired), key=lambda x: order[x]) if fired else None
+    selected = next((x for x in fired if x["tier"] == tier), None)
+    reasons = [x["reason"] for x in fired if x["tier"] == tier]
+    trigger_evaluated = list(evaluated)
+    profile = c["base_profiles"][tier].copy() if tier else {}
+    uplifts = []
+    for u in c["uplift_rules"]:
+        before = len(evaluated)
+        fired_uplift = hit(u)
+        uplift_evaluated.extend(evaluated[before:])
+        if fired_uplift:
+            if tier:
+                for m in u["modules"]:
+                    profile[m] = max(profile[m], u["minimum"])
+            uplifts.append(
+                {
+                    "id": u["id"],
+                    "modules": u["modules"],
+                    "floor": u["minimum"],
+                    "reason": u["reason"],
+                }
+            )
+    if not fired:
+        return {
+            "tier": None,
+            "reasons": ["no_proportionality_trigger"],
+            "profile": profile,
+            "uplifts": uplifts,
+            "trigger": None,
+            "fired": [],
+            "evaluated": evaluated,
+            "trigger_evaluated": trigger_evaluated,
+            "uplift_evaluated": uplift_evaluated,
+        }
+    return {
+        "tier": tier,
+        "reasons": reasons,
+        "profile": profile,
+        "uplifts": uplifts,
+        "trigger": selected,
+        "fired": fired,
+        "evaluated": evaluated,
+        "trigger_evaluated": trigger_evaluated,
+        "uplift_evaluated": uplift_evaluated,
+    }
+
 
 def _risk(a):
- _, doc=_load_contracts()
- _validate_risk_contract(doc)
- d=_risk_detail(a, doc["proportionality_pass"])
- # Preserve the historical four-value oracle shape while detailed outputs use schema field names.
- compat=[{**u,"trigger":u["id"],"minimum":u["floor"]} for u in d["uplifts"]]
- return d["tier"],d["reasons"],d["profile"],compat
+    _, doc = _load_contracts()
+    _validate_risk_contract(doc)
+    d = _risk_detail(a, doc["proportionality_pass"])
+    # Preserve the historical four-value oracle shape while detailed outputs use schema field names.
+    compat = [{**u, "trigger": u["id"], "minimum": u["floor"]} for u in d["uplifts"]]
+    return d["tier"], d["reasons"], d["profile"], compat
+
 
 def _authority(raw, tier, disposition):
  occ=raw["occurrence"]
@@ -311,7 +414,6 @@ def _construct_result(raw, rules, risk_doc):
  if tier is None and disposition != "human_process": disposition="defer"; rule="R-UNKNOWN"
  disposition,rule=_handoff_disposition(raw,disposition,rule)
  evidence="E-"+rule[2:]
- control="D" if disposition in ("defer","do_not_agentize","conventional_automation") else "H"
  conf="unknown" if disposition=="defer" else ("high" if disposition=="qualify" else "medium")
  disposition_unresolved=[]
  seen_facts=set()
@@ -369,33 +471,45 @@ def _construct_result(raw, rules, risk_doc):
  return result
 
 def evaluate(raw):
- rules, risk_doc=_load_contracts()
- _validate_contract(rules)
- _validate_risk_contract(risk_doc, rules)
- result=_construct_result(raw, rules, risk_doc)
- _validate_result(result, raw, rules, risk_doc)
- return result
+    rules, risk_doc = _load_contracts()
+    _validate_contract(rules)
+    _validate_risk_contract(risk_doc, rules)
+    result = _construct_result(raw, rules, risk_doc)
+    _validate_result(result, raw, rules, risk_doc)
+    return result
+
 
 def _validate_result(result, raw, rules=None, risk_doc=None):
- if rules is None or risk_doc is None: rules, risk_doc = _load_contracts()
- _validate_contract(rules)
- _validate_risk_contract(risk_doc, rules)
- out_schema=json.loads((ROOT/"compiled-output-schema.json").read_text())
- errors=sorted(Draft202012Validator(out_schema).iter_errors(result), key=lambda e:list(e.path))
- if errors: raise ValueError("compiled output invalid at /"+"/".join(map(str,errors[0].path))+": "+errors[0].message)
- expected = _construct_result(raw, rules, risk_doc)
- if result != expected:
-  def first(a,b,path=""):
-   if type(a) is not type(b) or a != b:
-    if isinstance(a,dict) and isinstance(b,dict):
-     for k in sorted(set(a)|set(b)):
-      if k not in a or k not in b or a[k] != b[k]: return first(a.get(k),b.get(k),path+"/"+str(k))
-    if isinstance(a,list) and isinstance(b,list):
-     for i,(x,y) in enumerate(zip(a,b)):
-      if x != y: return first(x,y,path+"/"+str(i))
-    return path or "/"
-   return None
-  raise ValueError("runtime result mismatch at "+first(result,expected))
- return True
-if __name__=='__main__':
- raw=json.load(open(__import__('sys').argv[1])); print(json.dumps(evaluate(raw),sort_keys=True,separators=(',',':')))
+    if rules is None or risk_doc is None:
+        rules, risk_doc = _load_contracts()
+    _validate_contract(rules)
+    _validate_risk_contract(risk_doc, rules)
+    out_schema = json.loads((ROOT / "compiled-output-schema.json").read_text())
+    errors = sorted(Draft202012Validator(out_schema).iter_errors(result), key=lambda e: list(e.path))
+    if errors:
+        raise ValueError(
+            "compiled output invalid at /" + "/".join(map(str, errors[0].path)) + ": " + errors[0].message
+        )
+    expected = _construct_result(raw, rules, risk_doc)
+    if result != expected:
+
+        def first(a, b, path=""):
+            if type(a) is not type(b) or a != b:
+                if isinstance(a, dict) and isinstance(b, dict):
+                    for k in sorted(set(a) | set(b)):
+                        if k not in a or k not in b or a[k] != b[k]:
+                            return first(a.get(k), b.get(k), path + "/" + str(k))
+                if isinstance(a, list) and isinstance(b, list):
+                    for i, (x, y) in enumerate(zip(a, b)):
+                        if x != y:
+                            return first(x, y, path + "/" + str(i))
+                return path or "/"
+            return None
+
+        raise ValueError("runtime result mismatch at " + first(result, expected))
+    return True
+
+
+if __name__ == "__main__":
+    raw = json.load(open(__import__("sys").argv[1]))
+    print(json.dumps(evaluate(raw), sort_keys=True, separators=(",", ":")))

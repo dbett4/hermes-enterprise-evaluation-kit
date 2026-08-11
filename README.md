@@ -1,5 +1,10 @@
 # Hermes Enterprise Field Kit
 
+> **Provenance:** This repository is a sanitized public extract published in August 2026.
+> Its Git history is publication history, not a full private development archive. It
+> contains no client data, credentials, or spend authorization files, and it does not
+> offer the complete private build history.
+
 I built this repository to answer a practical question: what would it take to run
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) inside a real organization
 without asking every user to become an agent-platform expert?
@@ -20,6 +25,35 @@ MISSION_DEMO_PASS run_id=s1-decide-... terminal=needs_review recommendation=defe
 The important part of that output is `needs_review`. The local checker passed, but the
 case still needs a person to make the decision. A green script does not get to invent
 human approval.
+
+## Verify in 5 minutes
+
+```bash
+git clone https://github.com/dbett4/hermes-enterprise-field-kit.git
+cd hermes-enterprise-field-kit
+pip install -r requirements.txt
+./scripts/proof.sh
+```
+
+That offline path validates the public 318-row map, eight negative-test fixtures, the
+neutral core, runtime attestation guards, the committed operator-recorded receipt, and
+the deterministic S1 demo. It uses no API keys, no network, and no live Hermes call.
+
+To prove only the published map snapshot:
+
+```bash
+python3 scripts/verify_public_mapping.py
+```
+
+The preflight for the pinned release ran **214 focused tests** against the exact peeled
+commit `3c27eb6234bf91b8ceee9e9071591b31e9b148cb` (tag `v2026.8.3`). That number is
+pinned to that commit's test list in `kit/preflight/v0.20-preflight-report.md`; it is not
+a claim about every Hermes feature.
+
+**Live attestation gap:** there is still no committed live receipt that cryptographically
+ties a model response to the pinned Hermes executable. The older S1 record remains
+`operator-recorded-unattested`. Use `scripts/live_proof.sh` only with explicit owner
+authorization and a spend cap when you intend to spend money on a real run.
 
 ## Start here
 
@@ -44,8 +78,10 @@ python3 scripts/check_neutral_core.py
 ./scripts/proof.sh
 ```
 
-`proof.sh` stops at the first failure and prints `FIELD_KIT_PROOF_PASS` only when the
-whole set passes. [PROOF.md](PROOF.md) lists the command behind each result.
+`proof.sh` performs no dependency installation or network access. It stops at the first
+failure and prints `FIELD_KIT_PROOF_PASS` only when the whole set passes. Install the
+pinned requirements first as shown above. [PROOF.md](PROOF.md) lists the command behind
+each result.
 
 ## How it works
 

@@ -12,7 +12,7 @@
   },
   "generator": {
     "path": "scripts/generate_b05_mapping.py",
-    "sha256": "b0b981d7ed6e7a5fa8a5706c36e791f7733cf99304a9a688195a873b1abda63c"
+    "sha256": "fa7707492f1230d84297225c844417a8a02a89651ed7dcbc00884687c5ed9424"
   },
   "inputs": {
     "build-tickets/B03-scoping-instrument-and-gates.md": "ebc8b93fa99679c00bfd9c42b314bbfebb52a1b9e9c13846d1276e389b1b95af",
