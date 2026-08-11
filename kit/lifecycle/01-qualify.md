@@ -2,9 +2,10 @@
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** decide whether an agent is an appropriate intervention before designing one.
+Decide whether an agent is a sensible way to improve the workflow before spending time
+designing one.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - A named workflow or domain owner can describe the intended outcome.
 - Candidate sources, current process, affected people, and possible targets can be inventoried.
@@ -28,7 +29,7 @@
 4. Choose `qualify` only when the bounded outcome, baseline, initial action inventory, owner, and hard ceilings are explicit.
 5. Apply the proportionality procedure. The highest applicable trigger sets the initial tier; missing facts force deferral rather than a lower classification.
 
-## Outputs
+## Outputs — what to save
 
 - Qualification record and disposition
 - Outcome, baseline, and value hypothesis
@@ -37,7 +38,7 @@
 - Named outcome owner and discovery owners
 - Hard ceilings, scope exclusions, unresolved facts, and resume triggers
 
-## Accountable owner
+## Accountable owner — who decides
 
 The workflow or domain owner owns the qualification decision. An evaluator may recommend a path but cannot supply business ownership or waive a hard ceiling.
 

@@ -2,9 +2,10 @@
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** make an explicit continue, change, transfer, or retirement decision from reconciled operating evidence.
+Use the operating history to decide whether to continue, change, transfer, or retire the
+system.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - Defined review trigger, cadence, expiry, incident, or ownership event
 - Reconciled run, incident, adoption, cost, authority, and residual-risk evidence
@@ -27,7 +28,7 @@
 4. An identity identifier is never reused after retirement. Unresolved ownership or revocation proof blocks transfer or retirement completion.
 5. Evidence history is appended and linked to superseding decisions; a later decision does not rewrite the earlier record.
 
-## Outputs
+## Outputs — what to save
 
 - Branch decision, rationale, evidence reviewed, and owner
 - Updated risk, authority, configuration, and lifecycle records
@@ -36,7 +37,7 @@
 - Retention/disposition record and closed/open obligation register
 - Next review date or terminal closure record
 
-## Accountable owner
+## Accountable owner — who decides
 
 The current accountable owner retains responsibility until a receiving owner accepts transfer or the retirement evidence closes every required obligation. A platform or support operator cannot unilaterally declare ownership transferred.
 

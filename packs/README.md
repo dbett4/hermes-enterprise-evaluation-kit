@@ -1,29 +1,30 @@
-# Composable packs
+# Packs
 
-**Status:** architecture contract; **nimbus-synthetic org pack landed** (2026-08-07); capability packs still pending
+Packs customize a deployment without copying and editing the reusable core. The
+fictional Nimbus organization pack is implemented; capability packs remain future work.
 
-Packs customize the Field Kit without forking its portable control kernel.
-
-| Pack type | Contains | Cannot do |
+| Directory | What belongs there | Hard limit |
 |---|---|---|
-| `organizations/` | Operating envelopes, bundle catalogs, identity bindings, data/provider/authority/budget/retention rules | Grant authority above the policy owner's approved ceiling |
-| `capabilities/` | Connectors, verifier patterns, evidence adapters, recovery mechanisms, permissions, failure modes, tests | Redefine lifecycle or authority semantics |
-| `workflows/` | Mission language, inputs/outputs, action maps, oracles, exceptions, examples, negative fixtures | Weaken organization policy or conceal runtime choices from receipts |
+| `organizations/` | Provider, data, permission, budget, identity, retention, and approved-configuration rules | Cannot grant more permission than the policy owner approved |
+| `capabilities/` | Connectors, checkers, storage adapters, recovery behavior, permissions, failure modes, and tests | Cannot redefine lifecycle or authority rules |
+| `workflows/` | Job language, inputs, outputs, actions, programmed checks, exceptions, examples, and failure fixtures | Cannot weaken organization policy or hide runtime choices |
 
-Every pack is versioned, owned, review-dated, and explicitly compatible with a kernel schema and one or more adapter versions. A resolved Assembly Blueprint records the selected pack versions and canonical manifest hash.
+Each pack names its version, owner, review date, compatible core schema, and compatible
+Hermes adapter. A resolved blueprint stores the selected versions and a stable manifest
+hash.
 
-## Blueprint validation invariants
+Before Hermes starts, validation rejects a blueprint unless:
 
-Composition fails closed before execution unless all of these are true:
+1. Every dependency and conflict is declared, the graph has no cycles, and organization
+   policy wins conflicts explicitly rather than through load order.
+2. Every action declares the permission used, where it is enforced, known bypasses,
+   how it stops, and how the target state is read back.
+3. Every important output has a compatible checker, review requirement, and final state.
+4. Every referenced file and version exists and matches the resolved manifest.
 
-1. Every pack declares its compatible kernel schema, Hermes adapter versions, dependencies, conflicts, owner, and review/expiry date.
-2. Dependencies form an acyclic graph. Organization policy has final precedence; a capability or workflow pack may narrow but never override or widen it. Conflicting declarations are not resolved by load order.
-3. Every action-capable pack declares its action classes, authority outcomes, enforcement points, known bypasses, stop behavior, and target readback.
-4. Every acceptance-critical output or effect has a compatible oracle, verifier requirement, evidence contract, and terminal disposition. A missing or incompatible declaration produces `needs_policy_decision`, never a permissive default.
-5. Referenced artifacts and versions exist and match the resolved manifest before Hermes starts.
+The versions and hash identify what was selected. They do not prove signing, custody,
+enforcement, or trust.
 
-Compatibility metadata and hashes provide provenance only. They do not prove signing, enforcement, custody, or trust.
-
-Public-sector finance, if pursued later, belongs under `workflows/public-finance/`. It is not part of the generalized preview critical path.
-
-No capability pack ships in this preview; the table row documents the pack type for completeness.
+Public-sector finance may become a workflow pack later. It is not part of the preview's
+main path. No capability pack ships yet; the directory is documented to show the
+intended extension point.

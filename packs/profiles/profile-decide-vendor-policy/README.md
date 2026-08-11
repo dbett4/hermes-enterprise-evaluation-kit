@@ -1,20 +1,22 @@
-# Profile: decide-vendor-policy
+# Vendor-policy recommendation profile
 
-Hermes profile distribution for **S1 Decide** — vendor-policy exception assessment.
+This is the Hermes profile for S1, the fictional vendor-policy review.
 
-## Mission shape
+## Job
 
-Ordinary user states an outcome: *"Assess this vendor exception request and recommend approve, defer, or deny with conditions."*
+A user asks: *“Assess this vendor exception request and recommend approve, defer, or
+deny with conditions.”*
 
-The operator does not pick model, tools, or verifier topology — organization policy resolves `bundle-s1-decide`.
+Organization policy selects `bundle-s1-decide`; the user does not choose the model,
+tools, or checking setup.
 
-## Corpus (read-only)
+## Read-only source files
 
 - `reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md`
 - `reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md`
 - `reference-suite/s1-decide/questionnaire.json`
 
-## Output contract
+## Output
 
 Respond with **JSON only**:
 
@@ -29,7 +31,7 @@ Respond with **JSON only**:
 
 No external sends. No contract execution. Recommendation only.
 
-## Install (live Hermes host)
+## Install on a Hermes host
 
 ```bash
 hermes profile install "$(pwd)" --name decide-vendor-policy -y

@@ -1,87 +1,96 @@
-# Product architecture
+# Architecture
 
-**As of:** 2026-08-04<br>
-**Status:** product architecture adopted for the generalized-enterprise build; B17 authority-architecture v4 is ratified as design and awaits B02/B03/B05 implementation<br>
+**Updated:** 2026-08-04
+
 **Validated runtime:** Hermes Agent v0.20.0 / tag `v2026.8.3`
 
-The public asset in this repository is the **Enterprise Agent Deployment Field Kit for Hermes**. It is an independent deployment-method prototype, not an official Nous product or partnership claim.
-
-## Product promise
-
-An ordinary user gives Hermes a mission, source material, an expected outcome, and any material approval. The system resolves the agent shape, model, provider, effort, tools, permissions, fallbacks, and proof requirements from organization policy. Experts can inspect and override those choices inside the approved envelope; ordinary users do not need to understand them.
+The Field Kit is an independent deployment prototype, not an official Nous product.
+Its job is to turn an ordinary mission into a known Hermes configuration and a result
+that another person or program can inspect.
 
 ```text
 mission
-  -> organization envelope
-  -> approved Assembly Blueprint
-  -> deterministic configuration resolution
+  -> organization policy
+  -> one approved configuration
   -> Hermes execution
-  -> observed effect + independent disposition
-  -> reconstructable receipt
-  -> continue, improve, transfer, or retire
+  -> target readback and checks
+  -> checker or human decision
+  -> JSON run record
+  -> continue, change, hand over, or retire
 ```
 
-The v0.1 resolver selects among a small catalog of preapproved bundles. It does not claim that Hermes v0.20 performs general task-aware model selection.
+The v0.1 resolver selects from a small catalog using explicit rules. It does not claim
+that Hermes v0.20 performs general task-aware model selection.
 
-## The five layers
+## Components
 
-| Layer | Owns | Explicit boundary |
+| Component | Responsibility | Limit |
 |---|---|---|
-| **Mission experience** | Outcome intake, status, material approvals, result, proof summary | Does not expose model/provider/effort knobs to ordinary users |
-| **Portable control kernel** | Lifecycle, risk and reversibility, authority semantics, evidence requirements, proportionality, disposition, exceptions | Contains no Hermes object names or release-specific assumptions |
-| **Pack system** | Organization policy, reusable capabilities, workflow-specific contracts and tests | Packs may narrow authority; they cannot silently expand the organization envelope |
-| **Hermes adapter** | Version-pinned mapping to profiles, skills, goals, approvals, Kanban, tools, sandbox/egress, routing, and receipts | Every capability is classified `native`, `configuration`, `extension`, `surrounding-platform`, or `unsupported-gap` |
-| **Operations and evidence** | Target-system readback, verification, human disposition, incident handling, ownership, retention, promotion/contraction | Kit records remain mutable until independently controlled custody is actually implemented |
+| Mission view | Collect the outcome, inputs, deadline, approvals, and status | Normal users do not configure models or tool graphs |
+| Reusable core | Define lifecycle, risk tiers, permissions, review, exceptions, and retirement | Contains no Hermes release assumptions |
+| Packs | Add organization policy, reusable capabilities, and workflow-specific rules | May narrow organization policy, never widen it |
+| Hermes adapter | Map the approved configuration to profiles, skills, goals, tools, isolation, and routing | Every requirement is tied to the pinned release and its known limits |
+| Operations | Read target state, handle incidents, track ownership, and decide what happens next | Repository records remain mutable until separate custody is implemented |
 
-Hermes is the front door and reference execution path. The kernel is portable so enterprise control semantics do not depend on undocumented runtime behavior.
+Hermes is the front door and reference runner. The reusable core is separate so the
+operating rules do not depend on accidental runtime behavior.
 
-## Pack system
+## Packs and blueprints
 
-Packs are versioned inputs to an approved **Assembly Blueprint**:
+An **organization pack** defines data zones, providers, permission ceilings, budget
+rules, identities, retention, and the configurations an administrator has approved.
 
-- **Organization pack:** operating envelope, data zones, allowed providers, authority ceilings, budget posture, identity bindings, retention, integration boundaries, and override rules.
-- **Capability pack:** a reusable ability such as a connector, verifier topology, evidence-store adapter, browser boundary, or recovery mechanism, with permissions, failure modes, and tests.
-- **Workflow pack:** mission vocabulary, source and output contracts, action inventory, deterministic oracles, exception rules, and fixtures for a business workflow.
+A **capability pack** adds one reusable piece such as a connector, checker, storage
+adapter, browser restriction, or recovery mechanism. It includes permissions, failure
+modes, and tests.
 
-An Assembly Blueprint pins the kernel schema, Hermes adapter, selected packs, configuration bundles, owners, effective dates, canonicalization method, and manifest hash. The hash establishes provenance only; signing, custody, and enforcement require separately proven controls.
+A **workflow pack** describes one kind of job: its vocabulary, input and output format,
+possible actions, deterministic checks, exceptions, and fixtures.
 
-Pack resolution obeys four rules:
+The resolved **Assembly Blueprint** records the exact core schema, Hermes adapter,
+pack versions, configuration, owners, effective dates, serialization method, and
+manifest hash. The hash identifies the inputs. It does not prove signing, safe custody,
+or enforcement.
 
-1. Organization policy always wins over capability or workflow defaults.
-2. Every material choice is explicit in the resolved manifest even when hidden from the ordinary user.
-3. Unsupported or internally inconsistent combinations stop with `needs_policy_decision`.
-4. A material change to model, prompt, skill, tool, permission, policy, runtime, or verifier creates a new risk identity and requires explicit novation.
+Before a run starts, the validator checks that:
 
-Before execution, blueprint validation also requires compatible kernel and adapter pins; an acyclic dependency graph with explicit conflicts and organization-policy precedence; action-class, enforcement-point, bypass, stop, and readback declarations for every action-capable pack; and an oracle, verifier, evidence, and terminal-disposition contract for every acceptance-critical output or effect. Missing, stale, incompatible, or conflicting declarations fail closed with `needs_policy_decision`; load order never resolves policy conflict.
+- versions and dependencies are compatible and the dependency graph has no cycles;
+- organization policy wins every conflict rather than relying on load order;
+- every possible action names its permission, enforcement location, bypasses, stop
+  behavior, and target readback; and
+- every important output has a compatible checker and a final state.
 
-## Progressive disclosure
+Missing, stale, or conflicting information stops with `needs_policy_decision`.
 
-| Surface | Audience | Visible choices | Hidden but receipted |
-|---|---|---|---|
-| **Mission** | Ordinary user | Outcome, inputs, deadline, material approvals, status, proof | Models, providers, effort, tool graph, fallbacks, verifier topology |
-| **Envelope** | Organization admin / policy owner | Data and provider rules, authority ceiling, verification class, retention, budget and override policy | Prompt and adapter detail unless inspected |
-| **Assembly** | Expert / FDE / platform owner | Exact profiles, packs, bundles, models, tools, sandboxes, egress, verifier design, manifests | Nothing material |
+## Configuration selection
 
-The public UX uses plain states such as `blocked`, `runs automatically`, `approval required`, and `two approvals required`. Internal authority codes remain inspection-layer vocabulary.
+The administrator approves a few configuration families—for example, latency-sensitive,
+balanced, or assurance-heavy. The resolver can choose only among configurations allowed
+for the task, data, action, consequence, and review requirements. The run record stores
+both requested and resolved provider/runtime details, including fallbacks.
 
-## Generalized validation strategy
+Any future adaptive selector has to earn its place through results against fixed tests.
+Until then, “best model for the task” is wording this project deliberately avoids.
 
-No single domain is allowed to prove the architecture. The v0.1 reference suite exercises three horizontal action archetypes against synthetic data:
+## Three synthetic jobs
 
-| Archetype | What it proves |
+The first suite uses horizontal action types rather than one industry story:
+
+| Job | What it exercises |
 |---|---|
-| **Decide** | Bounded analysis, source grounding, deterministic policy checks, recommendation, and human disposition |
-| **Coordinate** | Multi-owner workflow, state and handoff control, clarification limits, and deliberate limits on autonomy |
-| **Act** | A reversible change inside a synthetic environment, target readback, rollback, and a hard boundary before production |
+| Decide | Source-grounded analysis, deterministic policy checks, a recommendation, and human review |
+| Coordinate | Work across several fictional owners, bounded clarification, and handoff without destructive action |
+| Act | A reversible change in a local staging service, target readback, rollback, and a stop before production |
 
-Finance, HR, legal, IT, healthcare, insurance, and other domains are optional workflow packs. Public-sector finance is not a prerequisite, default story, or preview dependency.
+Finance, HR, legal, IT, healthcare, and other domains can be added as workflow packs.
+Public-sector finance is optional, not the default or a requirement for this preview.
 
-## Model and provider integration
+## Current Hermes limits
 
-The product exposes policy, not a model picker. An administrator approves bundle families such as latency-sensitive, balanced, or assurance-heavy; the resolver chooses only among eligible bundles based on task, data, action, consequence, and verification classes. The receipt records both requested and resolved runtime facts, including fallbacks.
+Hermes v0.20 provides useful profiles, goals, approvals, deny rules, boards, webhooks,
+Iron Proxy, managed scope, provider routing, and fallback behavior. It does not by
+itself establish enterprise IAM, adversarial isolation, immutable record custody, hard
+tenant isolation, or outcome-aware model selection.
 
-Future adaptive selection must earn promotion from observed results across fixed acceptance criteria. Until that evidence exists, “best model for the task” is prohibited wording.
-
-## Current Hermes boundary
-
-Hermes v0.20 supplies valuable primitives with documented limits: profile distributions, goals/completion contracts, approval and deny rules, smart-approval suggestions, Kanban coordination, webhooks, Iron Proxy for its supported Docker topology, managed scope, provider routing, and fallback. It does not by itself prove enterprise IAM, adversarial isolation, immutable evidence custody, hard tenant isolation, or general outcome-aware model selection. The exact evidence and limits remain in [`preflight/v0.20-preflight-report.md`](preflight/v0.20-preflight-report.md).
+The exact tests and qualifications are in
+[`preflight/v0.20-preflight-report.md`](preflight/v0.20-preflight-report.md).

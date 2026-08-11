@@ -2,9 +2,10 @@
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** instantiate the approved design as one reconstructable deployment candidate.
+Build one identifiable candidate that implements the approved design and can be
+recreated without relying on the builder's memory.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - Approved Stage 2 design and control traceability matrix
 - Fixed acceptance plan and negative cases
@@ -28,7 +29,7 @@
 5. Use the implementation-mapping contract to distinguish capability location from marketing similarity.
 6. A material implementation change creates a new configuration identity. Its prior authority is `none`, `haircut`, `probation`, or explicitly approved carryover—never silent inheritance.
 
-## Outputs
+## Outputs — what to save
 
 - Canonical configuration manifest and retained artifact references
 - Configuration identity and supersession/novation record
@@ -37,7 +38,7 @@
 - Release candidate plus reconstruction and rollback procedure
 - Updated unresolved-risk, bypass, and exception registers
 
-## Accountable owner
+## Accountable owner — who decides
 
 The configuration or release owner owns the candidate identity, artifact set, integration record, and rollback readiness. System and policy owners remain accountable for their respective controls.
 

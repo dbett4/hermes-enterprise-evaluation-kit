@@ -1,6 +1,13 @@
-# Enterprise Agent Deployment Field Kit for Hermes
+# Hermes Enterprise Field Kit
 
-A field kit for deploying [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) inside an organization with bounded authority, policy-resolved configuration, typed verification, and reconstructable evidence — validated against the exact release **v0.20.0 / tag `v2026.8.3`**.
+I built this repository to answer a practical question: what would it take to run
+[Hermes Agent](https://github.com/NousResearch/hermes-agent) inside a real organization
+without asking every user to become an agent-platform expert?
+
+The result is a working prototype around the exact Hermes release **v0.20.0 / tag
+`v2026.8.3`**. It takes a plain-language mission, applies an organization's rules,
+selects an approved configuration, runs a set of independent checks, and records what
+happened. It is my project, not an official Nous product or partnership.
 
 ```text
 $ bash scripts/demo_mission_s1.sh
@@ -10,73 +17,107 @@ Org pack: packs/organizations/nimbus-synthetic
 MISSION_DEMO_PASS run_id=s1-decide-... terminal=needs_review recommendation=defer-pending-legal oracle_passed=True
 ```
 
-## Why this exists
+The important part of that output is `needs_review`. The local checker passed, but the
+case still needs a person to make the decision. A green script does not get to invent
+human approval.
 
-Agent runtimes ship capable primitives; organizations still fail at the layer above them — deciding which work an agent should do at all, resolving a safe configuration without making every user a runtime expert, proving results with evidence stronger than the agent's self-report, and owning the agent after handoff. This kit is that layer, built Hermes-first from real regulated-reporting deployment experience, with every capability claim pinned to a preflighted release instead of vendor marketing.
+## Start here
 
-## Architecture
+The demo requires Python 3.10+ and bash. It does not install Hermes, call a model, use an
+API key, or need network access.
+
+```bash
+git clone https://github.com/dbett4/hermes-enterprise-field-kit.git
+cd hermes-enterprise-field-kit
+pip install -r requirements.txt
+
+# Run one synthetic mission end to end
+bash scripts/demo_mission_s1.sh
+
+# Exercise eight failure cases
+python3 scripts/run_negative_tests.py
+
+# Check that the reusable core contains no Hermes-specific terms
+python3 scripts/check_neutral_core.py
+
+# Run every credential-free check used by this repository
+./scripts/proof.sh
+```
+
+`proof.sh` stops at the first failure and prints `FIELD_KIT_PROOF_PASS` only when the
+whole set passes. [PROOF.md](PROOF.md) lists the command behind each result.
+
+## How it works
 
 ```mermaid
 flowchart TD
-    M[Mission - ordinary user states outcome] --> E[Organization envelope - admin-approved policy]
-    E --> R[Policy resolver - one named preapproved config bundle]
-    R --> H[Hermes v0.20 execution - profile, goal contract, tools]
-    H --> O[Observed effect - readback and deterministic oracles]
-    O --> D[Disposition - checker plus human or policy owner]
-    D --> G[Golden-path receipt - reconstructable JSON evidence]
+    M[User describes the job] --> P[Organization policy narrows the choices]
+    P --> C[Resolver selects one approved configuration]
+    C --> H[Hermes runs the profile, goal, and tools]
+    H --> R[Target readback and deterministic checks]
+    R --> D[Checker or person accepts, rejects, or asks for review]
+    D --> J[JSON run record]
 ```
 
-A vendor-neutral control kernel (lifecycle, authority, proportionality, waivers, assurance) sits under a version-pinned Hermes mapping: every one of 318 requirement rows is classified `native` / `configuration` / `extension` / `surrounding-platform` / `unsupported-gap` against the exact tag. The doctrine — **Reconciled Autonomy** — is that an agent earns bounded authority only when authorized intent, observed effect, and an independently classified disposition reconcile.
+I split the design into two parts:
 
-## Quickstart
+- A small vendor-neutral core covers qualification, authority, testing, operation, and
+  retirement. This keeps the operating rules from depending on undocumented Hermes
+  behavior.
+- A version-pinned Hermes adapter says where each requirement is handled: by Hermes
+  itself, by configuration, by this kit, by surrounding infrastructure, or not at all.
 
-Python 3.10+ and bash; no Hermes install, API keys, or network access required for the demo path.
+The generated map contains **318 schema-valid rows** and a **seven-item gap list**. The
+preflight for the pinned release ran **214 focused tests** and ended
+`PASS_WITH_LIMITS`. Those limits matter: managed scope is not an OS sandbox, Kanban is
+not an immutable audit log, and provider fallback is not intelligent model selection.
 
-```bash
-git clone <this-repo>
-cd hermes-enterprise-field-kit
-pip install -r requirements.txt   # jsonschema, used by the negative-test oracle
+## What is worth reviewing
 
-# Mission demo: org-pack resolution -> producer -> oracle -> receipt
-bash scripts/demo_mission_s1.sh
+- [`reference-suite/`](reference-suite/README.md) contains three synthetic jobs:
+  recommend on a vendor exception, coordinate an employee offboarding packet, and make
+  a reversible change to a local staging service.
+- [`packs/`](packs/README.md) shows how organization policy and workflow-specific rules
+  combine without silently widening permissions.
+- [`kit/mapping/`](kit/mapping/README.md) is the 318-row release map and gap list.
+- [`kit/preflight/`](kit/preflight/v0.20-preflight-report.md) records what I actually
+  tested against Hermes v0.20.
+- [`kit/`](kit/README.md) contains the longer deployment method.
+- [`scripts/`](scripts/) contains the resolver, runner, checkers, reconstruction tools,
+  and repository guards.
 
-# Negative tests: 8 fail-closed cases through the real pipeline
-python3 scripts/run_negative_tests.py
+## Live-run path
 
-# Kernel guard: proves the core stays vendor-neutral
-python3 scripts/check_neutral_core.py
-```
+The non-demo runner calls the Hermes CLI only after two spend controls are present: an
+owner-created authorization file and a matching Nous Portal per-member cap. It rejects
+a mismatched CLI version and saves the native version output, executable SHA-256, and
+input/output digests. See [`spend-authorization/`](spend-authorization/README.md).
 
-The non-demo path runs the same mission through a Hermes CLI behind a two-factor spend gate (authorization file on disk + Portal spend cap — see [spend-authorization/](spend-authorization/README.md)). New runs fail closed on a mismatched CLI version and retain native version output, an executable hash, and invocation/output digests. One older operator-recorded S1 artifact is committed at [`reference-suite/runs/s1-decide-20260811-025135/`](reference-suite/runs/s1-decide-20260811-025135/), but it predates that attestation guard. Its output passes the deterministic oracle and remains `needs_review`; it is **not** proof that the declared Hermes release executed.
+One older S1 record is committed under
+[`reference-suite/runs/s1-decide-20260811-025135/`](reference-suite/runs/s1-decide-20260811-025135/).
+Its output is internally consistent and the deterministic checker passes, but the run
+predates the CLI identity guard. The provider and model fields were recorded by the
+operator. There is no native session or version artifact tying that output to the
+declared Hermes release, provider, or model, so I do **not** treat it as proof of a live
+Hermes run.
 
-## What is in the box
+## Current limits
 
-| Area | Contents |
-|---|---|
-| [`kit/DOCTRINE.md`](kit/DOCTRINE.md) | Product doctrine: progressive disclosure, policy resolution, Reconciled Autonomy |
-| [`kit/core/`](kit/core/) · [`kit/lifecycle/`](kit/lifecycle/) · [`kit/assurance/`](kit/assurance/) | Frozen vendor-neutral kernel: six-stage lifecycle, eight assurance modules, proportionality, waivers |
-| [`kit/instrument/`](kit/instrument/) | Deterministic scoping/decision intake with schemas, fixtures, and oracles — including the honest outcomes `defer` and `do_not_agentize` |
-| [`kit/mapping/`](kit/mapping/) | The 318-row Hermes v0.20 deployment map, capability-gap ledger, and generation lock |
-| [`kit/preflight/`](kit/preflight/) | Exact-release preflight report (214 tests, verdict `PASS_WITH_LIMITS`) |
-| [`packs/`](packs/README.md) | Synthetic organization pack (Nimbus Widgets), execution profile, optional workflow packs |
-| [`reference-suite/`](reference-suite/README.md) | Decide/coordinate/act archetypes, config bundles, oracles, negative tests, evidence packets, committed run receipts |
-| [`scripts/`](scripts/) | Mission runner, resolver, staging service, evidence-packet assembly and reconstruction, guards |
+- This is a preview built from synthetic cases, not a customer deployment.
+- Three committed reference records are labeled dry runs. The older S1 record is
+  labeled `operator-recorded-unattested` and remains `needs_review`.
+- Provider cost is `NOT_RUN`; I have not published a cost or ROI result.
+- Run records are ordinary mutable files in this repository, not an immutable audit
+  system.
+- A few private build inputs are represented only by their digests in
+  `kit/mapping/b05-generation.lock.json`. You can validate the shipped map and generator,
+  but cannot reproduce those private inputs from this public tree.
+- The older record names `anthropic/claude-fable-5`, but that is operator-entered
+  metadata. Future non-demo runs collect stronger CLI identity data; even then, a
+  version probe alone does not tie executable bytes to a source commit.
+- Demo runs create new ignored directories under `reference-suite/runs/`; the committed
+  examples are the reviewed copies.
 
-## Honest status
+## Author
 
-- **Field Kit preview.** Extracted from a private build surface; the desk test and full validation set have not yet passed, so no v0.1 claim is made.
-- Three reference receipts are **dry runs, labeled as such**; one older S1 output is **operator-recorded but runtime-unattested** and remains `needs_review`. Cost fields are honestly `NOT_RUN` (no Portal readback yet).
-- Receipts are mutable kit artifacts, not immutable audit; the preflight report states exactly what v0.20 supplies, supplies with limits, or does not supply.
-- `kit/mapping/b05-generation.lock.json` pins the digests of a few generator inputs (build tickets and a research draft) that remain private; the lock and `scripts/generate_b05_mapping.py` are shipped for transparency but cannot be fully re-run from this tree alone.
-- The older S1 record names `anthropic/claude-fable-5`, but no native version/session artifact was retained. That metadata is operator-recorded, not independently attested. Future non-demo runs retain CLI identity evidence while still stating that a version probe does not bind executable bytes to a source commit.
-- Demo runs write new receipt directories under `reference-suite/runs/` (gitignored); the committed exemplar receipts are the reviewed ones.
-
-## Testing
-
-`run_negative_tests.py` (8/8 fail-closed cases through the real pipeline), `check_neutral_core.py` (kernel neutrality guard), deterministic workflow oracles per archetype, and non-producer packet reconstruction via `scripts/reconstruct_from_packet.py`.
-
-Run the complete credential-free proof packet with `./scripts/proof.sh`. See [PROOF.md](PROOF.md) for the claim-to-command map.
-
-## License and author
-
-MIT. Built by [Dave Bettner](https://davebettner.com) — agent systems engineering for regulated enterprise platforms.
+MIT licensed. Built by [Dave Bettner](https://davebettner.com).

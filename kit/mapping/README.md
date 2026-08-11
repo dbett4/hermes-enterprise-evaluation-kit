@@ -1,17 +1,34 @@
-# Requirement-to-runtime mapping
+# Hermes release map
 
-Maps each enterprise requirement in the kit to what the pinned Hermes release actually provides — native support, kit-supplied control, or an honest gap. Generated deterministically by `scripts/generate_b05_mapping.py`; the lock file pins input digests so a regenerated map can be diffed against the shipped one. Some pinned generator inputs remain private (see the root README's transparency note), so public regeneration is a verification of shape, not a byte-for-byte rebuild.
+This directory ties each requirement in the Field Kit to the exact Hermes release I
+tested. A row says whether the behavior comes from Hermes itself, configuration, this
+kit, surrounding infrastructure, or an unresolved gap.
 
-`scripts/generate_b05_mapping.py` is the frozen compiler:
+`scripts/generate_b05_mapping.py` builds the map. The lock file records input digests so
+changes to the generated output are visible. A few build inputs are private, which means
+the public repository can validate the shipped map and its shape but cannot reproduce
+every source input byte for byte.
 
-| Phase | Responsibility | State |
-|-------|----------------|-------|
-| **B1** | Row decisions + override merge + provenance | **merged** — defers `render-links`, `summaries`, `output-hashes` to B3 |
-| **B2** | Map + capability-gap ledger + post-lock materialization | **merged** @ `e881571` |
-| **B3** | Render-link index, module summaries, output-hash chain | **in progress** — in-memory only; no schema/materialize change yet |
+The generator was built in three parts:
 
-`--foundation-check` verifies pending production manifest (318 rows, adjudication pending fields).
-`--check` runs B1→B2→B3 compile against adjudicated overrides and prints row/gap/link/chain summary.
-`--materialize` writes map, ledger, and lock only when compiled hashes match the production oracle (no-op if already ahead).
+| Part | Responsibility | Status |
+|---|---|---|
+| B1 | Row decisions, overrides, and source tracking | Merged; later rendering work belongs to B3 |
+| B2 | Map, seven-item gap list, and lock materialization | Merged at `e881571` |
+| B3 | Link index, summaries, and output hash chain | In progress in memory; no schema or materialized-output change yet |
 
-The manifest, overrides, generation lock, map schema, and gap-ledger schema are governing contracts. B03 integration remains `absent` in the map until instrument v3 wiring lands. No operational claim may be inferred beyond what the lock outputs record.
+Useful commands:
+
+```bash
+# Validate the pending 318-row manifest
+python3 scripts/generate_b05_mapping.py --foundation-check
+
+# Compile B1 through B3 and print the row, gap, link, and hash summary
+python3 scripts/generate_b05_mapping.py --check
+
+# Write the map, gap list, and lock only when their hashes match the expected result
+python3 scripts/generate_b05_mapping.py --materialize
+```
+
+The manifest, overrides, schemas, and lock determine the generated result. Do not infer
+runtime behavior beyond what a row and its test source actually show.

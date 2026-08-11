@@ -1,36 +1,45 @@
-# Generalized enterprise reference suite
+# Reference exercises
 
-**Status:** S1/S3 dry-run exemplars with reconstruction receipts, plus one older operator-recorded S1 output (`runs/s1-decide-20260811-025135`, `execution_mode: operator-recorded-unattested`). Its native runtime identity was not captured, so it is not proof that the declared Hermes release executed. The S2 desk-probe evidence is held outside this public preview; its fixtures and expected oracle ship here.
+This directory tests the design against three different kinds of work: making a
+recommendation, coordinating a handoff, and changing a system. The organization and
+all inputs are fictional so the examples do not depend on client data or imply a real
+customer relationship.
 
-The reference suite is designed to test the horizontal architecture across **decide**, **coordinate**, and **act**. It uses one clearly fictional organization and synthetic inputs so no client, employer, government, industry, or relationship is load-bearing.
+## The three jobs
 
-## Suite members
-
-| ID | Archetype | Synthetic scenario | Primary proof |
+| ID | Job | Scenario | What I check |
 |---|---|---|---|
-| **S1** | Decide | Evaluate a vendor-policy exception from a synthetic policy corpus and questionnaire; produce a bounded recommendation, not an external decision | Source grounding, deterministic policy checks, checker disposition, human release |
-| **S2** | Coordinate | Build an employee-offboarding packet across fictional HR, identity, device, ticketing, payroll, and SaaS systems; do not execute destructive effects | Transferability, multi-owner coordination, clarification limits, “not ready to authorize” behavior |
-| **S3** | Act | Apply an approved rate-limit change to a local synthetic staging service; verify target state and exercise exact rollback; production promotion remains human-controlled | Pre-authorized bounded action, target readback, recovery, and the staging/production authority boundary |
+| **S1** | Decide | Review a vendor-policy exception and recommend what to do; do not make the external decision | Source citations, policy rules, a separate checker, and human review |
+| **S2** | Coordinate | Prepare an employee-offboarding packet across fictional systems; do not disable accounts or perform another destructive action | Multi-owner handoff, clarification limits, and a deliberate `not_ready_to_authorize` outcome |
+| **S3** | Act | Change a rate limit in a local staging service, read it back, and test rollback; do not promote to production | Narrow permission, target readback, recovery, and the staging/production stop line |
 
-These scenarios are fixtures, not product verticals. A workflow pack may later replace any fixture without changing the kernel, authority semantics, receipt contract, or Hermes adapter.
+The committed S1 and S3 examples are dry runs with reconstruction records. The older
+S1 directory `runs/s1-decide-20260811-025135` is labeled
+`operator-recorded-unattested`. Its output is internally consistent, but the run did
+not save native CLI identity, so it does not show that the declared Hermes release,
+provider, or model produced the result. S2's fixtures and expected checks are public;
+its earlier desk-probe record is not included in this preview.
 
-## Shared run contract
+## Rules shared by the exercises
 
-Every executed suite member must show:
+Each executed job must:
 
-- an authorized mission and approved organization envelope;
-- deterministic selection of one preapproved configuration bundle;
-- fixed producer output before checker evaluation;
-- independently labeled deterministic, role-separated, model-independent, and human checks;
-- observed output or target-system evidence outside the producing model's narrative;
-- explicit exception and terminal disposition;
-- a reconstructable receipt with no hidden model/provider/effort fallback; and
-- no immutable-audit, enterprise-IAM, production-conformance, or adaptive-routing claim beyond evidence.
+- start from an authorized mission and an approved fictional organization policy;
+- choose exactly one configuration from the approved catalog;
+- freeze the produced output before a checker evaluates it;
+- label deterministic, separate-session, different-model, and human review accurately;
+- read important results from the output or target system instead of trusting the
+  producer's summary;
+- record exceptions and a final state;
+- save the selected model, provider, effort, and any fallback in the run record; and
+- avoid claims about immutable audit, enterprise IAM, production readiness, or adaptive
+  routing that these exercises do not establish.
 
-S1 requires one clean accepted run and non-producer reconstruction. S3 requires the accepted H-seed/A-run sequence below and non-producer reconstruction. S2 remains the context-isolated desk probe. B08 distributes the committed negative fault classes across the suite rather than tying them to one domain.
+S1 needs a clean accepted run that someone other than the producer can reconstruct.
+S3 needs both its first human-released change and the later preauthorized staging run;
+the pair is the result, not just the more autonomous run. S2 remains a context-isolated
+desk exercise.
 
-S3's exact action-class/resource/environment tuple first completes an accepted first-occurrence H seed. Only after the policy owner ratifies the observed bounded rule may the subsequent A run demonstrate pre-authorization. The H record and the A record are both part of the suite denominator.
-
-## Acceptance language
-
-The suite passes only when every declared workflow oracle passes, every material discrepancy is explained and dispositioned, and no blocking `unknown` remains. Domain-specific “zero difference” rules belong in workflow packs; they are not universal core semantics.
+The suite passes only when each workflow's programmed checks pass, every important
+difference is explained, and no blocking `unknown` remains. A domain-specific
+zero-difference rule belongs in that workflow's pack rather than in the reusable core.

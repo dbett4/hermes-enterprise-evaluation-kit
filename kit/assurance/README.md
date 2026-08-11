@@ -1,27 +1,22 @@
-# Cross-cutting assurance modules
+# Review areas
 
-**Status:** frozen vendor-neutral kernel
+The lifecycle says what happens next. These eight questions make sure an important
+concern does not disappear between stages. The risk tier controls how deeply each one
+is handled.
 
-The lifecycle answers “what happens next?” These eight modules answer “what must remain true?” Apply every module at every stage using the depth selected by the [proportionality procedure](../core/proportionality.md).
-
-| Module | Governing question |
+| Area | Question |
 |---|---|
-| [Authority & human oversight](authority-human-oversight.md) | Who may cause, approve, stop, or own each effect? |
-| [Quality & verification](quality-verification.md) | What proves the output or effect is correct enough? |
-| [Evidence & traceability](evidence-traceability.md) | Can a non-producer reconstruct inputs, decisions, effects, and disposition? |
-| [Identity, security, data & legal](identity-security-data-legal.md) | Who is acting, through which boundary, on what data, under which rules? |
-| [Integration, change & supply chain](integration-change-supply-chain.md) | Which dependencies and changes alter the risk identity? |
-| [Reliability & continuity](reliability-continuity.md) | How does operation fail, recover, stop, and continue without duplicate or unowned effects? |
-| [Economics & value](economics-value.md) | Is accepted value worth total delivery and operating exposure? |
-| [Adoption & ownership](adoption-ownership.md) | Can named people operate, challenge, inherit, and retire the deployment? |
+| [Authority and human oversight](authority-human-oversight.md) | Who may act, approve, stop, and own the result? |
+| [Quality and verification](quality-verification.md) | What check shows the output or effect is good enough? |
+| [Run history and traceability](evidence-traceability.md) | Can someone other than the producer reconstruct the inputs, decisions, result, and review? |
+| [Identity, security, data, and legal](identity-security-data-legal.md) | Who is acting, where is access enforced, what data is involved, and which rules apply? |
+| [Integration, change, and supply chain](integration-change-supply-chain.md) | Which dependency or change makes this a materially different system? |
+| [Reliability and continuity](reliability-continuity.md) | How does it stop, recover, and avoid duplicated or ownerless effects? |
+| [Cost and value](economics-value.md) | Is accepted value worth the delivery and operating cost? |
+| [Adoption and ownership](adoption-ownership.md) | Can named people run, challenge, inherit, and retire it? |
 
-## Application procedure
-
-1. Use Stage 1 facts to assign a tier and base module depths.
-2. Apply every mandatory module-specific uplift.
-3. At Stage 2, create at least one complete [control trace](../core/control-traceability.md) for every material risk.
-4. At Stages 3 and 4, implement and test the exact control locations and negative cases.
-5. At Stage 5, measure thresholds and execute contraction, suspension, or escalation triggers.
-6. At Stage 6, reconcile the module evidence into continuation, transfer, or retirement.
-
-A module is not satisfied by naming it. It requires a rule, implementation slot, evidence, metric, threshold, and owner disposition proportionate to the tier.
+Assign the initial depth during qualification and revise it after mapping the workflow.
+For every important risk, name the rule, where it runs, how it is checked, its threshold,
+and its owner. Implement and test both the expected and failure paths before release;
+then monitor those same thresholds in operation. The final review decides whether to
+continue, change, transfer, or retire the system.

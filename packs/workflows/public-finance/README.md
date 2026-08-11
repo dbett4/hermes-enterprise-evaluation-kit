@@ -1,7 +1,11 @@
-# Optional workflow pack — public-sector finance
+# Optional public-sector finance workflow
 
 **Status:** deferred optional pack; not part of the generalized v0.1 critical path
 
-The earlier General Fund tie-out design is preserved as candidate workflow-pack material because it contains useful source-lineage, deterministic-reconciliation, and exception-handling patterns. It does not define the Field Kit product shape, the portable kernel, the default user story, or the reference-suite acceptance gate.
+I kept the earlier General Fund tie-out design because its source tracking, deterministic
+reconciliation, and exception handling may be useful in a future workflow pack. It does
+not define the Field Kit, its reusable core, the default story, or the tests for the
+general preview.
 
-If this pack is resumed, its jurisdiction screening, relationship clearance, finance-domain thresholds, source selection, and public-release gates must be reactivated explicitly. None of those gates blocks the generalized enterprise build.
+If work resumes, the finance-specific jurisdiction, relationship, threshold, source,
+and publication decisions must be made again. They do not block the general build.

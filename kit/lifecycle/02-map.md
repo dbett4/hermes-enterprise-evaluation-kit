@@ -2,9 +2,10 @@
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** turn a qualified workflow into an inspectable work, authority, evidence, and ownership design.
+Turn the qualified workflow into a specific design: steps, permissions, checks, failure
+paths, and owners.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - Accepted Stage 1 qualification record
 - Named outcome and policy owners
@@ -31,7 +32,7 @@
 6. For each material risk, complete one trace: risk → control → implementation slot → evidence → metric. An unmapped link is an open design defect.
 7. Return to Stage 1 if the required control burden defeats the value case or the workflow no longer qualifies.
 
-## Outputs
+## Outputs — what to save
 
 - Workflow, action, exception, and handoff map
 - Authority Decision Record for every executable action class
@@ -40,7 +41,7 @@
 - Acceptance criteria, negative cases, verifier/disposition plan, and metrics
 - Deployment boundary, hard ceilings, operating-owner plan, and unresolved-risk register
 
-## Accountable owner
+## Accountable owner — who decides
 
 The workflow or domain owner owns the mapped outcome. The policy owner owns authority classifications and waivers. Control specialists own only their recorded advice; they do not inherit outcome accountability.
 

@@ -2,9 +2,10 @@
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** operate inside the granted envelope and transfer practical ownership to the organization.
+Run only within the approved limits and make sure the receiving team can operate the
+system without depending on the builder.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - Accepted Stage 4 authority decision
 - Named operating owner, support route, stop authority, and evidence route
@@ -28,7 +29,7 @@
 5. Performance may support a promotion recommendation; it never self-expands authority. A policy owner must ratify the precise new bound.
 6. Handoff is incomplete until the receiving owner can operate, challenge, stop, recover, and escalate without the builder.
 
-## Outputs
+## Outputs — what to save
 
 - Run receipts and target-effect reconciliation
 - Service, quality, cost, adoption, and approval-performance measures
@@ -37,7 +38,7 @@
 - Operator training, tabletop, support, and owner-acceptance evidence
 - Open-obligation and recertification register
 
-## Accountable owner
+## Accountable owner — who decides
 
 The operating owner owns service operation, incident escalation, exceptions, and adoption. Policy, evidence, system, and support roles retain their named responsibilities but do not displace operating accountability.
 

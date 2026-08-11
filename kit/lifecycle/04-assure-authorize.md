@@ -1,10 +1,11 @@
-# Stage 4 — Assure & Authorize
+# Stage 4 — Test & Authorize
 
 **Status:** frozen vendor-neutral kernel
 
-**Purpose:** test the fixed candidate and grant only the authority supported by accepted evidence.
+Test the fixed candidate, including the ways it should fail, and grant no more permission
+than the accepted results support.
 
-## Entry conditions
+## Entry conditions — before starting
 
 - Reconstructable Stage 3 candidate with fixed configuration identity
 - Preregistered acceptance criteria, negative cases, and critical-regression rule
@@ -29,7 +30,7 @@
 6. The first occurrence of a pre-authorization candidate remains human-released. Only a policy owner may ratify a subsequent bounded pre-authorization rule from the accepted observed record.
 7. If every mandatory criterion passes but a bounded residual requires a temporary compensating control, use `authorize_with_limits`; otherwise use `authorize` or return.
 
-## Outputs
+## Outputs — what to save
 
 - Criteria-by-criteria and negative-case results
 - Producer-fixity and verifier-separation evidence
@@ -38,7 +39,7 @@
 - Scoped authority decision, operating envelope, expiry, and contraction triggers
 - Explicit reject or not-ready record when authorization is withheld
 
-## Accountable owner
+## Accountable owner — who decides
 
 The policy or authority owner owns the authorize, constrain, waive, or reject decision. The verifier owns only the stated verification result. The builder and producing agent cannot self-authorize.
 

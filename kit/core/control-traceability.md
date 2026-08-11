@@ -1,14 +1,17 @@
-# Control traceability
+# Connecting a risk to something testable
 
 **Status:** frozen vendor-neutral kernel
 
-Every material risk completes this chain:
+For each important risk, I want to be able to follow this line:
 
 > risk → control rule → implementation slot → evidence → metric → owner disposition
 
-The chain is complete only when each link is specific enough for a non-builder to test. A policy sentence with no implementation location is not a control; a log created by the producing process is not automatically observed effect or independent custody; a metric with no threshold and owner cannot trigger action.
+Each part needs to be specific enough for someone other than the builder to test. A
+policy sentence is not implemented until it runs somewhere. A producer's own log is not
+automatically an independent observation. A metric without a threshold and owner cannot
+cause anything to change.
 
-## Minimum trace by assurance module
+## Minimum connection for each review area
 
 | Module | Representative risk | Required control rule | Implementation slot | Minimum evidence | Minimum metric and trigger |
 |---|---|---|---|---|---|
@@ -21,11 +24,11 @@ The chain is complete only when each link is specific enough for a non-builder t
 | Economics & value | Inference price is mistaken for total cost or activity for value | Predeclare baseline and accepted-output denominator; measure total delivery/operation cost and quality-adjusted outcome | Usage/cost source, evidence service, owner review | Baseline, accepted outputs, authorized cost receipts, labor/retry/rejection cost, value disposition | Stop when total cost or quality-adjusted value crosses the owner-approved threshold |
 | Adoption & ownership | Deployment depends on builder knowledge or has no one able to stop/inherit it | Named accountable and operating owners; training/tabletop; support/escalation; transfer and retirement acceptance | Human procedure, training/support system, operations and governance process | RACI/authority record, runbook, tabletop result, owner acceptance, open-obligation register | Owner vacancies = 0; failed stop/handoff tabletop blocks adoption or transfer |
 
-## Trace record fields
+## What one row stores
 
 Each implemented row adds: trace ID; tier and module depth; stage; exact risk statement; control rule; implementation component and owner; known bypass; test and expected result; evidence IDs and basis; metric, threshold, window, and action; waiver ID if any; current disposition; review date; and supersession link.
 
-## Completeness checks
+## Checks
 
 - Every Stage 2 material risk has at least one trace.
 - Every trace names one or more explicit implementation slots and owners.

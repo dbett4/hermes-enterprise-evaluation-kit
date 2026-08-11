@@ -146,29 +146,29 @@ def print_walkthrough(
     execution_mode: str,
 ) -> None:
     print("")
-    print("── What just happened ──")
-    print(f"1. MISSION     {mission['work_order_id']} — {mission['expected_outcome']}")
+    print("── What the run did ──")
+    print(f"1. JOB         {mission['work_order_id']} — {mission['expected_outcome']}")
     org_name = org_pack["pack"].get("organization") or org_pack["pack"].get("pack_id", "org")
-    print(f"2. ENVELOPE    {org_pack['envelope']['envelope_id']} ({org_name})")
-    print(f"3. RESOLVER    {mission['task_class']} → {bundle['bundle_id']}")
+    print(f"2. POLICY      {org_pack['envelope']['envelope_id']} ({org_name})")
+    print(f"3. CONFIG      {mission['task_class']} → {bundle['bundle_id']}")
     print(f"4. PROFILE     {bundle['hermes_profile']['distribution_ref']}")
     if execution_mode == "demo":
         print("5. RUN         demo producer (questionnaire → recommendation; no Hermes API call)")
     else:
         print("5. RUN         live Hermes one-shot")
     print(f"6. RECOMMEND   {producer['recommendation']}")
-    print(f"7. ORACLE      {'PASS' if oracle_result['passed'] else 'FAIL'}")
+    print(f"7. CHECK       {'PASS' if oracle_result['passed'] else 'FAIL'}")
     try:
         receipt_display = receipt_path.relative_to(ROOT)
     except ValueError:
         receipt_display = receipt_path
-    print(f"8. RECEIPT     {receipt_display}")
-    print("9. DISPOSITION pending — deterministic acceptance is not human approval")
+    print(f"8. RECORD      {receipt_display}")
+    print("9. REVIEW      pending — the programmed check does not count as human approval")
     if execution_mode == "demo":
         print("")
-        print("This is the mission product shape — org policy picks the bundle, run produces")
-        print("a recommendation, oracle checks it, receipt records everything.")
-        print("Mode is demo. A non-demo run requires Hermes + spend authority and captures CLI identity evidence.")
+        print("Organization policy chose the configuration. Local code produced and checked the")
+        print("recommendation, then saved the run. This demo did not call Hermes or a model.")
+        print("A live run also requires Hermes, owner spend authorization, and saved CLI identity.")
 
 
 def run_demo_mission(

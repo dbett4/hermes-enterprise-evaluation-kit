@@ -2,7 +2,8 @@
 
 **Status:** frozen vendor-neutral kernel
 
-These records show how the same procedure produces different outcomes without relying on an unstated industry or runtime assumption.
+These examples show why stopping, using ordinary automation, or retaining human release
+can be the right engineering result.
 
 ## Example 1 — qualify a read-only policy recommendation
 
@@ -48,7 +49,8 @@ Why approval is insufficient: a human click does not make an unbounded or unobse
 - A waiver cannot convert the missing reconstruction, rollback, or producer-fixity evidence into a pass.
 - Required return: repair the retained artifact set and rollback path in Stage 3, refix producer output, and rerun the preregistered tests.
 
-Why apparent success does not count: acceptance attaches to the fixed configuration and evidence contract, not to one plausible output.
+Why apparent success does not count: the approval applies to the fixed configuration and
+its test results, not to one plausible-looking output.
 
 ## Counterexample 3 — choose conventional automation
 
@@ -58,4 +60,4 @@ Why apparent success does not count: acceptance attaches to the fixed configurat
 - Conventional automation is simpler to test, cheaper to operate, and easier to recover.
 - Stage 1 disposition: `do_not_agentize`, with a recommendation for deterministic integration.
 
-The no-agent outcome is evidence that qualification worked, not a failure of the method.
+Rejecting the agent approach here means qualification worked.

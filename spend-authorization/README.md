@@ -1,9 +1,11 @@
-# Spend authorization files (B10 prep)
+# Live-run spend controls
 
-Live inference requires **two independent owner controls**:
+The live runner will not start unless both of these owner-controlled limits are present:
 
-1. **Authorization file on disk** (this directory) — proves the owner scoped the run before Hermes starts.
-2. **Nous Portal per-member spend cap** — the only runtime monetary ceiling. This script does **not** meter tokens or stop inference when spend is exhausted.
+1. An **authorization file in this directory** showing the run was scoped before Hermes
+   starts.
+2. A matching **Nous Portal per-member spend cap**. This is the only runtime monetary
+   ceiling; the local script does not meter tokens or stop inference at a dollar amount.
 
 ## Who may create `*.authorization` files
 
@@ -13,11 +15,13 @@ Live inference requires **two independent owner controls**:
 | Automation agents | **No** — must not create or transcribe chat authorizations into files |
 | `hermes` system user | **No** — may *consume* an existing file at run time only |
 
-An agent-written file is an authorization **latch**, not a second factor: an ambiguous chat message is not an authorization, and an agent transcribing one into a file would defeat the interlock. The interlock is real only when the owner creates the file (or a future brokered mechanism derives from the owner's signed identity).
+An agent-created file would defeat the separation. A chat message copied into a file is
+not a second owner control. Today the owner must create the file directly; a future
+broker could instead derive it from a signed owner identity.
 
-**Do not commit** real `*.authorization` files — they are spend authority on disk. Only `*.example` belongs in git.
+**Do not commit** real `*.authorization` files. Only `*.example` belongs in Git.
 
-## Script gate (`run_live_mission_hermes_user.sh`)
+## What the script checks
 
 Hard stop (exit 3) before Hermes starts unless:
 
@@ -26,7 +30,9 @@ Hard stop (exit 3) before Hermes starts unless:
 
 The file cap is **inert for billing** — only the **Nous Portal per-member cap** bounds runtime spend.
 
-On pass: `SPEND_GATE_PASS` then one-shot `demo_mission_s1.sh --live`. Receipt `cost.status` stays `NOT_RUN` until B10 portal readback.
+When both values match, the script prints `SPEND_GATE_PASS` and makes one
+`demo_mission_s1.sh --live` call. The run's `cost.status` remains `NOT_RUN` until the B10
+Portal readback is implemented.
 
 ## Owner-only: create authorization file
 

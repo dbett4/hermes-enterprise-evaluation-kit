@@ -1,10 +1,12 @@
-# Proportionality procedure
+# Risk tiers
 
 **Status:** frozen vendor-neutral kernel
 
-Proportionality changes control depth, not the requirement to consider a control domain. Every qualified deployment assesses all eight assurance modules. The highest applicable trigger sets the base tier; module-specific triggers can only increase depth.
+The tier changes how much control and review a job needs; it does not let a team ignore a
+whole review area. Every qualified deployment considers all eight areas. The highest
+applicable trigger sets the base tier, and a specific concern can increase its own depth.
 
-## Step 1 — collect classification facts
+## 1. Record the facts
 
 Record these dimensions before assigning a tier:
 
@@ -19,7 +21,7 @@ Record these dimensions before assigning a tier:
 
 Missing facts are marked `unknown`. An acceptance-critical `unknown` produces `defer` or a higher control floor; it never earns a lower tier.
 
-## Step 2 — apply the highest-trigger rule
+## 2. Use the highest applicable tier
 
 | Tier | Deterministic trigger | Default authority posture |
 |---|---|---|
@@ -31,7 +33,7 @@ Missing facts are marked `unknown`. An acceptance-critical `unknown` produces `d
 
 An action may be valuable and still be T0 because its controls are unavailable. A tier does not grant authority; it sets the minimum evidence and control posture for a later authority decision.
 
-## Step 3 — assign module depth
+## 3. Set the depth for each review area
 
 | Depth | Minimum treatment |
 |---|---|
@@ -61,7 +63,7 @@ The base profile is a floor. Apply these mandatory uplifts:
 - multi-owner handoff, long-lived operation, or staff displacement → adoption at least L2;
 - a public cost, value, or return claim → economics at least L2 with authorized observed cost evidence.
 
-## Step 4 — emit the proportionality record
+## 4. Save the decision
 
 The record contains:
 

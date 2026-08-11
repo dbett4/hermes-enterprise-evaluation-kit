@@ -1,8 +1,8 @@
-# Hermes-native golden path
+# Mission runner and run record
 
 **As of:** 2026-08-10<br>
 **Used by:** B07 generalized reference suite<br>
-**Status:** execution contract and draft receipt schema; **three accepted dry-run receipts**; **no live Hermes acceptance yet**
+**Status:** draft run format with **three accepted dry-run records**; **no accepted live Hermes run yet**
 
 | Run class | Label | Hermes daemon | Accepted? |
 |-----------|-------|---------------|-----------|
@@ -12,26 +12,29 @@
 
 Dry-run receipts must not be relabeled as accepted reference runs.
 
-## User experience
+## What the user sees
 
-The ordinary user supplies a mission, source material, expected outcome, and any required deadline. The user does not select a model, provider, effort tier, toolset, fallback chain, or verifier topology.
+A user supplies the mission, source material, expected result, and any deadline. The
+organization's approved configuration—not the user—selects the model, provider, effort,
+tools, fallback, and checking method.
 
 The system then follows one visible sequence:
 
 ```text
 mission
-  → organizational envelope
+  → organization policy
   → named configuration bundle
-  → pre-execution policy validation
+  → configuration validation
   → Hermes profile + goal/completion contract + board/tools
-  → observed result
-  → deterministic/checker/human disposition
-  → reconstructable receipt
+  → output or target readback
+  → programmed check, checker, and human decision
+  → JSON run record
 ```
 
-The resolver is a Field Kit control in v0.1. It chooses only among predeclared bundles using explicit policy. It is not evidence that Hermes v0.20 ships general task-aware model selection.
+The resolver is code in this kit. It chooses only among configurations declared in
+advance and does not show that Hermes v0.20 can choose models based on a job's outcome.
 
-## Configuration-bundle contract
+## What an approved configuration contains
 
 Each allowed bundle contains:
 
@@ -45,9 +48,10 @@ Each allowed bundle contains:
 - canonical serialization version and SHA-256 manifest hash; and
 - owner, approval, effective date, expiry/review date, and supersession link.
 
-The hash is provenance. The retained artifacts, canonicalization method, custody, and change-control record make it useful; the hash alone does not make the configuration immutable or trusted.
+The hash identifies the serialized inputs. It is useful only with the retained files and
+serialization method; by itself it does not make a configuration immutable or trusted.
 
-## v0.1 resolver rules
+## Resolver rules
 
 1. Derive task, data, action, reversibility, and verification classes from the approved intake record.
 2. Intersect those classes with the organization envelope.
@@ -56,13 +60,18 @@ The hash is provenance. The retained artifacts, canonicalization method, custody
 5. Record any authorized override before execution.
 6. Record the resolved values after provider routing/fallback. Runtime-reported values and independently observed values remain separately labeled.
 
-The initial reference suite should compare two or three approved bundles across its archetypes. The experiment may recommend future selection logic; it cannot advertise “best model for the task” before that logic and its acceptance evidence exist.
+The first suite should compare two or three approved configurations across the three
+jobs. Those results may inform a later selector, but they do not justify calling
+anything the “best model for the task.”
 
-## Receipt schema
+## JSON format
 
-One JSON sidecar per run: `reference-suite/runs/<run-id>/golden-path.json`.
+Each run writes `reference-suite/runs/<run-id>/golden-path.json`.
 
-`observed` means captured from a source outside the producing model's narrative. `runtime_reported` means reported by Hermes/provider/runtime and not independently attested. `declared` means supplied by approved policy/configuration. Every material value carries one of these bases.
+`observed` means captured outside the producing model's explanation. `runtime_reported`
+means Hermes, a provider, or another runtime reported the fact about itself. `declared`
+means it came from approved policy or configuration. Important values keep this label so
+a reader can tell where they came from.
 
 ```json
 {
@@ -146,14 +155,14 @@ One JSON sidecar per run: `reference-suite/runs/<run-id>/golden-path.json`.
 }
 ```
 
-## Required-null semantics
+## Missing values
 
 - `NOT_RUN`: the measurement or action was intentionally not executed; include a reason and keep value `null`.
 - `not_applicable`: the field cannot apply to the selected bundle; include the policy basis.
 - `unknown`: evidence expected but unavailable; the run cannot be accepted if the field is acceptance-critical.
 - Empty string and invented zero are never substitutes for missing evidence.
 
-## Acceptance gate
+## When a run may be accepted
 
 An accepted run must show:
 

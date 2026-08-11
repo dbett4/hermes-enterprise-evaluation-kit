@@ -1,81 +1,70 @@
-# Portable control kernel
+# Reusable core
 
-**Status:** frozen vendor-neutral kernel
+This part of the project describes how to qualify, design, build, approve, run, and
+retire an agent deployment without depending on one runtime or model provider. An
+adapter may implement these rules; it cannot quietly redefine them or hide a missing
+capability.
 
-This layer defines how to qualify, design, implement, authorize, operate, and retire an organizational agent deployment without depending on any one runtime or provider. Product adapters may implement these rules; they may not redefine them or conceal a gap.
+## Documents
 
-## Kernel contents
+- [Qualification](../lifecycle/01-qualify.md) is the suitability and intake procedure.
+- [Lifecycle](../lifecycle/README.md) provides the ordered process and cross-stage dependencies;
+  the linked stage files hold the per-stage questions.
+- [Risk tiers](proportionality.md) define risk-tiered applicability and determine how
+  much control and review a job needs.
+- The stage decisions and [waiver rules](waivers-and-exceptions.md) cover acceptance,
+  negative-test, rejection, and exception behavior.
+- [Control traceability](control-traceability.md) connects a risk to a rule, its
+  implementation, a check, a metric, and an owner.
+- [Implementation mapping](implementation-mapping-contract.md) provides version-pinned
+  capability and gap classification.
+- [Examples and counterexamples](examples-and-counterexamples.md) show concrete cases.
+- [Review areas](../assurance/README.md) lists the eight concerns checked at every
+  lifecycle stage.
 
-| Framework element | Governing artifact |
-|---|---|
-| Suitability and intake procedure, including a no-agent outcome | [Stage 1 — Qualify](../lifecycle/01-qualify.md) |
-| Ordered process and cross-stage dependencies | [Six-stage lifecycle](../lifecycle/README.md) |
-| Per-stage questions, decision rules, outputs, ownership, exceptions, and exit tests | [Lifecycle stages](../lifecycle/README.md) |
-| Risk-tiered applicability and module depth | [Proportionality](proportionality.md) |
-| Acceptance, negative-test, rejection, and waiver rules | Stage exit gates and [waivers and exceptions](waivers-and-exceptions.md) |
-| Risk → control → implementation-slot → evidence → metric traceability | [Control traceability](control-traceability.md) |
-| Version-pinned capability and gap classification | [Implementation-mapping contract](implementation-mapping-contract.md) |
-| Examples and counterexamples usable without tacit knowledge | [Examples and counterexamples](examples-and-counterexamples.md) |
+The original design names for those pieces remain: **Suitability and intake procedure**,
+**Ordered process and cross-stage dependencies**, **Per-stage questions**,
+**Risk-tiered applicability**, **Acceptance, negative-test, rejection, and waiver
+rules**, **Control traceability**, **Version-pinned capability and gap classification**,
+and **Examples and counterexamples**.
 
-The [eight assurance modules](../assurance/README.md) apply across all stages at a depth selected by proportionality.
+## Terms used in the detailed files
 
-## Common vocabulary
+An **authorized request** says what may happen and who asked. An **observed result**
+comes from the target system, a deterministic program, or another controlled source. A
+**decision** accepts, rejects, waives, compensates, or returns that result. The three
+must agree, or the remaining difference needs a name and owner. The producing agent's
+summary is not an observed result or an independent decision.
 
-### Terminal facts
+Permissions use these internal codes:
 
-- **Authorized intent:** an attributable work order and authority decision define what may happen.
-- **Observed effect:** a source or target system, deterministic oracle, or independently controlled observer records what actually happened.
-- **Disposition:** an actor or process with the declared separation class accepts, rejects, waives, compensates, or returns the result.
-- **Reconciled result:** authorized intent, observed effect, and disposition agree, or every residual is explicitly classified and owned.
-
-An agent's narrative is neither observed effect nor independent disposition.
-
-### Authority outcomes
-
-| Code | Neutral meaning | User-facing state |
+| Code | Meaning | Plain-language state |
 |---|---|---|
-| `D` | Denied because the action is prohibited, ungranted, stale, untrusted, or outside a proven enforcement boundary | `blocked` |
-| `A` | Pre-authorized within deterministic, ratified bounds after an accepted first-occurrence human release | `runs automatically` |
-| `H` | A named human releases the exact effect through an authenticated mechanism the producing agent cannot rewrite | `approval required` |
-| `H2` | Two attributable releases through distinct credentials for a defined critical subset | `two approvals required` |
-| `R` | Exceptional execute-then-review for a predesignated reversible time-critical action with a tested suspender | `emergency path` |
+| `D` | Not allowed, out of scope, stale, or not safely enforceable | `blocked` |
+| `A` | Allowed automatically within a narrow, previously approved rule | `runs automatically` |
+| `H` | A named person releases the exact action through a separate mechanism | `approval required` |
+| `H2` | Two people use separate credentials for a defined critical action | `two approvals required` |
+| `R` | A predesigned reversible emergency action runs first and is reviewed immediately | `emergency path` |
 
-`R` is unavailable unless every trigger, deadline, notification, compensation, and suspender requirement is implemented and tested. Human approval cannot override an unconditional denial.
+`R` is available only when its trigger, deadline, notification, compensation, and stop
+mechanism are implemented and tested. A person cannot approve something policy
+unconditionally denies.
 
-### Evidence classes
+The detailed files distinguish configured facts, runtime self-reports, target readback,
+separate-session checks, different-model checks, human decisions, and genuinely separate
+organizational ownership. These are not interchangeable.
 
-- **Declared:** asserted by a plan, manifest, producer, or configuration.
-- **Runtime-reported:** emitted by the executing process about itself.
-- **Observed:** read from a target, deterministic oracle, or separately controlled observer.
-- **Role-separated:** produced by a separate process/session/context over fixed producer output.
-- **Model-independent:** produced by a different model/configuration with separation evidence.
-- **Human disposition:** attributable decision by an authorized person who saw the required evidence.
-- **Organizationally independent:** separate accountable ownership and authority boundary; never inferred from technical separation alone.
+## Rules that do not change
 
-### Implementation slots
-
-Controls are assigned to one or more explicit locations:
-
-1. human or process procedure;
-2. organization policy and decision service;
-3. identity, credential, or approval service;
-4. execution boundary;
-5. tool, connector, or integration boundary;
-6. source or target system;
-7. verification or disposition service;
-8. evidence and retention service; and
-9. operations, monitoring, or incident service.
-
-A control description without a location, owner, known bypass, and evidence route is incomplete.
-
-## Invariants
-
-- Missing, stale, contradictory, or untrusted acceptance-critical facts fail closed.
-- Delegation cannot amplify authority.
-- A material change creates a new risk identity and an explicit novation decision.
-- A hash establishes provenance only when canonical inputs and referenced artifacts are retained; it does not prove custody or enforcement.
-- No material effect is accepted without target or deterministic readback.
-- No recognized deliverable advances solely on producer self-report.
-- Promotion is scoped and remains a recommendation until an authorized policy owner ratifies it.
-- Incidents contract authority within their proven common-mode scope before recovery.
-- Evidence history is append-oriented; supersession links records rather than rewriting them.
+- Missing or contradictory facts that matter to acceptance stop the affected work.
+- Delegation can narrow permission but cannot widen it.
+- A material configuration change needs a new decision about whether prior approval
+  still applies.
+- A hash helps identify retained canonical inputs; by itself it proves neither custody
+  nor enforcement.
+- An important effect needs target readback or a deterministic check.
+- The producer's self-report cannot advance a material deliverable by itself.
+- Successful operation may support a recommendation to widen a permission; a policy
+  owner still has to approve the exact change.
+- An incident narrows the affected permission before recovery work begins.
+- New records supersede old ones by link instead of silently rewriting history.

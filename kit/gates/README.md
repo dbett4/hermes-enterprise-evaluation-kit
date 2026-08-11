@@ -1,14 +1,12 @@
-# Gate artifacts
+# Decision gates
 
-**Status:** B03 scaffold; acceptance rules not frozen
+**Status:** scaffold; the final acceptance rules are not frozen
 
-Every required artifact will ship as:
+Each lifecycle decision will have a blank form, a completed example, checkable criteria,
+rules for reject/return/waive/compensate, a named owner, and the material the owner must
+review.
 
-1. a blank form;
-2. a completed example;
-3. machine- or human-checkable acceptance criteria;
-4. reject/return/waive/compensate rules;
-5. accountable owner; and
-6. evidence required to close the gate.
-
-Planned gates follow the six-stage lifecycle: qualification, mapped design, configured candidate, assurance/authority, operating adoption, and continue/transfer/retire disposition. A gate may conclude “do not agentize.” A model's self-assessment cannot close its own material acceptance gate.
+The planned gates cover qualification, approved design, configured candidate,
+authorization, operating handoff, and continuation/transfer/retirement. “Do not use an
+agent for this” is a valid result. A model cannot close its own material acceptance or
+authorization decision.

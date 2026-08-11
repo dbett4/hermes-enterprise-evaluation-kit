@@ -1,40 +1,53 @@
-# Enterprise Agent Deployment Field Kit for Hermes — the simple version
+# Project summary
 
-**As of:** 2026-08-10 · Governing detail: [SPEC-enterprise-agent-framework.md](SPEC-enterprise-agent-framework.md)
+**Updated:** 2026-08-10
 
-## The idea
+**Detailed design:** [SPEC-enterprise-agent-framework.md](SPEC-enterprise-agent-framework.md)
 
-Hermes already has serious agent primitives. The missing layer is a repeatable way for an organization to decide what work an agent should do, resolve a safe configuration, prove the result, and own the agent after handoff.
+Hermes already provides profiles, goals, approvals, tools, boards, provider routing,
+and other useful agent primitives. This project explores the part an organization
+still has to build around them: deciding which jobs are appropriate, choosing a known
+configuration, checking the result outside the model's own narration, and handing the
+system to an accountable operator.
 
-This repository builds that method around Hermes first. It is not a generic framework wearing Hermes colors, and it does not make enterprise claims that Hermes v0.20 cannot support.
+I designed the first version around Hermes rather than hiding it behind a generic
+framework. Users describe a job and desired outcome. Organization policy chooses the
+model, provider, effort, tools, permissions, and checks from a small approved catalog.
+Experts can inspect or override that choice where policy allows.
 
-## The product shape
+## What v0.20 provides—and what it does not
 
-- **Public asset:** Enterprise Agent Deployment Field Kit for Hermes.
-- **Descriptor:** Hermes for organizations.
-- **Doctrine:** Reconciled Autonomy—agents earn bounded authority only from reconciled evidence, not from volume or self-reported success.
-- **Experience:** users state the mission and outcome; organization policy resolves model, provider, effort, tools, permissions, and verification; experts can inspect and override within policy.
+The pinned Hermes release passed a 214-test preflight covering profiles, goals and
+completion behavior, approvals and deny rules, webhooks, Iron Proxy, managed scope,
+Kanban boards, provider routing, and fallback behavior.
 
-## What Hermes v0.20 gives us
+I use those pieces where they fit, but do not stretch them into larger claims. Profiles
+are unsigned by default. Webhook signatures need a configured secret. Managed scope is
+not a sandbox. Goals are judged by the model. Kanban is not an immutable audit log.
+Iron Proxy does not replace OS isolation, and provider fallback does not choose the best
+model for a task.
 
-The exact tagged release passed a focused 214-test preflight covering profile distributions, goals/completion contracts, approvals and deny rules, outbound webhook paths, Iron Proxy, managed scope, Kanban boards, configured provider routing, and fallbacks.
+## The synthetic exercises
 
-Those primitives are useful but bounded. Profiles are unsigned by default; webhook signatures require a secret; managed scope is not a sandbox; goals are model-judged; Kanban is not immutable audit; Iron Proxy does not replace OS isolation; provider fallback is availability recovery, not task-aware model choice. The kit supplies the missing authority, policy-resolution, evidence, lifecycle, and handoff contracts around those limits.
+1. **Decide:** review a vendor-policy exception and return a recommendation, not a
+   binding decision.
+2. **Coordinate:** prepare an employee-offboarding packet without performing destructive
+   actions.
+3. **Act:** make and verify a reversible rate-limit change in a local staging service,
+   while leaving production promotion to a person.
 
-## The reference suite
+Each exercise starts with the job and organization rules, selects one approved
+configuration, separates the produced output from later checking and human review, and
+writes enough JSON to reconstruct the run. Public-sector finance remains an optional
+workflow pack rather than the foundation of the project.
 
-The preview foundation is a synthetic, cross-industry suite rather than a finance case:
+## Where it stands
 
-1. **Decide:** evaluate a vendor-policy exception and produce a bounded recommendation.
-2. **Coordinate:** produce an employee-offboarding packet without executing destructive effects.
-3. **Act:** apply and verify a reversible rate-limit change in a local synthetic staging service while keeping production promotion human-controlled.
+The published map contains 318 rows and seven known gaps. Three committed reference
+records are dry runs. One older S1 artifact is labeled
+`operator-recorded-unattested`: its contents are consistent, but there is no native
+runtime identity showing which Hermes binary or release produced it.
 
-Each executed path begins with a mission and organization envelope, resolves one preapproved configuration bundle, runs through Hermes, separates producer output from deterministic/checker/human disposition, and emits a reconstructable receipt. Public-sector finance is an optional future workflow pack, not the product foundation.
-
-No Portal cost run or production change is part of this slice.
-
-## Current status
-
-B03 is connected into the B05 map and the map is materialized (318 rows, 7 unsupported-gap, 0 native). Three dry-run reference receipts exist for S1 and S3. One older operator-recorded S1 artifact is committed under `reference-suite/runs/`, explicitly labeled runtime-unattested; it is not proof that the declared Hermes binary or release executed.
-
-Authority-architecture v4 remains ratified; the vendor-neutral control kernel is frozen. Adaptive configuration selection stays a future claim until broader live evidence exists.
+The vendor-neutral core is stable. Adaptive model selection remains future work until
+there are enough real results to justify it. No Portal cost run or production change is
+part of this repository.

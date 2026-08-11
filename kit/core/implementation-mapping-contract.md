@@ -1,10 +1,13 @@
-# Implementation-mapping contract
+# How runtime support is classified
 
 **Status:** frozen vendor-neutral kernel
 
-This contract keeps portable requirements separate from any one product while forcing every actual deployment to identify where each control lives. The mapping is version-specific and evidence-backed; feature names, release notes, or architectural resemblance are discovery inputs, not proof.
+The release map keeps the reusable requirements separate from any one product and says
+where each one is actually implemented. It is tied to a version and a specific test or
+official source. A feature name, release note, or similar-looking architecture is a lead
+to investigate, not a passing result.
 
-## Required classifications
+## Status values
 
 Map every neutral requirement to exactly one primary status:
 
@@ -18,7 +21,7 @@ Map every neutral requirement to exactly one primary status:
 
 Classification describes control location, not quality. A configured or native mechanism may still be insufficient for the required tier.
 
-## Required row fields
+## What each row records
 
 Each mapping row records:
 
@@ -33,7 +36,7 @@ Each mapping row records:
 - gap owner, consequence, and decision; and
 - staleness trigger and next review.
 
-## Decision rules
+## Rules
 
 1. Use the strongest sufficiently evidenced built-in mechanism before adding an extension or surrounding substitute.
 2. Conditional capability is `configuration`, not unqualified `native`.
@@ -43,6 +46,8 @@ Each mapping row records:
 6. `unsupported-gap` causes scope reduction, human control, deferral, or rejection when the requirement is acceptance-critical.
 7. A new product version, topology, configuration, or requirement invalidates affected rows until reviewed.
 
-## Mapping acceptance
+## A complete map
 
-The map passes only when every neutral requirement has one primary classification, all native/configuration/extension claims carry version-specific evidence, every condition and gap is explicit, and a non-builder can reproduce the reference-path conclusion.
+The map is complete only when every requirement has one primary status, each
+`native`/`configuration`/`extension` row points to version-specific support, all limits
+and gaps are visible, and someone other than the builder can reproduce the conclusion.

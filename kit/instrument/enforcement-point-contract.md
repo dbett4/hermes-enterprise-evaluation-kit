@@ -1,21 +1,17 @@
-# Enforcement point contract — B03 / B17 shared surface
+# Describing where an action is enforced
 
-**As of:** 2026-08-06  
-**Status:** Spec patch (guarded-import prior-art items #1–2); promoted to `kit/instrument/`  
-**Governs:** Every action-capable workflow step and every action-capable Authority Decision Record  
-**Prior art:** per-user sandbox designs from external prior-art review, identity-from-gateway-event, `secure_execution_unavailable`
+**Updated:** 2026-08-06
 
----
+**Status:** design added to B03/B17 after review of guarded-import and per-user sandbox patterns
 
-## Purpose
+An access rule says who may try an action. For an action-capable workflow I also need to
+know where that rule is enforced, how often it is checked, and what happens when the
+enforcement service is unavailable.
 
-Access-control products govern **who may attempt an action**. The Field Kit must also declare **where** that grant is enforced, **how often** it is re-checked, and **what happens** when the enforcement boundary is down.
+## Fields for an action-capable step
 
----
-
-## Required declaration (action-capable steps only)
-
-When `classification_groups.action.action` is `read`, `write`, `execute`, `transfer`, or `handoff`:
+When `classification_groups.action.action` is `read`, `write`, `execute`, `transfer`, or
+`handoff`, include:
 
 ```json
 {
@@ -30,40 +26,39 @@ When `classification_groups.action.action` is `read`, `write`, `execute`, `trans
 }
 ```
 
-| Field | Values | Rule |
+| Field | Values | Meaning |
 |---|---|---|
-| `identity_source` | `authenticated_gateway_event`, `configured_local_operator`, `delegated_parent_session`, `unknown` | Actor resolves from this source only |
-| `recheck_cadence` | `per_tool_call`, `per_turn`, `per_session`, `unknown` | Minimum re-evaluation cadence |
-| `enforcement_location` | `tool_gateway_before_mutation`, `credential_proxy`, `target_api`, `human_release_surface`, … | Where fail-closed runs before effect |
-| `boundary_unavailable_behavior` | `fail_closed_retryable`, `fail_closed_terminal`, `fail_open_forbidden`, `unknown` | When enforcement plane is down |
-| `mount_semantics` | `deny_by_default`, `read_only_default`, `explicit_grant_only`, `unknown` | Filesystem/execution default |
-| `actor_derivation_rule` | `never_from_prompt_or_tool_arguments` | Required when gateway-bound |
+| `identity_source` | `authenticated_gateway_event`, `configured_local_operator`, `delegated_parent_session`, `unknown` | The only source from which the actor may be resolved |
+| `recheck_cadence` | `per_tool_call`, `per_turn`, `per_session`, `unknown` | How often the permission is evaluated again |
+| `enforcement_location` | `tool_gateway_before_mutation`, `credential_proxy`, `target_api`, `human_release_surface`, … | Where the action is stopped before it changes anything |
+| `boundary_unavailable_behavior` | `fail_closed_retryable`, `fail_closed_terminal`, `fail_open_forbidden`, `unknown` | What happens if that enforcement component is down |
+| `mount_semantics` | `deny_by_default`, `read_only_default`, `explicit_grant_only`, `unknown` | Default file/execution access |
+| `actor_derivation_rule` | `never_from_prompt_or_tool_arguments` | Required when identity comes from a gateway |
 
----
+## Final states
 
-## Terminal states
-
-| State | Meaning | User-facing | Authority actual | Grant preserved |
+| State | Meaning | What the user sees | Permission state | Existing grant retained? |
 |---|---|---|---|---|
-| `denied_by_policy` | No grant / prohibited | `Blocked` | `D` | N/A |
-| `boundary_unavailable` | Grant exists; boundary down | `Temporarily unavailable — retry` | `D` (retryable) | Yes |
-| `approved_pending_human` | H-tier; credential withheld | `Approval required` | `H` | N/A |
+| `denied_by_policy` | No grant exists or policy prohibits the action | `Blocked` | `D` | Not applicable |
+| `boundary_unavailable` | A grant exists but its enforcement component is down | `Temporarily unavailable — retry` | Retryable `D` | Yes |
+| `approved_pending_human` | The action needs a person's release and the credential is withheld | `Approval required` | `H` | Not applicable |
 
----
+The distinction between policy denial and a temporary service outage matters: neither
+permits the action, but only one should be retried without changing policy.
 
-## Mount and search invariants
+## File and search rules
 
-1. **Denied-sibling search:** Permitted parent search must not leak denied-child metadata — see `fixtures/enforcement-negative-denied-sibling-search.json`.
-2. **Approval-gated paths mount `ro`** — writes route through staging + disposition.
-3. **Delegation is no-amplification.**
-4. **Policy refresh is immediate** — next turn uses new mounts.
+1. A permitted search at a parent path must not reveal metadata about a denied child.
+   `fixtures/enforcement-negative-denied-sibling-search.json` is the failure case.
+2. A path that needs approval is mounted read-only. Changes go through staging and a
+   separate decision.
+3. Delegation can narrow permission but cannot widen it.
+4. A policy refresh affects the next turn's mounts.
 
----
-
-## B03 output wiring (v3)
+## B03 v3 output
 
 | Output | Addition |
 |---|---|
 | `O06_control_plan` | `enforcement_point_declaration` |
 | `O07_deployment_boundary` | `boundary_dependencies` |
-| `O10_unresolved_risk_register` | Row when `boundary_unavailable_behavior=unknown` on action-capable step |
+| `O10_unresolved_risk_register` | A row when an action-capable step has `boundary_unavailable_behavior=unknown` |

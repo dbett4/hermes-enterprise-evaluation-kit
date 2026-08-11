@@ -1,8 +1,8 @@
-# Assurance — Authority & human oversight
+# Authority and human oversight
 
 **Status:** frozen vendor-neutral kernel
 
-## Risk signals
+## Risk signals — pay extra attention when
 
 External effects, money, publication, production, sensitive data, privilege, destructive or irreversible action, broad credential reach, novel action/target pairs, authority-system change, approval fatigue, or segregation-of-duties requirements.
 
@@ -15,24 +15,24 @@ External effects, money, publication, production, sensitive data, privilege, des
 - Show the approver the exact effect and required evidence through an authenticated surface the producing agent cannot rewrite.
 - Name stop, suspension, revocation, recertification, exception, and disposition owners.
 
-## Implementation slots
+## Implementation slots — where controls can live
 
 Organization policy, identity/credential service, approval mechanism, tool or target enforcement boundary, human procedure, and operations/incident service.
 
-## Required evidence
+## Required evidence — what to keep
 
 Authority Decision Record; grant and evaluated attributes with freshness; exact proposal/diff; authenticated release; prestate/poststate or output evidence; stop/revocation readback; overrides, denials, and disposition.
 
-## Metrics and triggers
+## Metrics and triggers — what to watch
 
 Accepted unauthorized or out-of-scope effects = 0. Track denial/bypass attempts, approval/denial/override rates, review latency, reversals, repeated prompts, after-hours concentration, stale grants, and failed revocations. Threshold breach narrows, freezes, rotates, or suspends; it never lowers the bar.
 
-## Tier application
+## Tier application — depth by risk
 
 - L1: named owner, explicit read/draft bounds, hard ceilings, and human disposition for material use.
 - L2: deterministic enforcement/readback, first-occurrence release, tested stop/recovery, and periodic review.
 - L3: stronger credential/release separation, dual control where required, independently controlled evidence where claimed, bypass tests, and formal recertification.
 
-## Exit rule
+## Exit rule — done when
 
 No material action advances without an attributable authority source, effective enforcement boundary, observed effect route, and accountable disposition owner.
