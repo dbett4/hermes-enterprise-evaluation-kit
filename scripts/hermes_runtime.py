@@ -55,7 +55,13 @@ def attest_hermes_runtime(
         if (
             proc.returncode == 0
             and output
-            and any(version in output for version in accepted_versions)
+            and any(
+                re.search(
+                    rf"(?<![0-9A-Za-z.])v?{re.escape(version)}(?![0-9A-Za-z.-])",
+                    output,
+                )
+                for version in accepted_versions
+            )
         ):
             return {
                 "status": "captured",
@@ -137,13 +143,35 @@ def parse_producer_json(text: str) -> dict[str, Any]:
     text = text.strip()
     if not text:
         raise ValueError("empty hermes response")
+
     try:
-        return json.loads(text)
+        parsed = json.loads(text)
     except json.JSONDecodeError:
-        match = re.search(r"\{[\s\S]*\}", text)
-        if not match:
-            raise ValueError("hermes response contained no JSON object") from None
-        return json.loads(match.group(0))
+        parsed = None
+    if isinstance(parsed, dict):
+        return parsed
+
+    decoder = json.JSONDecoder()
+    objects: list[dict[str, Any]] = []
+    cursor = 0
+    while cursor < len(text):
+        start = text.find("{", cursor)
+        if start < 0:
+            break
+        try:
+            candidate, end = decoder.raw_decode(text, start)
+        except json.JSONDecodeError:
+            cursor = start + 1
+            continue
+        if isinstance(candidate, dict):
+            objects.append(candidate)
+        cursor = max(end, start + 1)
+
+    if not objects:
+        raise ValueError("hermes response contained no JSON object")
+    if len(objects) > 1:
+        raise ValueError("hermes response contained multiple JSON objects")
+    return objects[0]
 
 
 def _config_get(hermes_bin: str, profile_name: str, key: str) -> str | None:

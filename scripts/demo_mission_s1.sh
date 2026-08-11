@@ -16,7 +16,7 @@ if [[ "${1:-}" == "--live" ]]; then
   # Reject CLI --hermes-binary so a duplicate arg cannot override the validated path.
   if [[ -n "${HERMES_BIN:-}" ]]; then
     for arg in "$@"; do
-      if [[ "$arg" == "--hermes-binary" ]]; then
+      if [[ "$arg" == "--hermes-binary" || "$arg" == --hermes-binary=* ]]; then
         echo "MISSION_RUN_BLOCKED: refusing --hermes-binary while HERMES_BIN is set" >&2
         exit 3
       fi
