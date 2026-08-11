@@ -1,10 +1,10 @@
-# Product architecture (proposed name: Hermes Assembly)
+# Product architecture
 
 **As of:** 2026-08-04<br>
 **Status:** product architecture adopted for the generalized-enterprise build; B17 authority-architecture v4 is ratified as design and awaits B02/B03/B05 implementation<br>
 **Validated runtime:** Hermes Agent v0.20.0 / tag `v2026.8.3`
 
-Hermes Assembly is the proposed organization-facing product experience. The public asset in this repository remains the **Enterprise Agent Deployment Field Kit for Hermes** unless Nous adopts and clears the product name.
+The public asset in this repository is the **Enterprise Agent Deployment Field Kit for Hermes**. It is an independent deployment-method prototype, not an official Nous product or partnership claim.
 
 ## Product promise
 

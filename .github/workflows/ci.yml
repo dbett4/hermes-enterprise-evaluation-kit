@@ -1,0 +1,22 @@
+name: proof
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install proof dependencies
+        run: pip install -r requirements.txt
+      - name: Reproduce the complete credential-free proof packet
+        run: ./scripts/proof.sh

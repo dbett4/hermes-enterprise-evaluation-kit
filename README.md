@@ -7,7 +7,7 @@ $ bash scripts/demo_mission_s1.sh
 === Enterprise Agent Deployment Field Kit — S1 vendor exception ===
 Org pack: packs/organizations/nimbus-synthetic
 
-MISSION_DEMO_PASS run_id=s1-decide-... terminal=accepted recommendation=defer-pending-legal oracle_passed=True
+MISSION_DEMO_PASS run_id=s1-decide-... terminal=needs_review recommendation=defer-pending-legal oracle_passed=True
 ```
 
 ## Why this exists
@@ -47,7 +47,7 @@ python3 scripts/run_negative_tests.py
 python3 scripts/check_neutral_core.py
 ```
 
-The `--live` path runs the same mission through a real Hermes daemon behind a two-factor spend gate (authorization file on disk + Portal spend cap — see [spend-authorization/](spend-authorization/README.md)). One live S1 receipt is committed at [`reference-suite/runs/s1-decide-20260811-025135/`](reference-suite/runs/s1-decide-20260811-025135/).
+The non-demo path runs the same mission through a Hermes CLI behind a two-factor spend gate (authorization file on disk + Portal spend cap — see [spend-authorization/](spend-authorization/README.md)). New runs fail closed on a mismatched CLI version and retain native version output, an executable hash, and invocation/output digests. One older operator-recorded S1 artifact is committed at [`reference-suite/runs/s1-decide-20260811-025135/`](reference-suite/runs/s1-decide-20260811-025135/), but it predates that attestation guard. Its output passes the deterministic oracle and remains `needs_review`; it is **not** proof that the declared Hermes release executed.
 
 ## What is in the box
 
@@ -65,17 +65,17 @@ The `--live` path runs the same mission through a real Hermes daemon behind a tw
 ## Honest status
 
 - **Field Kit preview.** Extracted from a private build surface; the desk test and full validation set have not yet passed, so no v0.1 claim is made.
-- Three reference receipts are **dry runs, labeled as such**; one S1 run is **live** through canonical Hermes. Cost fields are honestly `NOT_RUN` (no Portal readback yet).
+- Three reference receipts are **dry runs, labeled as such**; one older S1 output is **operator-recorded but runtime-unattested** and remains `needs_review`. Cost fields are honestly `NOT_RUN` (no Portal readback yet).
 - Receipts are mutable kit artifacts, not immutable audit; the preflight report states exactly what v0.20 supplies, supplies with limits, or does not supply.
 - `kit/mapping/b05-generation.lock.json` pins the digests of a few generator inputs (build tickets and a research draft) that remain private; the lock and `scripts/generate_b05_mapping.py` are shipped for transparency but cannot be fully re-run from this tree alone.
-- **Hermes Assembly** appears in these documents only as a *proposed, uncleared* product concept — it is not an official Nous product name and no partnership is claimed.
-
-- The live S1 receipt reports `anthropic/claude-fable-5` via the operator's configured Nous inference route — the kit is model-agnostic and records whatever the resolved profile selects; the receipt's `runtime_reported` field is the authority.
+- The older S1 record names `anthropic/claude-fable-5`, but no native version/session artifact was retained. That metadata is operator-recorded, not independently attested. Future non-demo runs retain CLI identity evidence while still stating that a version probe does not bind executable bytes to a source commit.
 - Demo runs write new receipt directories under `reference-suite/runs/` (gitignored); the committed exemplar receipts are the reviewed ones.
 
 ## Testing
 
 `run_negative_tests.py` (8/8 fail-closed cases through the real pipeline), `check_neutral_core.py` (kernel neutrality guard), deterministic workflow oracles per archetype, and non-producer packet reconstruction via `scripts/reconstruct_from_packet.py`.
+
+Run the complete credential-free proof packet with `./scripts/proof.sh`. See [PROOF.md](PROOF.md) for the claim-to-command map.
 
 ## License and author
 

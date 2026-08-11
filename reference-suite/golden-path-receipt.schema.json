@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://hermes-enterprise-field-kit.local/reference-suite/golden-path-receipt.schema.json",
-  "title": "Golden path receipt v0.1-draft (B07 dry-run)",
+  "title": "Golden path receipt v0.1-draft",
   "type": "object",
   "additionalProperties": true,
   "required": [
@@ -74,6 +74,79 @@
             },
             "evidence_basis": {
               "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider",
+            "runtime_attestation"
+          ],
+          "properties": {
+            "label": {
+              "const": "hermes-live"
+            },
+            "hermes_daemon": {
+              "const": true
+            },
+            "live_provider": {
+              "const": true
+            },
+            "runtime_attestation": {
+              "type": "object",
+              "required": [
+                "status",
+                "binary_sha256",
+                "version_probe",
+                "source_commit_binding"
+              ],
+              "properties": {
+                "status": {
+                  "const": "captured"
+                },
+                "binary_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "version_probe": {
+                  "type": "object"
+                },
+                "source_commit_binding": {
+                  "const": "not_proven_by_cli_probe"
+                }
+              }
+            },
+            "evidence_basis": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider",
+            "runtime_attestation"
+          ],
+          "properties": {
+            "label": {
+              "const": "operator-recorded-unattested"
+            },
+            "hermes_daemon": {
+              "type": "null"
+            },
+            "live_provider": {
+              "type": "null"
+            },
+            "runtime_attestation": {
+              "const": "not_captured"
+            },
+            "evidence_basis": {
+              "const": "operator-recorded-no-native-runtime-attestation"
             }
           }
         }
@@ -161,6 +234,7 @@
       "enum": [
         "accepted",
         "rejected",
+        "needs_review",
         "needs_policy_decision",
         "compensated"
       ]

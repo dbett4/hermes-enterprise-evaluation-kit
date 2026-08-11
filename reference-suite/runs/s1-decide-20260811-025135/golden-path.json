@@ -1,12 +1,13 @@
 {
   "schema_version": "0.1-draft",
   "run_id": "s1-decide-20260811-025135",
-  "execution_mode": "live",
+  "execution_mode": "operator-recorded-unattested",
   "run_mode": {
-    "label": "hermes-live",
-    "hermes_daemon": true,
-    "live_provider": true,
-    "evidence_basis": "declared-and-observed"
+    "label": "operator-recorded-unattested",
+    "hermes_daemon": null,
+    "live_provider": null,
+    "runtime_attestation": "not_captured",
+    "evidence_basis": "operator-recorded-no-native-runtime-attestation"
   },
   "record_posture": {
     "store": "mutable-kit-artifact",
@@ -16,7 +17,7 @@
     "tag": "v2026.8.3",
     "commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
     "package_version": "0.20.0",
-    "evidence_basis": "declared-and-observed"
+    "evidence_basis": "profile-declared-unattested"
   },
   "mission": {
     "work_order_id": "WO-S1-20260806-001",
@@ -55,9 +56,9 @@
       "latency_ms": 11567,
       "fallback_event": null,
       "evidence_basis": {
-        "model": "runtime_reported",
-        "provider_resolved": "runtime_reported",
-        "latency_ms": "observed"
+        "model": "operator-recorded-unattested",
+        "provider_resolved": "operator-recorded-unattested",
+        "latency_ms": "operator-recorded-unattested"
       }
     },
     "producer_input_excludes_oracle": true,
@@ -119,18 +120,23 @@
   },
   "human_disposition": {
     "required": true,
-    "status": "accept",
-    "approver_authority_id": "auth-nimbus-policy-owner-synthetic",
-    "review_evidence_ids": [
-      "s1-decide-20260811-025135-human-review"
-    ],
-    "recorded_at": "2026-08-11T02:51:47+00:00"
+    "status": "pending",
+    "approver_authority_id": null,
+    "required_authority_id": "auth-nimbus-policy-owner-synthetic",
+    "review_evidence_ids": [],
+    "recorded_at": null
   },
   "cost": {
     "status": "NOT_RUN",
     "usd": null,
     "reason": "B10 Portal measurement requires separate auth/spend authority"
   },
-  "exceptions": [],
-  "terminal_status": "accepted"
+  "exceptions": [
+    {
+      "id": "missing-native-runtime-attestation",
+      "status": "open",
+      "impact": "The committed files do not independently prove which Hermes binary or release produced the recorded output."
+    }
+  ],
+  "terminal_status": "needs_review"
 }

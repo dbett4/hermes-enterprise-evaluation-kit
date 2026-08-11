@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import shutil
@@ -21,6 +22,45 @@ class HermesInvocation:
     stderr: str
     returncode: int
     latency_ms: int
+
+
+def attest_hermes_runtime(
+    hermes_bin: str,
+    *,
+    accepted_versions: tuple[str, ...],
+) -> dict[str, Any]:
+    """Capture native CLI identity before a run and fail on release mismatch.
+
+    This attests the executable bytes and its own version output. It does not
+    prove how those bytes were built or independently bind them to a source
+    commit; callers must state that boundary.
+    """
+    resolved = Path(hermes_bin).expanduser().resolve()
+    if not resolved.is_file():
+        raise RuntimeError(f"Hermes executable is not a file: {resolved}")
+
+    attempts: list[dict[str, Any]] = []
+    for version_args in ([hermes_bin, "--version"], [hermes_bin, "version"]):
+        proc = subprocess.run(version_args, capture_output=True, text=True, check=False)
+        output = (proc.stdout or proc.stderr).strip()
+        attempt = {
+            "argv": ["hermes", *version_args[1:]],
+            "returncode": proc.returncode,
+            "output": output[:500],
+        }
+        attempts.append(attempt)
+        if proc.returncode == 0 and output and any(version in output for version in accepted_versions):
+            return {
+                "status": "captured",
+                "binary_sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(),
+                "version_probe": attempt,
+                "source_commit_binding": "not_proven_by_cli_probe",
+            }
+
+    raise RuntimeError(
+        "Hermes runtime version did not match the pinned release: "
+        + json.dumps(attempts, sort_keys=True)
+    )
 
 
 def find_hermes_binary(explicit: str | None = None) -> str | None:

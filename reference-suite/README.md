@@ -1,6 +1,6 @@
 # Generalized enterprise reference suite
 
-**Status:** S1/S3 dry-run exemplars with reconstruction receipts, plus one spend-gated **live** S1 run (`runs/s1-decide-20260811-025135`, `execution_mode: live`). The S2 desk-probe evidence is held outside this public preview; its fixtures and expected oracle ship here.
+**Status:** S1/S3 dry-run exemplars with reconstruction receipts, plus one older operator-recorded S1 output (`runs/s1-decide-20260811-025135`, `execution_mode: operator-recorded-unattested`). Its native runtime identity was not captured, so it is not proof that the declared Hermes release executed. The S2 desk-probe evidence is held outside this public preview; its fixtures and expected oracle ship here.
 
 The reference suite is designed to test the horizontal architecture across **decide**, **coordinate**, and **act**. It uses one clearly fictional organization and synthetic inputs so no client, employer, government, industry, or relationship is load-bearing.
 

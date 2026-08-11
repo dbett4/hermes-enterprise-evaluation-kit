@@ -12,7 +12,6 @@ This repository builds that method around Hermes first. It is not a generic fram
 
 - **Public asset:** Enterprise Agent Deployment Field Kit for Hermes.
 - **Descriptor:** Hermes for organizations.
-- **Proposed Nous product name:** Hermes Assembly—strongest working name, but uncleared and not official.
 - **Doctrine:** Reconciled Autonomy—agents earn bounded authority only from reconciled evidence, not from volume or self-reported success.
 - **Experience:** users state the mission and outcome; organization policy resolves model, provider, effort, tools, permissions, and verification; experts can inspect and override within policy.
 
@@ -36,6 +35,6 @@ No Portal cost run or production change is part of this slice.
 
 ## Current status
 
-B03 is connected into the B05 map and the map is materialized (318 rows, 7 unsupported-gap, 0 native). Three dry-run reference receipts exist for S1 and S3 (labeled honestly — not live Hermes proof), and one live S1 mission run through canonical Hermes is committed under `reference-suite/runs/`.
+B03 is connected into the B05 map and the map is materialized (318 rows, 7 unsupported-gap, 0 native). Three dry-run reference receipts exist for S1 and S3. One older operator-recorded S1 artifact is committed under `reference-suite/runs/`, explicitly labeled runtime-unattested; it is not proof that the declared Hermes binary or release executed.
 
 Authority-architecture v4 remains ratified; the vendor-neutral control kernel is frozen. Adaptive configuration selection stays a future claim until broader live evidence exists.

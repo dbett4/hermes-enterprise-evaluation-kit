@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from hermes_runtime import (  # noqa: E402
+    attest_hermes_runtime,
     find_hermes_binary,
     install_profile_distribution,
     parse_producer_json,
@@ -63,9 +65,11 @@ def build_receipt(
     run_mode: dict[str, Any],
     preparer: dict[str, Any],
 ) -> dict[str, Any]:
-    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     checker_verdict = "accept" if oracle_result["passed"] else "reject"
-    human_status = "accept" if checker_verdict == "accept" else "pending"
+    # A deterministic checker can recommend acceptance; it cannot impersonate
+    # the required human disposition. A separate reviewer must advance this
+    # field in a later, attributable record.
+    human_status = "pending"
     return {
         "schema_version": "0.1-draft",
         "run_id": run_id,
@@ -116,9 +120,10 @@ def build_receipt(
         "human_disposition": {
             "required": True,
             "status": human_status,
-            "approver_authority_id": "auth-nimbus-policy-owner-synthetic",
-            "review_evidence_ids": [f"{run_id}-human-review"],
-            "recorded_at": now if human_status == "accept" else None,
+            "approver_authority_id": None,
+            "required_authority_id": "auth-nimbus-policy-owner-synthetic",
+            "review_evidence_ids": [],
+            "recorded_at": None,
         },
         "cost": {
             "status": "NOT_RUN",
@@ -126,7 +131,7 @@ def build_receipt(
             "reason": "B10 Portal measurement requires separate auth/spend authority",
         },
         "exceptions": [],
-        "terminal_status": "accepted" if checker_verdict == "accept" and human_status == "accept" else "rejected",
+        "terminal_status": "needs_review" if checker_verdict == "accept" else "rejected",
     }
 
 
@@ -153,12 +158,17 @@ def print_walkthrough(
         print("5. RUN         live Hermes one-shot")
     print(f"6. RECOMMEND   {producer['recommendation']}")
     print(f"7. ORACLE      {'PASS' if oracle_result['passed'] else 'FAIL'}")
-    print(f"8. RECEIPT     {receipt_path.relative_to(ROOT)}")
+    try:
+        receipt_display = receipt_path.relative_to(ROOT)
+    except ValueError:
+        receipt_display = receipt_path
+    print(f"8. RECEIPT     {receipt_display}")
+    print("9. DISPOSITION pending — deterministic acceptance is not human approval")
     if execution_mode == "demo":
         print("")
         print("This is the mission product shape — org policy picks the bundle, run produces")
         print("a recommendation, oracle checks it, receipt records everything.")
-        print("Mode is demo (honest). Say 'live' when you want real Hermes + provider.")
+        print("Mode is demo. A non-demo run requires Hermes + spend authority and captures CLI identity evidence.")
 
 
 def run_demo_mission(
@@ -259,7 +269,7 @@ def main() -> int:
             receipt_path=receipt_path,
             execution_mode="demo",
         )
-        return 0 if receipt["terminal_status"] == "accepted" else 2
+        return 0 if oracle_result["passed"] else 2
 
     hermes_bin = find_hermes_binary(args.hermes_binary)
     if not hermes_bin:
@@ -268,6 +278,11 @@ def main() -> int:
             file=sys.stderr,
         )
         return 3
+
+    runtime_attestation = attest_hermes_runtime(
+        hermes_bin,
+        accepted_versions=(HERMES_RELEASE["package_version"], HERMES_RELEASE["tag"]),
+    )
 
     questionnaire = load_json(S1_DIR / "questionnaire.json")
     corpus_paths = [
@@ -303,7 +318,8 @@ def main() -> int:
             "label": "hermes-live",
             "hermes_daemon": True,
             "live_provider": True,
-            "evidence_basis": "declared-and-observed",
+            "evidence_basis": "native-cli-version-plus-observed-subprocess",
+            "runtime_attestation": runtime_attestation,
         },
         preparer={
             "model": runtime["model"],
@@ -327,6 +343,19 @@ def main() -> int:
     (out_dir / "golden-path.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     (out_dir / "producer-output.json").write_text(json.dumps(producer, indent=2) + "\n", encoding="utf-8")
     (out_dir / "hermes-stdout.txt").write_text(invocation.stdout, encoding="utf-8")
+    invocation_evidence = {
+        "runtime_attestation": runtime_attestation,
+        "profile_name": args.profile_name,
+        "argv_shape": ["hermes", "-p", args.profile_name, "-z", "<synthetic-mission-prompt>"],
+        "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
+        "stdout_sha256": hashlib.sha256(invocation.stdout.encode("utf-8")).hexdigest(),
+        "stderr_sha256": hashlib.sha256(invocation.stderr.encode("utf-8")).hexdigest(),
+        "returncode": invocation.returncode,
+        "latency_ms": invocation.latency_ms,
+    }
+    (out_dir / "hermes-invocation.json").write_text(
+        json.dumps(invocation_evidence, indent=2) + "\n", encoding="utf-8"
+    )
 
     print(
         f"MISSION_RUN_PASS run_id={run_id} terminal={receipt['terminal_status']} "
@@ -342,7 +371,7 @@ def main() -> int:
         receipt_path=out_dir / "golden-path.json",
         execution_mode="live",
     )
-    return 0 if receipt["terminal_status"] == "accepted" else 2
+    return 0 if oracle_result["passed"] else 2
 
 
 if __name__ == "__main__":

@@ -10,10 +10,9 @@
 |---|---|---|
 | **Enterprise Agent Deployment Field Kit for Hermes** | Dave-owned descriptive asset | This repository's method, cases, instruments, and evidence contracts |
 | **Hermes for organizations** | Descriptive phrase | The problem space, not a product or partnership claim |
-| **Hermes Assembly** | Proposed, uncleared Nous-owned concept | Strongest working name for a possible organization-facing Hermes product; not official, shipped, endorsed, or Dave-owned |
 | **Reconciled Autonomy** | Doctrine | The rule by which an organization may expand or contract an agent's authority |
 
-Never present `Hermes Assembly` as a current Nous product. Never put Hermes in a Dave-owned business brand. If Nous does not adopt the name, the Field Kit remains coherent under its descriptive title.
+Never present this Field Kit as a current Nous product, partnership, or endorsement. Keep the asset under its descriptive title.
 
 ## North star
 
@@ -155,4 +154,4 @@ Conditional and scoped capabilities include the condition in their classificatio
 
 ## Name decision
 
-`Hermes Assembly` remains the recommended product concept name. “Assembly” carries three useful meanings at once: assembled agent configurations, an organization of agents and people, and a governed process that turns components into an ownable system. The name should remain explicitly proposed until Nous clears or rejects it.
+The Field Kit name stays descriptive. Product naming belongs to Nous; this repository focuses on the deployment method and its evidence.

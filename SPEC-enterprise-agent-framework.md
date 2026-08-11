@@ -6,7 +6,7 @@
 
 Hermes now exposes substantial individual, team, and cloud-facing primitives, but its documented v0.20 surfaces do not by themselves supply the organization-grade method this project addresses: workflow qualification, policy resolution, proportionate authority, acceptance proof, evidence custody, and owned handoff. This project builds the **Enterprise Agent Deployment Field Kit for Hermes** — generalized horizontal infrastructure consisting of a portable control kernel, version-pinned Hermes adapter, composable packs, and a synthetic decide/coordinate/act validation suite. Exact-tag capability evidence never substitutes for proof that a production deployment conforms to the same pin. (T02, T03, T15-amendment, B18.)
 
-**Naming discipline:** *Hermes for organizations* is a descriptive phrase for the problem space. **Hermes Assembly** is the strongest proposed Nous-owned product concept, but it is uncleared, unofficial, and not presented as shipped or endorsed. The author's asset remains the descriptive **Enterprise Agent Deployment Field Kit for Hermes**. Product doctrine: `kit/DOCTRINE.md`.
+**Naming discipline:** *Hermes for organizations* is a descriptive phrase for the problem space. The author's asset is the **Enterprise Agent Deployment Field Kit for Hermes**; it is independent work, not an official Nous product, partnership, or endorsement. Product doctrine: `kit/DOCTRINE.md`.
 
 Destination artifact: a public repo release containing the kit, completed synthetic reference-suite evidence, the desk-probe results, and one flagship explainer. Optional workflow packs may demonstrate specific domains later, but no domain is required for the generalized v0.1. Success is the Field Kit v0.1 passing its own desk test and validation set. (B18.)
 
