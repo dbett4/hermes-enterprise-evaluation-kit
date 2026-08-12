@@ -1,6 +1,6 @@
 # Project summary
 
-**Updated:** 2026-08-10
+**Updated:** 2026-08-12
 
 **Detailed design:** [SPEC-enterprise-agent-framework.md](SPEC-enterprise-agent-framework.md)
 
@@ -48,6 +48,12 @@ records are dry runs. One older S1 artifact is labeled
 `operator-recorded-unattested`: its contents are consistent, but there is no native
 runtime identity showing which Hermes binary or release produced it.
 
+One newer synthetic S1 one-shot has a committed native-runtime receipt: Hermes
+v0.20.0 executable hash, native CLI session ID, Nous provider and Fable model readback,
+frozen output, and deterministic-oracle pass. It remains `needs_review`; Hermes's
+$0.406986 value is an estimate rather than an actual billed amount, no external action
+occurred, and two execution-time exceptions remain explicit in the receipt.
+
 The vendor-neutral core is stable. Adaptive model selection remains future work until
-there are enough real results to justify it. No Portal cost run or production change is
-part of this repository.
+there are enough real results to justify it. No production change or provider-reported
+actual billed cost is part of this repository.

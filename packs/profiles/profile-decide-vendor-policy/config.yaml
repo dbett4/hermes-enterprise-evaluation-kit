@@ -2,3 +2,4 @@ model:
   default: anthropic/claude-fable-5
   provider: nous
   base_url: https://inference-api.nousresearch.com/v1
+  max_tokens: 512

@@ -134,6 +134,53 @@
           ],
           "properties": {
             "label": {
+              "const": "hermes-live-one-shot"
+            },
+            "hermes_daemon": {
+              "const": false
+            },
+            "live_provider": {
+              "const": true
+            },
+            "runtime_attestation": {
+              "type": "object",
+              "required": [
+                "status",
+                "binary_sha256",
+                "version_probe",
+                "source_commit_binding"
+              ],
+              "properties": {
+                "status": {
+                  "const": "captured"
+                },
+                "binary_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "version_probe": {
+                  "type": "object"
+                },
+                "source_commit_binding": {
+                  "const": "not_proven_by_cli_probe"
+                }
+              }
+            },
+            "evidence_basis": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider",
+            "runtime_attestation"
+          ],
+          "properties": {
+            "label": {
               "const": "operator-recorded-unattested"
             },
             "hermes_daemon": {
@@ -164,24 +211,60 @@
       }
     },
     "cost": {
-      "type": "object",
-      "required": [
-        "status",
-        "usd",
-        "reason"
-      ],
-      "properties": {
-        "status": {
-          "const": "NOT_RUN"
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "status",
+            "usd",
+            "reason"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "NOT_RUN",
+                "ESTIMATE_PENDING"
+              ]
+            },
+            "usd": {
+              "type": "null"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         },
-        "usd": {
-          "type": "null"
-        },
-        "reason": {
-          "type": "string",
-          "minLength": 1
+        {
+          "type": "object",
+          "required": [
+            "status",
+            "estimated_usd",
+            "actual_usd",
+            "source",
+            "reason"
+          ],
+          "properties": {
+            "status": {
+              "const": "ESTIMATED"
+            },
+            "estimated_usd": {
+              "type": "number",
+              "minimum": 0
+            },
+            "actual_usd": {
+              "type": "null"
+            },
+            "source": {
+              "const": "hermes-session-usage-ledger"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
-      }
+      ]
     },
     "checker": {
       "type": "object",
@@ -247,11 +330,26 @@
       "properties": {
         "preparer": {
           "type": "object",
-          "required": [
-            "session_id"
+          "anyOf": [
+            {
+              "required": [
+                "session_id"
+              ]
+            },
+            {
+              "required": [
+                "correlation_id"
+              ]
+            }
           ],
           "properties": {
             "session_id": {
+              "type": "string"
+            },
+            "correlation_id": {
+              "type": "string"
+            },
+            "native_session_id": {
               "type": "string"
             }
           }

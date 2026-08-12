@@ -1,0 +1,29 @@
+{
+  "runtime_attestation": {
+    "status": "captured",
+    "binary_path": "/srv/hermes/.hermes/hermes-agent/venv/bin/hermes",
+    "binary_sha256": "470a29f7de02dd1253dde06cf5a5cb263edf13b2a06b9b3b2744d12b23ccb08d",
+    "version_probe": {
+      "argv": [
+        "hermes",
+        "--version"
+      ],
+      "returncode": 0,
+      "output": "Hermes Agent v0.20.0 (2026.8.3)\nInstall directory: /srv/hermes/.hermes/hermes-agent\nPython: 3.11.15\nOpenAI SDK: 2.24.0\nRun 'hermes version' for update status."
+    },
+    "source_commit_binding": "not_proven_by_cli_probe"
+  },
+  "profile_name": "decide-vendor-policy",
+  "argv_shape": [
+    "/srv/hermes/.hermes/hermes-agent/venv/bin/hermes",
+    "-p",
+    "decide-vendor-policy",
+    "-z",
+    "<synthetic-mission-prompt>"
+  ],
+  "prompt_sha256": "915148bc53d89601960f807fbeb59fd7509c747517996e48bd0ac4e867771796",
+  "stdout_sha256": "4ffbefb211a90527712a5643d818aae89bb768d2337f762b38938df7c45cfcb8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "returncode": 0,
+  "latency_ms": 12612
+}

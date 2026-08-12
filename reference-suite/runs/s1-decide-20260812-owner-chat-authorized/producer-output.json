@@ -1,0 +1,17 @@
+{
+  "recommendation": "defer-pending-legal",
+  "conditions": [
+    "Obtain an executive waiver on file before any retention window exceeding 12 months is considered; absent a waiver, cap the exception at the 12-month maximum",
+    "Legal must draft and approve a time-bounded contractual addendum with explicit expiry (maximum 12 months) before approval",
+    "Vendor must confirm separate deletion timelines for raw event logs versus aggregated rollups",
+    "Scope any approved exception to the minimal data subset (aggregated telemetry and support ticket subject lines plus author email only); no blanket retention extension",
+    "No contractual changes may be executed and no direct vendor contact may occur through this recommendation"
+  ],
+  "citations": [
+    "org-policy-v3.2.md#exception-criteria",
+    "org-policy-v3.2.md#deny-conditions",
+    "exception-request-cloudsync.md#request-summary",
+    "exception-request-cloudsync.md#gaps-noted-by-intake"
+  ],
+  "external_action": false
+}

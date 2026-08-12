@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1",
+  "native_session_id": "20260811_203745_6bd41b",
+  "profile": "decide-vendor-policy",
+  "source": "cli",
+  "model": "anthropic/claude-fable-5",
+  "billing_provider": "nous",
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content_sha256": "915148bc53d89601960f807fbeb59fd7509c747517996e48bd0ac4e867771796",
+      "content_bytes": 4923
+    },
+    {
+      "role": "assistant",
+      "content_sha256": "2e50e5964d5f4cb539b0e04d690062a9c02bbe3fdd225f23350551c1f196e966",
+      "content_bytes": 942,
+      "finish_reason": "stop"
+    }
+  ],
+  "stdout_binding": {
+    "stdout_sha256": "4ffbefb211a90527712a5643d818aae89bb768d2337f762b38938df7c45cfcb8",
+    "normalized_stdout_matches_assistant_content": true,
+    "normalization": "strip one trailing newline before comparison"
+  },
+  "usage": {
+    "api_call_count": 1,
+    "input_tokens": 2,
+    "output_tokens": 455,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 38877,
+    "reasoning_tokens": 0,
+    "estimated_cost_usd": 0.406986,
+    "actual_cost_usd_stored": 0.0,
+    "cost_status": "estimated",
+    "cost_source": "provider_models_api",
+    "interpretation": "The Hermes usage row is explicitly estimated; actual_cost_usd_stored is not claimed as a provider-reported charge."
+  },
+  "provenance": {
+    "source_store": "local Hermes profile session database",
+    "content_included": false,
+    "secrets_included": false,
+    "evidence_basis": "operator-extracted structured metadata and content hashes"
+  }
+}

@@ -24,6 +24,7 @@ python3 scripts/verify_public_mapping.py
 | Eight known failure modes stop safely | `python3 scripts/run_negative_tests.py` | All 8 fixtures reach the expected final state and produce the required run facts | The cases are synthetic; they do not use customer data or production systems |
 | A future live runner must identify the CLI and reject the wrong release | `python3 scripts/verify_runtime_attestation_guard.py` | A matching native version and executable SHA-256 are required; a mismatch stops the run | A version result does not tie the executable bytes to a particular source commit |
 | The older operator-recorded run is internally consistent and clearly marked unattested | `python3 scripts/verify_committed_recorded_receipt.py` | The record validates; its copies of stdout and output agree; the checker recomputes; missing runtime identity is recorded as an exception | It does not show that the declared Hermes release, daemon, provider, or model produced the output |
+| The committed live one-shot binds output to native Hermes evidence | `python3 scripts/verify_committed_attested_receipt.py` | Schema, executable/output hashes, native session ID, frozen output, runtime provider/model readback, usage estimate, and deterministic oracle agree | Human disposition is pending; $0.406986 is an estimate, not an actual-charge claim; the wrapper-bypass and provider-policy exceptions remain visible |
 | A passing checker does not stand in for a person | Same command | Human review is `pending`, no review record exists, and the final state is `needs_review` | No authorized reviewer has decided the synthetic case |
 | The mission flow works without credentials | `bash scripts/demo_mission_s1.sh` | Policy selection, local producer, deterministic checker, run record, and pending decision all complete | The producer is deterministic local code, not a live model run |
 
@@ -41,10 +42,13 @@ This path is intentionally excluded from `./scripts/proof.sh`.
 
 ## Limits that apply to every result
 
-- Provider cost is `NOT_RUN`; this repository makes no cost or ROI claim.
+- Live inference occurred once. Hermes recorded a $0.406986 estimate; no
+  provider-reported actual billed USD was captured. This repository makes no
+  exact-charge or ROI claim.
 - Provider and model names in the older record are operator-entered metadata.
 - The organization and policy documents are fictional.
 - This project is not an official Nous product, partnership, endorsement, or customer
   deployment.
-- There is still no committed live receipt tying model output to the pinned Hermes
-  executable; the older S1 record remains `operator-recorded-unattested`.
+- The committed live one-shot ties output to the pinned Hermes executable bytes and a
+  native CLI session, but remains `needs_review` with two recorded exceptions. The
+  older S1 record remains `operator-recorded-unattested`.

@@ -31,7 +31,8 @@ echo "FIELD_KIT_PROOF_SCOPE public_mapping=1 instrument=1 negative_tests=8 runti
 "$PYTHON_BIN" scripts/check_neutral_core.py
 "$PYTHON_BIN" scripts/run_negative_tests.py
 "$PYTHON_BIN" scripts/verify_committed_recorded_receipt.py
+"$PYTHON_BIN" scripts/verify_committed_attested_receipt.py
 bash scripts/demo_mission_s1.sh --output-dir "$PROOF_TEMP/demo"
 
-echo "FIELD_KIT_PROOF_PASS mapping_rows=318 negative_tests=8 recorded_receipt=pass runtime_attestation=missing demo=pass lint=pass unit_tests=pass"
+echo "FIELD_KIT_PROOF_PASS mapping_rows=318 negative_tests=8 recorded_receipt=pass attested_receipt=pass demo=pass lint=pass unit_tests=pass"
 echo "FIELD_KIT_LIVE_PROOF_NOTE use scripts/live_proof.sh with LIVE_PROOF_AUTHORIZED=yes plus spend authorization; not part of offline proof"

@@ -36,8 +36,9 @@ pip install -r requirements.txt
 ```
 
 That offline path validates the public 318-row map, eight negative-test fixtures, the
-neutral core, runtime attestation guards, the committed operator-recorded receipt, and
-the deterministic S1 demo. It uses no API keys, no network, and no live Hermes call.
+neutral core, runtime attestation guards, the older operator-recorded receipt, the
+committed live one-shot receipt, and the deterministic S1 demo. It uses no API keys,
+no network, and no new live Hermes call.
 
 To prove only the published map snapshot:
 
@@ -50,10 +51,12 @@ commit `3c27eb6234bf91b8ceee9e9071591b31e9b148cb` (tag `v2026.8.3`). That number
 pinned to that commit's test list in `kit/preflight/v0.20-preflight-report.md`; it is not
 a claim about every Hermes feature.
 
-**Live attestation gap:** there is still no committed live receipt that cryptographically
-ties a model response to the pinned Hermes executable. The older S1 record remains
-`operator-recorded-unattested`. Use `scripts/live_proof.sh` only with explicit owner
-authorization and a spend cap when you intend to spend money on a real run.
+**Live proof boundary:** one committed S1 receipt ties a model response to the exact
+Hermes v0.20.0 executable bytes, native CLI session, and deterministic oracle. It
+remains `needs_review`: no human disposition or external action occurred, Hermes
+recorded a $0.406986 estimate rather than an actual billed amount, and the receipt
+preserves two execution-time exceptions. The
+older S1 record remains `operator-recorded-unattested`.
 
 ## Start here
 
@@ -129,6 +132,14 @@ owner-created authorization file and a matching Nous Portal per-member cap. It r
 a mismatched CLI version and saves the native version output, executable SHA-256, and
 input/output digests. See [`spend-authorization/`](spend-authorization/README.md).
 
+The reviewed live one-shot is committed under
+[`reference-suite/runs/s1-decide-20260812-owner-chat-authorized/`](reference-suite/runs/s1-decide-20260812-owner-chat-authorized/).
+Run `python3 scripts/verify_committed_attested_receipt.py` to validate its schema,
+executable and output digests, frozen producer output, and recomputed oracle. The owner
+authorized that single synthetic run directly in the authenticated Hermes chat; no
+authorization file was created or claimed. The receipt records that wrapper bypass,
+the bundle/provider mismatch, unverified Portal cap, and estimated—not actual—cost.
+
 One older S1 record is committed under
 [`reference-suite/runs/s1-decide-20260811-025135/`](reference-suite/runs/s1-decide-20260811-025135/).
 Its output is internally consistent and the deterministic checker passes, but the run
@@ -142,15 +153,19 @@ Hermes run.
 - This is a preview built from synthetic cases, not a customer deployment.
 - Three committed reference records are labeled dry runs. The older S1 record is
   labeled `operator-recorded-unattested` and remains `needs_review`.
-- Provider cost is `NOT_RUN`; I have not published a cost or ROI result.
+- One live one-shot receipt has native runtime attestation and an oracle pass, but its
+  human disposition is pending and its two execution-time exceptions remain open.
+- Live inference occurred. Hermes recorded a **$0.406986 estimate** from its
+  provider-model catalog; no provider-reported actual billed USD was captured. I have
+  not published an exact-charge or ROI result.
 - Run records are ordinary mutable files in this repository, not an immutable audit
   system.
 - A few private build inputs are represented only by their digests in
   `kit/mapping/b05-generation.lock.json`. You can validate the shipped map and generator,
   but cannot reproduce those private inputs from this public tree.
 - The older record names `anthropic/claude-fable-5`, but that is operator-entered
-  metadata. Future non-demo runs collect stronger CLI identity data; even then, a
-  version probe alone does not tie executable bytes to a source commit.
+  metadata. The newer one-shot records runtime model/provider readback and executable
+  bytes; its version probe still does not tie those bytes to a source commit.
 - Demo runs create new ignored directories under `reference-suite/runs/`; the committed
   examples are the reviewed copies.
 

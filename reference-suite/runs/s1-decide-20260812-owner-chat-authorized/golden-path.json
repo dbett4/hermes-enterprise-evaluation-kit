@@ -1,0 +1,170 @@
+{
+  "schema_version": "0.1-draft",
+  "run_id": "s1-decide-20260812-owner-chat-authorized",
+  "execution_mode": "live",
+  "run_mode": {
+    "label": "hermes-live-one-shot",
+    "hermes_daemon": false,
+    "live_provider": true,
+    "evidence_basis": "native-cli-version-plus-observed-subprocess",
+    "runtime_attestation": {
+      "status": "captured",
+      "binary_path": "/srv/hermes/.hermes/hermes-agent/venv/bin/hermes",
+      "binary_sha256": "470a29f7de02dd1253dde06cf5a5cb263edf13b2a06b9b3b2744d12b23ccb08d",
+      "version_probe": {
+        "argv": [
+          "hermes",
+          "--version"
+        ],
+        "returncode": 0,
+        "output": "Hermes Agent v0.20.0 (2026.8.3)\nInstall directory: /srv/hermes/.hermes/hermes-agent\nPython: 3.11.15\nOpenAI SDK: 2.24.0\nRun 'hermes version' for update status."
+      },
+      "source_commit_binding": "not_proven_by_cli_probe"
+    }
+  },
+  "record_posture": {
+    "store": "mutable-kit-artifact",
+    "immutable_audit_claim": false
+  },
+  "hermes_release": {
+    "tag": "v2026.8.3",
+    "commit": "3c27eb6234bf91b8ceee9e9071591b31e9b148cb",
+    "package_version": "0.20.0",
+    "evidence_basis": "declared-and-observed"
+  },
+  "mission": {
+    "work_order_id": "WO-S1-20260806-001",
+    "task_class": "vendor_policy_exception",
+    "data_zone": "synthetic-internal",
+    "action_class": "decide-recommend",
+    "authority_mode": "H",
+    "expected_outcome": "Bounded vendor-policy recommendation with citations; no external action.",
+    "intake_ref": "reference-suite/s1-decide/questionnaire.json"
+  },
+  "resolution": {
+    "envelope_id": "env-nimbus-synthetic-v0.1",
+    "blueprint_id": "nimbus-synthetic-assembly-blueprint-v0.1",
+    "bundle_id": "bundle-s1-decide",
+    "bundle_version": "0.1.0",
+    "manifest_canonicalization": "json-canonical-v1",
+    "manifest_sha256": "325464fdaad09b0b9ca440455c4ced003dd903177418f201ebc7d3feea472f6b",
+    "artifact_refs": [
+      "reference-suite/s1-decide/vendor-policy-corpus/org-policy-v3.2.md",
+      "reference-suite/s1-decide/vendor-policy-corpus/exception-request-cloudsync.md",
+      "reference-suite/s1-decide/questionnaire.json",
+      "reference-suite/s1-decide/expected-oracle.json"
+    ],
+    "resolver_rule_id": "resolver-v0.1-synthetic-internal",
+    "override": null,
+    "evidence_basis": "declared-and-observed"
+  },
+  "execution": {
+    "preparer": {
+      "model": "anthropic/claude-fable-5",
+      "provider_requested": "configured-local-only",
+      "provider_resolved": "nous",
+      "effort": "not-applicable",
+      "tools_manifest_sha256": "61bf7e7af930ed0ca1713653833a9da4e85b470de25d682f82525ef8ca4607e4",
+      "latency_ms": 12612,
+      "fallback_event": null,
+      "evidence_basis": {
+        "model": "runtime_reported",
+        "provider_resolved": "runtime_reported",
+        "latency_ms": "observed"
+      },
+      "correlation_id": "hermes-s1-decide-20260812-owner-chat-authorized",
+      "native_session_id": "20260811_203745_6bd41b"
+    },
+    "producer_input_excludes_oracle": true,
+    "producer_output_id": "s1-decide-20260812-owner-chat-authorized-producer-output",
+    "producer_output": {
+      "recommendation": "defer-pending-legal",
+      "conditions": [
+        "Obtain an executive waiver on file before any retention window exceeding 12 months is considered; absent a waiver, cap the exception at the 12-month maximum",
+        "Legal must draft and approve a time-bounded contractual addendum with explicit expiry (maximum 12 months) before approval",
+        "Vendor must confirm separate deletion timelines for raw event logs versus aggregated rollups",
+        "Scope any approved exception to the minimal data subset (aggregated telemetry and support ticket subject lines plus author email only); no blanket retention extension",
+        "No contractual changes may be executed and no direct vendor contact may occur through this recommendation"
+      ],
+      "citations": [
+        "org-policy-v3.2.md#exception-criteria",
+        "org-policy-v3.2.md#deny-conditions",
+        "exception-request-cloudsync.md#request-summary",
+        "exception-request-cloudsync.md#gaps-noted-by-intake"
+      ],
+      "external_action": false
+    },
+    "hermes_profile": "hermes-agent:v2026.8.3/profile-decide-vendor-policy"
+  },
+  "effect": {
+    "output_artifact_ids": [
+      "s1-decide-20260812-owner-chat-authorized-recommendation.json"
+    ],
+    "target_readback_ids": [],
+    "deterministic_oracle_ids": [
+      "s1-vendor-exception-oracle-v1"
+    ],
+    "evidence_basis": "observed"
+  },
+  "checker": {
+    "session_id": "s1-checker-s1-decide-20260812-owner-chat-authorized",
+    "model": "deterministic-oracle-engine",
+    "provider_resolved": "local-fixture",
+    "separation_claims": [
+      "role-separated",
+      "deterministic-oracle"
+    ],
+    "separation_evidence_ids": [
+      "s1-decide-20260812-owner-chat-authorized-producer-output",
+      "s1-decide-20260812-owner-chat-authorized-context-proof"
+    ],
+    "verdict": "accept",
+    "criteria_evidence_ids": [
+      "s1-vendor-exception-oracle-v1"
+    ],
+    "oracle_result": {
+      "oracle_id": "s1-vendor-exception-oracle-v1",
+      "passed": true,
+      "failures": [],
+      "expected_recommendation": "defer-pending-legal",
+      "observed_recommendation": "defer-pending-legal",
+      "evidence_basis": "observed"
+    },
+    "latency_ms": 3
+  },
+  "human_disposition": {
+    "required": true,
+    "status": "pending",
+    "approver_authority_id": null,
+    "required_authority_id": "auth-nimbus-policy-owner-synthetic",
+    "review_evidence_ids": [],
+    "recorded_at": null
+  },
+  "cost": {
+    "status": "ESTIMATED",
+    "estimated_usd": 0.406986,
+    "actual_usd": null,
+    "source": "hermes-session-usage-ledger",
+    "reason": "Hermes recorded a provider-model-catalog estimate; no provider-reported actual billed USD was captured."
+  },
+  "exceptions": [
+    {
+      "id": "legacy-file-gate-bypassed-by-owner-directive",
+      "status": "recorded",
+      "detail": "The owner authorized this one-shot in the active Hermes desktop chat. No spend-authorization file was created or used, and the documented wrapper gate was not executed."
+    },
+    {
+      "id": "provider-constraint-mismatch",
+      "status": "recorded",
+      "detail": "The selected bundle declared configured-local-only while the installed profile resolved provider nous. The mismatch is preserved rather than rewritten after execution."
+    }
+  ],
+  "terminal_status": "needs_review",
+  "authorization": {
+    "mode": "direct-owner-chat",
+    "scope": "one synthetic S1 live mission single one-shot",
+    "authorization_file_used": false,
+    "portal_cap_verified": false,
+    "evidence_basis": "operator-observed owner instruction in the authenticated Hermes desktop session"
+  }
+}

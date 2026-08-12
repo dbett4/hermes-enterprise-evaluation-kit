@@ -66,6 +66,18 @@ def build_receipt(
     preparer: dict[str, Any],
 ) -> dict[str, Any]:
     checker_verdict = "accept" if oracle_result["passed"] else "reject"
+    if execution_mode == "live":
+        cost = {
+            "status": "ESTIMATE_PENDING",
+            "usd": None,
+            "reason": "Live provider inference occurred; session cost evidence is attached after execution.",
+        }
+    else:
+        cost = {
+            "status": "NOT_RUN",
+            "usd": None,
+            "reason": "No live provider inference occurred.",
+        }
     # A deterministic checker can recommend acceptance; it cannot impersonate
     # the required human disposition. A separate reviewer must advance this
     # field in a later, attributable record.
@@ -125,11 +137,7 @@ def build_receipt(
             "review_evidence_ids": [],
             "recorded_at": None,
         },
-        "cost": {
-            "status": "NOT_RUN",
-            "usd": None,
-            "reason": "B10 Portal measurement requires separate auth/spend authority",
-        },
+        "cost": cost,
         "exceptions": [],
         "terminal_status": "needs_review" if checker_verdict == "accept" else "rejected",
     }
@@ -202,7 +210,7 @@ def run_demo_mission(
             "provider_resolved": "local-demo",
             "effort": bundle["runtime"]["effort"],
             "tools_manifest_sha256": sha256_canonical(bundle["artifact_refs"]),
-            "session_id": f"demo-{run_id}",
+            "correlation_id": f"demo-{run_id}",
             "latency_ms": 2,
             "fallback_event": None,
             "evidence_basis": {
@@ -327,7 +335,7 @@ def main() -> int:
             "provider_resolved": runtime["provider"],
             "effort": bundle["runtime"]["effort"],
             "tools_manifest_sha256": sha256_canonical(bundle["artifact_refs"]),
-            "session_id": f"hermes-{run_id}",
+            "correlation_id": f"hermes-{run_id}",
             "latency_ms": invocation.latency_ms,
             "fallback_event": None,
             "evidence_basis": {
