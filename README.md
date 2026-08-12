@@ -1,4 +1,4 @@
-# Hermes Enterprise Field Kit
+# Hermes Enterprise Evaluation Kit
 
 > **Provenance:** This repository is a sanitized public extract published in August 2026.
 > Its Git history is publication history, not a full private development archive. It
@@ -16,7 +16,7 @@ happened. It is my project, not an official Nous product or partnership.
 
 ```text
 $ bash scripts/demo_mission_s1.sh
-=== Enterprise Agent Deployment Field Kit — S1 vendor exception ===
+=== Hermes Enterprise Evaluation Kit — S1 vendor exception ===
 Org pack: packs/organizations/nimbus-synthetic
 
 MISSION_DEMO_PASS run_id=s1-decide-... terminal=needs_review recommendation=defer-pending-legal oracle_passed=True

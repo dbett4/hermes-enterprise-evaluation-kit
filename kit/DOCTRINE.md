@@ -6,7 +6,7 @@
 
 **Detailed specification:** [SPEC-enterprise-agent-framework.md](../SPEC-enterprise-agent-framework.md)
 
-This repository is an independent project called the **Hermes Enterprise Field Kit**.
+This repository is an independent project called the **Hermes Enterprise Evaluation Kit**.
 “Hermes for organizations” is a useful description of the problem, not a product name
 or a claim of support from Nous.
 

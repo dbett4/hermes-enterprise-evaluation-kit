@@ -2,7 +2,7 @@ name: decide-vendor-policy
 version: 0.1.0
 description: "S1 Decide — bounded vendor-policy exception recommendation (synthetic corpus)"
 hermes_requires: ">=0.20.0"
-author: "Hermes Enterprise Field Kit"
+author: "Hermes Enterprise Evaluation Kit"
 license: "UNLICENSED"
 
 env_requires:

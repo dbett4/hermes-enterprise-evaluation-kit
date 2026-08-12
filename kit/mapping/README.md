@@ -1,6 +1,6 @@
 # Hermes release map
 
-This directory ties each requirement in the Field Kit to the exact Hermes release I
+This directory ties each requirement in the Evaluation Kit to the exact Hermes release I
 tested. A row says whether the behavior comes from Hermes itself, configuration, this
 kit, surrounding infrastructure, or an unresolved gap.
 

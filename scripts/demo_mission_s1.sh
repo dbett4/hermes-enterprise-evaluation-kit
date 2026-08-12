@@ -26,7 +26,7 @@ if [[ "${1:-}" == "--live" ]]; then
   exec python3 scripts/run_mission_s1.py "$@"
 fi
 
-echo "=== Enterprise Agent Deployment Field Kit — S1 vendor exception ==="
+echo "=== Hermes Enterprise Evaluation Kit — S1 vendor exception ==="
 echo "Org pack: packs/organizations/nimbus-synthetic"
 echo ""
 

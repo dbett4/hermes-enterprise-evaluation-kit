@@ -3,7 +3,7 @@
 
 Rules (2026-08-06):
 - kit/core/* → surrounding-platform (neutral kernel / org controls)
-- kit/lifecycle/* → extension (Field Kit lifecycle procedures)
+- kit/lifecycle/* → extension (Evaluation Kit lifecycle procedures)
 - kit/assurance/* → extension mapped to assurance module from filename
 - Hermes primitive references → configuration with catalog surface when PASS_WITH_LIMITS
 - NOT_RUN surfaces (e.g. OS isolation) on acceptance-critical rows → unsupported-gap

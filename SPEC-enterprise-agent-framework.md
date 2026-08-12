@@ -1,4 +1,4 @@
-# Design notes for the Hermes Enterprise Field Kit
+# Design notes for the Hermes Enterprise Evaluation Kit
 
 **Updated:** 2026-08-11
 

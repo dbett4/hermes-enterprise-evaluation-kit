@@ -4,7 +4,7 @@
 
 **Validated runtime:** Hermes Agent v0.20.0 / tag `v2026.8.3`
 
-The Field Kit is an independent deployment prototype, not an official Nous product.
+The Evaluation Kit is an independent deployment prototype, not an official Nous product.
 Its job is to turn an ordinary mission into a known Hermes configuration and a result
 that another person or program can inspect.
 
