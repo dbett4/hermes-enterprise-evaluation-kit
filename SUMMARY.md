@@ -1,59 +1,77 @@
 # Project summary
 
-**Updated:** 2026-08-12
+**Updated:** 2026-08-14
 
 **Detailed design:** [SPEC-enterprise-agent-framework.md](SPEC-enterprise-agent-framework.md)
 
+## Thesis
+
 Hermes already provides profiles, goals, approvals, tools, boards, provider routing,
-and other useful agent primitives. This project explores the part an organization
-still has to build around them: deciding which jobs are appropriate, choosing a known
-configuration, checking the result outside the model's own narration, and handing the
-system to an accountable operator.
+and other useful agent primitives. An organization still has to build the layer
+around them:
 
-I designed the first version around Hermes rather than hiding it behind a generic
-framework. Users describe a job and desired outcome. Organization policy chooses the
-model, provider, effort, tools, permissions, and checks from a small approved catalog.
-Experts can inspect or override that choice where policy allows.
+- decide which jobs are appropriate
+- choose a known, approved configuration
+- check the result outside the model’s own narration
+- hand judgment to an accountable person when required
+- leave a reconstructable receipt
 
-## What v0.20 provides—and what it does not
+This kit is that surrounding layer as a version-pinned prototype — not a customer
+deployment and not an official Nous product.
 
-The pinned Hermes release passed a 214-test preflight covering profiles, goals and
-completion behavior, approvals and deny rules, webhooks, Iron Proxy, managed scope,
-Kanban boards, provider routing, and fallback behavior.
+## Flow
 
-I use those pieces where they fit, but do not stretch them into larger claims. Profiles
-are unsigned by default. Webhook signatures need a configured secret. Managed scope is
-not a sandbox. Goals are judged by the model. Kanban is not an immutable audit log.
-Iron Proxy does not replace OS isolation, and provider fallback does not choose the best
-model for a task.
+User describes a job → org policy narrows choices → resolver picks one approved
+setup → Hermes (or a local demo stand-in) runs → independent checks → person
+reviews when needed → JSON run record.
 
-## The synthetic exercises
+The demo’s success state is often **`needs_review`**: the checker passed; a human
+still owns the decision.
 
-1. **Decide:** review a vendor-policy exception and return a recommendation, not a
-   binding decision.
-2. **Coordinate:** prepare an employee-offboarding packet without performing destructive
-   actions.
-3. **Act:** make and verify a reversible rate-limit change in a local staging service,
-   while leaving production promotion to a person.
+## What v0.20 provides — and does not
 
-Each exercise starts with the job and organization rules, selects one approved
-configuration, separates the produced output from later checking and human review, and
-writes enough JSON to reconstruct the run. Public-sector finance remains an optional
-workflow pack rather than the foundation of the project.
+Pinned release: Hermes **v0.20.0 / tag `v2026.8.3`**.
 
-## Where it stands
+A 214-test preflight covered profiles, goals, approvals, webhooks, Iron Proxy,
+managed scope, Kanban, provider routing, and fallback. Result: **`PASS_WITH_LIMITS`**.
 
-The published map contains 318 rows and seven known gaps. Three committed reference
-records are dry runs. One older S1 artifact is labeled
-`operator-recorded-unattested`: its contents are consistent, but there is no native
-runtime identity showing which Hermes binary or release produced it.
+I use those pieces where they fit and do not stretch them:
 
-One newer synthetic S1 one-shot has a committed native-runtime receipt: Hermes
-v0.20.0 executable hash, native CLI session ID, Nous provider and Fable model readback,
-frozen output, and deterministic-oracle pass. It remains `needs_review`; Hermes's
-$0.406986 value is an estimate rather than an actual billed amount, no external action
-occurred, and two execution-time exceptions remain explicit in the receipt.
+- profiles are unsigned by default
+- webhook signatures need a configured secret
+- managed scope is not a sandbox
+- goals are still partly model-judged
+- Kanban is not an immutable audit log
+- Iron Proxy does not replace OS isolation
+- provider fallback does not choose the best model for a task
 
-The vendor-neutral core is stable. Adaptive model selection remains future work until
-there are enough real results to justify it. No production change or provider-reported
-actual billed cost is part of this repository.
+The public map has **318 rows** and **seven known gaps**. Those numbers are the
+ledger, not the product story.
+
+## Synthetic exercises
+
+1. **Decide:** vendor-policy exception → recommendation, not a binding decision.
+2. **Coordinate:** employee-offboarding packet without destructive actions.
+3. **Act:** reversible local staging change; production promotion stays human.
+
+Public-sector finance is an optional workflow pack, not the foundation.
+
+## Proof posture
+
+| Artifact | Status |
+|---|---|
+| Offline `./scripts/proof.sh` | Credential-free; no network; no new live Hermes call |
+| Three reference records | Dry runs (local deterministic producers) |
+| Older S1 | `operator-recorded-unattested` — not treated as live Hermes proof |
+| Newer S1 one-shot | Native-runtime attested; oracle pass; still `needs_review` |
+| Cost on live one-shot | ~$0.41 **estimate**, not provider-reported actual |
+| External action / human disposition | None / pending |
+
+## Status
+
+Vendor-neutral core is stable. Adaptive model selection stays future work until
+there are enough real results to justify it. No production change and no
+provider-reported actual billed cost are part of this repository.
+
+For the human-facing story, start with [README.md](README.md). For command-level
+claims, use [PROOF.md](PROOF.md).
