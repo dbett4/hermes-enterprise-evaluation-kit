@@ -80,7 +80,7 @@ The first suite uses horizontal action types rather than one industry story:
 |---|---|
 | Decide | Source-grounded analysis, deterministic policy checks, a recommendation, and human review |
 | Coordinate | Work across several fictional owners, bounded clarification, and handoff without destructive action |
-| Act | A reversible change in a local staging service, target readback, rollback, and a stop before production |
+| Act | One operator-approved change in the deployment lab, target readback, idempotent resume after a post-commit failure, and a stop before production |
 
 Finance, HR, legal, IT, healthcare, and other domains can be added as workflow packs.
 Public-sector finance is optional, not the default or a requirement for this preview.

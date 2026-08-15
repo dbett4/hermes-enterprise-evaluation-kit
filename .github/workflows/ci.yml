@@ -18,5 +18,22 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install proof dependencies
         run: pip install -r requirements.txt
+      # The S3 Act mission drives the deployment lab's real MCP tools, so CI
+      # clones it side by side and builds its pinned environment. Without it the
+      # proof still passes but prints FIELD_KIT_PROOF_ACT_SKIPPED.
+      - name: Check out the deployment lab (S3 Act target)
+        uses: actions/checkout@v4
+        with:
+          repository: dbett4/hermes-enterprise-deployment-lab
+          path: deployment-lab
+      - name: Install the deployment lab's pinned environment
+        working-directory: deployment-lab
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements-dev.txt \
+                                -r workflow-runner/requirements.txt \
+                                -r enterprise-mcp/requirements.txt
       - name: Reproduce the complete credential-free proof packet
+        env:
+          HERMES_DEPLOYMENT_LAB: ${{ github.workspace }}/deployment-lab
         run: ./scripts/proof.sh

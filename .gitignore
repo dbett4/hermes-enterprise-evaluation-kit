@@ -9,3 +9,6 @@ tmp/
 
 # generated demo receipts (committed exemplars stay tracked)
 reference-suite/runs/
+
+# deployment-lab Act mission scratch state (loopback API log, audit, approvals)
+.deployment-lab-act/

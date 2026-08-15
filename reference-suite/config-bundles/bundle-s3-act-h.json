@@ -2,8 +2,10 @@
   "archetype": "act",
   "artifact_refs": [
     "reference-suite/s3-act/fixtures/initial-state.json",
-    "reference-suite/s3-act/fixtures/target-state.json",
     "reference-suite/s3-act/fixtures/rollback-state.json",
+    "reference-suite/s3-act/fixtures/target-state.json",
+    "scripts/deployment_lab_act_client.py",
+    "scripts/deployment_lab_backend.py",
     "scripts/reference_staging_service.py"
   ],
   "bundle_id": "bundle-s3-act-h",
@@ -39,7 +41,7 @@
   },
   "manifest": {
     "canonicalization": "json-canonical-v1",
-    "sha256": "f19d83bb83191a7c861a579a27d100ea146975ab81150d367cd6ec272aa3c756"
+    "sha256": "10b120c8f241587de1a96ddf17ed5eee1208cfb3c339b21272134440b733ccbd"
   },
   "runtime": {
     "auxiliary_model": null,

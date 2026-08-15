@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Regenerate committed S3 receipts via local reference_staging_service."""
+"""Regenerate S3 receipts against the FALLBACK toy reference_staging_service.
+
+The primary S3 Act target is the deployment lab (``scripts/demo_mission_s3.sh``).
+This script covers the fallback path only: it proves the change/rollback readback
+shape, with no approval, idempotency, or resume semantics behind it.
+"""
 
 from __future__ import annotations
 

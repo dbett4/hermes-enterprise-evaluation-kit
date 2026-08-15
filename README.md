@@ -1,10 +1,5 @@
 # Hermes Enterprise Evaluation Kit
 
-> **Provenance:** Sanitized public extract published August 2026. Git history is
-> publication history, not a full private archive. No client data, credentials, or
-> spend-authorization secrets. Independent work — not an official Nous product,
-> partnership, endorsement, or customer Hermes Enterprise deployment.
-
 ## The problem this answers
 
 Hermes already gives you agent primitives: profiles, goals, tools, approvals,
@@ -23,6 +18,9 @@ exact Hermes release: **v0.20.0 / tag `v2026.8.3`**.
 **One-line pitch:** turn a plain-language job into a policy-bounded Hermes run,
 independent checks, and a written receipt — while keeping people in the loop
 when judgment is required.
+
+> **Provenance.** Sanitized public extract published August 2026; this repository's git history is publication history, not a full private archive.
+> Fictional organizations, no client data or credentials, and not an official Nous product, partnership, endorsement, or customer deployment.
 
 ## What it is (and is not)
 
@@ -74,8 +72,10 @@ These are exercises, not customer work:
    not a binding decision.
 2. **Coordinate** — prepare an employee-offboarding packet without destructive
    actions.
-3. **Act** — make and verify a reversible change in a local staging service;
-   production promotion stays with a person.
+3. **Act** — apply one operator-approved change to the
+   [Hermes Enterprise Deployment Lab](https://github.com/dbett4/hermes-enterprise-deployment-lab),
+   survive a post-commit failure, and resume without writing twice; production
+   promotion stays with a person.
 
 Public-finance material is an optional pack, not the foundation of the kit.
 
@@ -117,8 +117,8 @@ Python 3.10+ and bash. No Hermes install, no model call, no API key, no network
 for the default path.
 
 ```bash
-git clone https://github.com/dbett4/hermes-enterprise-field-kit.git
-cd hermes-enterprise-field-kit
+git clone https://github.com/dbett4/hermes-enterprise-evaluation-kit.git
+cd hermes-enterprise-evaluation-kit
 pip install -r requirements.txt
 
 # Story first: one synthetic mission end to end
@@ -127,6 +127,33 @@ bash scripts/demo_mission_s1.sh
 # Then the full offline check suite
 ./scripts/proof.sh
 ```
+
+### One real dependency: the deployment lab
+
+The **Act** mission runs against a real target system rather than a prop, so it needs
+the sister repository cloned beside this one (or `HERMES_DEPLOYMENT_LAB` pointed at
+it). It is a side-by-side clone, not a pip package: the lab is an application with its
+own pinned dependencies, so this kit runs it under the lab's own interpreter.
+
+```bash
+git clone https://github.com/dbett4/hermes-enterprise-deployment-lab
+cd hermes-enterprise-deployment-lab
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt \
+                      -r workflow-runner/requirements.txt \
+                      -r enterprise-mcp/requirements.txt
+cd -
+
+bash scripts/demo_mission_s3.sh
+```
+
+`scripts/deployment_lab_act_client.py` is an MCP client that calls the lab's own
+`propose_incident_plan` and `apply_incident_plan` tools over stdio; the approval
+separation, idempotency key, injected post-commit 500, and replayed resume are the
+lab's mechanics, not a local imitation of them. Everything stays on loopback — still
+no credentials, no network egress, no model call. Without the lab, `proof.sh` prints
+`FIELD_KIT_PROOF_ACT_SKIPPED` and skips the Act mission rather than quietly
+substituting the toy fallback service.
 
 `proof.sh` stops on first failure and prints `FIELD_KIT_PROOF_PASS` only when
 everything offline succeeds. Details live in [PROOF.md](PROOF.md).
@@ -155,6 +182,8 @@ When `./scripts/proof.sh` passes, you have re-checked that:
 5. The older, weaker S1 record is still clearly labeled **unattested**.
 6. The committed live one-shot receipt still verifies against its hashes and oracle.
 7. The local S1 demo still completes and ends in **human review**, not fake approval.
+8. When the deployment lab is present, the S3 Act mission drives its real MCP tools and
+   ends with exactly one side effect after a forced post-commit failure and resume.
 
 It does **not** spend money, call a model, or run a new live Hermes mission.
 
@@ -210,17 +239,15 @@ the engineering ledger behind the story above, not the story itself.
 | [`PROOF.md`](PROOF.md) | Command → pass condition → non-claim for every check |
 | [`SUMMARY.md`](SUMMARY.md) | Short project status |
 | [`scripts/`](scripts/) | Resolver, runner, checkers, guards |
+| [`scripts/deployment_lab_backend.py`](scripts/deployment_lab_backend.py) | How the Act mission resolves, boots, and drives the deployment lab |
 
 ## Sister project
 
-If this kit answers **“can we govern Hermes for enterprise-shaped work?”**, the
-related lab answers a different question:
-
-**[Hermes Enterprise Deployment Lab](https://github.com/dbett4/hermes-enterprise-deployment-lab)** —
-when an agent can touch an internal system, can we scope tools, require a separate
-operator approval, and survive post-commit failure without double-writing?
-
-Same family. Different question. Neither is a customer Hermes Enterprise deploy.
+This kit is the governance half; the
+**[Hermes Enterprise Deployment Lab](https://github.com/dbett4/hermes-enterprise-deployment-lab)**
+is the execution half, and the Act mission above runs against it. The split and the
+code path that joins them:
+[`docs/hermes-enterprise-family.md`](https://github.com/dbett4/hermes-enterprise-deployment-lab/blob/main/docs/hermes-enterprise-family.md).
 
 ## Limits (read these)
 

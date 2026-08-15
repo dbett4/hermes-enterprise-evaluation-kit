@@ -83,6 +83,62 @@
             "label",
             "hermes_daemon",
             "live_provider",
+            "staging_service",
+            "deployment_lab"
+          ],
+          "properties": {
+            "label": {
+              "const": "deployment-lab-observed"
+            },
+            "hermes_daemon": {
+              "const": false
+            },
+            "live_provider": {
+              "const": false
+            },
+            "staging_service": {
+              "const": "hermes-enterprise-deployment-lab/enterprise_mcp.server"
+            },
+            "deployment_lab": {
+              "type": "object",
+              "required": [
+                "root",
+                "api_url",
+                "tools_called"
+              ],
+              "properties": {
+                "root": {
+                  "type": "string"
+                },
+                "commit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "api_url": {
+                  "type": "string"
+                },
+                "tools_called": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              }
+            },
+            "evidence_basis": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "label",
+            "hermes_daemon",
+            "live_provider",
             "runtime_attestation"
           ],
           "properties": {

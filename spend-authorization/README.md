@@ -39,7 +39,7 @@ Portal readback is implemented.
 Run **as the owner** from the repo root (not via an agent). Replace the date suffix if needed.
 
 ```bash
-cd /path/to/hermes-enterprise-field-kit
+cd /path/to/hermes-enterprise-evaluation-kit
 
 AUTH=spend-authorization/live-s1-$(date -u +%Y%m%d).authorization
 umask 077

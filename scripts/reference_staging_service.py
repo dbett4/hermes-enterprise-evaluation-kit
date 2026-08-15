@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
-"""Local synthetic staging service for reference suite S3 Act fixtures.
+"""FALLBACK Act target: a toy in-memory staging service.
 
-Provides an in-memory HTTP API for rate-limit state with observed readback.
-Not production infrastructure — synthetic/dry-run target only.
+This is the S3 Act target of last resort. The real target is the sister
+repository, ``hermes-enterprise-deployment-lab``, whose MCP tools enforce a
+scoped tool surface, separated operator approval, an approval-scoped idempotency
+key, and recovery from a post-commit failure. Run the Act mission there:
+
+    bash scripts/demo_mission_s3.sh
+    python3 scripts/run_reference_suite.py --scenario s3-h --staging-backend deployment-lab
+
+What this file provides instead is a single mutable rate-limit record with
+observed readback and an exact rollback. It has **no** approval separation, no
+idempotency key, no failure injection, and no resume semantics — a passing run
+here is not evidence of any of those properties. Use it only when the deployment
+lab is unavailable, or to exercise the change/rollback readback shape alone.
+
+Not production infrastructure — synthetic target only.
 """
 
 from __future__ import annotations
